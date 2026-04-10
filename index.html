@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Screener — Korea Equity Fundamental Screener</title>
+<script>
+  // 브라우저 언어 감지 → 한국어면 국문, 그 외 영문
+  const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if (lang.startsWith('ko')) {
+    window.location.replace('value_screener.html');
+  } else {
+    window.location.replace('value_screener_en.html');
+  }
+</script>
+</head>
+<body>
+  <p>Redirecting... / 리다이렉트 중...</p>
+  <p><a href="value_screener.html">한국어</a> | <a href="value_screener_en.html">English</a></p>
+</body>
+</html>

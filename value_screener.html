@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Screener — 국내 상장사 가치투자 스크리너</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary:#0a0f1a;--bg-secondary:#111827;--bg-card:#1a2235;--bg-card-hover:#1f2a40;
+    --border:#2a3550;--border-active:#3b82f6;--text-primary:#e8ecf4;--text-secondary:#8899b4;
+    --text-muted:#5a6a85;--accent-blue:#3b82f6;--gold:#d4a853;--gold-dim:rgba(212,168,83,0.15);
+    --pass:rgba(16,185,129,0.12);--fail:rgba(239,68,68,0.08);--pass-text:#34d399;--fail-text:#f87171;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;min-height:100vh}
+  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+  .app{position:relative;z-index:1;max-width:1520px;margin:0 auto;padding:40px 32px 80px}
+
+  .header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;border-bottom:1px solid var(--border);padding-bottom:32px}
+  .header-left h1{font-family:Verdana,Geneva,sans-serif;font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.1}
+  .header-left h1 span{color:var(--gold)}
+  .header-left .subtitle{font-size:14px;color:var(--text-secondary);margin-top:8px;font-weight:300;letter-spacing:.5px}
+  .header-right{display:flex;gap:10px;align-items:center;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+  .header-badge{background:var(--gold-dim);color:var(--gold);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,168,83,0.25);font-family:'DM Mono',monospace}
+
+  /* Date Info Bar */
+  .date-bar{display:flex;align-items:stretch;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+  .date-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:10px;flex:1;min-width:240px}
+  .date-card .icon-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .date-card .icon-circle.market{background:rgba(59,130,246,0.12);color:var(--accent-blue)}
+  .date-card .icon-circle.financial{background:rgba(16,185,129,0.12);color:var(--pass-text)}
+  .date-card .info-text .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:500;margin-bottom:3px}
+  .date-card .info-text .value{font-family:'DM Mono',monospace;font-size:14px;color:var(--text-primary);font-weight:500}
+  .date-card .info-text .sub{font-size:11px;color:var(--text-muted);margin-top:2px;font-weight:300}
+
+  .data-note{display:flex;align-items:center;gap:8px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:12px 16px;margin-bottom:32px;font-size:12px;color:var(--accent-blue)}
+  .data-note .dot{width:6px;height:6px;background:var(--accent-blue);border-radius:50%;flex-shrink:0;animation:pulse-dot 2s infinite}
+  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+
+  .pipeline-container{margin-bottom:48px}
+  .pipeline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .pipeline-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:500}
+  .btn-add-step{background:transparent;border:1px dashed var(--border);color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:7px 18px;border-radius:8px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:6px}
+  .btn-add-step:hover{border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(59,130,246,0.05)}
+  .pipeline-scroll{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth}
+  .pipeline-scroll::-webkit-scrollbar{height:4px}
+  .pipeline-scroll::-webkit-scrollbar-track{background:transparent}
+  .pipeline-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+  .pipeline-arrow{display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:18px;padding:0 6px;flex-shrink:0;opacity:.5}
+
+  .step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s ease;min-width:270px;flex-shrink:0;flex:1}
+  .step-card:hover{background:var(--bg-card-hover);border-color:rgba(59,130,246,0.3)}
+  .step-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+  .step-number{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px}
+  .step-actions{display:flex;gap:2px}
+  .step-actions button{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px;transition:all .2s;line-height:1}
+  .step-actions button:hover{color:var(--accent-blue);background:rgba(59,130,246,0.1)}
+  .step-actions button.btn-del:hover{color:var(--fail-text);background:var(--fail)}
+  .step-metric-select{width:100%;background:var(--bg-primary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:9px 32px 9px 12px;outline:none;cursor:pointer;transition:border .2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a6a85' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+  .step-metric-select:focus{border-color:var(--accent-blue)}
+  .step-metric-select optgroup{font-style:normal;font-weight:700;color:var(--gold);font-size:12px;padding:6px 0 2px;letter-spacing:0.5px}
+  .step-metric-select option{font-weight:400;color:var(--text-primary);padding:4px 8px;font-size:13px}
+  .step-metric-desc{font-size:12px;color:var(--text-muted);margin-top:8px;line-height:1.5;font-weight:300;min-height:18px}
+  .step-threshold{margin-top:12px;display:flex;align-items:center;gap:8px}
+  .step-threshold input{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:'DM Mono',monospace;font-size:14px;padding:7px 10px;width:110px;outline:none;transition:border .2s}
+  .step-threshold input:focus{border-color:var(--accent-blue)}
+  .step-threshold .unit{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;white-space:nowrap}
+  .step-stat{margin-top:14px;padding-top:12px;border-top:1px solid rgba(42,53,80,0.5);font-family:'DM Mono',monospace;font-size:13px;display:flex;align-items:center;gap:6px}
+  .step-stat .pass-count{color:var(--pass-text);font-weight:500}
+  .step-stat .total-count{color:var(--text-muted)}
+  .step-stat .stat-label{color:var(--text-muted);font-size:11px}
+
+  .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+  .result-summary{font-size:14px;color:var(--text-secondary);font-weight:300}
+  .result-summary strong{color:var(--gold);font-weight:700;font-size:22px;margin:0 4px}
+  .btn-group{display:flex;gap:8px}
+  .btn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:8px 18px;border-radius:8px;cursor:pointer;transition:all .2s}
+  .btn:hover{background:var(--bg-card-hover);color:var(--text-primary);border-color:var(--border-active)}
+  .btn.active{background:var(--accent-blue);border-color:var(--accent-blue);color:#fff}
+
+  .table-wrapper{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  .table-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2}
+  thead th:hover{color:var(--text-secondary)}
+  thead th .sort-icon{margin-left:3px;font-size:10px}
+  tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);transition:background .15s}
+  tbody tr:hover{background:rgba(59,130,246,0.04)}
+  tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .col-name{font-weight:500;color:var(--text-primary)}
+  .col-code{font-family:'DM Mono',monospace;color:var(--text-muted);font-size:12px}
+  .col-sector{color:var(--text-secondary);font-size:12px}
+  .col-num{font-family:'DM Mono',monospace;text-align:right;color:var(--text-primary)}
+  .col-num.positive{color:var(--pass-text)}
+  .col-num.negative{color:var(--fail-text)}
+  .col-num.neutral{color:var(--text-primary)}
+  .badge-pass{display:inline-block;background:var(--pass);color:var(--pass-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
+  .badge-fail{display:inline-block;background:var(--fail);color:var(--fail-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
+  tbody tr.all-pass{background:rgba(16,185,129,0.03)}
+  tbody tr.all-pass:hover{background:rgba(16,185,129,0.06)}
+  .table-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted)}
+  .empty-state{text-align:center;padding:80px 40px;color:var(--text-muted)}
+  .empty-state .icon{font-size:48px;margin-bottom:16px;opacity:.4}
+  .empty-state p{font-size:14px}
+
+  .methodology{margin-top:20px;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px}
+  .methodology h3{font-size:14px;font-weight:700;margin-bottom:12px;color:var(--text-secondary)}
+  .methodology p{font-size:12px;color:var(--text-muted);line-height:1.8;font-weight:300}
+
+  .disclaimer{margin-top:20px;padding:20px 24px;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:12px}
+  .disclaimer p{font-size:11px;color:var(--text-muted);line-height:1.8;font-weight:300}
+  .disclaimer strong{color:var(--text-secondary);font-size:12px;font-weight:600}
+
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .animate-in{animation:fadeInUp .5s ease forwards;opacity:0}
+  .delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
+
+  @media(max-width:900px){
+    .header{flex-direction:column;align-items:flex-start;gap:16px}
+    .app{padding:24px 16px 60px}
+    .header-left h1{font-size:28px}
+    .step-card{min-width:240px}
+    .controls{flex-direction:column;gap:12px;align-items:flex-start}
+    .date-bar{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header animate-in">
+    <div class="header-left">
+      <h1><span>Value</span> Screener</h1>
+      <div class="subtitle">한국 상장사 가치투자 스크리닝 시스템</div>
+    </div>
+    <div class="header-right">
+      <a href="value_screener_en.html" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">🇺🇸 English</div></a>
+      <div class="header-badge" id="data-badge">SAMPLE DATA</div>
+    </div>
+  </div>
+
+  <!-- Date Info Bar (auto-calculated) -->
+  <div class="date-bar animate-in delay-1">
+    <div class="date-card">
+      <div class="icon-circle market">📈</div>
+      <div class="info-text">
+        <div class="label">Market Data 기준일</div>
+        <div class="value" id="market-date"></div>
+        <div class="sub">종가 · 시가총액 · PER · PBR</div>
+      </div>
+    </div>
+    <div class="date-card">
+      <div class="icon-circle financial">📋</div>
+      <div class="info-text">
+        <div class="label">재무 Data 기준</div>
+        <div class="value" id="financial-report"></div>
+        <div class="sub">종목별 최근 공시 재무제표 기준 (개별 적용)</div>
+      </div>
+    </div>
+    <div class="date-card" id="run-time-card" style="display:none">
+      <div class="icon-circle" style="background:rgba(212,168,83,0.12);color:var(--gold)">🕐</div>
+      <div class="info-text">
+        <div class="label">데이터 조회 시점</div>
+        <div class="value" id="run-time"></div>
+        <div class="sub"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="data-note animate-in delay-1" id="data-note">
+    <div class="dot"></div>
+    샘플 데이터 기반 시뮬레이션입니다. 실제 투자 시 DART 전자공시 및 FnGuide/KIS 등을 통해 최신 재무·시장 데이터를 확인하세요.
+  </div>
+
+  <div class="pipeline-container animate-in delay-2">
+    <div class="pipeline-header">
+      <span class="pipeline-label">Screening Pipeline</span>
+      <button class="btn-add-step" onclick="addStep()"><span style="font-size:16px">+</span> Step 추가</button>
+    </div>
+    <div class="pipeline-scroll" id="pipeline"></div>
+  </div>
+
+  <div class="controls animate-in delay-3">
+    <div class="result-summary" id="result-summary"></div>
+    <div class="btn-group">
+      <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과 기업만</button>
+      <button class="btn" id="btn-all" onclick="toggleView('all')">전체 보기</button>
+      <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">CSV 내보내기</button>
+      <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:#fff;background:rgba(59,130,246,0.25)">KRW → USD</button>
+    </div>
+  </div>
+
+  <div class="table-wrapper animate-in delay-4">
+    <div class="table-scroll">
+      <table>
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <div class="table-footer">
+      <span id="footer-info"></span>
+      <span>단위: 원 / 배(PER·PBR) / %</span>
+    </div>
+  </div>
+
+  <div class="methodology animate-in delay-4">
+    <h3>📐 스크리닝 지표 설명</h3>
+    <p>
+      <strong>시가총액:</strong> 기준일 종가 × 발행주식수. 유동성·기관 수급 가능 여부의 기준<br>
+      <strong>종가:</strong> 기준일(직전 영업일)의 보통주 종가(원)<br>
+      <strong>PER:</strong> 주가 ÷ 지배주주 EPS<br>
+      <strong>PBR:</strong> 주가 ÷ 지배주주 BPS<br>
+      <strong>ROE:</strong> 지배주주 당기순이익 ÷ 지배주주 자본 × 100<br>
+      <strong>3년 평균 영업이익률:</strong> 최근 3개 사업연도 평균 OPM. 본업에서의 수익성 측정<br>
+      <strong>최근연도 영업이익률:</strong> 가장 최근 사업연도의 OPM. 본업에서의 수익성 측정<br>
+      <strong>3년 평균 당기순이익률:</strong> 3년 평균 NPM. 비영업손익 포함 수익성 측정<br>
+      <strong>최근연도 당기순이익률:</strong> 가장 최근 사업연도의 NPM. 비영업손익 포함 수익성 측정<br>
+      <strong>OCF/영업이익 (3년 평균):</strong> 연도별 영업활동현금흐름 ÷ 영업이익의 3년 산술평균. 1배 이상이면 영업이익이 실제 현금으로 전환되는 속도 빠름<br>
+      <strong>FCF/순이익 (3년 평균):</strong> 연도별 FCF (OCF − CAPEX) ÷ 당기순이익의 3년 산술평균. 양수이면 투자 이후에도 잉여현금흐름 존재<br>
+      <strong>배당성향:</strong> 직전 확정연도 귀속 배당금총액(기말+중간) ÷ 지배주주 당기순이익 × 100. 배당은 사업연도 종료 후 다음해 3월 주총에서 확정되므로, 데이터 시차를 반영하여 가장 최근 확정된 연도를 기준으로 산출<br>
+      <strong>주주환원율:</strong> (귀속 배당금총액 + |자사주매입|) ÷ 지배주주 당기순이익 × 100. 배당성향과 동일한 기준연도 사용<br>
+      <strong>순현금성자산:</strong> (현금및현금성자산 + 단기금융상품 + 단기투자자산) − (단기차입금 + 유동성장기부채 + 사채 + 장기차입금). 양수일 경우 투자, 주주환원 여력 높음<br>
+      <strong>3년 매출액 성장률:</strong> 3개년 매출액 CAGR<br>
+      <strong>3년 영업이익 성장률:</strong> 3개년 영업이익 CAGR<br>
+      <strong>20일 평균 거래대금:</strong> 최근 20영업일 일평균 거래대금(억원). 유동성이 충분한 종목일수록 매매 용이함<br>
+      <strong>회전율(거래대금/시총):</strong> 20일 평균 거래대금 ÷ 시가총액 × 100(%). 시총 대비 거래 활성도를 보여주며, 동일 거래대금이라도 시총이 큰 종목은 회전율이 낮음<br>
+      <strong>대주주 지분율:</strong> DART 정기보고서 기준 최대주주 및 특수관계인 합산 기말 지분율(%). 합산 지분이 높을수록 경영권이 안정적<br>
+      <strong>TTM(Trailing Twelve Months):</strong> 최근연도 실적은 가장 최신 분기/반기/사업보고서를 기준으로 누적 4분기 합산(TTM) 실적 사용<br><br>
+      📌 본 프로그램은 정량적 필터링 툴입니다. 투자 판단에는 이외에 정성적 요소 고려가 필요할 수 있습니다.<br>
+      📌 우선주, 인프라펀드, 리츠 등은 특성 상 스크리닝 지표가 적용되지 않고 필터에서 자동으로 제외됩니다.
+    </p>
+  </div>
+
+  <div class="disclaimer animate-in delay-4">
+    <p>
+      <strong>면책 조항 (Disclaimer)</strong><br>
+      본 사이트에서 제공하는 모든 데이터와 분석 결과는 정보 제공 목적으로만 제공되며, 투자 권유 또는 투자 자문에 해당하지 않습니다.
+      데이터는 DART 전자공시시스템 및 FinanceDataReader를 기반으로 자동 수집·가공되며, 정확성과 완전성을 보장하지 않습니다.
+      투자 판단 시 반드시 DART 전자공시 원문 및 기타 공신력 있는 정보원을 통해 직접 확인하시기 바랍니다.
+      본 사이트의 정보를 이용한 투자 결과에 대한 모든 책임은 이용자 본인에게 있으며, 운영자는 어떠한 손실에 대해서도 법적 책임을 지지 않습니다.
+    </p>
+  </div>
+</div>
+
+<script>
+// ─── Auto-calculate last business day (KRX) ───
+function getLastBusinessDay() {
+  const now = new Date();
+  const d = new Date(now);
+  const h = d.getHours();
+
+  // KRX closes at 15:30 KST. If before market close, use previous day.
+  // We'll treat anything before 16:00 as "market not yet closed today"
+  const isKST = true; // Assume user is in KST context
+  if (h < 16) {
+    d.setDate(d.getDate() - 1);
+  }
+
+  // Walk back to skip weekends (Sat=6, Sun=0)
+  while (d.getDay() === 0 || d.getDay() === 6) {
+    d.setDate(d.getDate() - 1);
+  }
+
+  // KRX holidays 2026 (major ones)
+  const holidays2026 = [
+    '2026-01-01','2026-01-29','2026-01-30','2026-02-02',
+    '2026-03-01','2026-05-05','2026-05-24','2026-06-06',
+    '2026-08-15','2026-09-24','2026-09-25','2026-09-26',
+    '2026-10-03','2026-10-09','2026-12-25','2026-12-31',
+  ];
+  const holidays2025 = [
+    '2025-01-01','2025-01-28','2025-01-29','2025-01-30',
+    '2025-03-01','2025-05-05','2025-05-06','2025-06-06',
+    '2025-08-15','2025-10-05','2025-10-06','2025-10-07',
+    '2025-10-03','2025-10-09','2025-12-25','2025-12-31',
+  ];
+  const allHolidays = new Set([...holidays2026, ...holidays2025]);
+
+  let tries = 0;
+  while (allHolidays.has(fmt(d)) && tries < 30) {
+    d.setDate(d.getDate() - 1);
+    while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() - 1);
+    tries++;
+  }
+
+  return d;
+}
+
+function fmt(d) {
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+function fmtKor(d) {
+  const days = ['일','월','화','수','목','금','토'];
+  return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')} (${days[d.getDay()]})`;
+}
+
+const LAST_BIZ_DAY = getLastBusinessDay();
+const LAST_BIZ_STR = fmtKor(LAST_BIZ_DAY);
+
+// ─── Stock Data (single snapshot — market data at last biz day) ───
+// report: 해당 종목의 최근 공시 재무제표 (기업마다 공시 시점이 상이)
+// 'AR' = 사업보고서, '3Q' = 3분기보고서, 'SR' = 반기보고서, '1Q' = 1분기보고서
+const STOCKS = [
+  {name:"삼성전자",code:"005930",sector:"반도체",report:"25 사업보고서",reportShort:"AR 2025.12",price:72800,mcap:4350000,per:11.2,pbr:1.3,
+    rev:[2796000,2589000,3007000],op:[436700,65700,590000],ni:[399300,15500,510000],
+    cashEq:312000,shortFin:685000,shortInv:72000,shortBorrow:45000,curLongDebt:28000,bonds:85000,longBorrow:40000,
+    equity:2980000,ocf:[680000,680000,680000],capex:[-237999,-272000,-306000],dividendTotal:0,dividendPaid:-98900,sharesBuyback:-52000,niParent:0,avgTradingValue20:60000,majorShareholderRate:20.3},
+  {name:"SK하이닉스",code:"000660",sector:"반도체",report:"25 사업보고서",reportShort:"AR 2025.12",price:188500,mcap:1370000,per:7.8,pbr:1.9,
+    rev:[443100,327800,667000],op:[128500,-78500,237000],ni:[95000,-91200,195000],
+    cashEq:28000,shortFin:25000,shortInv:14000,shortBorrow:52000,curLongDebt:38000,bonds:78000,longBorrow:45000,
+    equity:420000,ocf:[285000,285000,285000],capex:[-99750,-114000,-128250],dividendTotal:0,dividendPaid:-12000,sharesBuyback:0,niParent:0,avgTradingValue20:44000,majorShareholderRate:20.1},
+  {name:"NAVER",code:"035420",sector:"인터넷",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:232000,mcap:380000,per:32.5,pbr:1.8,
+    rev:[82200,96700,102000],op:[13600,14100,16800],ni:[8900,6200,12500],
+    cashEq:18500,shortFin:32000,shortInv:7500,shortBorrow:8000,curLongDebt:5000,bonds:22000,longBorrow:7000,
+    equity:215000,ocf:[22000,22000,22000],capex:[-7699,-8800,-9900],dividendTotal:0,dividendPaid:-1500,sharesBuyback:-8500,niParent:0,avgTradingValue20:1800,majorShareholderRate:4.5},
+  {name:"셀트리온",code:"068270",sector:"바이오",report:"25 사업보고서",reportShort:"AR 2025.12",price:198000,mcap:320000,per:28.5,pbr:3.8,
+    rev:[23100,26400,31000],op:[7800,8100,10500],ni:[6200,6800,8900],
+    cashEq:8500,shortFin:6200,shortInv:3300,shortBorrow:2800,curLongDebt:1200,bonds:2500,longBorrow:1000,
+    equity:86000,ocf:[9800,9800,9800],capex:[-3430,-3920,-4410],dividendTotal:0,dividendPaid:-800,sharesBuyback:0,niParent:0,avgTradingValue20:1200,majorShareholderRate:19.5},
+  {name:"현대자동차",code:"005380",sector:"자동차",report:"25 사업보고서",reportShort:"AR 2025.12",price:248000,mcap:520000,per:5.2,pbr:0.6,
+    rev:[1426000,1627000,1729000],op:[98000,151000,186000],ni:[78000,125000,148000],
+    cashEq:85000,shortFin:120000,shortInv:52000,shortBorrow:95000,curLongDebt:48000,bonds:112000,longBorrow:57000,
+    equity:890000,ocf:[198000,198000,198000],capex:[-69300,-79200,-89100],dividendTotal:0,dividendPaid:-42000,sharesBuyback:-15000,niParent:0,avgTradingValue20:8300,majorShareholderRate:20.8},
+  {name:"기아",code:"000270",sector:"자동차",report:"25 사업보고서",reportShort:"AR 2025.12",price:98600,mcap:390000,per:4.8,pbr:0.7,
+    rev:[869000,975000,1068000],op:[79000,119000,132000],ni:[62000,98000,108000],
+    cashEq:52000,shortFin:68000,shortInv:22000,shortBorrow:28000,curLongDebt:18000,bonds:35000,longBorrow:17000,
+    equity:560000,ocf:[152000,152000,152000],capex:[-53200,-60800,-68400],dividendTotal:0,dividendPaid:-38000,sharesBuyback:-22000,niParent:0,avgTradingValue20:2600,majorShareholderRate:33.9},
+  {name:"삼성바이오로직스",code:"207940",sector:"바이오",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:815000,mcap:560000,per:48.5,pbr:5.2,
+    rev:[18400,31000,38000],op:[5900,10700,13800],ni:[4800,8900,11200],
+    cashEq:12000,shortFin:15000,shortInv:5000,shortBorrow:4500,curLongDebt:3000,bonds:8000,longBorrow:3500,
+    equity:108000,ocf:[15200,15200,15200],capex:[-5320,-6080,-6840],dividendTotal:0,dividendPaid:0,sharesBuyback:0,niParent:0,avgTradingValue20:730,majorShareholderRate:31.5},
+  {name:"KB금융",code:"105560",sector:"금융",report:"25 사업보고서",reportShort:"AR 2025.12",price:92800,mcap:310000,per:7.2,pbr:0.65,
+    rev:[130000,142000,158000],op:[41000,45000,52000],ni:[35000,38000,44000],
+    cashEq:185000,shortFin:280000,shortInv:55000,shortBorrow:120000,curLongDebt:85000,bonds:180000,longBorrow:100000,
+    equity:478000,ocf:[58000,58000,58000],capex:[-20300,-23200,-26100],dividendTotal:0,dividendPaid:-18000,sharesBuyback:-12000,niParent:0,avgTradingValue20:2000,majorShareholderRate:10.0},
+  {name:"크래프톤",code:"259960",sector:"게임",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:328000,mcap:245000,per:22.8,pbr:3.5,
+    rev:[19800,22400,28500],op:[8200,9100,13200],ni:[6800,7500,10800],
+    cashEq:18000,shortFin:22000,shortInv:5000,shortBorrow:800,curLongDebt:500,bonds:0,longBorrow:800,
+    equity:72000,ocf:[14500,14500,14500],capex:[-5075,-5800,-6525],dividendTotal:0,dividendPaid:-2800,sharesBuyback:-5200,niParent:0,avgTradingValue20:360,majorShareholderRate:14.5},
+  {name:"리노공업",code:"058470",sector:"반도체장비",report:"25 사업보고서",reportShort:"AR 2025.12",price:198000,mcap:29000,per:12.5,pbr:4.2,
+    rev:[3400,3800,5100],op:[1650,1900,2800],ni:[1350,1550,2300],
+    cashEq:2200,shortFin:2400,shortInv:800,shortBorrow:50,curLongDebt:30,bonds:0,longBorrow:40,
+    equity:7000,ocf:[2800,2800,2800],capex:[-979,-1120,-1260],dividendTotal:0,dividendPaid:-650,sharesBuyback:0,niParent:0,avgTradingValue20:1270,majorShareholderRate:26.2},
+  {name:"한미반도체",code:"042700",sector:"반도체장비",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:92000,mcap:48000,per:18.5,pbr:7.2,
+    rev:[3200,4500,7200],op:[860,1350,2800],ni:[680,1100,2300],
+    cashEq:1200,shortFin:1500,shortInv:500,shortBorrow:250,curLongDebt:100,bonds:0,longBorrow:250,
+    equity:6800,ocf:[2500,2500,2500],capex:[-875,-1000,-1125],dividendTotal:0,dividendPaid:-300,sharesBuyback:0,niParent:0,avgTradingValue20:3900,majorShareholderRate:18.0},
+  {name:"클래시스",code:"214150",sector:"의료기기",report:"25 사업보고서",reportShort:"AR 2025.12",price:38500,mcap:18000,per:13.2,pbr:5.8,
+    rev:[1800,2600,3400],op:[720,1120,1500],ni:[580,920,1250],
+    cashEq:1400,shortFin:1200,shortInv:600,shortBorrow:80,curLongDebt:50,bonds:0,longBorrow:70,
+    equity:3200,ocf:[1480,1480,1480],capex:[-518,-592,-666],dividendTotal:0,dividendPaid:-280,sharesBuyback:0,niParent:0,avgTradingValue20:160,majorShareholderRate:30.7},
+  {name:"JYP Ent.",code:"035900",sector:"엔터",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:82000,mcap:28000,per:13.8,pbr:4.5,
+    rev:[5600,7200,8100],op:[1700,2300,2500],ni:[1350,1850,2000],
+    cashEq:2200,shortFin:2100,shortInv:800,shortBorrow:120,curLongDebt:80,bonds:0,longBorrow:100,
+    equity:6400,ocf:[2600,2600,2600],capex:[-909,-1040,-1170],dividendTotal:0,dividendPaid:-850,sharesBuyback:-1200,niParent:0,avgTradingValue20:155,majorShareholderRate:18.5},
+  {name:"덴티움",code:"145720",sector:"의료기기",report:"25 사업보고서",reportShort:"AR 2025.12",price:118000,mcap:15000,per:9.8,pbr:2.8,
+    rev:[5100,5800,6300],op:[1600,1800,2050],ni:[1280,1450,1650],
+    cashEq:1800,shortFin:1500,shortInv:800,shortBorrow:200,curLongDebt:150,bonds:0,longBorrow:300,
+    equity:5500,ocf:[2100,2100,2100],capex:[-735,-840,-945],dividendTotal:0,dividendPaid:-520,sharesBuyback:-380,niParent:0,avgTradingValue20:26,majorShareholderRate:19.3},
+  {name:"더블유게임즈",code:"192080",sector:"게임",report:"25 사업보고서",reportShort:"AR 2025.12",price:48000,mcap:14000,per:7.2,pbr:1.4,
+    rev:[6200,6800,7400],op:[2100,2400,2700],ni:[1700,1950,2200],
+    cashEq:2100,shortFin:2400,shortInv:700,shortBorrow:300,curLongDebt:200,bonds:0,longBorrow:300,
+    equity:10200,ocf:[2800,2800,2800],capex:[-979,-1120,-1260],dividendTotal:0,dividendPaid:-950,sharesBuyback:0,niParent:0,avgTradingValue20:30,majorShareholderRate:32.1},
+  {name:"메리츠금융지주",code:"138040",sector:"금융",report:"25 사업보고서",reportShort:"AR 2025.12",price:118000,mcap:260000,per:6.5,pbr:1.2,
+    rev:[98000,115000,132000],op:[31000,38000,45000],ni:[25000,31000,37000],
+    cashEq:62000,shortFin:85000,shortInv:33000,shortBorrow:42000,curLongDebt:28000,bonds:52000,longBorrow:20000,
+    equity:220000,ocf:[48000,48000,48000],capex:[-16800,-19200,-21600],dividendTotal:0,dividendPaid:-12500,sharesBuyback:-18000,niParent:0,avgTradingValue20:340,majorShareholderRate:42.1},
+  {name:"현대글로비스",code:"086280",sector:"물류",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:178000,mcap:82000,per:7.5,pbr:1.0,
+    rev:[232000,252000,268000],op:[12500,14200,15800],ni:[9500,10800,12200],
+    cashEq:10500,shortFin:12000,shortInv:5500,shortBorrow:6000,curLongDebt:4500,bonds:8000,longBorrow:3500,
+    equity:82000,ocf:[16800,16800,16800],capex:[-5880,-6720,-7560],dividendTotal:0,dividendPaid:-4200,sharesBuyback:0,niParent:0,avgTradingValue20:500,majorShareholderRate:30.0},
+  {name:"DB손해보험",code:"005830",sector:"보험",report:"25 사업보고서",reportShort:"AR 2025.12",price:118000,mcap:85000,per:5.8,pbr:0.9,
+    rev:[192000,208000,218000],op:[14000,17000,19000],ni:[10500,13000,14500],
+    cashEq:35000,shortFin:42000,shortInv:18000,shortBorrow:15000,curLongDebt:12000,bonds:22000,longBorrow:13000,
+    equity:95000,ocf:[22000,22000,22000],capex:[-7699,-8800,-9900],dividendTotal:0,dividendPaid:-5800,sharesBuyback:-3200,niParent:0,avgTradingValue20:535,majorShareholderRate:24.1},
+  {name:"F&F",code:"383220",sector:"패션",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:78000,mcap:38000,per:10.5,pbr:3.8,
+    rev:[18500,21000,19200],op:[4800,5200,4500],ni:[3600,3900,3400],
+    cashEq:1800,shortFin:2200,shortInv:800,shortBorrow:650,curLongDebt:400,bonds:0,longBorrow:1050,
+    equity:10200,ocf:[4200,4200,4200],capex:[-1470,-1680,-1890],dividendTotal:0,dividendPaid:-2100,sharesBuyback:-1500,niParent:0,avgTradingValue20:63,majorShareholderRate:33.5},
+  {name:"더존비즈온",code:"012510",sector:"소프트웨어",report:"25 사업보고서",reportShort:"AR 2025.12",price:58000,mcap:32000,per:37.5,pbr:5.2,
+    rev:[3600,4100,4800],op:[680,820,1100],ni:[520,650,880],
+    cashEq:1400,shortFin:1600,shortInv:600,shortBorrow:500,curLongDebt:350,bonds:800,longBorrow:450,
+    equity:6200,ocf:[1250,1250,1250],capex:[-437,-500,-562],dividendTotal:0,dividendPaid:-220,sharesBuyback:0,niParent:0,avgTradingValue20:250,majorShareholderRate:34.2},
+  {name:"솔브레인",code:"357780",sector:"반도체소재",report:"25 사업보고서",reportShort:"AR 2025.12",price:265000,mcap:19000,per:16.5,pbr:2.2,
+    rev:[5200,5800,6500],op:[1100,1250,1500],ni:[880,1000,1200],
+    cashEq:1600,shortFin:1800,shortInv:800,shortBorrow:420,curLongDebt:280,bonds:600,longBorrow:500,
+    equity:8800,ocf:[1650,1650,1650],capex:[-577,-660,-742],dividendTotal:0,dividendPaid:-380,sharesBuyback:0,niParent:0,avgTradingValue20:246,majorShareholderRate:18.5},
+  {name:"파크시스템스",code:"140860",sector:"정밀기기",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:185000,mcap:13000,per:21.5,pbr:6.8,
+    rev:[1400,1800,2400],op:[350,480,700],ni:[290,400,580],
+    cashEq:620,shortFin:650,shortInv:230,shortBorrow:30,curLongDebt:20,bonds:0,longBorrow:40,
+    equity:1950,ocf:[720,720,720],capex:[-251,-288,-324],dividendTotal:0,dividendPaid:-85,sharesBuyback:0,niParent:0,avgTradingValue20:131,majorShareholderRate:20.3},
+  {name:"코웨이",code:"021240",sector:"렌탈",report:"25 사업보고서",reportShort:"AR 2025.12",price:62000,mcap:65000,per:13.5,pbr:4.2,
+    rev:[37000,39000,41000],op:[5800,6200,6900],ni:[4200,4500,5100],
+    cashEq:3200,shortFin:4500,shortInv:2100,shortBorrow:3800,curLongDebt:2500,bonds:5200,longBorrow:3700,
+    equity:15800,ocf:[8200,8200,8200],capex:[-2870,-3280,-3690],dividendTotal:0,dividendPaid:-3100,sharesBuyback:0,niParent:0,avgTradingValue20:214,majorShareholderRate:25.1},
+  {name:"한화에어로스페이스",code:"012450",sector:"방산",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:580000,mcap:310000,per:38.5,pbr:8.2,
+    rev:[64000,72000,96000],op:[4800,6200,11500],ni:[3200,4200,8500],
+    cashEq:6500,shortFin:8200,shortInv:3300,shortBorrow:6500,curLongDebt:4200,bonds:9800,longBorrow:4500,
+    equity:38500,ocf:[12000,12000,12000],capex:[-4200,-4800,-5400],dividendTotal:0,dividendPaid:-1800,sharesBuyback:0,niParent:0,avgTradingValue20:5640,majorShareholderRate:32.6},
+  {name:"카카오뱅크",code:"323410",sector:"인터넷은행",report:"25 사업보고서",reportShort:"AR 2025.12",price:23500,mcap:95000,per:22.8,pbr:2.1,
+    rev:[12800,16200,19500],op:[3200,4100,5200],ni:[2500,3200,4100],
+    cashEq:15500,shortFin:24000,shortInv:8500,shortBorrow:8000,curLongDebt:5000,bonds:12000,longBorrow:7000,
+    equity:46000,ocf:[5500,5500,5500],capex:[-1924,-2200,-2475],dividendTotal:0,dividendPaid:-820,sharesBuyback:0,niParent:0,avgTradingValue20:228,majorShareholderRate:27.0},
+  {name:"엔씨소프트",code:"036570",sector:"게임",report:"25 사업보고서",reportShort:"AR 2025.12",price:148000,mcap:32000,per:16.8,pbr:1.1,
+    rev:[17000,16500,15800],op:[3400,2200,1800],ni:[2800,1700,1200],
+    cashEq:6500,shortFin:8200,shortInv:2500,shortBorrow:1200,curLongDebt:800,bonds:0,longBorrow:1800,
+    equity:30000,ocf:[3800,3800,3800],capex:[-1330,-1520,-1710],dividendTotal:0,dividendPaid:-1100,sharesBuyback:-2500,niParent:0,avgTradingValue20:266,majorShareholderRate:12.0},
+  {name:"펄어비스",code:"263750",sector:"게임",report:"25 3분기보고서",reportShort:"3Q 2025.09",price:36500,mcap:13000,per:13.0,pbr:1.5,
+    rev:[6200,5800,7100],op:[1400,800,1600],ni:[1100,600,1300],
+    cashEq:2200,shortFin:2800,shortInv:800,shortBorrow:250,curLongDebt:100,bonds:0,longBorrow:250,
+    equity:8800,ocf:[1800,1800,1800],capex:[-630,-720,-810],dividendTotal:0,dividendPaid:0,sharesBuyback:0,niParent:0,avgTradingValue20:1600,majorShareholderRate:21.5},
+  {name:"에스티팜",code:"237690",sector:"제약",report:"25 사업보고서",reportShort:"AR 2025.12",price:88000,mcap:12000,per:12.2,pbr:2.8,
+    rev:[3800,5200,6100],op:[680,1050,1320],ni:[520,850,1080],
+    cashEq:850,shortFin:920,shortInv:430,shortBorrow:320,curLongDebt:280,bonds:500,longBorrow:300,
+    equity:4400,ocf:[1350,1350,1350],capex:[-472,-540,-607],dividendTotal:0,dividendPaid:-180,sharesBuyback:0,niParent:0,avgTradingValue20:305,majorShareholderRate:31.2},
+];
+
+// ─── 환율 토글 ───
+let currencyMode = 'KRW';
+let USD_KRW_RATE = 1500;
+
+// ─── Compute derived metrics ───
+function cagrC(a,b,y){return(a>0&&b>0)?(Math.pow(b/a,1/y)-1)*100:null}
+function fmtN(n) {
+  if (currencyMode === 'USD') {
+    const usd = n * 100000000 / USD_KRW_RATE;
+    if (Math.abs(usd) >= 1e9) return '$' + (usd/1e9).toFixed(1) + 'B';
+    if (Math.abs(usd) >= 1e6) return '$' + (usd/1e6).toFixed(0) + 'M';
+    if (Math.abs(usd) >= 1e3) return '$' + (usd/1e3).toFixed(0) + 'K';
+    return '$' + Math.round(usd).toLocaleString();
+  }
+  if (Math.abs(n)>=10000) return (n/10000).toFixed(1)+'조원';
+  return n.toLocaleString()+'억원';
+}
+function fmtPrice(n) {
+  if (currencyMode === 'USD') {
+    return '$' + (n / USD_KRW_RATE).toFixed(2);
+  }
+  return n.toLocaleString()+'원';
+}
+
+function toggleCurrency() {
+  currencyMode = currencyMode === 'KRW' ? 'USD' : 'KRW';
+  const btn = document.getElementById('btn-currency');
+  if (currencyMode === 'USD') {
+    btn.textContent = 'USD → KRW';
+    btn.classList.add('active');
+  } else {
+    btn.textContent = 'KRW → USD';
+    btn.classList.remove('active');
+  }
+  const footer = document.querySelector('.table-footer span:last-child');
+  if (currencyMode === 'USD') {
+    footer.textContent = '단위: USD / 배(PER·PBR) / % — 환율: 1 USD = ₩' + USD_KRW_RATE.toLocaleString();
+  } else {
+    footer.textContent = '단위: 원 / 배(PER·PBR) / %';
+  }
+  fullRender();
+}
+
+function compute(s) {
+  // 연도별 개별 OPM 산출 후 산술평균 (매출 0 또는 음수인 연도는 제외)
+  const opmArr = s.rev.map((r,i) => r > 0 ? (s.op[i] / r) * 100 : null);
+  const validOPM = opmArr.filter(v => v !== null && isFinite(v));
+  const avgOPM = validOPM.length > 0 ? validOPM.reduce((a,b)=>a+b,0) / validOPM.length : null;
+
+  // 연도별 개별 NPM 산출 후 산술평균
+  const npmArr = s.rev.map((r,i) => r > 0 ? (s.ni[i] / r) * 100 : null);
+  const validNPM = npmArr.filter(v => v !== null && isFinite(v));
+  const avgNPM = validNPM.length > 0 ? validNPM.reduce((a,b)=>a+b,0) / validNPM.length : null;
+
+  // 최근연도(Y) OPM / NPM
+  const lastRev = s.rev[2] || 0;
+  const latestOPM = lastRev > 0 ? Math.round((s.op[2] / lastRev) * 10000) / 100 : null;
+  const latestNPM = lastRev > 0 ? Math.round((s.ni[2] / lastRev) * 10000) / 100 : null;
+
+  // ROE = 지배주주 당기순이익 ÷ 지배주주 자본 × 100
+  const eqP = s.equityParent || s.equity || 0;
+  const niP = s.niParent || s.ni[2] || 0;
+  const lastNI = s.ni[2] || 0;
+  const roe = eqP > 0 && niP !== 0 ? Math.round((niP / eqP) * 10000) / 100 : null;
+
+  // 3년 평균 OCF/OP = 연도별 (OCF ÷ 영업이익) 산술평균
+  const ocfArr = Array.isArray(s.ocf) ? s.ocf : [0,0,s.ocf||0]; // 하위호환
+  const capexArr = Array.isArray(s.capex) ? s.capex : [0,0,0];
+  const ocfOpArr = s.op.map((o,i) => o > 0 && ocfArr[i] !== 0 ? ocfArr[i] / o : null);
+  const validOcfOp = ocfOpArr.filter(v => v !== null && isFinite(v));
+  const avgOcfOp = validOcfOp.length > 0 ? Math.round(validOcfOp.reduce((a,b)=>a+b,0) / validOcfOp.length * 100) / 100 : null;
+
+  // 3년 평균 FCF/NI = 연도별 ((OCF - |CAPEX|) ÷ 순이익) 산술평균
+  // FCF = OCF - CAPEX (CAPEX는 음수이므로 OCF + CAPEX, 또는 OCF - |CAPEX|)
+  const fcfNiArr = s.ni.map((n,i) => {
+    if (n <= 0) return null;
+    const fcf = ocfArr[i] + capexArr[i]; // capex는 음수이므로 +로 차감됨
+    return fcf / n;
+  });
+  const validFcfNi = fcfNiArr.filter(v => v !== null && isFinite(v));
+  const avgFcfNi = validFcfNi.length > 0 ? Math.round(validFcfNi.reduce((a,b)=>a+b,0) / validFcfNi.length * 100) / 100 : null;
+
+  // 배당성향 = 해당 사업연도 귀속 배당금총액 ÷ 지배주주 당기순이익 × 100
+  // dividendTotal: alotMatter API 기준 (해당연도 귀속 배당)
+  // niP: 지배기업의 소유주에게 귀속되는 당기순이익 (위 ROE 섹션에서 산출)
+  const divTotal = Math.abs(s.dividendTotal || 0);
+  const divPayout = niP > 0 && divTotal > 0 ? Math.round((divTotal / niP) * 10000) / 100 : null;
+
+  // 주주환원율 = (귀속 배당금총액 + |자사주매입|) ÷ 지배주주 당기순이익 × 100
+  const buyback = Math.abs(s.sharesBuyback || 0);
+  const shReturn = niP > 0 && (divTotal + buyback) > 0 ? Math.round(((divTotal + buyback) / niP) * 10000) / 100 : null;
+
+  const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.shortInv||0);
+  const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.bonds||0)+(s.longBorrow||0);
+  return {
+    ...s,
+    _price:s.price, _mcap:s.mcap, _per:s.per, _pbr:s.pbr,
+    _report:s.report, _reportShort:s.reportShort,
+    avgOPM: avgOPM !== null ? Math.round(avgOPM*100)/100 : null,
+    avgNPM: avgNPM !== null ? Math.round(avgNPM*100)/100 : null,
+    latestOPM, latestNPM,
+    roe, avgOcfOp, avgFcfNi, divPayout, shReturn,
+    netCash: cashSide-debtSide,
+    revGrowth: cagrC(s.rev[0],s.rev[2],2),
+    opGrowth: cagrC(s.op[0],s.op[2],2),
+    _avgTV20: s.avgTradingValue20 || 0,
+    _turnover: (s.avgTradingValue20 && s.mcap > 0) ? Math.round((s.avgTradingValue20 / s.mcap) * 10000) / 100 : null,
+    _majorSH: s.majorShareholderRate || 0,
+  };
+}
+
+let DATA = STOCKS.map(compute);
+
+// ─── Metric Definitions ───
+const METRIC_CATEGORIES = [
+  { name: '밸류에이션', keys: ['mcap', 'per', 'pbr'] },
+  { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
+  { name: '현금흐름',   keys: ['ocfOp', 'fcfNi', 'netCash'] },
+  { name: '주주환원',   keys: ['divPayout', 'shReturn'] },
+  { name: '성장성',     keys: ['revGrowth', 'opGrowth'] },
+  { name: '유동성',     keys: ['avgTV20', 'turnover'] },
+  { name: '지배구조',   keys: ['majorSH'] },
+];
+
+const METRICS = {
+  mcap:      {label:'시가총액',               unit:'억원 이상',desc:'일정 규모 이상의 안정적 기업만 선별',         dv:1000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
+  per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v.toFixed(1)+'배',cmp:'lte'},
+  pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v.toFixed(2)+'배',cmp:'lte'},
+  roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(최근연도 순이익÷자기자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  avgOPM:    {label:'3년 평균 영업이익률',    unit:'% 이상',  desc:'3년 평균 영업이익률 기준 수익성 검증',      dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  latestOPM: {label:'최근연도 영업이익률',    unit:'% 이상',  desc:'가장 최근 사업연도 영업이익률',            dv:10,  step:1,  col:'최근 OPM',      get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  avgNPM:    {label:'3년 평균 당기순이익률',  unit:'% 이상',  desc:'3년 평균 당기순이익률 기준 실질 수익성',    dv:5,   step:1,  col:'3Y Avg NPM',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  latestNPM: {label:'최근연도 당기순이익률',  unit:'% 이상',  desc:'가장 최근 사업연도 당기순이익률',          dv:5,   step:1,  col:'최근 NPM',      get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  ocfOp:     {label:'3년 평균 OCF/영업이익',   unit:'배 이상', desc:'영업현금흐름÷영업이익 3년 평균(이익의 현금화 품질)',dv:1.0,step:0.1,col:'3Y OCF/OP',     get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
+  fcfNi:     {label:'3년 평균 FCF/순이익',    unit:'배 이상', desc:'잉여현금흐름÷순이익 3년 평균(FCF=OCF−CAPEX)',     dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
+  divPayout: {label:'배당성향',              unit:'% 이상',  desc:'직전 확정연도 귀속배당÷지배주주순이익',   dv:20,  step:5,  col:'배당성향',       get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  shReturn:  {label:'주주환원율',            unit:'% 이상',  desc:'직전 확정연도 (배당+자사주)÷지배주주순이익',dv:30, step:5,  col:'주주환원율',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  netCash:   {label:'순현금성자산',           unit:'억원 초과',desc:'현금성+단기금융−차입금·사채 순액',          dv:0,   step:100,col:'순현금',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
+  revGrowth: {label:'3년 매출액 성장률(CAGR)',unit:'% 이상',  desc:'3년간 매출액 연평균 성장률',              dv:5,   step:1,  col:'3Y 매출 CAGR',  get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  opGrowth:  {label:'3년 영업이익 성장률(CAGR)',unit:'% 이상', desc:'3년간 영업이익 연평균 성장률',           dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  avgTV20:   {label:'20일 평균 거래대금',      unit:'억원 이상',desc:'최근 20영업일 일평균 거래대금(유동성)',  dv:10,  step:5,  col:'20D 거래대금',  get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
+  turnover:  {label:'회전율(거래대금/시총)',   unit:'% 이상',  desc:'20일 평균 거래대금 ÷ 시가총액 × 100', dv:0.1, step:0.05,col:'회전율',        get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
+  majorSH:   {label:'대주주 지분율',           unit:'%',       desc:'최대주주+특수관계인 합산 지분율 (DART)',     dv:20,  dv2:80, step:5,  col:'대주주 지분',    get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
+};
+
+function buildMetricOptions(selectedKey) {
+  return METRIC_CATEGORIES.map(cat =>
+    `<optgroup label="${cat.name}">${cat.keys.map(k =>
+      `<option value="${k}" ${k===selectedKey?'selected':''}>${METRICS[k].label}</option>`
+    ).join('')}</optgroup>`
+  ).join('');
+}
+
+// ─── State ───
+let steps=[{id:1,metric:'mcap',threshold:1000},{id:2,metric:'avgOPM',threshold:10},{id:3,metric:'netCash',threshold:0}];
+let nxtId=4, viewMode='pass', sortCol='mcap', sortAsc=false;
+
+function evalStep(s,step){const m=METRICS[step.metric],v=m.get(s);if(v===null)return false;if(m.cmp==='range')return v>=step.threshold&&v<=(step.threshold2!=null?step.threshold2:999);if(m.cmp==='gt')return v>step.threshold;if(m.cmp==='lte')return v<=step.threshold;return v>=step.threshold}
+
+function applyAll(){return DATA.map(s=>{const res={};let pass=true;steps.forEach(st=>{const p=evalStep(s,st);res[st.id]=p;if(!p)pass=false});return{...s,sr:res,passAll:pass}})}
+
+function renderPipeline(){
+  const el=document.getElementById('pipeline');el.innerHTML='';
+  steps.forEach((st,i)=>{
+    if(i>0){const a=document.createElement('div');a.className='pipeline-arrow';a.textContent='→';el.appendChild(a)}
+    const m=METRICS[st.metric],c=document.createElement('div');c.className='step-card';
+    const moveL = i > 0 ? `<button title="왼쪽으로" onclick="moveStep(${st.id},-1)">◀</button>` : '';
+    const moveR = i < steps.length-1 ? `<button title="오른쪽으로" onclick="moveStep(${st.id},1)">▶</button>` : '';
+    const delBtn = steps.length>1 ? `<button class="btn-del" title="삭제" onclick="removeStep(${st.id})">✕</button>` : '';
+    const thresholdUI = m.cmp === 'range'
+      ? `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" style="width:60px" oninput="chgThresh(${st.id},this.value)"><span class="unit">% 이상</span><span style="margin:0 4px;color:var(--text-muted)">~</span><input type="number" value="${st.threshold2!=null?st.threshold2:m.dv2||100}" step="${m.step}" style="width:60px" oninput="chgThresh2(${st.id},this.value)"><span class="unit">% 이하</span></div>`
+      : `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
+    c.innerHTML=`<div class="step-card-header"><div class="step-number">Step ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
+      <select class="step-metric-select" onchange="chgMetric(${st.id},this.value)">${buildMetricOptions(st.metric)}</select>
+      <div class="step-metric-desc">${m.desc}</div>
+      ${thresholdUI}
+      <div class="step-stat" id="ss-${st.id}"><span class="stat-label">통과</span></div>`;
+    el.appendChild(c);
+  });
+}
+
+function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[steps[j].id]);const p=pool.filter(s=>s.sr[st.id]).length;const el=document.getElementById(`ss-${st.id}`);if(el)el.innerHTML=`<span class="stat-label">통과</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
+
+function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
+
+function renderHead(){const mk=getMetricKeys();document.getElementById('table-head').innerHTML=`<tr><th onclick="doSort('name')">기업명 <span class="sort-icon">↕</span></th><th onclick="doSort('code')">종목코드</th><th onclick="doSort('sector')">업종</th><th onclick="doSort('_reportShort')">재무기준 <span class="sort-icon">↕</span></th><th onclick="doSort('_price')" style="text-align:right">종가 <span class="sort-icon">↕</span></th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col} <span class="sort-icon">↕</span></th>`).join('')}<th style="text-align:center">판정</th></tr>`}
+
+function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderBody(applyAll())}
+
+function sortArr(arr){arr.sort((a,b)=>{if(['name','code','sector','_reportShort'].includes(sortCol))return sortAsc?(a[sortCol]||'').localeCompare(b[sortCol]||''):(b[sortCol]||'').localeCompare(a[sortCol]||'');let va,vb;if(sortCol==='_price'){va=a._price;vb=b._price}else if(METRICS[sortCol]){const m=METRICS[sortCol];va=m.get(a)??-9999;vb=m.get(b)??-9999}else{va=a._mcap;vb=b._mcap}return sortAsc?va-vb:vb-va});return arr}
+
+function renderBody(f){
+  const mk=getMetricKeys(),sorted=sortArr([...f]),disp=viewMode==='pass'?sorted.filter(s=>s.passAll):sorted,passN=f.filter(s=>s.passAll).length;
+  document.getElementById('result-summary').innerHTML=`전체 <strong>${f.length}</strong>개 종목 중 ${steps.length}단계 통과: <strong>${passN}</strong>개`;
+  const tb=document.getElementById('table-body');
+  if(!disp.length){tb.innerHTML=`<tr><td colspan="${5+mk.length+1}"><div class="empty-state"><div class="icon">🔍</div><p>필터 조건에 해당하는 기업이 없습니다. 기준을 조정해보세요.</p></div></td></tr>`}
+  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name">${s.name}</td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="font-size:11px;color:${s._reportShort.startsWith('AR')?'var(--pass-text)':'var(--text-muted)'}" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
+  document.getElementById('footer-info').textContent=`${disp.length}개 종목 표시 중`;
+}
+
+function fullRender(){renderPipeline();renderHead();const f=applyAll();updateStats(f);renderBody(f)}
+
+function addStep(){const used=new Set(steps.map(s=>s.metric)),avail=Object.keys(METRICS).find(k=>!used.has(k))||Object.keys(METRICS)[0];steps.push({id:nxtId++,metric:avail,threshold:METRICS[avail].dv});fullRender();setTimeout(()=>document.querySelector('.pipeline-scroll').scrollLeft=9999,50)}
+function removeStep(id){steps=steps.filter(s=>s.id!==id);fullRender()}
+function moveStep(id,dir){const idx=steps.findIndex(s=>s.id===id);const newIdx=idx+dir;if(newIdx<0||newIdx>=steps.length)return;[steps[idx],steps[newIdx]]=[steps[newIdx],steps[idx]];fullRender()}
+function chgMetric(id,metric){const st=steps.find(s=>s.id===id);if(st){st.metric=metric;st.threshold=METRICS[metric].dv;if(METRICS[metric].cmp==='range')st.threshold2=METRICS[metric].dv2||100;else delete st.threshold2;fullRender()}}
+function chgThresh(id,val){const st=steps.find(s=>s.id===id);if(st){st.threshold=parseFloat(val)||0;const f=applyAll();updateStats(f);renderBody(f)}}
+function chgThresh2(id,val){const st=steps.find(s=>s.id===id);if(st){st.threshold2=parseFloat(val)||100;const f=applyAll();updateStats(f);renderBody(f)}}
+function toggleView(mode){viewMode=mode;document.getElementById('btn-pass').classList.toggle('active',mode==='pass');document.getElementById('btn-all').classList.toggle('active',mode==='all');renderBody(applyAll())}
+
+function exportCSV(){
+  const f=applyAll();
+  const sorted=sortArr([...f]);
+  const disp=viewMode==='pass'?sorted.filter(s=>s.passAll):sorted;
+  const mk=getMetricKeys();
+
+  const isUSD = currencyMode === 'USD';
+  const pUnit = isUSD ? 'USD' : '원';
+  const nUnit = isUSD ? 'USD' : '억원';
+
+  // BOM for Excel UTF-8
+  let csv='\uFEFF';
+  // Header with units
+  const colHeaders = mk.map(k => {
+    const c = METRICS[k].col;
+    if (k==='mcap'||k==='netCash'||k==='avgTV20') return c+'('+nUnit+')';
+    return c;
+  });
+  const headers=['기업명','종목코드','업종','재무기준','종가('+pUnit+')',...colHeaders,'판정'];
+  csv+=headers.join(',')+'\n';
+
+  const pctKeys = new Set(['roe','avgOPM','latestOPM','avgNPM','latestNPM','divPayout','shReturn','revGrowth','opGrowth','turnover','majorSH']);
+
+  disp.forEach(s=>{
+    const vals=mk.map(k=>{
+      const m=METRICS[k],v=m.get(s);
+      if(v===null)return'N/A';
+      if(k==='mcap'||k==='netCash'||k==='avgTV20'){
+        if(isUSD) return (v * 100000000 / USD_KRW_RATE).toFixed(0);
+        return v;
+      }
+      if(k==='per')return v.toFixed(1);
+      if(k==='pbr')return v.toFixed(2);
+      if(pctKeys.has(k))return v.toFixed(2)+'%';
+      return typeof v==='number'?v.toFixed(2):'N/A';
+    });
+    const price = isUSD ? (s._price / USD_KRW_RATE).toFixed(2) : s._price;
+    const row=[
+      `"${s.name}"`,`="${s.code}"`,`"${s.sector}"`,`"${s._reportShort||''}"`,price,
+      ...vals,
+      s.passAll?'PASS':'FAIL'
+    ];
+    csv+=row.join(',')+'\n';
+  });
+
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const now=new Date();
+  const ts=now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'_'+String(now.getHours()).padStart(2,'0')+String(now.getMinutes()).padStart(2,'0');
+  const suffix = isUSD ? '_USD' : '_KRW';
+  a.href=url;a.download=`screener_${ts}${suffix}.csv`;a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Init — screener_data.json이 있으면 실데이터, 없으면 내장 샘플 사용
+async function init() {
+  let stockSource = STOCKS;
+  let marketDateStr = LAST_BIZ_STR;
+  let isRealData = false;
+  let jsonData = null;
+
+  try {
+    const resp = await fetch('./screener_data.json');
+    if (resp.ok) {
+      jsonData = await resp.json();
+      if (jsonData.stocks && jsonData.stocks.length > 0) {
+        stockSource = jsonData.stocks;
+        marketDateStr = jsonData.market_date_display || LAST_BIZ_STR;
+        isRealData = true;
+        if (jsonData.usd_krw_rate) USD_KRW_RATE = jsonData.usd_krw_rate;
+        console.log(`✅ 실데이터 로드: ${jsonData.total_stocks}개 종목 (${jsonData.market_date_display})`);
+      }
+    }
+  } catch(e) {
+    console.log('screener_data.json 없음 → 내장 샘플 데이터 사용');
+  }
+
+  // DATA 재구성
+  DATA = stockSource.map(compute);
+
+  // 배지 업데이트
+  const badge = document.getElementById('data-badge');
+  const dataNote = document.getElementById('data-note');
+  if (isRealData) {
+    badge.textContent = 'LIVE DATA';
+    badge.style.background = 'rgba(16,185,129,0.15)';
+    badge.style.color = '#34d399';
+    badge.style.borderColor = 'rgba(16,185,129,0.3)';
+    dataNote.style.display = 'none';
+  }
+
+  document.getElementById('market-date').textContent = marketDateStr;
+
+  // 조회시점 표시
+  if (isRealData && jsonData && jsonData.run_time_display) {
+    document.getElementById('run-time').textContent = jsonData.run_time_display;
+    document.getElementById('run-time-card').style.display = '';
+  }
+
+  // 재무기준 요약
+  const arCount = stockSource.filter(s => (s.reportShort||'').startsWith('AR')).length;
+  const otherCount = stockSource.length - arCount;
+  const parts = [];
+  if (arCount > 0) parts.push(`사업보고서 ${arCount}개`);
+  if (otherCount > 0) parts.push(`분기/반기 ${otherCount}개`);
+  document.getElementById('financial-report').textContent = parts.join(' / ');
+
+  fullRender();
+}
+
+init();
+</script>
+</body>
+</html>
