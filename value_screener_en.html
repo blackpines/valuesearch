@@ -168,6 +168,14 @@
         <div class="sub"></div>
       </div>
     </div>
+    <div class="date-card">
+      <div class="icon-circle" style="background:rgba(99,179,237,0.12);color:#63b3ed">🏢</div>
+      <div class="info-text">
+        <div class="label">Coverage</div>
+        <div class="value">Market Cap ≥ ₩50B</div>
+        <div class="sub">KRX-listed common stocks (excl. preferred, funds, REITs)</div>
+      </div>
+    </div>
   </div>
 
   <div class="data-note animate-in delay-1" id="data-note">
@@ -557,14 +565,14 @@ const METRICS = {
   latestNPM: {label:'Latest NPM',              unit:'% ≥',      desc:'Most recent fiscal year net profit margin',                    dv:5,   step:1,  col:'Latest NPM',    get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   ocfOp:     {label:'3Y Avg OCF/OP',           unit:'x ≥',      desc:'3-year avg operating cash flow ÷ operating profit (cash quality)',dv:1.0,step:0.1,col:'3Y OCF/OP',   get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
   fcfNi:     {label:'3Y Avg FCF/NI',           unit:'x ≥',      desc:'3-year avg free cash flow ÷ net income (FCF=OCF−CAPEX)',       dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
-  divPayout: {label:'Dividend Payout',         unit:'% ≥',      desc:'Dividends ÷ controlling shareholder NI (latest confirmed year)',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  divPayout: {label:'Dividend Payout',         unit:'% ≥',      desc:'(Interim + final dividends) ÷ controlling shareholder NI',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   shReturn:  {label:'Shareholder Return',      unit:'% ≥',      desc:'(Dividends + buyback) ÷ controlling shareholder NI',           dv:30,  step:5,  col:'SH Return',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCash:   {label:'Net Cash',                unit:'100M KRW >',desc:'Cash + short-term financial − borrowings & bonds',             dv:0,   step:100,col:'Net Cash',       get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
+  netCash:   {label:'Net Cash',                unit:'100M KRW >',desc:'(Cash & equiv. + ST financial instruments) − (borrowings + bonds)',             dv:0,   step:100,col:'Net Cash',       get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
   revGrowth: {label:'3Y Revenue CAGR',         unit:'% ≥',      desc:'3-year compound annual growth rate of revenue',                dv:5,   step:1,  col:'3Y Rev CAGR',   get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   opGrowth:  {label:'3Y OP CAGR',             unit:'% ≥',      desc:'3-year compound annual growth rate of operating profit',        dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgTV20:   {label:'20D Avg Trading Value',   unit:'100M KRW ≥',desc:'20-day average daily trading value (liquidity)',               dv:10,  step:5,  col:'20D Trading',   get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'Turnover Ratio',          unit:'% ≥',      desc:'20D avg trading value ÷ market cap × 100',                    dv:0.1, step:0.05,col:'Turnover',       get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
-  majorSH:   {label:'Major Shareholder %',      unit:'%',       desc:'Largest shareholder + related parties combined stake (DART)',  dv:20,  dv2:80, step:5,  col:'Major SH%',     get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
+  majorSH:   {label:'Major Shareholder %',      unit:'%',       desc:'Largest shareholder + related parties combined stake',  dv:20,  dv2:80, step:5,  col:'Major SH%',     get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
 };
 
 function buildMetricOptions(selectedKey) {
@@ -732,13 +740,23 @@ async function init() {
     document.getElementById('run-time-card').style.display = '';
   }
 
-  // Financial report summary
-  const arCount = stockSource.filter(s => (s.reportShort||'').startsWith('AR')).length;
-  const otherCount = stockSource.length - arCount;
-  const parts = [];
-  if (arCount > 0) parts.push(`Annual Report: ${arCount}`);
-  if (otherCount > 0) parts.push(`Quarterly/Semi: ${otherCount}`);
-  document.getElementById('financial-report').textContent = parts.join(' / ');
+  // Financial report summary: show specific report types
+  const reportTypes = {};
+  stockSource.forEach(s => {
+    const rs = (s.reportShort || '').trim();
+    if (!rs) return;
+    const parts = rs.split(' ');
+    if (parts.length >= 2) {
+      const type = parts[0];
+      const ym = parts[1].split('.');
+      const yr = ym[0].slice(-2);
+      const labels = {AR:`FY${yr} Annual`, '1Q':`FY${yr} Q1`, SR:`FY${yr} Semi-Annual`, '3Q':`FY${yr} Q3`};
+      const label = labels[type] || rs;
+      reportTypes[label] = (reportTypes[label] || 0) + 1;
+    }
+  });
+  const reportSummary = Object.keys(reportTypes).sort().reverse().join(', ');
+  document.getElementById('financial-report').textContent = reportSummary || '-';
 
   fullRender();
 }

@@ -168,6 +168,14 @@
         <div class="sub"></div>
       </div>
     </div>
+    <div class="date-card">
+      <div class="icon-circle" style="background:rgba(99,179,237,0.12);color:#63b3ed">🏢</div>
+      <div class="info-text">
+        <div class="label">스크리닝 대상</div>
+        <div class="value">시가총액 500억원 이상</div>
+        <div class="sub">KRX 상장 보통주 (우선주·펀드·리츠 제외)</div>
+      </div>
+    </div>
   </div>
 
   <div class="data-note animate-in delay-1" id="data-note">
@@ -554,14 +562,14 @@ const METRICS = {
   latestNPM: {label:'최근연도 당기순이익률',  unit:'% 이상',  desc:'가장 최근 사업연도 당기순이익률',          dv:5,   step:1,  col:'최근 NPM',      get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   ocfOp:     {label:'3년 평균 OCF/영업이익',   unit:'배 이상', desc:'영업현금흐름÷영업이익 3년 평균(이익의 현금화 품질)',dv:1.0,step:0.1,col:'3Y OCF/OP',     get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
   fcfNi:     {label:'3년 평균 FCF/순이익',    unit:'배 이상', desc:'잉여현금흐름÷순이익 3년 평균(FCF=OCF−CAPEX)',     dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
-  divPayout: {label:'배당성향',              unit:'% 이상',  desc:'직전 확정연도 귀속배당÷지배주주순이익',   dv:20,  step:5,  col:'배당성향',       get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  shReturn:  {label:'주주환원율',            unit:'% 이상',  desc:'직전 확정연도 (배당+자사주)÷지배주주순이익',dv:30, step:5,  col:'주주환원율',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCash:   {label:'순현금성자산',           unit:'억원 초과',desc:'현금성+단기금융−차입금·사채 순액',          dv:0,   step:100,col:'순현금',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
+  divPayout: {label:'배당성향',              unit:'% 이상',  desc:'(중간+기말배당)÷지배주주순이익',   dv:20,  step:5,  col:'배당성향',       get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  shReturn:  {label:'주주환원율',            unit:'% 이상',  desc:'(배당+자사주)÷지배주주순이익',dv:30, step:5,  col:'주주환원율',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  netCash:   {label:'순현금성자산',           unit:'억원 초과',desc:'(현금및현금성자산+단기금융상품)−(차입금+사채) 순액',          dv:0,   step:100,col:'순현금',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
   revGrowth: {label:'3년 매출액 성장률(CAGR)',unit:'% 이상',  desc:'3년간 매출액 연평균 성장률',              dv:5,   step:1,  col:'3Y 매출 CAGR',  get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   opGrowth:  {label:'3년 영업이익 성장률(CAGR)',unit:'% 이상', desc:'3년간 영업이익 연평균 성장률',           dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgTV20:   {label:'20일 평균 거래대금',      unit:'억원 이상',desc:'최근 20영업일 일평균 거래대금(유동성)',  dv:10,  step:5,  col:'20D 거래대금',  get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'회전율(거래대금/시총)',   unit:'% 이상',  desc:'20일 평균 거래대금 ÷ 시가총액 × 100', dv:0.1, step:0.05,col:'회전율',        get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
-  majorSH:   {label:'대주주 지분율',           unit:'%',       desc:'최대주주+특수관계인 합산 지분율 (DART)',     dv:20,  dv2:80, step:5,  col:'대주주 지분',    get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
+  majorSH:   {label:'대주주 지분율',           unit:'%',       desc:'최대주주+특수관계인 합산 지분율',     dv:20,  dv2:80, step:5,  col:'대주주 지분',    get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
 };
 
 function buildMetricOptions(selectedKey) {
@@ -729,13 +737,24 @@ async function init() {
     document.getElementById('run-time-card').style.display = '';
   }
 
-  // 재무기준 요약
-  const arCount = stockSource.filter(s => (s.reportShort||'').startsWith('AR')).length;
-  const otherCount = stockSource.length - arCount;
-  const parts = [];
-  if (arCount > 0) parts.push(`사업보고서 ${arCount}개`);
-  if (otherCount > 0) parts.push(`분기/반기 ${otherCount}개`);
-  document.getElementById('financial-report').textContent = parts.join(' / ');
+  // 재무기준 요약: 보고서 종류별 표시
+  const reportTypes = {};
+  stockSource.forEach(s => {
+    const rs = (s.reportShort || '').trim();
+    if (!rs) return;
+    // "AR 2025.12" → "'25 사업보고서", "3Q 2025.09" → "'25 3분기보고서"
+    const parts = rs.split(' ');
+    if (parts.length >= 2) {
+      const type = parts[0]; // AR, 1Q, SR, 3Q
+      const ym = parts[1].split('.');
+      const yr = ym[0].slice(-2); // "2025" → "25"
+      const labels = {AR:`'${yr} 사업보고서`, '1Q':`'${yr} 1분기보고서`, SR:`'${yr} 반기보고서`, '3Q':`'${yr} 3분기보고서`};
+      const label = labels[type] || rs;
+      reportTypes[label] = (reportTypes[label] || 0) + 1;
+    }
+  });
+  const reportSummary = Object.keys(reportTypes).sort().reverse().join(', ');
+  document.getElementById('financial-report').textContent = reportSummary || '-';
 
   fullRender();
 }
