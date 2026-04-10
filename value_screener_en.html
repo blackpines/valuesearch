@@ -152,14 +152,6 @@
         <div class="sub">Price · Market Cap · PER · PBR</div>
       </div>
     </div>
-    <div class="date-card">
-      <div class="icon-circle financial">📋</div>
-      <div class="info-text">
-        <div class="label">Financial Statements</div>
-        <div class="value" id="financial-report"></div>
-        <div class="sub">Based on each company's latest filing</div>
-      </div>
-    </div>
     <div class="date-card" id="run-time-card" style="display:none">
       <div class="icon-circle" style="background:rgba(212,168,83,0.12);color:var(--gold)">🕐</div>
       <div class="info-text">
@@ -740,23 +732,6 @@ async function init() {
     document.getElementById('run-time-card').style.display = '';
   }
 
-  // Financial report summary: show specific report types
-  const reportTypes = {};
-  stockSource.forEach(s => {
-    const rs = (s.reportShort || '').trim();
-    if (!rs) return;
-    const parts = rs.split(' ');
-    if (parts.length >= 2) {
-      const type = parts[0];
-      const ym = parts[1].split('.');
-      const yr = ym[0].slice(-2);
-      const labels = {AR:`FY${yr} Annual`, '1Q':`FY${yr} Q1`, SR:`FY${yr} Semi-Annual`, '3Q':`FY${yr} Q3`};
-      const label = labels[type] || rs;
-      reportTypes[label] = (reportTypes[label] || 0) + 1;
-    }
-  });
-  const reportSummary = Object.keys(reportTypes).sort().reverse().join(', ');
-  document.getElementById('financial-report').textContent = reportSummary || '-';
 
   fullRender();
 }
