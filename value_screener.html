@@ -136,11 +136,11 @@
 <div class="app">
   <div class="header animate-in">
     <div class="header-left">
-      <h1><span>Value</span> Screener</h1>
+      <h1><a href="index.html" style="text-decoration:none;color:inherit"><span>Value</span> Screener</a></h1>
       <div class="subtitle">한국 상장사 가치투자 스크리닝 시스템</div>
     </div>
     <div class="header-right">
-      <a href="value_screener_en.html" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">🇺🇸 English</div></a>
+      <a href="#" onclick="switchLang('value_screener_en.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">🇺🇸 English</div></a>
       <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
   </div>
@@ -153,14 +153,6 @@
         <div class="label">Market Data 기준일</div>
         <div class="value" id="market-date"></div>
         <div class="sub">종가 · 시가총액 · PER · PBR</div>
-      </div>
-    </div>
-    <div class="date-card" id="run-time-card" style="display:none">
-      <div class="icon-circle" style="background:rgba(212,168,83,0.12);color:var(--gold)">🕐</div>
-      <div class="info-text">
-        <div class="label">데이터 조회 시점</div>
-        <div class="value" id="run-time"></div>
-        <div class="sub"></div>
       </div>
     </div>
     <div class="date-card">
@@ -579,6 +571,13 @@ function buildMetricOptions(selectedKey) {
 let steps=[{id:1,metric:'mcap',threshold:1000},{id:2,metric:'avgOPM',threshold:10},{id:3,metric:'netCash',threshold:0}];
 let nxtId=4, viewMode='pass', sortCol='mcap', sortAsc=false;
 
+// ── 필터 상태 URL 직렬화/역직렬화 (언어 전환 시 유지) ──
+function stepsToParam(){return steps.map(s=>{let p=s.metric+':'+s.threshold;if(s.threshold2!=null)p+=':'+s.threshold2;return p}).join(',')}
+function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const o={id:id++,metric:a[0],threshold:Number(a[1])};if(a[2]!=null)o.threshold2=Number(a[2]);return o})}catch(e){return null}}
+function switchLang(url){window.location.href=url+'?steps='+encodeURIComponent(stepsToParam())}
+// 페이지 로드 시 URL 파라미터에서 steps 복원
+(function(){const p=new URLSearchParams(window.location.search).get('steps');const restored=paramToSteps(p);if(restored&&restored.length>0&&restored.every(s=>METRICS[s.metric])){steps=restored;nxtId=Math.max(...steps.map(s=>s.id))+1}})();
+
 function evalStep(s,step){const m=METRICS[step.metric],v=m.get(s);if(v===null)return false;if(m.cmp==='range')return v>=step.threshold&&v<=(step.threshold2!=null?step.threshold2:999);if(m.cmp==='gt')return v>step.threshold;if(m.cmp==='lte')return v<=step.threshold;return v>=step.threshold}
 
 function applyAll(){return DATA.map(s=>{const res={};let pass=true;steps.forEach(st=>{const p=evalStep(s,st);res[st.id]=p;if(!p)pass=false});return{...s,sr:res,passAll:pass}})}
@@ -725,13 +724,6 @@ async function init() {
   }
 
   document.getElementById('market-date').textContent = marketDateStr;
-
-  // 조회시점 표시
-  if (isRealData && jsonData && jsonData.run_time_display) {
-    document.getElementById('run-time').textContent = jsonData.run_time_display;
-    document.getElementById('run-time-card').style.display = '';
-  }
-
 
   fullRender();
 }

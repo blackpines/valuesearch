@@ -133,11 +133,11 @@
 <div class="app">
   <div class="header animate-in">
     <div class="header-left">
-      <h1><span>Value</span> Screener</h1>
+      <h1><a href="index.html" style="text-decoration:none;color:inherit"><span>Value</span> Screener</a></h1>
       <div class="subtitle">Korea Equity Fundamental Screener</div>
     </div>
     <div class="header-right">
-      <a href="value_screener.html" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">🇰🇷 한국어</div></a>
+      <a href="#" onclick="switchLang('value_screener.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">🇰🇷 한국어</div></a>
       <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
   </div>
@@ -150,14 +150,6 @@
         <div class="label">Market Data Date</div>
         <div class="value" id="market-date"></div>
         <div class="sub">Price · Market Cap · PER · PBR</div>
-      </div>
-    </div>
-    <div class="date-card" id="run-time-card" style="display:none">
-      <div class="icon-circle" style="background:rgba(212,168,83,0.12);color:var(--gold)">🕐</div>
-      <div class="info-text">
-        <div class="label">Data Collection Time</div>
-        <div class="value" id="run-time"></div>
-        <div class="sub"></div>
       </div>
     </div>
     <div class="date-card">
@@ -579,6 +571,12 @@ function buildMetricOptions(selectedKey) {
 let steps=[{id:1,metric:'mcap',threshold:1000},{id:2,metric:'avgOPM',threshold:10},{id:3,metric:'netCash',threshold:0}];
 let nxtId=4, viewMode='pass', sortCol='mcap', sortAsc=false;
 
+// ── Filter state URL serialization (preserved across language switch) ──
+function stepsToParam(){return steps.map(s=>{let p=s.metric+':'+s.threshold;if(s.threshold2!=null)p+=':'+s.threshold2;return p}).join(',')}
+function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const o={id:id++,metric:a[0],threshold:Number(a[1])};if(a[2]!=null)o.threshold2=Number(a[2]);return o})}catch(e){return null}}
+function switchLang(url){window.location.href=url+'?steps='+encodeURIComponent(stepsToParam())}
+(function(){const p=new URLSearchParams(window.location.search).get('steps');const restored=paramToSteps(p);if(restored&&restored.length>0&&restored.every(s=>METRICS[s.metric])){steps=restored;nxtId=Math.max(...steps.map(s=>s.id))+1}})();
+
 function evalStep(s,step){const m=METRICS[step.metric],v=m.get(s);if(v===null)return false;if(m.cmp==='range')return v>=step.threshold&&v<=(step.threshold2!=null?step.threshold2:999);if(m.cmp==='gt')return v>step.threshold;if(m.cmp==='lte')return v<=step.threshold;return v>=step.threshold}
 
 function applyAll(){return DATA.map(s=>{const res={};let pass=true;steps.forEach(st=>{const p=evalStep(s,st);res[st.id]=p;if(!p)pass=false});return{...s,sr:res,passAll:pass}})}
@@ -725,13 +723,6 @@ async function init() {
   }
 
   document.getElementById('market-date').textContent = marketDateStr;
-
-  // Data collection time
-  if (isRealData && jsonData && jsonData.run_time_display) {
-    document.getElementById('run-time').textContent = jsonData.run_time_display;
-    document.getElementById('run-time-card').style.display = '';
-  }
-
 
   fullRender();
 }
