@@ -119,6 +119,8 @@
   .animate-in{animation:fadeInUp .5s ease forwards;opacity:0}
   .delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
 
+  .mobile-br{display:none}
+  .mobile-nowrap{white-space:nowrap}
   @media(max-width:900px){
     .header{flex-direction:column;align-items:flex-start;gap:16px}
     .app{padding:24px 16px 60px}
@@ -126,6 +128,7 @@
     .step-card{min-width:240px}
     .controls{flex-direction:column;gap:12px;align-items:flex-start}
     .date-bar{flex-direction:column}
+    .mobile-br{display:inline}
   }
 </style>
 </head>
@@ -186,9 +189,9 @@
   <div class="controls animate-in delay-3">
     <div class="result-summary" id="result-summary"></div>
     <div class="btn-group">
-      <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과 기업만</button>
-      <button class="btn" id="btn-all" onclick="toggleView('all')">전체 보기</button>
-      <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">CSV 내보내기</button>
+      <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과<br class="mobile-br"><span class="mobile-nowrap"> 기업만</span></button>
+      <button class="btn" id="btn-all" onclick="toggleView('all')">전체<br class="mobile-br"><span class="mobile-nowrap"> 보기</span></button>
+      <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">CSV<br class="mobile-br"><span class="mobile-nowrap"> 내보내기</span></button>
       <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:#fff;background:rgba(59,130,246,0.25)">KRW → USD</button>
     </div>
   </div>
@@ -544,7 +547,7 @@ const METRIC_CATEGORIES = [
 ];
 
 const METRICS = {
-  mcap:      {label:'시가총액',               unit:'억원 이상',desc:'일정 규모 이상의 안정적 기업만 선별',         dv:1000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
+  mcap:      {label:'시가총액',               unit:'억원 이상',desc:'일정 규모 이상의 기업만 선별',         dv:1000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
   per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v.toFixed(1)+'배',cmp:'lte'},
   pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v.toFixed(2)+'배',cmp:'lte'},
   roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(최근연도 순이익÷자기자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
