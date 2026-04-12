@@ -145,26 +145,6 @@
     </div>
   </div>
 
-  <!-- Date Info Bar (auto-calculated) -->
-  <div class="date-bar animate-in delay-1">
-    <div class="date-card">
-      <div class="icon-circle market">📈</div>
-      <div class="info-text">
-        <div class="label">Market Data 기준일</div>
-        <div class="value" id="market-date"></div>
-        <div class="sub">종가 · 시가총액 · PER · PBR</div>
-      </div>
-    </div>
-    <div class="date-card">
-      <div class="icon-circle" style="background:rgba(99,179,237,0.12);color:#63b3ed">🏢</div>
-      <div class="info-text">
-        <div class="label">스크리닝 대상</div>
-        <div class="value">시가총액 500억원 이상</div>
-        <div class="sub">KRX 상장 보통주 (우선주·펀드·리츠 제외)</div>
-      </div>
-    </div>
-  </div>
-
   <div class="data-note animate-in delay-1" id="data-note">
     <div class="dot"></div>
     샘플 데이터 기반 시뮬레이션입니다. 실제 투자 시 DART 전자공시 및 FnGuide/KIS 등을 통해 최신 재무·시장 데이터를 확인하세요.
@@ -173,13 +153,18 @@
   <div class="pipeline-container animate-in delay-2">
     <div class="pipeline-header">
       <span class="pipeline-label">Screening Pipeline</span>
-      <button class="btn-add-step" onclick="addStep()"><span style="font-size:16px">+</span> Step 추가</button>
+      <button class="btn-add-step" onclick="addStep()"><span style="font-size:16px">+</span> Filter 추가</button>
     </div>
     <div class="pipeline-scroll" id="pipeline"></div>
   </div>
 
+  <div class="result-summary animate-in delay-3" id="result-summary" style="margin-bottom:8px"></div>
+
   <div class="controls animate-in delay-3">
-    <div class="result-summary" id="result-summary"></div>
+    <div style="font-size:12px;color:var(--text-muted);display:flex;gap:16px;flex-wrap:wrap">
+      <span>📈 Market Data: <span id="market-date" style="color:var(--text-secondary)"></span></span>
+      <span>🏢 모집단: 시가총액 500억원 이상의 보통주 (펀드, 리츠 제외)</span>
+    </div>
     <div class="btn-group">
       <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과<br class="mobile-br"><span class="mobile-nowrap"> 기업만</span></button>
       <button class="btn" id="btn-all" onclick="toggleView('all')">전체<br class="mobile-br"><span class="mobile-nowrap"> 보기</span></button>
@@ -595,7 +580,7 @@ function renderPipeline(){
     const thresholdUI = m.cmp === 'range'
       ? `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" style="width:60px" oninput="chgThresh(${st.id},this.value)"><span class="unit">% 이상</span><span style="margin:0 4px;color:var(--text-muted)">~</span><input type="number" value="${st.threshold2!=null?st.threshold2:m.dv2||100}" step="${m.step}" style="width:60px" oninput="chgThresh2(${st.id},this.value)"><span class="unit">% 이하</span></div>`
       : `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
-    c.innerHTML=`<div class="step-card-header"><div class="step-number">Step ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
+    c.innerHTML=`<div class="step-card-header"><div class="step-number">Filter ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
       <select class="step-metric-select" onchange="chgMetric(${st.id},this.value)">${buildMetricOptions(st.metric)}</select>
       <div class="step-metric-desc">${m.desc}</div>
       ${thresholdUI}
@@ -616,10 +601,10 @@ function sortArr(arr){arr.sort((a,b)=>{if(['name','code','sector','_reportShort'
 
 function renderBody(f){
   const mk=getMetricKeys(),sorted=sortArr([...f]),disp=viewMode==='pass'?sorted.filter(s=>s.passAll):sorted,passN=f.filter(s=>s.passAll).length;
-  document.getElementById('result-summary').innerHTML=`전체 <strong>${f.length}</strong>개 종목 중 ${steps.length}단계 통과: <strong>${passN}</strong>개`;
+  document.getElementById('result-summary').innerHTML=`전체 <strong style="color:var(--text-primary)">${f.length}</strong>개 종목 중 ${steps.length}단계 통과: <strong>${passN}</strong>개`;
   const tb=document.getElementById('table-body');
   if(!disp.length){tb.innerHTML=`<tr><td colspan="${5+mk.length+1}"><div class="empty-state"><div class="icon">🔍</div><p>필터 조건에 해당하는 기업이 없습니다. 기준을 조정해보세요.</p></div></td></tr>`}
-  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name">${s.name}</td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="font-size:11px;color:${s._reportShort.startsWith('AR')?'var(--pass-text)':'var(--text-muted)'}" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
+  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name">${s.name}</td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
   document.getElementById('footer-info').textContent=`${disp.length}개 종목 표시 중`;
 }
 
