@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-04-13 23:02:57",
+  "generated_at": "2026-04-13 23:20:37",
   "market_date": "2026-04-13",
   "market_date_display": "2026.04.13",
-  "run_time_display": "2026.04.13 23:02",
-  "financial_data_date": "2026-04-11 02:52:52",
-  "total_stocks": 2113,
+  "run_time_display": "2026.04.13 23:20",
+  "financial_data_date": "2026-04-13 23:09:17",
+  "total_stocks": 2125,
   "usd_krw_rate": 1473.28,
   "stocks": [
     {
@@ -5944,6 +5944,62 @@
       "avgTradingValue20": 203
     },
     {
+      "name": "이화공영",
+      "nameEn": "EehwaConstruction",
+      "code": "001840",
+      "sector": "건설",
+      "sectorEn": "Construction",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        1512,
+        1283,
+        1152
+      ],
+      "op": [
+        -11,
+        -198,
+        33
+      ],
+      "ni": [
+        -14,
+        -231,
+        21
+      ],
+      "cashEq": 9,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 59,
+      "curLongDebt": 0,
+      "bonds": 0,
+      "longBorrow": 0,
+      "equity": 0,
+      "equityParent": 0,
+      "ocf": [
+        -129,
+        -130,
+        -88
+      ],
+      "capex": [
+        0,
+        0,
+        0
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": 0,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 47.05,
+      "price": 2215,
+      "mcap": 626,
+      "per": 29.4,
+      "pbr": 0.0,
+      "avgTradingValue20": 0
+    },
+    {
       "name": "KISCO홀딩스",
       "nameEn": "KISCO Holdings Corp.",
       "code": "001940",
@@ -6726,6 +6782,62 @@
       "per": 4.8,
       "pbr": 0.35,
       "avgTradingValue20": 10
+    },
+    {
+      "name": "SH에너지화학",
+      "nameEn": "SH ENERGY & CHEMICAL CO.,LTD",
+      "code": "002360",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        1340,
+        1260,
+        986
+      ],
+      "op": [
+        -41,
+        -97,
+        -122
+      ],
+      "ni": [
+        -26,
+        -104,
+        -108
+      ],
+      "cashEq": 155,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 35,
+      "curLongDebt": 42,
+      "bonds": 0,
+      "longBorrow": 61,
+      "equity": 1,
+      "equityParent": 695,
+      "ocf": [
+        43,
+        -47,
+        -39
+      ],
+      "capex": [
+        -3,
+        -4,
+        -3
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 3,
+      "niParent": -104,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 31.06,
+      "price": 453,
+      "mcap": 503,
+      "per": 0.0,
+      "pbr": 0.71,
+      "avgTradingValue20": 30
     },
     {
       "name": "KCC",
@@ -55952,6 +56064,62 @@
       "avgTradingValue20": 7
     },
     {
+      "name": "엘엠에스",
+      "nameEn": "LMS Co.,Ltd.",
+      "code": "073110",
+      "sector": "디스플레이",
+      "sectorEn": "Display",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        758,
+        677,
+        696
+      ],
+      "op": [
+        -86,
+        -37,
+        -96
+      ],
+      "ni": [
+        -131,
+        -46,
+        -121
+      ],
+      "cashEq": 126,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 404,
+      "curLongDebt": 404,
+      "bonds": 0,
+      "longBorrow": 217,
+      "equity": 728,
+      "equityParent": 728,
+      "ocf": [
+        139,
+        60,
+        -231
+      ],
+      "capex": [
+        -18,
+        -17,
+        -53
+      ],
+      "dividendTotal": 16,
+      "dividendPaid": 12,
+      "sharesBuyback": 0,
+      "niParent": -121,
+      "shReturnYear": 2025,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 50.24,
+      "price": 5690,
+      "mcap": 506,
+      "per": 0.0,
+      "pbr": 0.57,
+      "avgTradingValue20": 0
+    },
+    {
       "name": "금호타이어",
       "nameEn": "KUMHO TIRE CO., INC.",
       "code": "073240",
@@ -56062,6 +56230,62 @@
       "per": 0.0,
       "pbr": 2.18,
       "avgTradingValue20": 129
+    },
+    {
+      "name": "에프알텍",
+      "nameEn": "FRTEKCO.,LTD.",
+      "code": "073540",
+      "sector": "IT하드웨어",
+      "sectorEn": "IT Hardware",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        248,
+        298,
+        253
+      ],
+      "op": [
+        -5,
+        8,
+        9
+      ],
+      "ni": [
+        23,
+        13,
+        22
+      ],
+      "cashEq": 201,
+      "shortFin": 5,
+      "shortInv": 0,
+      "shortBorrow": 30,
+      "curLongDebt": 0,
+      "bonds": 0,
+      "longBorrow": 0,
+      "equity": 610,
+      "equityParent": 604,
+      "ocf": [
+        79,
+        -37,
+        -19
+      ],
+      "capex": [
+        -91,
+        -5,
+        -2
+      ],
+      "dividendTotal": 9,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": 21,
+      "shReturnYear": 2025,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 37.0,
+      "price": 4955,
+      "mcap": 565,
+      "per": 27.1,
+      "pbr": 0.93,
+      "avgTradingValue20": 31
     },
     {
       "name": "우리손에프앤지",
@@ -58526,6 +58750,62 @@
       "per": 0.0,
       "pbr": 130.19,
       "avgTradingValue20": 11
+    },
+    {
+      "name": "성우전자",
+      "nameEn": "SUNGWOOELECTRONICSCO.,LTD.",
+      "code": "081580",
+      "sector": "IT하드웨어",
+      "sectorEn": "IT Hardware",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        1492,
+        1469,
+        1827
+      ],
+      "op": [
+        -45,
+        -51,
+        40
+      ],
+      "ni": [
+        -5,
+        -42,
+        121
+      ],
+      "cashEq": 125,
+      "shortFin": 147,
+      "shortInv": 0,
+      "shortBorrow": 0,
+      "curLongDebt": 0,
+      "bonds": 0,
+      "longBorrow": 0,
+      "equity": 1143,
+      "equityParent": 1130,
+      "ocf": [
+        64,
+        2,
+        154
+      ],
+      "capex": [
+        -3,
+        -8,
+        -2
+      ],
+      "dividendTotal": 4,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": 124,
+      "shReturnYear": 2025,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 41.09,
+      "price": 3265,
+      "mcap": 506,
+      "per": 4.1,
+      "pbr": 0.44,
+      "avgTradingValue20": 5
     },
     {
       "name": "미스토홀딩스",
@@ -76056,6 +76336,62 @@
       "avgTradingValue20": 625
     },
     {
+      "name": "카티스",
+      "nameEn": "CATIS INC.",
+      "code": "140430",
+      "sector": "IT하드웨어",
+      "sectorEn": "IT Hardware",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        0,
+        317,
+        279
+      ],
+      "op": [
+        0,
+        16,
+        -5
+      ],
+      "ni": [
+        0,
+        -51,
+        -4
+      ],
+      "cashEq": 31,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 0,
+      "curLongDebt": 0,
+      "bonds": 82,
+      "longBorrow": 77,
+      "equity": 50,
+      "equityParent": 50,
+      "ocf": [
+        0,
+        -31,
+        1
+      ],
+      "capex": [
+        0,
+        0,
+        -1
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": 0,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 53.39,
+      "price": 1076,
+      "mcap": 575,
+      "per": 0.0,
+      "pbr": 11.14,
+      "avgTradingValue20": 19
+    },
+    {
       "name": "엔솔바이오사이언스",
       "nameEn": "Ensol Biosciences Inc.",
       "code": "140610",
@@ -86304,6 +86640,62 @@
       "avgTradingValue20": 114
     },
     {
+      "name": "하이즈항공",
+      "nameEn": "HIZEAERO Co.,Ltd.",
+      "code": "221840",
+      "sector": "상사,자본재",
+      "sectorEn": "Trading & Capital Goods",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        808,
+        865,
+        846
+      ],
+      "op": [
+        -45,
+        -22,
+        46
+      ],
+      "ni": [
+        -76,
+        -91,
+        24
+      ],
+      "cashEq": 104,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 89,
+      "curLongDebt": 35,
+      "bonds": 0,
+      "longBorrow": 400,
+      "equity": 451,
+      "equityParent": 414,
+      "ocf": [
+        -42,
+        18,
+        67
+      ],
+      "capex": [
+        -51,
+        -76,
+        -28
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": -94,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 43.38,
+      "price": 2715,
+      "mcap": 508,
+      "per": 24.6,
+      "pbr": 1.23,
+      "avgTradingValue20": 1
+    },
+    {
       "name": "코스맥스엔비티",
       "nameEn": "COSMAX NBT, INC.",
       "code": "222040",
@@ -90054,6 +90446,62 @@
       "per": 225.8,
       "pbr": 0.57,
       "avgTradingValue20": 1
+    },
+    {
+      "name": "진코스텍",
+      "nameEn": "JINCOSTECH CO.,LTD.",
+      "code": "250030",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        195,
+        298,
+        486
+      ],
+      "op": [
+        -26,
+        11,
+        48
+      ],
+      "ni": [
+        -35,
+        0,
+        60
+      ],
+      "cashEq": 65,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 81,
+      "curLongDebt": 4,
+      "bonds": 0,
+      "longBorrow": 133,
+      "equity": 188,
+      "equityParent": 188,
+      "ocf": [
+        -13,
+        22,
+        53
+      ],
+      "capex": [
+        -2,
+        -5,
+        -4
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": 0,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 49.04,
+      "price": 17700,
+      "mcap": 504,
+      "per": 8.4,
+      "pbr": 2.68,
+      "avgTradingValue20": 2
     },
     {
       "name": "모비스",
@@ -94592,6 +95040,62 @@
       "avgTradingValue20": 2
     },
     {
+      "name": "모아데이타",
+      "nameEn": "Moadata Co., Ltd.",
+      "code": "288980",
+      "sector": "소프트웨어",
+      "sectorEn": "Software",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        245,
+        344,
+        232
+      ],
+      "op": [
+        -4,
+        -13,
+        -59
+      ],
+      "ni": [
+        -6,
+        -41,
+        -197
+      ],
+      "cashEq": 37,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 147,
+      "curLongDebt": 79,
+      "bonds": 34,
+      "longBorrow": 26,
+      "equity": 194,
+      "equityParent": 180,
+      "ocf": [
+        8,
+        -13,
+        -18
+      ],
+      "capex": [
+        0,
+        0,
+        0
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": -34,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 34.97,
+      "price": 1505,
+      "mcap": 520,
+      "per": 0.0,
+      "pbr": 2.88,
+      "avgTradingValue20": 34
+    },
+    {
       "name": "SV인베스트먼트",
       "nameEn": "SV INVESTMENT CORPORATION",
       "code": "289080",
@@ -96774,6 +97278,62 @@
       "per": 28.6,
       "pbr": 10.72,
       "avgTradingValue20": 10
+    },
+    {
+      "name": "라온피플",
+      "nameEn": "LaonPeople Inc.",
+      "code": "300120",
+      "sector": "소프트웨어",
+      "sectorEn": "Software",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        112,
+        2202,
+        2238
+      ],
+      "op": [
+        -111,
+        -162,
+        -162
+      ],
+      "ni": [
+        -87,
+        -139,
+        -204
+      ],
+      "cashEq": 371,
+      "shortFin": 0,
+      "shortInv": 0,
+      "shortBorrow": 202,
+      "curLongDebt": 0,
+      "bonds": 299,
+      "longBorrow": 0,
+      "equity": 440,
+      "equityParent": 327,
+      "ocf": [
+        -74,
+        4,
+        -106
+      ],
+      "capex": [
+        -63,
+        -200,
+        -3
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": -123,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 44.71,
+      "price": 1015,
+      "mcap": 502,
+      "per": 0.0,
+      "pbr": 1.54,
+      "avgTradingValue20": 6
     },
     {
       "name": "한일시멘트",
@@ -100974,6 +101534,62 @@
       "per": 0.0,
       "pbr": 1.33,
       "avgTradingValue20": 2
+    },
+    {
+      "name": "프리시젼바이오",
+      "nameEn": "Precision Biosensor Inc.",
+      "code": "335810",
+      "sector": "헬스케어",
+      "sectorEn": "Healthcare",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        204,
+        191,
+        199
+      ],
+      "op": [
+        -48,
+        -54,
+        -54
+      ],
+      "ni": [
+        -45,
+        -73,
+        -100
+      ],
+      "cashEq": 33,
+      "shortFin": 70,
+      "shortInv": 0,
+      "shortBorrow": 0,
+      "curLongDebt": 75,
+      "bonds": 44,
+      "longBorrow": 15,
+      "equity": 328,
+      "equityParent": 328,
+      "ocf": [
+        -20,
+        -14,
+        -15
+      ],
+      "capex": [
+        -71,
+        -1,
+        -2
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": -73,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 57.46,
+      "price": 2295,
+      "mcap": 504,
+      "per": 0.0,
+      "pbr": 1.54,
+      "avgTradingValue20": 1
     },
     {
       "name": "두산퓨얼셀",
@@ -110718,6 +111334,62 @@
       "per": 40.9,
       "pbr": 6.57,
       "avgTradingValue20": 149
+    },
+    {
+      "name": "시지트로닉스",
+      "nameEn": "Sigetronics, Inc.",
+      "code": "429270",
+      "sector": "반도체",
+      "sectorEn": "Semiconductors",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "rev": [
+        125,
+        122,
+        127
+      ],
+      "op": [
+        -54,
+        -63,
+        -76
+      ],
+      "ni": [
+        -55,
+        -57,
+        -80
+      ],
+      "cashEq": 53,
+      "shortFin": 18,
+      "shortInv": 0,
+      "shortBorrow": 58,
+      "curLongDebt": 5,
+      "bonds": 0,
+      "longBorrow": 25,
+      "equity": 11,
+      "equityParent": 11,
+      "ocf": [
+        -41,
+        -41,
+        -50
+      ],
+      "capex": [
+        -36,
+        -54,
+        -8
+      ],
+      "dividendTotal": 0,
+      "dividendPaid": 0,
+      "sharesBuyback": 0,
+      "niParent": 0,
+      "shReturnYear": 2024,
+      "ttmLabel": "TTM(2025 AR)",
+      "isFinancial": false,
+      "majorShareholderRate": 25.86,
+      "price": 8800,
+      "mcap": 568,
+      "per": 0.0,
+      "pbr": 52.37,
+      "avgTradingValue20": 34
     },
     {
       "name": "KB스타리츠",
