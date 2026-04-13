@@ -43,7 +43,7 @@
 
   .pipeline-container{margin-bottom:48px}
   .pipeline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-  .pipeline-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:500}
+  .pipeline-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:700}
   .btn-add-step{background:transparent;border:1px dashed var(--border);color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:7px 18px;border-radius:8px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:6px}
   .btn-add-step:hover{border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(59,130,246,0.05)}
   .pipeline-scroll{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth}
@@ -153,7 +153,7 @@
   <div class="pipeline-container animate-in delay-2">
     <div class="pipeline-header">
       <span class="pipeline-label">Screening Pipeline</span>
-      <button class="btn-add-step" onclick="addStep()"><span style="font-size:16px">+</span> Filter 추가</button>
+      <button class="btn-add-step" onclick="addStep()"><span style="font-size:16px">+</span> 필터 추가</button>
     </div>
     <div class="pipeline-scroll" id="pipeline"></div>
   </div>
@@ -162,8 +162,8 @@
 
   <div class="controls animate-in delay-3">
     <div style="font-size:12px;color:var(--text-muted);display:flex;gap:16px;flex-wrap:wrap">
-      <span>📈 Market Data: <span id="market-date" style="color:var(--text-secondary)"></span></span>
-      <span>🏢 모집단: 시가총액 500억원 이상의 보통주 (펀드, 리츠 제외)</span>
+      <span>📈 시장정보 기준일: <span id="market-date" style="color:var(--text-secondary)"></span></span>
+      <span>🏢 모집단: 시가총액 500억원 이상의 코스피, 코스닥 상장 보통주 (우선주, 펀드, 리츠 제외)</span>
     </div>
     <div class="btn-group">
       <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과<br class="mobile-br"><span class="mobile-nowrap"> 기업만</span></button>
@@ -580,7 +580,7 @@ function renderPipeline(){
     const thresholdUI = m.cmp === 'range'
       ? `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" style="width:60px" oninput="chgThresh(${st.id},this.value)"><span class="unit">% 이상</span><span style="margin:0 4px;color:var(--text-muted)">~</span><input type="number" value="${st.threshold2!=null?st.threshold2:m.dv2||100}" step="${m.step}" style="width:60px" oninput="chgThresh2(${st.id},this.value)"><span class="unit">% 이하</span></div>`
       : `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
-    c.innerHTML=`<div class="step-card-header"><div class="step-number">Filter ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
+    c.innerHTML=`<div class="step-card-header"><div class="step-number">필터 ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
       <select class="step-metric-select" onchange="chgMetric(${st.id},this.value)">${buildMetricOptions(st.metric)}</select>
       <div class="step-metric-desc">${m.desc}</div>
       ${thresholdUI}
