@@ -205,6 +205,7 @@
       <strong>20D Avg Trading Value:</strong> Average daily turnover in value terms over the trailing 20 sessions (₩100M). A practical gauge of market depth and ease of execution.<br>
       <strong>Turnover Ratio:</strong> 20-day average trading value ÷ market cap × 100 (%). Normalizes liquidity for size; a large-cap name with identical turnover in won terms will register a lower ratio than a mid-cap peer.<br>
       <strong>Major Shareholder %:</strong> Combined year-end ownership (%) of the largest shareholder and related parties per the latest DART periodic filing. Elevated concentration typically signals stable control and alignment of interests, though it may also limit free float.<br>
+      <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100(%). Treasury shares carry no voting rights; cancellation increases per-share value. A higher ratio signals potential for shareholder returns through share retirement.<br>
       <strong>TTM (Trailing Twelve Months):</strong> Where indicated, income-statement and cash-flow figures are computed on a rolling four-quarter basis derived from the most recent quarterly, semi-annual, or annual report available on DART.<br><br>
       📌 This screener is a purely quantitative filtering tool. A thorough investment thesis should incorporate qualitative judgment — competitive positioning, management quality, regulatory risk, and other factors beyond the numbers.<br>
       📌 Preferred shares, infrastructure funds, and REITs are structurally incompatible with these metrics and are automatically excluded from screening results.
@@ -508,6 +509,7 @@ function compute(s) {
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && s.mcap > 0) ? Math.round((s.avgTradingValue20 / s.mcap) * 10000) / 100 : null,
     _majorSH: s.majorShareholderRate || 0,
+    _treasurySHR: s.treasuryShareRatio || 0,
   };
 }
 
@@ -521,7 +523,7 @@ const METRIC_CATEGORIES = [
   { name: 'Shareholder Return', keys: ['divPayout', 'shReturn'] },
   { name: 'Growth',        keys: ['revGrowth', 'opGrowth'] },
   { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
-  { name: 'Governance',    keys: ['majorSH'] },
+  { name: 'Governance',    keys: ['majorSH', 'treasurySHR'] },
 ];
 
 const METRICS = {
@@ -544,6 +546,7 @@ const METRICS = {
   avgTV20:   {label:'20D Avg Trading Value',   unit:'100M KRW ≥',desc:'20-day average daily trading value (liquidity)',               dv:10,  step:5,  col:'20D Trading',   get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'Turnover Ratio',          unit:'% ≥',      desc:'20D avg trading value ÷ market cap × 100',                    dv:0.1, step:0.05,col:'Turnover',       get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   majorSH:   {label:'Major Shareholder %',      unit:'%',       desc:'Largest shareholder + related parties combined stake',  dv:20,  dv2:80, step:5,  col:'Major SH%',     get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
+  treasurySHR:{label:'Treasury Share Ratio',    unit:'% ≥',     desc:'Treasury shares ÷ total issued shares (higher = buyback/cancellation potential)', dv:1, step:1, col:'Treasury%', get:s=>s._treasurySHR, fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'gte'},
 };
 
 function buildMetricOptions(selectedKey) {
