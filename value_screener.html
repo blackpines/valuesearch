@@ -208,7 +208,6 @@
       <strong>20일 평균 거래대금:</strong> 최근 20영업일 일평균 거래대금(억원). 유동성이 충분한 종목일수록 매매 용이함<br>
       <strong>회전율(거래대금/시총):</strong> 20일 평균 거래대금 ÷ 시가총액 × 100(%). 시총 대비 거래 활성도를 보여주며, 동일 거래대금이라도 시총이 큰 종목은 회전율이 낮음<br>
       <strong>대주주 지분율:</strong> DART 정기보고서 기준 최대주주 및 특수관계인 합산 기말 지분율(%). 합산 지분이 높을수록 경영권이 안정적<br>
-      <strong>자기주식 보유비율:</strong> 자기주식수 ÷ 발행주식총수 × 100(%). 자기주식은 의결권이 없음<br>
       <strong>TTM(Trailing Twelve Months):</strong> 최근연도 실적은 가장 최신 분기/반기/사업보고서를 기준으로 누적 4분기 합산(TTM) 실적 사용<br><br>
       📌 본 프로그램은 정량적 필터링 툴입니다. 투자 판단에는 이외에 정성적 요소 고려가 필요할 수 있습니다.<br>
       📌 우선주, 인프라펀드, 리츠 등은 특성 상 스크리닝 지표가 적용되지 않고 필터에서 자동으로 제외됩니다.
@@ -509,7 +508,6 @@ function compute(s) {
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && s.mcap > 0) ? Math.round((s.avgTradingValue20 / s.mcap) * 10000) / 100 : null,
     _majorSH: s.majorShareholderRate || 0,
-    _treasurySHR: s.treasuryShareRatio || 0,
   };
 }
 
@@ -523,7 +521,7 @@ const METRIC_CATEGORIES = [
   { name: '주주환원',   keys: ['divPayout', 'shReturn'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth'] },
   { name: '유동성',     keys: ['avgTV20', 'turnover'] },
-  { name: '지배구조',   keys: ['majorSH', 'treasurySHR'] },
+  { name: '지배구조',   keys: ['majorSH'] },
 ];
 
 const METRICS = {
@@ -546,7 +544,6 @@ const METRICS = {
   avgTV20:   {label:'20일 평균 거래대금',      unit:'억원 이상',desc:'최근 20영업일 일평균 거래대금(유동성)',  dv:10,  step:5,  col:'20D 거래대금',  get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'회전율(거래대금/시총)',   unit:'% 이상',  desc:'20일 평균 거래대금 ÷ 시가총액 × 100', dv:0.1, step:0.05,col:'회전율',        get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   majorSH:   {label:'대주주 지분율',           unit:'%',       desc:'최대주주+특수관계인 합산 지분율',     dv:20,  dv2:80, step:5,  col:'대주주 지분',    get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
-  treasurySHR:{label:'자기주식 보유비율',      unit:'% 이상',  desc:'자기주식수÷발행주식총수', dv:1, step:1, col:'자기주식비율', get:s=>s._treasurySHR, fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'gte'},
 };
 
 function buildMetricOptions(selectedKey) {
