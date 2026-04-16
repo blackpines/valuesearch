@@ -91,7 +91,9 @@
   tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);transition:background .15s}
   tbody tr:hover{background:rgba(59,130,246,0.04)}
   tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .col-name{font-weight:500;color:var(--text-primary)}
+  .col-name{font-weight:500;color:var(--text-primary);position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
+  tr.all-pass .col-name{background:var(--bg-secondary)}
+  thead th:first-child{position:sticky;left:0;z-index:3;background:var(--bg-card)}
   .col-code{font-family:'DM Mono',monospace;color:var(--text-muted);font-size:12px}
   .col-sector{color:var(--text-secondary);font-size:12px}
   .col-num{font-family:'DM Mono',monospace;text-align:right;color:var(--text-primary)}
@@ -99,6 +101,10 @@
   .col-num.negative{color:var(--fail-text)}
   .col-num.neutral{color:var(--text-primary)}
   .badge-pass{display:inline-block;background:var(--pass);color:var(--pass-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
+  .market-badge{display:inline-block;font-size:9px;font-weight:500;padding:1px 5px;border-radius:4px;margin-left:4px;vertical-align:middle;letter-spacing:0.5px}
+  .market-badge.kp{background:rgba(59,130,246,0.15);color:#60a5fa}
+  .market-badge.kd{background:rgba(251,146,60,0.15);color:#fb923c}
+  .market-badge.kn{background:rgba(168,85,247,0.15);color:#a855f7}
   .badge-fail{display:inline-block;background:var(--fail);color:var(--fail-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
   tbody tr.all-pass{background:rgba(16,185,129,0.03)}
   tbody tr.all-pass:hover{background:rgba(16,185,129,0.06)}
@@ -163,7 +169,7 @@
   <div class="controls animate-in delay-3">
     <div style="font-size:12px;color:var(--text-muted);display:flex;gap:16px;flex-wrap:wrap">
       <span>📈 시장정보 기준일: <span id="market-date" style="color:var(--text-secondary)"></span></span>
-      <span>🏢 모집단: 시가총액 500억원 이상의 코스피, 코스닥 상장 보통주 (우선주, 펀드, 리츠 제외)</span>
+      <span>🏢 모집단: 시가총액 500억원 이상의 코스피, 코스닥 상장 보통주 (우선주, 펀드 제외)</span>
     </div>
     <div class="btn-group">
       <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과<br class="mobile-br"><span class="mobile-nowrap"> 기업만</span></button>
@@ -208,9 +214,10 @@
       <strong>20일 평균 거래대금:</strong> 최근 20영업일 일평균 거래대금(억원). 유동성이 충분한 종목일수록 매매 용이함<br>
       <strong>회전율(거래대금/시총):</strong> 20일 평균 거래대금 ÷ 시가총액 × 100(%). 시총 대비 거래 활성도를 보여주며, 동일 거래대금이라도 시총이 큰 종목은 회전율이 낮음<br>
       <strong>대주주 지분율:</strong> DART 정기보고서 기준 최대주주 및 특수관계인 합산 기말 지분율(%). 합산 지분이 높을수록 경영권이 안정적<br>
+      <strong>자기주식 보유비율:</strong> 자기주식수 ÷ 발행주식총수 × 100(%). 자기주식은 의결권이 없음<br>
       <strong>TTM(Trailing Twelve Months):</strong> 최근연도 실적은 가장 최신 분기/반기/사업보고서를 기준으로 누적 4분기 합산(TTM) 실적 사용<br><br>
       📌 본 프로그램은 정량적 필터링 툴입니다. 투자 판단에는 이외에 정성적 요소 고려가 필요할 수 있습니다.<br>
-      📌 우선주, 인프라펀드, 리츠 등은 특성 상 스크리닝 지표가 적용되지 않고 필터에서 자동으로 제외됩니다.
+      📌 우선주, 인프라펀드 등은 특성 상 스크리닝 지표가 적용되지 않고 필터에서 자동으로 제외됩니다.
     </p>
   </div>
 
@@ -497,6 +504,7 @@ function compute(s) {
     ...s,
     _price:s.price, _mcap:s.mcap, _per:s.per, _pbr:s.pbr,
     _report:s.report, _reportShort:s.reportShort,
+    _market:s.market||'',
     avgOPM: avgOPM !== null ? Math.round(avgOPM*100)/100 : null,
     avgNPM: avgNPM !== null ? Math.round(avgNPM*100)/100 : null,
     latestOPM, latestNPM,
@@ -508,6 +516,7 @@ function compute(s) {
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && s.mcap > 0) ? Math.round((s.avgTradingValue20 / s.mcap) * 10000) / 100 : null,
     _majorSH: s.majorShareholderRate || 0,
+    _treasurySHR: s.treasuryShareRatio || 0,
   };
 }
 
@@ -521,13 +530,13 @@ const METRIC_CATEGORIES = [
   { name: '주주환원',   keys: ['divPayout', 'shReturn'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth'] },
   { name: '유동성',     keys: ['avgTV20', 'turnover'] },
-  { name: '지배구조',   keys: ['majorSH'] },
+  { name: '지배구조',   keys: ['majorSH', 'treasurySHR'] },
 ];
 
 const METRICS = {
   mcap:      {label:'시가총액',               unit:'억원 이상',desc:'일정 규모 이상의 기업만 선별',         dv:1000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
-  per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v.toFixed(1)+'배',cmp:'lte'},
-  pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v.toFixed(2)+'배',cmp:'lte'},
+  per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'배',cmp:'lte'},
+  pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'배',cmp:'lte'},
   roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(최근연도 순이익÷자기자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3년 평균 영업이익률',    unit:'% 이상',  desc:'3년 평균 영업이익률 기준 수익성 검증',      dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'최근연도 영업이익률',    unit:'% 이상',  desc:'가장 최근 사업연도 영업이익률',            dv:10,  step:1,  col:'최근 OPM',      get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -544,6 +553,7 @@ const METRICS = {
   avgTV20:   {label:'20일 평균 거래대금',      unit:'억원 이상',desc:'최근 20영업일 일평균 거래대금(유동성)',  dv:10,  step:5,  col:'20D 거래대금',  get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'회전율(거래대금/시총)',   unit:'% 이상',  desc:'20일 평균 거래대금 ÷ 시가총액 × 100', dv:0.1, step:0.05,col:'회전율',        get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   majorSH:   {label:'대주주 지분율',           unit:'%',       desc:'최대주주+특수관계인 합산 지분율',     dv:20,  dv2:80, step:5,  col:'대주주 지분',    get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
+  treasurySHR:{label:'자기주식 보유비율',      unit:'% 이상',  desc:'자기주식수÷발행주식총수', dv:1, step:1, col:'자기주식비율', get:s=>s._treasurySHR, fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'gte'},
 };
 
 function buildMetricOptions(selectedKey) {
@@ -604,7 +614,7 @@ function renderBody(f){
   document.getElementById('result-summary').innerHTML=`전체 <strong style="color:var(--text-primary)">${f.length}</strong>개 종목 중 ${steps.length}단계 통과: <strong>${passN}</strong>개`;
   const tb=document.getElementById('table-body');
   if(!disp.length){tb.innerHTML=`<tr><td colspan="${5+mk.length+1}"><div class="empty-state"><div class="icon">🔍</div><p>필터 조건에 해당하는 기업이 없습니다. 기준을 조정해보세요.</p></div></td></tr>`}
-  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name">${s.name}</td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
+  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name">${s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'코스닥':s._market==='KONEX'?'코넥스':'코스피'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
   document.getElementById('footer-info').textContent=`${disp.length}개 종목 표시 중`;
 }
 
@@ -649,8 +659,8 @@ function exportCSV(){
         if(isUSD) return (v * 100000000 / USD_KRW_RATE).toFixed(0);
         return v;
       }
-      if(k==='per')return v.toFixed(1);
-      if(k==='pbr')return v.toFixed(2);
+      if(k==='per')return v===0?'N/A':v.toFixed(1);
+      if(k==='pbr')return v===0?'N/A':v.toFixed(2);
       if(pctKeys.has(k))return v.toFixed(2)+'%';
       return typeof v==='number'?v.toFixed(2):'N/A';
     });
@@ -685,11 +695,12 @@ async function init() {
     if (resp.ok) {
       jsonData = await resp.json();
       if (jsonData.stocks && jsonData.stocks.length > 0) {
-        stockSource = jsonData.stocks;
+        // 우선주, 인프라펀드 등 제외 (reportShort 없는 종목)
+        stockSource = jsonData.stocks.filter(s => s.reportShort && s.reportShort.length > 0);
         marketDateStr = jsonData.market_date_display || LAST_BIZ_STR;
         isRealData = true;
         if (jsonData.usd_krw_rate) USD_KRW_RATE = jsonData.usd_krw_rate;
-        console.log(`✅ 실데이터 로드: ${jsonData.total_stocks}개 종목 (${jsonData.market_date_display})`);
+        console.log(`✅ 실데이터 로드: ${stockSource.length}개 종목 (우선주/펀드 ${jsonData.stocks.length - stockSource.length}개 제외)`);
       }
     }
   } catch(e) {
