@@ -91,9 +91,13 @@
   tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);transition:background .15s}
   tbody tr:hover{background:rgba(59,130,246,0.04)}
   tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .col-name{font-weight:500;color:var(--text-primary);position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
-  tr.all-pass .col-name{background:var(--bg-secondary)}
-  thead th:first-child{position:sticky;left:0;z-index:3;background:var(--bg-card)}
+  .col-name{font-weight:500;color:var(--text-primary)}
+  .col-name.sticky{position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
+  tr.all-pass .col-name.sticky{background:var(--bg-secondary)}
+  thead th.th-sticky{position:sticky;left:0;z-index:3;background:var(--bg-card)}
+  .pin-btn{cursor:pointer;font-size:12px;opacity:0.35;transition:opacity 0.2s;vertical-align:middle}
+  .pin-btn:hover{opacity:0.7}
+  .pin-btn.pin-active{opacity:1}
   .col-code{font-family:'DM Mono',monospace;color:var(--text-muted);font-size:12px}
   .col-sector{color:var(--text-secondary);font-size:12px}
   .col-num{font-family:'DM Mono',monospace;text-align:right;color:var(--text-primary)}
@@ -602,7 +606,14 @@ function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)po
 
 function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
 
-function renderHead(){const mk=getMetricKeys();document.getElementById('table-head').innerHTML=`<tr><th onclick="doSort('name')">Company <span class="sort-icon">↕</span></th><th onclick="doSort('code')">Code</th><th onclick="doSort('sector')">Sector</th><th onclick="doSort('_reportShort')">Report <span class="sort-icon">↕</span></th><th onclick="doSort('_price')" style="text-align:right">Close <span class="sort-icon">↕</span></th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col} <span class="sort-icon">↕</span></th>`).join('')}<th style="text-align:center">Result</th></tr>`}
+let nameSticky = true;
+function togglePin(){
+  nameSticky = !nameSticky;
+  document.querySelectorAll('.col-name').forEach(el=>{el.classList.toggle('sticky', nameSticky)});
+  document.querySelectorAll('thead th:first-child').forEach(el=>{el.classList.toggle('th-sticky', nameSticky)});
+  document.querySelectorAll('.pin-btn').forEach(el=>{el.classList.toggle('pin-active', nameSticky)});
+}
+function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">Company <span class="sort-icon">↕</span> <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th><th onclick="doSort('code')">Code</th><th onclick="doSort('sector')">Sector</th><th onclick="doSort('_reportShort')">Report <span class="sort-icon">↕</span></th><th onclick="doSort('_price')" style="text-align:right">Close <span class="sort-icon">↕</span></th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col} <span class="sort-icon">↕</span></th>`).join('')}<th style="text-align:center">Result</th></tr>`}
 
 function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderBody(applyAll())}
 
@@ -613,7 +624,7 @@ function renderBody(f){
   document.getElementById('result-summary').innerHTML=`<strong>${passN}</strong> of <strong style="color:var(--text-primary)">${f.length}</strong> companies passed ${steps.length} filters`;
   const tb=document.getElementById('table-body');
   if(!disp.length){tb.innerHTML=`<tr><td colspan="${5+mk.length+1}"><div class="empty-state"><div class="icon">🔍</div><p>필터 조건에 해당하는 기업이 없습니다. 기준을 조정해보세요.</p></div></td></tr>`}
-  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name">${s.nameEn||s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'KD':s._market==='KONEX'?'KN':'KP'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sectorEn||s.sector}</td><td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
+  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name${nameSticky?' sticky':''}">${s.nameEn||s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'KOSDAQ':s._market==='KONEX'?'KONEX':'KOSPI'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sectorEn||s.sector}</td><td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
   document.getElementById('footer-info').textContent=`Showing ${disp.length} companies`;
 }
 
