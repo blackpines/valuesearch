@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Screener — Korea Equity Fundamental Screener</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary:#0a0f1a;--bg-secondary:#111827;--bg-card:#1a2235;--bg-card-hover:#1f2a40;
+  --text-primary:#e8ecf4;--text-secondary:#8899b4;--text-muted:#5a6a85;
+  --gold:#d4a853;--gold-glow:rgba(212,168,83,0.15);--gold-dim:rgba(212,168,83,0.15);
+  --pass:rgba(16,185,129,0.12);--pass-bg:rgba(16,185,129,0.12);--pass-text:#34d399;
+  --fail:rgba(239,68,68,0.08);--fail-text:#f87171;
+  --border:#2a3550;--border-active:#3b82f6;
+  --accent-blue:#3b82f6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;min-height:100vh}
+.app{max-width:1500px;margin:0 auto;padding:40px 32px 80px}
+.header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;border-bottom:1px solid #2a3550;padding-bottom:32px}
+.header h1{font-family:Verdana,Geneva,sans-serif;font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.1}
+.header h1 span{color:var(--gold)}
+.header h1 a{text-decoration:none;color:inherit}
+
+/* Data note (sample data banner) */
+.data-note{display:flex;align-items:center;gap:8px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:12px 16px;margin-bottom:32px;font-size:12px;color:var(--accent-blue)}
+.data-note .dot{width:6px;height:6px;background:var(--accent-blue);border-radius:50%;flex-shrink:0;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* Section headers (outside panel) */
+.section-wrap{flex:1;display:flex;flex-direction:column}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:0 4px}
+.section-label{font-family:'DM Mono',monospace;font-size:12.5px;color:#fff;text-transform:uppercase;letter-spacing:2px;font-weight:700}
+.section-count{color:var(--text-muted);font-size:11px;margin-left:auto;font-family:'DM Mono',monospace}
+.subtitle{color:var(--text-secondary);font-size:14px;margin-top:8px;font-weight:300;letter-spacing:.5px}
+.badge{background:rgba(212,168,83,0.08);color:var(--gold);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,168,83,0.25);font-family:'DM Mono',monospace}
+
+/* 2-column layout */
+.config-area{display:flex;gap:20px;margin-bottom:24px}
+.config-area .panel{flex:1}
+
+.panel{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:24px}
+.config-area .panel{padding-top:12px}
+.panel-title{font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.panel-title .icon{font-size:18px}
+.panel-title .label{color:var(--text-primary)}
+.panel-title .count{color:var(--text-muted);font-size:12px;font-weight:400;margin-left:auto}
+
+/* Filter rows */
+.filter-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.filter-row:last-child{border-bottom:none}
+.filter-num{font-family:'DM Mono',monospace;font-size:11px;color:#fff;letter-spacing:1px;min-width:26px;text-align:center}
+.filter-move{display:flex;flex-direction:column;gap:0}
+.btn-move{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:11px;padding:1px 5px;border-radius:4px;line-height:1;transition:all .2s}
+.btn-move:hover:not(:disabled){color:var(--accent-blue);background:rgba(59,130,246,0.1)}
+.btn-move:disabled{opacity:0.3;cursor:not-allowed}
+.filter-select{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px;font-family:inherit;min-width:160px}
+.filter-cmp{color:var(--text-muted);font-size:13px;min-width:30px;text-align:center}
+.filter-input{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px;font-family:'DM Mono',monospace;width:80px;text-align:right}
+.filter-unit{color:var(--text-muted);font-size:12px;min-width:40px}
+.btn-remove{cursor:pointer;color:var(--text-muted);font-size:16px;padding:4px 8px;border-radius:6px;border:none;background:none}
+.btn-remove:hover{color:var(--fail-text);background:rgba(248,113,113,0.1)}
+
+/* Factor rows */
+.factor-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.factor-row:last-child{border-bottom:none}
+.factor-dir{font-size:11px;color:var(--text-muted);padding:3px 8px;border-radius:4px;background:var(--bg-secondary)}
+.factor-weight{display:flex;align-items:center;gap:8px}
+.factor-weight input[type=range]{width:100px;accent-color:var(--gold);height:5px}
+.weight-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:22px;border-radius:6px;background:var(--gold-glow);color:var(--gold);font-family:'DM Mono',monospace;font-size:13px;font-weight:700}
+
+.add-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 18px;border:1px dashed var(--text-muted);border-radius:10px;background:none;color:var(--text-secondary);cursor:pointer;font-size:12px;line-height:1;margin-top:10px}
+.add-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+.btn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:8px 18px;border-radius:8px;cursor:pointer;transition:all .2s}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Result summary */
+.result-bar{display:flex;align-items:center;gap:16px;padding:16px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;font-size:15px;color:var(--text-secondary);font-weight:300}
+.result-bar strong{color:var(--gold);font-weight:700;font-size:24px;margin:0 4px}
+.result-bar .arrow{color:var(--text-muted);font-size:18px;margin:0 4px}
+
+/* Table */
+.table-wrap{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;overflow-x:auto;overflow-y:auto;max-height:75vh;position:relative;scrollbar-width:thin;scrollbar-color:rgba(148,163,184,0.2) transparent}
+.table-wrap::-webkit-scrollbar{width:8px;height:8px}
+.table-wrap::-webkit-scrollbar-track{background:transparent}
+.table-wrap::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:4px}
+.table-wrap::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,0.35)}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;font-family:'Noto Sans KR',sans-serif}
+thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2;box-sizing:border-box}
+thead th:hover{color:var(--gold)}
+tbody tr{border-bottom:1px solid rgba(42,53,80,0.5)}
+tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:13px;border-bottom:1px solid var(--border);box-sizing:border-box}
+tbody tr:hover{background:var(--bg-card-hover)}
+.col-rank{text-align:center;min-width:70px;font-family:'DM Mono',monospace;color:var(--text-secondary);font-weight:700;box-sizing:border-box;padding-left:18px;padding-right:18px}
+.col-rank.sticky{position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
+tr:hover .col-rank.sticky{background:var(--bg-card-hover)}
+tr.top3 .col-rank.sticky{background:#111E2B}
+tr.top3:hover .col-rank.sticky{background:#111E2B}
+thead th.th-rank-sticky{position:sticky;left:0;z-index:3;background:var(--bg-card)}
+.col-score{text-align:right;font-family:'DM Mono',monospace;font-weight:700;background:#11222D}
+.col-num{text-align:right;font-family:'DM Mono',monospace;white-space:nowrap}
+.col-name{font-weight:500;white-space:nowrap}
+.col-name.sticky{position:sticky;left:60px;z-index:1;background:var(--bg-secondary)}
+tr:hover .col-name.sticky{background:var(--bg-card-hover)}
+tr.top3 .col-name.sticky{background:#111E2B}
+tr.top3:hover .col-name.sticky{background:#111E2B}
+thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)}
+.pin-btn{cursor:pointer;font-size:12px;opacity:0.35;transition:opacity 0.2s;vertical-align:middle;margin-left:12px;padding:4px}
+.pin-btn:hover{opacity:0.7}
+.pin-btn.pin-active{opacity:1}
+.market-badge{display:inline-block;font-size:9px;font-weight:500;padding:1px 5px;border-radius:4px;margin-left:4px;vertical-align:middle;letter-spacing:0.5px}
+.market-badge.kp{background:rgba(59,130,246,0.15);color:#60a5fa}
+.market-badge.kd{background:rgba(251,146,60,0.15);color:#fb923c}
+.market-badge.kn{background:rgba(168,85,247,0.15);color:#a855f7}
+.col-sector{color:var(--text-muted);white-space:nowrap}
+.col-code{font-family:'DM Mono',monospace;color:var(--text-muted);white-space:nowrap}
+.col-price{text-align:right;font-family:'DM Mono',monospace;white-space:nowrap}
+
+.score-bar{display:inline-block;height:5px;border-radius:3px;background:var(--gold);opacity:0.6;vertical-align:middle;margin-right:6px}
+.score-high{color:var(--pass-text)}
+.score-mid{color:var(--text-primary)}
+.score-low{color:var(--fail-text)}
+
+.top3{background:rgba(16,185,129,0.04)}
+.top3 .col-rank.sticky,.top3 .col-name.sticky{background:#17261e}
+
+.mode-tabs{display:flex;gap:8px;margin-bottom:24px}
+.mode-tab{display:inline-block;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500;
+  background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);
+  cursor:pointer;text-decoration:none;transition:all 0.2s}
+.mode-tab:hover{border-color:var(--gold);color:var(--gold)}
+.mode-tab.active{background:var(--gold);border-color:var(--gold);color:var(--bg-primary);font-weight:700}
+
+@media(max-width:900px){
+  .app{padding:16px 12px 60px}
+  .header{flex-direction:column;align-items:flex-start;gap:8px}
+  .config-area{flex-direction:column}
+  #filters,#factors{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .factor-row,.filter-row{flex-wrap:nowrap;min-width:min-content}
+  .filter-select{min-width:140px;flex-shrink:0}
+  .filter-input{flex-shrink:0}
+  .filter-unit{flex-shrink:0;white-space:nowrap}
+  .factor-row > *,.filter-row > *{flex-shrink:0}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div>
+      <h1><a href="value_screener_en.html"><span>Value</span> Screener</a></h1>
+      <div class="subtitle">Korea Equity Fundamental Screener</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="#" onclick="switchLang('scoring.html');return false" style="text-decoration:none"><div class="badge" style="cursor:pointer">한국어</div></a>
+      <div class="badge" id="data-badge">SAMPLE DATA</div>
+    </div>
+  </div>
+
+  <div class="mode-tabs">
+    <a href="value_screener_en.html" class="mode-tab">Filtering</a>
+    <a href="scoring_en.html" class="mode-tab active">Scoring</a>
+  </div>
+
+  <!-- Configuration: Filters + Scoring Factors -->
+  <div class="config-area">
+    <!-- Universe Filters -->
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-label">Universe Filters</span>
+        <span class="section-count" id="filter-count"></span>
+      </div>
+      <div class="panel">
+        <div id="filters"></div>
+        <button class="add-btn" onclick="addFilter()">+ Add Filter</button>
+      </div>
+    </div>
+    <!-- Scoring Factors -->
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-label">Scoring Factors</span>
+        <span class="section-count" id="factor-count"></span>
+      </div>
+      <div class="panel">
+        <div id="factors"></div>
+        <button class="add-btn" onclick="addFactor()">+ Add Factor</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div style="margin-bottom:4px">
+    <span id="summary" style="font-size:14px;color:var(--text-secondary);font-weight:300"></span>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <span style="font-size:12px;color:var(--text-muted)">📈 Market Data: <span id="scoring-market-date" style="color:var(--text-secondary)">-</span></span>
+      <span style="font-size:12px;color:var(--text-muted)">🏢 Coverage: KRX common stocks, Mkt Cap ≥ ₩50B (excl. preferred, funds)</span>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:#fff;background:rgba(59,130,246,0.25)">KRW → USD</button>
+      <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">Export CSV</button>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- Metrics Guide -->
+  <div class="panel" style="margin-top:24px">
+    <div class="panel-title" style="font-size:14px"><span class="icon">📖</span><span class="label" style="color:var(--text-secondary)">Metrics Guide</span></div>
+    <p style="font-size:12px;color:var(--text-muted);line-height:1.8;font-weight:300">
+      <strong>Market Capitalization:</strong> Reference-date closing price × total shares outstanding. Standard proxy for free-float liquidity and institutional investability.<br>
+      <strong>Closing Price:</strong> Common-stock closing price (KRW) on the most recent trading session.<br>
+      <strong>P/E (Price-to-Earnings):</strong> Share price ÷ basic EPS attributable to controlling interests.<br>
+      <strong>P/B (Price-to-Book):</strong> Share price ÷ book value per share attributable to controlling interests (treasury shares excluded from the share count).<br>
+      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ controlling-interest equity × 100.<br>
+      <strong>3Y Avg Operating Margin:</strong> Simple average of operating margin over the trailing three fiscal years. Gauges through-the-cycle core profitability.<br>
+      <strong>Latest Operating Margin:</strong> Operating margin for the most recent fiscal year. Snapshot of current core profitability.<br>
+      <strong>3Y Avg Net Margin:</strong> Simple average of net margin over the trailing three fiscal years, inclusive of non-operating items (e.g., FX, fair-value adjustments, impairments).<br>
+      <strong>Latest Net Margin:</strong> Net margin for the most recent fiscal year, inclusive of non-operating items.<br>
+      <strong>CFO / Operating Income (3Y Avg):</strong> Simple average of annual cash flow from operations ÷ operating income. Measures the cash-conversion quality of reported operating earnings.<br>
+      <strong>FCF / Net Income (3Y Avg):</strong> Simple average of annual free cash flow (CFO − CapEx) ÷ net income. Measures the cash-conversion quality of reported net earnings.<br>
+      <strong>Dividend Payout Ratio:</strong> Total declared dividends for the attributable fiscal year (final + interim) ÷ controlling-interest net income × 100. Under Korean corporate law, final dividends are confirmed at the following year's AGM; the ratio therefore reflects the most recently ratified fiscal year.<br>
+      <strong>Total Shareholder Yield:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Uses the same reference year as the payout ratio.<br>
+      <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + short-term investment securities) − (short-term borrowings + current portion of long-term debt + bonds payable + long-term borrowings). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
+      <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
+      <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
+      <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
+      <strong>3Y Operating Income CAGR:</strong> Compound annual growth rate of operating income over the trailing three fiscal years.<br>
+      <strong>3Y CFO CAGR:</strong> Compound annual growth rate of cash flow from operations over the trailing three fiscal years.<br>
+      <strong>20D Avg Daily Turnover:</strong> Trailing 20-session average daily trading value (₩100M). Practical gauge of market depth and execution capacity.<br>
+      <strong>Turnover Ratio:</strong> 20-day average daily turnover ÷ market capitalization × 100 (%). Size-adjusted liquidity measure; at identical won turnover, large-caps print lower ratios than mid-caps.<br>
+      <strong>Major Shareholder Ownership:</strong> Aggregate year-end ownership (%) of the largest shareholder and related parties per the latest DART periodic filing. Higher concentration typically reflects stable control, but may constrain free float.<br>
+      <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100 (%). Treasury shares carry no voting rights.<br>
+      <strong>TTM (Trailing Twelve Months):</strong> Where indicated, income-statement and cash-flow metrics are computed on a rolling four-quarter basis using the latest quarterly, semi-annual, or annual filing available on DART.<br><br>
+      📌 This tool performs purely quantitative screening. A complete investment thesis requires qualitative judgment — moat, management, regulatory exposure, and sector dynamics — beyond the numbers.<br>
+      📌 Preferred shares and infrastructure funds are structurally incompatible with these metrics and are automatically excluded from the screening universe.
+    </p>
+  </div>
+
+  <div class="panel" style="margin-top:20px">
+    <div class="panel-title" style="font-size:14px"><span class="icon">📐</span><span class="label" style="color:var(--text-secondary)">Scoring Methodology</span></div>
+    <p style="font-size:12px;color:var(--text-muted);line-height:1.8;font-weight:300">
+      Each scoring factor is normalized to a 0–100 scale via <strong>cross-sectional percentile rank</strong> across the filtered universe. Factor scores are then aggregated into a composite score using a weighted-average scheme (weights 1–10).<br><br>
+      <strong>▲ Higher value → higher score (top-percentile orientation)</strong><br>
+      ROE, 3Y Avg Operating Margin, Latest Operating Margin, 3Y Avg Net Margin, Latest Net Margin,<br>
+      3Y Avg CFO/Operating Income, 3Y Avg FCF/Net Income, Net Cash / Market Cap, Net Cash / Equity,<br>
+      Dividend Payout Ratio, Total Shareholder Yield, 3Y Revenue CAGR, 3Y Operating Income CAGR, 3Y CFO CAGR, 20D Avg Daily Turnover<br><br>
+      <strong>▼ Lower value → higher score (bottom-percentile orientation)</strong><br>
+      P/E, P/B, Major Shareholder Ownership
+    </p>
+  </div>
+
+  <div class="disclaimer" style="margin-top:20px;padding:20px 24px;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:12px">
+    <p style="font-size:11px;color:var(--text-muted);line-height:1.8;font-weight:300">
+      <strong style="color:var(--text-secondary);font-size:12px;font-weight:600">Disclaimer</strong><br>
+      The data and analytical output presented on this site are provided for informational purposes only and do not constitute investment advice, a recommendation, or a solicitation to transact in any security.
+      Financial data is sourced from DART (Korea's electronic disclosure system) and FinanceDataReader through automated collection and processing; the operator makes no representation or warranty as to the accuracy, completeness, or timeliness of such information.
+      Users should independently verify all data against primary DART filings and other authoritative sources before making any investment decision.
+      All investment decisions and outcomes are the sole responsibility of the user. The operator disclaims any and all liability for losses arising from reliance on information presented herein.
+    </p>
+  </div>
+</div>
+
+<script>
+// ─── Currency & Language ───
+let currencyMode = 'KRW';
+let USD_KRW_RATE = 1500;
+
+function fmtN(n) {
+  if (currencyMode === 'USD') {
+    const usd = n * 100000000 / USD_KRW_RATE;
+    if (Math.abs(usd) >= 1e9) return '$' + (usd/1e9).toFixed(1) + 'B';
+    if (Math.abs(usd) >= 1e6) return '$' + (usd/1e6).toFixed(0) + 'M';
+    if (Math.abs(usd) >= 1e3) return '$' + (usd/1e3).toFixed(0) + 'K';
+    return '$' + Math.round(usd).toLocaleString();
+  }
+  if (Math.abs(n)>=10000) return '₩'+(n/10000).toFixed(1)+'T';
+  if (Math.abs(n)>=10) return '₩'+(n/10).toFixed(0)+'B';
+  return '₩'+(n*100).toFixed(0)+'M';
+}
+function fmtPrice(n) {
+  if (currencyMode === 'USD') return '$' + (n / USD_KRW_RATE).toFixed(2);
+  return '₩' + n.toLocaleString();
+}
+function toggleCurrency() {
+  currencyMode = currencyMode === 'KRW' ? 'USD' : 'KRW';
+  const btn = document.getElementById('btn-currency');
+  btn.textContent = currencyMode === 'USD' ? 'USD → KRW' : 'KRW → USD';
+  fullRender();
+}
+
+// ── State serialization (preserve filters/factors across language switch) ──
+function stateToParam() {
+  const f = filters.map(x => {
+    let s = x.metric + ':' + x.threshold;
+    if (x.threshold2 != null) s += ':' + x.threshold2;
+    return s;
+  }).join(',');
+  const g = factors.map(x => x.metric + ':' + x.weight).join(',');
+  return 'f=' + encodeURIComponent(f) + '&g=' + encodeURIComponent(g);
+}
+function paramToState(fParam, gParam) {
+  const out = {filters: null, factors: null};
+  if (fParam) {
+    try {
+      let id = 1;
+      out.filters = fParam.split(',').filter(Boolean).map(p => {
+        const a = p.split(':');
+        const o = {id: id++, metric: a[0], threshold: Number(a[1])};
+        if (a[2] != null) o.threshold2 = Number(a[2]);
+        return o;
+      });
+    } catch(e) {}
+  }
+  if (gParam) {
+    try {
+      let id = 1;
+      out.factors = gParam.split(',').filter(Boolean).map(p => {
+        const a = p.split(':');
+        return {id: id++, metric: a[0], weight: Number(a[1])};
+      });
+    } catch(e) {}
+  }
+  return out;
+}
+function switchLang(url) {
+  window.location.href = url + '?' + stateToParam();
+}
+
+// ─── Category definitions ───
+const FILTER_CATEGORIES = [
+  { name: 'Valuation', keys: ['mcap', 'per', 'pbr'] },
+  { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
+  { name: 'Cash Flow',   keys: ['ocfOp', 'fcfNi'] },
+  { name: 'Shareholder Return',   keys: ['divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
+  { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
+  { name: 'Governance',   keys: ['majorSH', 'treasuryRatio'] },
+];
+const SCORE_CATEGORIES = [
+  { name: 'Valuation', keys: ['per', 'pbr'] },
+  { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
+  { name: 'Cash Flow',   keys: ['avgOcfOp', 'avgFcfNi'] },
+  { name: 'Shareholder Return',   keys: ['divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
+  { name: 'Liquidity',     keys: ['avgTV20'] },
+  { name: 'Governance',    keys: ['majorSH'] },
+];
+
+// ─── Filter metric definitions ───
+const FILTER_METRICS = {
+  mcap:        {label:'Market Cap',              unit:'₩100M', cmp:'gte', dv:1000, get:s=>s._mcap},
+  per:         {label:'PER',                  unit:'x',  cmp:'lte', dv:15,   get:s=>s._per>0?s._per:null},
+  pbr:         {label:'PBR',                  unit:'x',  cmp:'lte', dv:1.5,  get:s=>s._pbr>0?s._pbr:null},
+  roe:         {label:'ROE',                  unit:'%',   cmp:'gte', dv:10,   get:s=>s.roe},
+  avgOPM:      {label:'3Y Avg OPM',     unit:'%',   cmp:'gte', dv:10,   get:s=>s.avgOPM},
+  latestOPM:   {label:'Latest OPM',     unit:'%',   cmp:'gte', dv:10,   get:s=>s.latestOPM},
+  avgNPM:      {label:'3Y Avg NPM',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.avgNPM},
+  latestNPM:   {label:'Latest NPM',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.latestNPM},
+  ocfOp:       {label:'3Y Avg CFO/OP',   unit:'x',  cmp:'gte', dv:1.0,  get:s=>s.avgOcfOp},
+  fcfNi:       {label:'3Y Avg FCF/NI',     unit:'x',  cmp:'gte', dv:0.5,  get:s=>s.avgFcfNi},
+  netCash:     {label:'Net Cash',            unit:'₩100M', cmp:'gte', dv:0,    get:s=>s.netCash},
+  netCashRatio:{label:'Net Cash / Mkt Cap',    unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashRatio},
+  netCashEquityRatio:{label:'Net Cash / Equity', unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashEquityRatio},
+  divPayout:   {label:'Div Payout',               unit:'%',   cmp:'gte', dv:20,   get:s=>s.divPayout},
+  shReturn:    {label:'SH Return',             unit:'%',   cmp:'gte', dv:30,   get:s=>s.shReturn},
+  revGrowth:   {label:'3Y Rev CAGR',          unit:'%',   cmp:'gte', dv:5,    get:s=>s.revGrowth},
+  opGrowth:    {label:'3Y OP CAGR',       unit:'%',   cmp:'gte', dv:10,   get:s=>s.opGrowth},
+  ocfGrowth:   {label:'3Y CFO CAGR',            unit:'%',   cmp:'gte', dv:5,    get:s=>s.ocfGrowth},
+  avgTV20:     {label:'20D Avg Trading Value',       unit:'₩100M', cmp:'gte', dv:10,   get:s=>s._avgTV20},
+  turnover:    {label:'Turnover Ratio',    unit:'%',   cmp:'gte', dv:0.1,  get:s=>s._turnover},
+  majorSH:     {label:'Major Shareholder %',           unit:'%',   cmp:'range', dv:20, dv2:80, get:s=>s._majorSH},
+  treasuryRatio:{label:'Treasury Share Ratio',       unit:'%',   cmp:'gte', dv:0,    get:s=>s._treasuryRatio},
+};
+
+// ─── Scoring metric definitions ───
+const SCORE_METRICS = {
+  roe:         {label:'ROE',                       get:s=>s.roe,            dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  avgOPM:      {label:'3Y Avg OPM',          get:s=>s.avgOPM,        dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  latestOPM:   {label:'Latest OPM',          get:s=>s.latestOPM,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  avgNPM:      {label:'3Y Avg NPM',            get:s=>s.avgNPM,        dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  latestNPM:   {label:'Latest NPM',            get:s=>s.latestNPM,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  avgOcfOp:    {label:'3Y Avg CFO/OP',        get:s=>s.avgOcfOp,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
+  avgFcfNi:    {label:'3Y Avg FCF/NI',          get:s=>s.avgFcfNi,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
+  netCashRatio:{label:'Net Cash / Mkt Cap',        get:s=>s.netCashRatio,   dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  netCashEquityRatio:{label:'Net Cash / Equity',    get:s=>s.netCashEquityRatio, dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  divPayout:   {label:'Div Payout',                   get:s=>s.divPayout,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  shReturn:    {label:'SH Return',                  get:s=>s.shReturn,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  revGrowth:   {label:'3Y Rev CAGR',              get:s=>s.revGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  opGrowth:    {label:'3Y OP CAGR',           get:s=>s.opGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  ocfGrowth:   {label:'3Y CFO CAGR',               get:s=>s.ocfGrowth,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  per:         {label:'PER',                       get:s=>s._per>0?s._per:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'x'},
+  pbr:         {label:'PBR',                       get:s=>s._pbr>0?s._pbr:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
+  avgTV20:     {label:'20D Avg Trading Value',             get:s=>s._avgTV20>0?s._avgTV20:null, dir:'high', fmt:v=>fmtN(v)},
+  majorSH:     {label:'Major Shareholder %',               get:s=>s._majorSH>0?s._majorSH:null, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+};
+
+let DATA = [];
+let filters = [
+  {id:1, metric:'mcap', threshold:1000},
+  {id:2, metric:'avgOPM', threshold:5},
+];
+let factors = [
+  {id:1, metric:'roe', weight:3},
+  {id:2, metric:'avgOPM', weight:3},
+  {id:3, metric:'per', weight:3},
+];
+let nextFilterId = 3, nextFactorId = 4;
+let sortCol = '_score', sortAsc = false;
+let nameSticky = false;
+
+// ─── Data preprocessing ───
+function preprocessStock(s) {
+  const mcap = s.mcap || 0;
+  const rev = s.rev || [0,0,0];
+  const op = s.op || [0,0,0];
+  const ni = s.ni || [0,0,0];
+  const ocf = s.ocf || [0,0,0];
+  const capex = s.capex || [0,0,0];
+  const eq = s.equityParent || s.equity || 0;
+
+  let roe = null;
+  if (eq > 0 && ni[2] !== 0) roe = (ni[2] / eq) * 100;
+
+  const opm = rev.map((r,i) => r > 0 ? (op[i]/r)*100 : null);
+  const validOPM = opm.filter(v => v !== null);
+  const avgOPM = validOPM.length > 0 ? validOPM.reduce((a,b)=>a+b,0)/validOPM.length : null;
+  const latestOPM = opm[2];
+
+  const npm = rev.map((r,i) => r > 0 ? (ni[i]/r)*100 : null);
+  const validNPM = npm.filter(v => v !== null);
+  const avgNPM = validNPM.length > 0 ? validNPM.reduce((a,b)=>a+b,0)/validNPM.length : null;
+
+  const ocfOp = op.map((o,i) => o > 0 ? ocf[i]/o : null);
+  const validOcfOp = ocfOp.filter(v => v !== null);
+  const avgOcfOp = validOcfOp.length > 0 ? validOcfOp.reduce((a,b)=>a+b,0)/validOcfOp.length : null;
+
+  let revGrowth = null;
+  if (rev[0] > 0 && rev[2] > 0) revGrowth = (Math.pow(rev[2]/rev[0], 0.5) - 1) * 100;
+  let opGrowth = null;
+  if (op[0] > 0 && op[2] > 0) opGrowth = (Math.pow(op[2]/op[0], 0.5) - 1) * 100;
+
+  // NPM (latest)
+  const lastRev = rev[2] || 0;
+  const latestNPM = lastRev > 0 ? (ni[2] / lastRev) * 100 : null;
+
+  // FCF/NI
+  const fcfNi = ni.map((n,i) => n > 0 ? (ocf[i] - capex[i]) / n : null);
+  const validFcfNi = fcfNi.filter(v => v !== null);
+  const avgFcfNi = validFcfNi.length > 0 ? validFcfNi.reduce((a,b)=>a+b,0) / validFcfNi.length : null;
+
+  const divPayout = (s.niParent > 0 && s.dividendTotal > 0) ? (s.dividendTotal / s.niParent) * 100 : null;
+  const shReturn = (s.niParent > 0) ? ((s.dividendTotal + Math.abs(s.sharesBuyback || 0)) / s.niParent) * 100 : null;
+
+  const cashSide = (s.cashEq||0) + (s.shortFin||0) + (s.shortInv||0);
+  const debtSide = (s.shortBorrow||0) + (s.curLongDebt||0) + (s.bonds||0) + (s.longBorrow||0);
+  const netCash = cashSide - debtSide;
+  const netCashRatio = mcap > 0 ? (netCash / mcap) * 100 : null;
+  const netCashEquityRatio = eq > 0 ? (netCash / eq) * 100 : null;
+
+  let ocfGrowth = null;
+  if (ocf[0] > 0 && ocf[2] > 0) ocfGrowth = (Math.pow(ocf[2]/ocf[0], 0.5) - 1) * 100;
+
+  return {
+    ...s,
+    name: s.nameEn || s.name,
+    sector: s.sectorEn || s.sector,
+    _mcap: mcap, _per: s.per || 0, _pbr: s.pbr || 0,
+    _price: s.price || 0,
+    _market: s.market || '',
+    roe, avgOPM, latestOPM, avgNPM, latestNPM,
+    avgOcfOp, avgFcfNi, revGrowth, opGrowth, ocfGrowth,
+    divPayout, shReturn, netCash, netCashRatio, netCashEquityRatio,
+    _avgTV20: s.avgTradingValue20 || 0,
+    _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,
+    _majorSH: s.majorShareholderRate || 0,
+    _treasuryRatio: s.treasuryShareRatio || 0,
+    _reportShort: s.reportShort || '',
+  };
+}
+
+// ─── Apply filters ───
+function applyFilters(stocks) {
+  return stocks.filter(s => {
+    return filters.every(f => {
+      const m = FILTER_METRICS[f.metric];
+      if (!m) return true;
+      const v = m.get(s);
+      if (v === null || v === undefined) return false;
+      if (m.cmp === 'range') return v >= f.threshold && v <= (f.threshold2 != null ? f.threshold2 : 999);
+      if (m.cmp === 'gte') return v >= f.threshold;
+      if (m.cmp === 'lte') return v <= f.threshold;
+      if (m.cmp === 'gt') return v > f.threshold;
+      return true;
+    });
+  });
+}
+
+// ─── Normalization: percentile-based 0-100 ───
+function normalizeScores(stocks, metricKey) {
+  const m = SCORE_METRICS[metricKey];
+  if (!m) return stocks.map(() => null);
+
+  const values = stocks.map(s => m.get(s));
+  const valid = values.map((v, i) => ({v, i})).filter(x => x.v !== null && isFinite(x.v));
+  if (valid.length === 0) return stocks.map(() => null);
+
+  valid.sort((a, b) => a.v - b.v);
+  const scores = new Array(stocks.length).fill(null);
+  const denom = valid.length > 1 ? valid.length - 1 : 1;
+
+  valid.forEach((item, rank) => {
+    const percentile = (rank / denom) * 100;
+    scores[item.i] = m.dir === 'high' ? percentile : 100 - percentile;
+  });
+
+  return scores;
+}
+
+// ─── Composite score calculation ───
+function calculateScores(pool) {
+  const totalWeight = factors.reduce((s, f) => s + f.weight, 0);
+  if (totalWeight === 0 || pool.length === 0) return [];
+
+  const factorScores = factors.map(f => normalizeScores(pool, f.metric));
+
+  return pool.map((stock, i) => {
+    let score = 0;
+    let validWeight = 0;
+    factors.forEach((f, fi) => {
+      const s = factorScores[fi][i];
+      if (s !== null) {
+        score += s * f.weight;
+        validWeight += f.weight;
+      }
+    });
+    const finalScore = validWeight > 0 ? score / validWeight : null;
+    return { ...stock, _score: finalScore, _factorScores: factors.map((f, fi) => factorScores[fi][i]) };
+  });
+}
+
+// ─── Render: filter panel ───
+function renderFilters() {
+  const el = document.getElementById('filters');
+  el.innerHTML = filters.map((f, idx) => {
+    const m = FILTER_METRICS[f.metric];
+    const options = FILTER_CATEGORIES.map(cat =>
+      `<optgroup label="${cat.name}">${cat.keys.map(k=>{const v=FILTER_METRICS[k];return v?`<option value="${k}" ${k===f.metric?'selected':''}>${v.label}</option>`:''}).join('')}</optgroup>`
+    ).join('');
+    const num = `<div class="filter-num">${String(idx+1).padStart(2,'0')}</div>`;
+    const upBtn = idx > 0 ? `<button class="btn-move" onclick="moveFilter(${f.id},-1)" title="Up">▲</button>` : `<button class="btn-move" disabled>▲</button>`;
+    const downBtn = idx < filters.length-1 ? `<button class="btn-move" onclick="moveFilter(${f.id},1)" title="Down">▼</button>` : `<button class="btn-move" disabled>▼</button>`;
+    const moveBtns = `<div class="filter-move">${upBtn}${downBtn}</div>`;
+    if (m.cmp === 'range') {
+      return `<div class="filter-row">
+        ${num}${moveBtns}
+        <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>
+        <input class="filter-input" type="number" value="${f.threshold}" onchange="changeFilterVal(${f.id},+this.value)" step="any">
+        <div class="filter-cmp">~</div>
+        <input class="filter-input" type="number" value="${f.threshold2 != null ? f.threshold2 : m.dv2 || 100}" onchange="changeFilterVal2(${f.id},+this.value)" step="any">
+        <div class="filter-unit">${m.unit}</div>
+        <button class="btn-remove" onclick="removeFilter(${f.id})" title="Remove">✕</button>
+      </div>`;
+    }
+    const cmpLabel = m.cmp === 'lte' ? '≤' : '≥';
+    return `<div class="filter-row">
+      ${num}${moveBtns}
+      <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>
+      <div class="filter-cmp">${cmpLabel}</div>
+      <input class="filter-input" type="number" value="${f.threshold}" onchange="changeFilterVal(${f.id},+this.value)" step="any">
+      <div class="filter-unit">${m.unit}</div>
+      <button class="btn-remove" onclick="removeFilter(${f.id})" title="Remove">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function moveFilter(id, delta) {
+  const idx = filters.findIndex(f => f.id === id);
+  if (idx < 0) return;
+  const newIdx = idx + delta;
+  if (newIdx < 0 || newIdx >= filters.length) return;
+  [filters[idx], filters[newIdx]] = [filters[newIdx], filters[idx]];
+  fullRender();
+}
+
+// ─── Render: factor panel ───
+function renderFactors() {
+  const el = document.getElementById('factors');
+  el.innerHTML = factors.map(f => {
+    const m = SCORE_METRICS[f.metric];
+    const options = SCORE_CATEGORIES.map(cat =>
+      `<optgroup label="${cat.name}">${cat.keys.map(k=>{const v=SCORE_METRICS[k];return v?`<option value="${k}" ${k===f.metric?'selected':''}>${v.label}</option>`:''}).join('')}</optgroup>`
+    ).join('');
+    return `<div class="factor-row">
+      <select class="filter-select" onchange="changeFactor(${f.id},this.value)">${options}</select>
+      <div class="factor-weight">
+        <input type="range" min="1" max="10" value="${f.weight}" oninput="changeWeight(${f.id},+this.value)">
+        <span class="weight-badge">${f.weight}</span>
+      </div>
+      <button class="btn-remove" onclick="removeFactor(${f.id})" title="Remove">✕</button>
+    </div>`;
+  }).join('');
+}
+
+// ─── Render: results table ───
+function renderTable() {
+  const pool = applyFilters(DATA);
+  const scored = calculateScores(pool);
+
+  // Sort
+  scored.sort((a, b) => {
+    let va, vb;
+    if (sortCol === '_score') { va = a._score; vb = b._score; }
+    else if (sortCol === 'name') { va = a.name; vb = b.name; }
+    else if (sortCol === 'code') { va = a.code; vb = b.code; }
+    else if (sortCol === 'sector') { va = a.sector || ''; vb = b.sector || ''; }
+    else if (sortCol === '_reportShort') { va = a._reportShort || ''; vb = b._reportShort || ''; }
+    else if (sortCol === '_price') { va = a._price; vb = b._price; }
+    else if (sortCol === '_mcap') { va = a._mcap; vb = b._mcap; }
+    else {
+      const fi = factors.findIndex(f => f.metric === sortCol);
+      if (fi >= 0) { va = a._factorScores[fi]; vb = b._factorScores[fi]; }
+      else { va = 0; vb = 0; }
+    }
+    if (va === null) return 1;
+    if (vb === null) return -1;
+    if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    return sortAsc ? va - vb : vb - va;
+  });
+
+  // Count display
+  document.getElementById('filter-count').textContent = `${pool.length} / ${DATA.length} passed`;
+  document.getElementById('factor-count').textContent = `${factors.length} factors`;
+  const validCount = scored.filter(s=>s._score!==null).length;
+  document.getElementById('summary').innerHTML =
+    `Total <strong style="color:#fff;font-weight:700;font-size:22px;margin:0 4px">${DATA.length}</strong> companies, filtered &amp; scored: <strong style="color:var(--gold);font-weight:700;font-size:22px;margin:0 4px">${validCount}</strong>`;
+
+  // Header
+  const sortIcon = col => sortCol === col ? (sortAsc ? ' ▲' : ' ▼') : ' <span style="opacity:0.4;font-size:10px">↕</span>';
+  // fmtN and fmtPrice are global
+  const pinCls = nameSticky ? 'pin-active' : '';
+  const thSticky = nameSticky ? ' th-sticky' : '';
+  const factorHeaders = factors.map(f => {
+    const m = SCORE_METRICS[f.metric];
+    return `<th style="text-align:right" onclick="doSort('${f.metric}')">${m.label} <span style="font-size:9px;opacity:0.6">(${f.weight})</span>${sortIcon(f.metric)}</th>`;
+  }).join('');
+  const thRankSticky = nameSticky ? ' th-rank-sticky' : '';
+  document.getElementById('thead').innerHTML =
+    `<tr>
+      <th class="${thRankSticky}" style="text-align:center" onclick="doSort('_score')">Rank${sortIcon('_score')}</th>
+      <th class="${thSticky}" onclick="doSort('name')">Company${sortIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th>
+      <th onclick="doSort('code')">Code${sortIcon('code')}</th>
+      <th onclick="doSort('sector')">Sector${sortIcon('sector')}</th>
+      <th onclick="doSort('_reportShort')">Report${sortIcon('_reportShort')}</th>
+      <th style="text-align:right" onclick="doSort('_price')">Price${sortIcon('_price')}</th>
+      <th style="text-align:right" onclick="doSort('_mcap')">Mkt Cap${sortIcon('_mcap')}</th>
+      <th style="text-align:right;background:#18343E" onclick="doSort('_score')">Score${sortIcon('_score')}</th>
+      ${factorHeaders}
+    </tr>`;
+
+  // Body
+  const maxScore = scored.length > 0 ? Math.max(...scored.filter(s=>s._score!==null).map(s=>s._score), 1) : 1;
+  document.getElementById('tbody').innerHTML = scored.map((s, i) => {
+    if (s._score === null) return '';
+    const barW = (s._score / maxScore) * 50;
+    const scoreCls = s._score >= 70 ? 'score-high' : s._score >= 40 ? 'score-mid' : 'score-low';
+    const factorCells = factors.map((f, fi) => {
+      const m = SCORE_METRICS[f.metric];
+      const raw = m.get(s);
+      const sc = s._factorScores[fi];
+      const display = raw !== null ? m.fmt(raw) : 'N/A';
+      const scColor = sc !== null ? (sc >= 70 ? 'var(--pass-text)' : sc >= 40 ? 'var(--text-muted)' : 'var(--fail-text)') : 'var(--text-muted)';
+      const scDisplay = sc !== null ? `<span style="color:${scColor};font-size:10px"> ${sc.toFixed(0)}p</span>` : '';
+      return `<td class="col-num">${display}${scDisplay}</td>`;
+    }).join('');
+
+    const mkt = s._market || '';
+    const mktBadge = mkt ? `<span class="market-badge ${mkt.startsWith('KOSDAQ')?'kd':mkt==='KONEX'?'kn':'kp'}">${mkt.startsWith('KOSDAQ')?'KOSDAQ':mkt==='KONEX'?'KONEX':'KOSPI'}</span>` : '';
+    return `<tr class="${i < 3 ? 'top3' : ''}">
+      <td class="col-rank${nameSticky?' sticky':''}">${i + 1}</td>
+      <td class="col-name${nameSticky?' sticky':''}">${s.name} ${mktBadge}</td>
+      <td class="col-code">${s.code}</td>
+      <td class="col-sector">${s.sector}</td>
+      <td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s.report||''}">${s.reportShort||'-'}</td>
+      <td class="col-price">${fmtPrice(s._price)}</td>
+      <td class="col-num">${fmtN(s._mcap)}</td>
+      <td class="col-score ${scoreCls}">${s._score.toFixed(1)}</td>
+      ${factorCells}
+    </tr>`;
+  }).join('');
+}
+
+function fullRender() {
+  renderFilters();
+  renderFactors();
+  renderTable();
+}
+
+// ─── Filter events ───
+function addFilter() {
+  const used = new Set(filters.map(f => f.metric));
+  const avail = Object.keys(FILTER_METRICS).find(k => !used.has(k));
+  if (!avail) return alert('All filters already added.');
+  const m = FILTER_METRICS[avail];
+  filters.push({id: nextFilterId++, metric: avail, threshold: m.dv});
+  fullRender();
+}
+function removeFilter(id) {
+  filters = filters.filter(f => f.id !== id);
+  fullRender();
+}
+function changeFilter(id, metric) {
+  const f = filters.find(f => f.id === id);
+  if (f) {
+    f.metric = metric;
+    f.threshold = FILTER_METRICS[metric].dv;
+    if (FILTER_METRICS[metric].cmp === 'range') {
+      f.threshold2 = FILTER_METRICS[metric].dv2 || 100;
+    } else {
+      delete f.threshold2;
+    }
+    fullRender();
+  }
+}
+function changeFilterVal(id, val) {
+  const f = filters.find(f => f.id === id);
+  if (f) { f.threshold = val; renderTable(); }
+}
+function changeFilterVal2(id, val) {
+  const f = filters.find(f => f.id === id);
+  if (f) { f.threshold2 = val; renderTable(); }
+}
+
+// ─── Factor events ───
+function addFactor() {
+  const used = new Set(factors.map(f => f.metric));
+  const avail = Object.keys(SCORE_METRICS).find(k => !used.has(k));
+  if (!avail) return alert('All factors already added.');
+  factors.push({id: nextFactorId++, metric: avail, weight: 5});
+  fullRender();
+}
+function removeFactor(id) {
+  if (factors.length <= 1) return;
+  factors = factors.filter(f => f.id !== id);
+  fullRender();
+}
+function changeFactor(id, metric) {
+  const f = factors.find(f => f.id === id);
+  if (f) { f.metric = metric; fullRender(); }
+}
+function changeWeight(id, val) {
+  const f = factors.find(f => f.id === id);
+  if (f) {
+    f.weight = val;
+    // Update badge next to slider (no DOM rebuild)
+    const badge = event.target.parentElement.querySelector('.weight-badge');
+    if (badge) badge.textContent = val;
+    renderTable();
+  }
+}
+
+// ─── Sort ───
+function doSort(col) {
+  if (sortCol === col) sortAsc = !sortAsc;
+  else { sortCol = col; sortAsc = false; }
+  renderTable();
+}
+
+function togglePin() {
+  nameSticky = !nameSticky;
+  document.querySelectorAll('.col-name').forEach(el => el.classList.toggle('sticky', nameSticky));
+  document.querySelectorAll('.col-rank').forEach(el => el.classList.toggle('sticky', nameSticky));
+  document.querySelectorAll('.pin-btn').forEach(el => el.classList.toggle('pin-active', nameSticky));
+  // Header
+  const ths = document.querySelectorAll('thead th');
+  if (ths.length >= 2) {
+    ths[0].classList.toggle('th-rank-sticky', nameSticky);
+    ths[1].classList.toggle('th-sticky', nameSticky);
+  }
+  // Dynamically measure rank column width and set col-name sticky left offset
+  if (nameSticky) {
+    requestAnimationFrame(() => {
+      const rankTh = document.querySelector('thead th.th-rank-sticky');
+      if (rankTh) {
+        const w = rankTh.getBoundingClientRect().width;
+        document.querySelectorAll('.col-name.sticky').forEach(el => {
+          el.style.left = w + 'px';
+        });
+        const nameTh = document.querySelector('thead th.th-sticky');
+        if (nameTh) nameTh.style.left = w + 'px';
+      }
+    });
+  } else {
+    document.querySelectorAll('.col-name').forEach(el => { el.style.left = ''; });
+    const ths = document.querySelectorAll('thead th');
+    if (ths.length >= 2) {
+      ths[0].style.left = '';
+      ths[1].style.left = '';
+    }
+  }
+}
+
+// ─── Export CSV ───
+function exportCSV() {
+  const pool = applyFilters(DATA);
+  const scored = calculateScores(pool);
+  scored.sort((a, b) => (b._score||0) - (a._score||0));
+  const valid = scored.filter(s => s._score !== null);
+
+  const header = ['Rank','Name','Code','Sector','Mkt Cap(₩100M)','Score'];
+  factors.forEach(f => {
+    const m = SCORE_METRICS[f.metric];
+    header.push(m.label + '(raw)');
+    header.push(m.label + '(score)');
+  });
+
+  const rows = valid.map((s, i) => {
+    const row = [i+1, s.name, `="${s.code}"`, s.sector, s._mcap, s._score?.toFixed(1) || ''];
+    factors.forEach((f, fi) => {
+      const m = SCORE_METRICS[f.metric];
+      const raw = m.get(s);
+      const sc = s._factorScores[fi];
+      row.push(raw !== null ? raw.toFixed(2) : '');
+      row.push(sc !== null ? sc.toFixed(1) : '');
+    });
+    return row;
+  });
+
+  const bom = '\uFEFF';
+  const csv = bom + [header, ...rows].map(r => r.join(',')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `scoring_result_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ─── Initialize ───
+async function init() {
+  try {
+    const resp = await fetch('./screener_data.json');
+    if (resp.ok) {
+      const json = await resp.json();
+      // Exclude preferred shares, infrastructure funds etc. (no reportShort) - same as filter mode
+      const stockSource = (json.stocks || []).filter(s => s.reportShort && s.reportShort.length > 0);
+      DATA = stockSource.map(preprocessStock);
+      if (json.usd_krw_rate) USD_KRW_RATE = json.usd_krw_rate;
+      document.getElementById('data-badge').textContent = `LIVE DATA`;
+      document.getElementById('data-badge').style.background = 'rgba(16,185,129,0.15)';
+      document.getElementById('data-badge').style.color = '#34d399';
+      document.getElementById('data-badge').style.borderColor = 'rgba(16,185,129,0.3)';
+      // Market date display
+      if (json.market_date_display) {
+        document.getElementById('scoring-market-date').textContent = json.market_date_display;
+      } else if (json.market_date) {
+        document.getElementById('scoring-market-date').textContent = json.market_date;
+      }
+    }
+  } catch(e) {}
+
+  if (DATA.length === 0) {
+    DATA = [
+      {name:'Samsung Electronics',code:'005930',sector:'Semiconductors',mcap:120000,per:12.5,pbr:1.4,rev:[2302,2589,3009],op:[366,271,509],ni:[264,155,345],equity:3530,equityParent:3530,ocf:[555,441,730],capex:[576,514,475],cashEq:300,shortFin:800,shortInv:50,shortBorrow:100,curLongDebt:50,bonds:30,longBorrow:20,dividendTotal:111,dividendPaid:99,sharesBuyback:82,niParent:345,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'SK hynix',code:'000660',sector:'Semiconductors',mcap:71000,per:8.2,pbr:2.1,rev:[357,389,660],op:[-29,-15,236],ni:[-63,-41,192],equity:520,equityParent:520,ocf:[120,145,420],capex:[188,160,280],cashEq:50,shortFin:30,shortInv:0,shortBorrow:80,curLongDebt:40,bonds:100,longBorrow:60,dividendTotal:28,dividendPaid:25,sharesBuyback:0,niParent:192,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Hyundai Motor',code:'005380',sector:'Automobiles',mcap:54000,per:5.6,pbr:0.55,rev:[1427,1629,1729],op:[120,152,168],ni:[78,112,128],equity:1200,equityParent:1000,ocf:[180,210,250],capex:[90,95,100],cashEq:200,shortFin:150,shortInv:0,shortBorrow:50,curLongDebt:30,bonds:80,longBorrow:40,dividendTotal:40,dividendPaid:38,sharesBuyback:30,niParent:128,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Kia',code:'000270',sector:'Automobiles',mcap:38000,per:4.8,pbr:0.85,rev:[869,987,1080],op:[97,120,132],ni:[68,88,96],equity:560,equityParent:480,ocf:[130,155,175],capex:[55,60,65],cashEq:120,shortFin:80,shortInv:0,shortBorrow:30,curLongDebt:20,bonds:40,longBorrow:15,dividendTotal:30,dividendPaid:28,sharesBuyback:20,niParent:96,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'NAVER',code:'035420',sector:'Software',mcap:33000,per:22.5,pbr:1.6,rev:[82,97,108],op:[15,18,22],ni:[8,12,15],equity:250,equityParent:220,ocf:[25,30,38],capex:[12,14,16],cashEq:60,shortFin:40,shortInv:20,shortBorrow:10,curLongDebt:5,bonds:20,longBorrow:10,dividendTotal:3,dividendPaid:3,sharesBuyback:5,niParent:15,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Celltrion',code:'068270',sector:'Healthcare',mcap:30000,per:35.2,pbr:4.8,rev:[21,28,35],op:[5,8,11],ni:[3,6,9],equity:120,equityParent:110,ocf:[6,10,14],capex:[8,6,5],cashEq:15,shortFin:10,shortInv:0,shortBorrow:5,curLongDebt:3,bonds:10,longBorrow:5,dividendTotal:1,dividendPaid:1,sharesBuyback:0,niParent:9,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'KB Financial',code:'105560',sector:'Banks',mcap:27000,per:6.2,pbr:0.55,rev:[0,0,0],op:[0,0,0],ni:[42,46,52],equity:650,equityParent:580,ocf:[0,0,0],capex:[0,0,0],cashEq:0,shortFin:0,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:18,dividendPaid:16,sharesBuyback:10,niParent:52,isFinancial:true,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Krafton',code:'259960',sector:'Software',mcap:22000,per:15.3,pbr:2.8,rev:[21,27,38],op:[6,10,16],ni:[5,8,14],equity:110,equityParent:105,ocf:[8,12,18],capex:[2,3,3],cashEq:45,shortFin:30,shortInv:10,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:4,dividendPaid:3,sharesBuyback:8,niParent:14,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Hanwha Aerospace',code:'012450',sector:'Machinery',mcap:20000,per:42.0,pbr:5.2,rev:[68,82,110],op:[5,8,14],ni:[3,5,9],equity:85,equityParent:72,ocf:[6,9,15],capex:[8,10,12],cashEq:10,shortFin:5,shortInv:0,shortBorrow:15,curLongDebt:10,bonds:20,longBorrow:8,dividendTotal:2,dividendPaid:2,sharesBuyback:0,niParent:9,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'POSCO Holdings',code:'005490',sector:'Steel',mcap:18000,per:8.5,pbr:0.45,rev:[770,680,650],op:[60,38,32],ni:[45,25,20],equity:580,equityParent:500,ocf:[85,55,48],capex:[70,50,40],cashEq:30,shortFin:20,shortInv:0,shortBorrow:60,curLongDebt:40,bonds:50,longBorrow:30,dividendTotal:10,dividendPaid:10,sharesBuyback:0,niParent:20,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Meritz Financial',code:'138040',sector:'Securities',mcap:16000,per:5.1,pbr:1.1,rev:[0,0,0],op:[0,0,0],ni:[24,32,42],equity:220,equityParent:200,ocf:[0,0,0],capex:[0,0,0],cashEq:0,shortFin:0,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:12,dividendPaid:11,sharesBuyback:15,niParent:42,isFinancial:true,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Coway',code:'021240',sector:'Consumer Elec',mcap:9500,per:13.2,pbr:6.5,rev:[38,40,42],op:[8,9,10],ni:[5,6,7],equity:28,equityParent:25,ocf:[10,11,12],capex:[3,3,4],cashEq:8,shortFin:5,shortInv:0,shortBorrow:2,curLongDebt:1,bonds:3,longBorrow:1,dividendTotal:4,dividendPaid:4,sharesBuyback:2,niParent:7,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'F&F',code:'383220',sector:'Apparel',mcap:8000,per:11.5,pbr:4.2,rev:[18,22,25],op:[5,7,8],ni:[4,5,7],equity:32,equityParent:30,ocf:[6,8,9],capex:[1,1,2],cashEq:10,shortFin:8,shortInv:0,shortBorrow:1,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:3,dividendPaid:3,sharesBuyback:0,niParent:7,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Douzone Bizon',code:'012510',sector:'Software',mcap:7500,per:28.0,pbr:5.8,rev:[5,6,8],op:[1,2,3],ni:[1,1,2],equity:18,equityParent:16,ocf:[2,3,4],capex:[1,1,1],cashEq:6,shortFin:4,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:1,dividendPaid:1,sharesBuyback:0,niParent:2,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Hyundai Glovis',code:'086280',sector:'Transportation',mcap:7000,per:7.8,pbr:1.1,rev:[235,248,260],op:[14,16,18],ni:[10,12,14],equity:105,equityParent:95,ocf:[16,18,22],capex:[4,5,5],cashEq:20,shortFin:15,shortInv:0,shortBorrow:8,curLongDebt:3,bonds:5,longBorrow:2,dividendTotal:6,dividendPaid:5,sharesBuyback:3,niParent:14,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'DB Insurance',code:'005830',sector:'Insurance',mcap:6500,per:5.5,pbr:0.8,rev:[0,0,0],op:[0,0,0],ni:[10,13,16],equity:135,equityParent:120,ocf:[0,0,0],capex:[0,0,0],cashEq:0,shortFin:0,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:5,dividendPaid:5,sharesBuyback:0,niParent:16,isFinancial:true,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Hanmi Semiconductor',code:'042700',sector:'Semiconductors',mcap:6000,per:25.0,pbr:8.5,rev:[3,5,9],op:[1,2,4],ni:[1,2,3],equity:12,equityParent:11,ocf:[1,3,5],capex:[1,1,2],cashEq:5,shortFin:3,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:1,dividendPaid:1,sharesBuyback:0,niParent:3,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Classys',code:'214150',sector:'Healthcare',mcap:5500,per:18.0,pbr:7.2,rev:[2,3,5],op:[1,1,3],ni:[1,1,2],equity:14,equityParent:13,ocf:[1,2,3],capex:[0,0,1],cashEq:6,shortFin:4,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:1,dividendPaid:1,sharesBuyback:0,niParent:2,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'JYP Ent.',code:'035900',sector:'Entertainment',mcap:4200,per:20.0,pbr:5.5,rev:[2,3,4],op:[1,1,2],ni:[1,1,1],equity:13,equityParent:12,ocf:[1,1,2],capex:[0,0,1],cashEq:8,shortFin:5,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:1,dividendPaid:0,sharesBuyback:0,niParent:1,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Samsung C&T',code:'028260',sector:'Construction',mcap:15000,per:10.2,pbr:0.7,rev:[380,410,430],op:[18,22,26],ni:[12,16,20],equity:350,equityParent:300,ocf:[25,30,38],capex:[15,12,14],cashEq:40,shortFin:30,shortInv:10,shortBorrow:20,curLongDebt:10,bonds:15,longBorrow:5,dividendTotal:6,dividendPaid:5,sharesBuyback:5,niParent:20,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'LG Chem',code:'051910',sector:'Chemicals',mcap:16000,per:18.5,pbr:0.9,rev:[520,480,450],op:[32,18,12],ni:[22,10,6],equity:280,equityParent:240,ocf:[50,30,22],capex:[80,60,45],cashEq:25,shortFin:15,shortInv:0,shortBorrow:40,curLongDebt:30,bonds:60,longBorrow:25,dividendTotal:3,dividendPaid:3,sharesBuyback:0,niParent:6,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Korean Air',code:'003490',sector:'Transportation',mcap:10000,per:6.8,pbr:1.2,rev:[130,148,160],op:[15,18,22],ni:[8,12,16],equity:120,equityParent:110,ocf:[30,35,42],capex:[25,28,30],cashEq:15,shortFin:5,shortInv:0,shortBorrow:20,curLongDebt:15,bonds:30,longBorrow:20,dividendTotal:3,dividendPaid:3,sharesBuyback:0,niParent:16,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'CJ CheilJedang',code:'097950',sector:'Food & Bev',mcap:5000,per:9.5,pbr:0.65,rev:[280,295,310],op:[14,16,18],ni:[8,10,12],equity:130,equityParent:115,ocf:[22,26,30],capex:[18,15,14],cashEq:10,shortFin:5,shortInv:0,shortBorrow:25,curLongDebt:15,bonds:20,longBorrow:10,dividendTotal:3,dividendPaid:3,sharesBuyback:0,niParent:12,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Samsung SDI',code:'006400',sector:'Batteries',mcap:14000,per:22.0,pbr:1.1,rev:[200,180,160],op:[15,8,4],ni:[12,5,2],equity:180,equityParent:160,ocf:[28,15,8],capex:[50,40,30],cashEq:20,shortFin:10,shortInv:0,shortBorrow:15,curLongDebt:10,bonds:25,longBorrow:15,dividendTotal:2,dividendPaid:2,sharesBuyback:0,niParent:2,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'HD Hyundai Heavy',code:'329180',sector:'Shipbuilding',mcap:12000,per:15.8,pbr:2.3,rev:[120,145,180],op:[2,6,12],ni:[1,4,8],equity:80,equityParent:70,ocf:[5,10,18],capex:[4,5,7],cashEq:8,shortFin:5,shortInv:0,shortBorrow:10,curLongDebt:5,bonds:8,longBorrow:3,dividendTotal:2,dividendPaid:2,sharesBuyback:0,niParent:8,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Doosan Enerbility',code:'034020',sector:'Machinery',mcap:11000,per:55.0,pbr:3.5,rev:[180,200,220],op:[3,5,8],ni:[1,2,4],equity:65,equityParent:55,ocf:[8,12,16],capex:[5,6,7],cashEq:5,shortFin:3,shortInv:0,shortBorrow:20,curLongDebt:15,bonds:25,longBorrow:10,dividendTotal:0,dividendPaid:0,sharesBuyback:0,niParent:4,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'NCSoft',code:'036570',sector:'Software',mcap:4500,per:0,pbr:0.9,rev:[20,18,16],op:[5,2,-1],ni:[4,1,-2],equity:80,equityParent:75,ocf:[8,4,1],capex:[3,3,2],cashEq:30,shortFin:25,shortInv:5,shortBorrow:0,curLongDebt:0,bonds:5,longBorrow:0,dividendTotal:2,dividendPaid:2,sharesBuyback:5,niParent:-2,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Leeno Industrial',code:'058470',sector:'Semiconductors',mcap:5800,per:22.5,pbr:5.0,rev:[2,3,4],op:[1,1,2],ni:[1,1,2],equity:16,equityParent:15,ocf:[1,2,3],capex:[0,0,1],cashEq:8,shortFin:6,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:1,dividendPaid:1,sharesBuyback:0,niParent:2,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'DoubleU Games',code:'192080',sector:'Software',mcap:3800,per:8.5,pbr:1.8,rev:[6,7,8],op:[2,3,3],ni:[2,2,3],equity:35,equityParent:32,ocf:[3,4,4],capex:[1,1,1],cashEq:15,shortFin:10,shortInv:0,shortBorrow:0,curLongDebt:0,bonds:0,longBorrow:0,dividendTotal:2,dividendPaid:2,sharesBuyback:3,niParent:3,report:'25 AR',reportShort:'AR 2025.12'},
+      {name:'Samsung Biologics',code:'207940',sector:'Healthcare',mcap:52000,per:45.0,pbr:8.2,rev:[18,25,35],op:[3,6,10],ni:[2,5,8],equity:110,equityParent:100,ocf:[5,10,16],capex:[15,12,10],cashEq:12,shortFin:8,shortInv:0,shortBorrow:5,curLongDebt:3,bonds:10,longBorrow:5,dividendTotal:0,dividendPaid:0,sharesBuyback:0,niParent:8,report:'25 AR',reportShort:'AR 2025.12'},
+    ].map(preprocessStock);
+  }
+  // Restore filters/factors from URL params (for language switch persistence)
+  const params = new URLSearchParams(window.location.search);
+  const restored = paramToState(params.get('f'), params.get('g'));
+  if (restored.filters && restored.filters.length > 0 && restored.filters.every(f => FILTER_METRICS[f.metric])) {
+    filters = restored.filters;
+    nextFilterId = Math.max(...filters.map(f => f.id)) + 1;
+  }
+  if (restored.factors && restored.factors.length > 0 && restored.factors.every(f => SCORE_METRICS[f.metric])) {
+    factors = restored.factors;
+    nextFactorId = Math.max(...factors.map(f => f.id)) + 1;
+  }
+  fullRender();
+}
+init();
+</script>
+</body>
+</html>

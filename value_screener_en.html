@@ -38,14 +38,18 @@
   .date-card .info-text .sub{font-size:11px;color:var(--text-muted);margin-top:2px;font-weight:300}
 
   .data-note{display:flex;align-items:center;gap:8px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:12px 16px;margin-bottom:32px;font-size:12px;color:var(--accent-blue)}
+  .mode-tabs{display:flex;gap:8px;margin-bottom:24px}
+  .mode-tab{display:inline-block;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500;background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;text-decoration:none;transition:all 0.2s}
+  .mode-tab:hover{border-color:var(--gold);color:var(--gold)}
+  .mode-tab.active{background:var(--gold);border-color:var(--gold);color:var(--bg-primary);font-weight:700}
   .data-note .dot{width:6px;height:6px;background:var(--accent-blue);border-radius:50%;flex-shrink:0;animation:pulse-dot 2s infinite}
   @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
 
   .pipeline-container{margin-bottom:48px}
   .pipeline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-  .pipeline-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:700}
-  .btn-add-step{background:transparent;border:1px dashed var(--border);color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:7px 18px;border-radius:8px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:6px}
-  .btn-add-step:hover{border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(59,130,246,0.05)}
+  .pipeline-label{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#fff;font-weight:700;margin-top:8px}
+  .btn-add-step{background:transparent;border:1px dashed var(--text-muted);color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:7px 18px;border-radius:8px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:6px}
+  .btn-add-step:hover{border-color:var(--gold);color:var(--gold)}
   .pipeline-scroll{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth}
   .pipeline-scroll::-webkit-scrollbar{height:4px}
   .pipeline-scroll::-webkit-scrollbar-track{background:transparent}
@@ -55,7 +59,7 @@
   .step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s ease;min-width:270px;flex-shrink:0;flex:1}
   .step-card:hover{background:var(--bg-card-hover);border-color:rgba(59,130,246,0.3)}
   .step-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
-  .step-number{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px}
+  .step-number{font-family:'DM Mono',monospace;font-size:12px;color:#fff;text-transform:uppercase;letter-spacing:2px}
   .step-actions{display:flex;gap:2px}
   .step-actions button{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px;transition:all .2s;line-height:1}
   .step-actions button:hover{color:var(--accent-blue);background:rgba(59,130,246,0.1)}
@@ -83,19 +87,26 @@
   .btn.active{background:var(--accent-blue);border-color:var(--accent-blue);color:#fff}
 
   .table-wrapper{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-  .table-scroll{overflow-x:auto}
+  .table-scroll{overflow-x:auto;overflow-y:auto;max-height:75vh}
+  .table-scroll::-webkit-scrollbar{width:8px;height:8px}
+  .table-scroll::-webkit-scrollbar-track{background:transparent}
+  .table-scroll::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:4px}
+  .table-scroll::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,0.35)}
+  .table-scroll{scrollbar-width:thin;scrollbar-color:rgba(148,163,184,0.2) transparent}
   table{width:100%;border-collapse:collapse;font-size:13px}
   thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2}
-  thead th:hover{color:var(--text-secondary)}
+  thead th:hover{color:var(--gold)}
   thead th .sort-icon{margin-left:3px;font-size:10px}
   tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);transition:background .15s}
-  tbody tr:hover{background:rgba(59,130,246,0.04)}
+  tbody tr:hover{background:var(--bg-card-hover)}
   tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
   .col-name{font-weight:500;color:var(--text-primary)}
   .col-name.sticky{position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
-  tr.all-pass .col-name.sticky{background:var(--bg-secondary)}
+  tr:hover .col-name.sticky{background:var(--bg-card-hover)}
+  tr.all-pass .col-name.sticky{background:#111D2A}
+  tr.all-pass:hover .col-name.sticky{background:#111D2A}
   thead th.th-sticky{position:sticky;left:0;z-index:3;background:var(--bg-card)}
-  .pin-btn{cursor:pointer;font-size:12px;opacity:0.35;transition:opacity 0.2s;vertical-align:middle}
+  .pin-btn{cursor:pointer;font-size:12px;opacity:0.35;transition:opacity 0.2s;vertical-align:middle;margin-left:12px;padding:4px}
   .pin-btn:hover{opacity:0.7}
   .pin-btn.pin-active{opacity:1}
   .col-code{font-family:'DM Mono',monospace;color:var(--text-muted);font-size:12px}
@@ -111,7 +122,7 @@
   .market-badge.kn{background:rgba(168,85,247,0.15);color:#a855f7}
   .badge-fail{display:inline-block;background:var(--fail);color:var(--fail-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
   tbody tr.all-pass{background:rgba(16,185,129,0.03)}
-  tbody tr.all-pass:hover{background:rgba(16,185,129,0.06)}
+  tbody tr.all-pass:hover{background:var(--bg-card-hover)}
   .table-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted)}
   .empty-state{text-align:center;padding:80px 40px;color:var(--text-muted)}
   .empty-state .icon{font-size:48px;margin-bottom:16px;opacity:.4}
@@ -147,9 +158,14 @@
       <div class="subtitle">Korea Equity Fundamental Screener</div>
     </div>
     <div class="header-right">
-      <a href="#" onclick="switchLang('value_screener.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">🇰🇷 한국어</div></a>
+      <a href="#" onclick="switchLang('value_screener.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">한국어</div></a>
       <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
+  </div>
+
+  <div class="mode-tabs">
+    <a href="value_screener_en.html" class="mode-tab active">Filtering</a>
+    <a href="scoring_en.html" class="mode-tab">Scoring</a>
   </div>
 
   <div class="data-note animate-in delay-1" id="data-note">
@@ -194,41 +210,44 @@
   </div>
 
   <div class="methodology animate-in delay-4">
-    <h3>📐 Screening Metrics Guide</h3>
+    <h3>📖 Metrics Guide</h3>
     <p>
-      <strong>Market Cap:</strong> Closing price × shares outstanding as of the reference date. Proxy for liquidity and institutional accessibility.<br>
-      <strong>Close:</strong> Common stock closing price (KRW) on the reference date (most recent trading day).<br>
-      <strong>P/E (PER):</strong> Price ÷ EPS attributable to controlling shareholders.<br>
-      <strong>P/B (PBR):</strong> Price ÷ book value per share attributable to controlling shareholders (treasury shares excluded from share count).<br>
-      <strong>ROE:</strong> Net income attributable to controlling shareholders ÷ equity attributable to controlling shareholders × 100.<br>
-      <strong>3Y Avg OPM:</strong> Three-year average operating margin. Gauges structural earning power through the cycle.<br>
-      <strong>Latest OPM:</strong> Most recent fiscal-year operating margin. Snapshot of current operating efficiency.<br>
-      <strong>3Y Avg NPM:</strong> Three-year average net margin, capturing non-operating items such as FX gains/losses and one-offs.<br>
-      <strong>Latest NPM:</strong> Most recent fiscal-year net margin, inclusive of non-operating items.<br>
-      <strong>OCF / Operating Profit (3Y Avg):</strong> Three-year arithmetic mean of annual CFO ÷ operating profit. Readings above 1.0x signal that reported earnings are well supported by cash generation.<br>
-      <strong>FCF / Net Income (3Y Avg):</strong> Three-year arithmetic mean of annual FCF (CFO − capex) ÷ net income. A positive ratio indicates residual free cash flow after reinvestment.<br>
-      <strong>Dividend Payout:</strong> Total declared dividends (final + interim for the attributable fiscal year) ÷ controlling-shareholder net income × 100. Under Korean corporate law, dividends are confirmed at the AGM following year-end; the ratio therefore reflects the most recently finalized year.<br>
-      <strong>Shareholder Return:</strong> (Declared dividends + |treasury stock buybacks|) ÷ controlling-shareholder net income × 100. Uses the same reference year as the payout ratio.<br>
-      <strong>Net Cash:</strong> (Cash &amp; equivalents + short-term financial instruments + short-term investment securities) − (short-term borrowings + current portion of long-term debt + bonds payable + long-term borrowings). A positive balance suggests ample financial flexibility for capex, M&amp;A, or capital returns.<br>
-      <strong>3Y Revenue CAGR:</strong> Three-year compound annual growth rate of revenue.<br>
-      <strong>3Y OP CAGR:</strong> Three-year compound annual growth rate of operating profit.<br>
-      <strong>20D Avg Trading Value:</strong> Average daily turnover in value terms over the trailing 20 sessions (₩100M). A practical gauge of market depth and ease of execution.<br>
-      <strong>Turnover Ratio:</strong> 20-day average trading value ÷ market cap × 100 (%). Normalizes liquidity for size; a large-cap name with identical turnover in won terms will register a lower ratio than a mid-cap peer.<br>
-      <strong>Major Shareholder %:</strong> Combined year-end ownership (%) of the largest shareholder and related parties per the latest DART periodic filing. Elevated concentration typically signals stable control and alignment of interests, though it may also limit free float.<br>
-      <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100(%). Treasury shares carry no voting rights.<br>
-      <strong>TTM (Trailing Twelve Months):</strong> Where indicated, income-statement and cash-flow figures are computed on a rolling four-quarter basis derived from the most recent quarterly, semi-annual, or annual report available on DART.<br><br>
-      📌 This screener is a purely quantitative filtering tool. A thorough investment thesis should incorporate qualitative judgment — competitive positioning, management quality, regulatory risk, and other factors beyond the numbers.<br>
-      📌 Preferred shares and infrastructure funds are structurally incompatible with these metrics and are automatically excluded from screening results.
+      <strong>Market Capitalization:</strong> Reference-date closing price × total shares outstanding. Standard proxy for free-float liquidity and institutional investability.<br>
+      <strong>Closing Price:</strong> Common-stock closing price (KRW) on the most recent trading session.<br>
+      <strong>P/E (Price-to-Earnings):</strong> Share price ÷ basic EPS attributable to controlling interests.<br>
+      <strong>P/B (Price-to-Book):</strong> Share price ÷ book value per share attributable to controlling interests (treasury shares excluded from the share count).<br>
+      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ controlling-interest equity × 100.<br>
+      <strong>3Y Avg Operating Margin:</strong> Simple average of operating margin over the trailing three fiscal years. Gauges through-the-cycle core profitability.<br>
+      <strong>Latest Operating Margin:</strong> Operating margin for the most recent fiscal year. Snapshot of current core profitability.<br>
+      <strong>3Y Avg Net Margin:</strong> Simple average of net margin over the trailing three fiscal years, inclusive of non-operating items (e.g., FX, fair-value adjustments, impairments).<br>
+      <strong>Latest Net Margin:</strong> Net margin for the most recent fiscal year, inclusive of non-operating items.<br>
+      <strong>CFO / Operating Income (3Y Avg):</strong> Simple average of annual cash flow from operations ÷ operating income. Measures the cash-conversion quality of reported operating earnings.<br>
+      <strong>FCF / Net Income (3Y Avg):</strong> Simple average of annual free cash flow (CFO − CapEx) ÷ net income. Measures the cash-conversion quality of reported net earnings.<br>
+      <strong>Dividend Payout Ratio:</strong> Total declared dividends for the attributable fiscal year (final + interim) ÷ controlling-interest net income × 100. Under Korean corporate law, final dividends are confirmed at the following year's AGM; the ratio therefore reflects the most recently ratified fiscal year.<br>
+      <strong>Total Shareholder Yield:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Uses the same reference year as the payout ratio.<br>
+      <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + short-term investment securities) − (short-term borrowings + current portion of long-term debt + bonds payable + long-term borrowings). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
+      <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
+      <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
+      <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
+      <strong>3Y Operating Income CAGR:</strong> Compound annual growth rate of operating income over the trailing three fiscal years.<br>
+      <strong>3Y CFO CAGR:</strong> Compound annual growth rate of cash flow from operations over the trailing three fiscal years.<br>
+      <strong>20D Avg Daily Turnover:</strong> Trailing 20-session average daily trading value (₩100M). Practical gauge of market depth and execution capacity.<br>
+      <strong>Turnover Ratio:</strong> 20-day average daily turnover ÷ market capitalization × 100 (%). Size-adjusted liquidity measure; at identical won turnover, large-caps print lower ratios than mid-caps.<br>
+      <strong>Major Shareholder Ownership:</strong> Aggregate year-end ownership (%) of the largest shareholder and related parties per the latest DART periodic filing. Higher concentration typically reflects stable control, but may constrain free float.<br>
+      <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100 (%). Treasury shares carry no voting rights.<br>
+      <strong>TTM (Trailing Twelve Months):</strong> Where indicated, income-statement and cash-flow metrics are computed on a rolling four-quarter basis using the latest quarterly, semi-annual, or annual filing available on DART.<br><br>
+      📌 This tool performs purely quantitative screening. A complete investment thesis requires qualitative judgment — moat, management, regulatory exposure, and sector dynamics — beyond the numbers.<br>
+      📌 Preferred shares and infrastructure funds are structurally incompatible with these metrics and are automatically excluded from the screening universe.
     </p>
   </div>
 
   <div class="disclaimer animate-in delay-4">
     <p>
       <strong>Disclaimer</strong><br>
-      All data and analysis results provided on this site are for informational purposes only and do not constitute investment advice or solicitation.
-      Data is automatically collected and processed from DART (Korea's electronic disclosure system) and FinanceDataReader; accuracy and completeness are not guaranteed.
-      Please verify all information through DART filings and other reliable sources before making investment decisions.
-      All responsibility for investment results based on this site's information lies solely with the user; the operator assumes no liability for any losses.
+      The data and analytical output presented on this site are provided for informational purposes only and do not constitute investment advice, a recommendation, or a solicitation to transact in any security.
+      Financial data is sourced from DART (Korea's electronic disclosure system) and FinanceDataReader through automated collection and processing; the operator makes no representation or warranty as to the accuracy, completeness, or timeliness of such information.
+      Users should independently verify all data against primary DART filings and other authoritative sources before making any investment decision.
+      All investment decisions and outcomes are the sole responsibility of the user. The operator disclaims any and all liability for losses arising from reliance on information presented herein.
     </p>
   </div>
 </div>
@@ -515,8 +534,10 @@ function compute(s) {
     roe, avgOcfOp, avgFcfNi, divPayout, shReturn,
     netCash: cashSide-debtSide,
     netCashRatio: s.mcap > 0 ? Math.round(((cashSide-debtSide) / s.mcap) * 10000) / 100 : null,
+    netCashEquityRatio: eqP > 0 ? Math.round(((cashSide-debtSide) / eqP) * 10000) / 100 : null,
     revGrowth: cagrC(s.rev[0],s.rev[2],2),
     opGrowth: cagrC(s.op[0],s.op[2],2),
+    ocfGrowth: cagrC(s.ocf[0],s.ocf[2],2),
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && s.mcap > 0) ? Math.round((s.avgTradingValue20 / s.mcap) * 10000) / 100 : null,
     _majorSH: s.majorShareholderRate || 0,
@@ -530,9 +551,9 @@ let DATA = STOCKS.map(compute);
 const METRIC_CATEGORIES = [
   { name: 'Valuation',     keys: ['mcap', 'per', 'pbr'] },
   { name: 'Profitability', keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
-  { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi', 'netCash', 'netCashRatio'] },
-  { name: 'Shareholder Return', keys: ['divPayout', 'shReturn'] },
-  { name: 'Growth',        keys: ['revGrowth', 'opGrowth'] },
+  { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi'] },
+  { name: 'Shareholder Return', keys: ['divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: 'Growth',        keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
   { name: 'Governance',    keys: ['majorSH', 'treasurySHR'] },
 ];
@@ -546,14 +567,16 @@ const METRICS = {
   latestOPM: {label:'Latest OPM',              unit:'% ≥',      desc:'Most recent fiscal year operating profit margin',              dv:10,  step:1,  col:'Latest OPM',    get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgNPM:    {label:'3Y Avg NPM',              unit:'% ≥',      desc:'3-year average net profit margin',                             dv:5,   step:1,  col:'3Y Avg NPM',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestNPM: {label:'Latest NPM',              unit:'% ≥',      desc:'Most recent fiscal year net profit margin',                    dv:5,   step:1,  col:'Latest NPM',    get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  ocfOp:     {label:'3Y Avg OCF/OP',           unit:'x ≥',      desc:'3-year avg operating cash flow ÷ operating profit (cash quality)',dv:1.0,step:0.1,col:'3Y OCF/OP',   get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
-  fcfNi:     {label:'3Y Avg FCF/NI',           unit:'x ≥',      desc:'3-year avg free cash flow ÷ net income (FCF=OCF−CAPEX)',       dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
+  ocfOp:     {label:'3Y Avg CFO/OP',           unit:'x ≥',      desc:'3-year avg cash flow from operations ÷ operating income (cash quality)',dv:1.0,step:0.1,col:'3Y CFO/OP',   get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
+  fcfNi:     {label:'3Y Avg FCF/NI',           unit:'x ≥',      desc:'3-year avg free cash flow ÷ net income (FCF=CFO−CapEx)',       dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
   divPayout: {label:'Dividend Payout',         unit:'% ≥',      desc:'(Interim + final dividends) ÷ controlling shareholder NI',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   shReturn:  {label:'Shareholder Return',      unit:'% ≥',      desc:'(Dividends + buyback) ÷ controlling shareholder NI',           dv:30,  step:5,  col:'SH Return',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCash:   {label:'Net Cash',                unit:'100M KRW >',desc:'(Cash & equiv. + ST financial instruments) − (borrowings + bonds)',             dv:0,   step:100,col:'Net Cash',       get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
   netCashRatio:{label:'Net Cash / Mkt Cap',   unit:'% ≥',       desc:'Net cash as % of market cap (higher = cash-rich)',                            dv:0,   step:5,  col:'NC/MC',         get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  netCashEquityRatio:{label:'Net Cash / Equity',unit:'% ≥',     desc:'Net cash as % of controlling equity (cash weight in assets)',                  dv:0,   step:5,  col:'NC/Equity',     get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3Y Revenue CAGR',         unit:'% ≥',      desc:'3-year compound annual growth rate of revenue',                dv:5,   step:1,  col:'3Y Rev CAGR',   get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   opGrowth:  {label:'3Y OP CAGR',             unit:'% ≥',      desc:'3-year compound annual growth rate of operating profit',        dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  ocfGrowth: {label:'3Y CFO CAGR',            unit:'% ≥',      desc:'3-year compound annual growth rate of cash flow from operations',     dv:5,   step:1,  col:'3Y CFO CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgTV20:   {label:'20D Avg Trading Value',   unit:'100M KRW ≥',desc:'20-day average daily trading value (liquidity)',               dv:10,  step:5,  col:'20D Trading',   get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'Turnover Ratio',          unit:'% ≥',      desc:'20D avg trading value ÷ market cap × 100',                    dv:0.1, step:0.05,col:'Turnover',       get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   majorSH:   {label:'Major Shareholder %',      unit:'%',       desc:'Largest shareholder + related parties combined stake',  dv:20,  dv2:80, step:5,  col:'Major SH%',     get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
@@ -613,9 +636,10 @@ function togglePin(){
   document.querySelectorAll('thead th:first-child').forEach(el=>{el.classList.toggle('th-sticky', nameSticky)});
   document.querySelectorAll('.pin-btn').forEach(el=>{el.classList.toggle('pin-active', nameSticky)});
 }
-function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">Company <span class="sort-icon">↕</span> <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th><th onclick="doSort('code')">Code</th><th onclick="doSort('sector')">Sector</th><th onclick="doSort('_reportShort')">Report <span class="sort-icon">↕</span></th><th onclick="doSort('_price')" style="text-align:right">Close <span class="sort-icon">↕</span></th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col} <span class="sort-icon">↕</span></th>`).join('')}<th style="text-align:center">Result</th></tr>`}
+function sIcon(col){return sortCol===col?(sortAsc?' <span class="sort-icon">▲</span>':' <span class="sort-icon">▼</span>'):' <span class="sort-icon" style="opacity:0.4">↕</span>'}
+function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">Company${sIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th><th onclick="doSort('code')">Code${sIcon('code')}</th><th onclick="doSort('sector')">Sector${sIcon('sector')}</th><th onclick="doSort('_reportShort')">Report${sIcon('_reportShort')}</th><th onclick="doSort('_price')" style="text-align:right">Price${sIcon('_price')}</th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col}${sIcon(k)}</th>`).join('')}<th style="text-align:center">Result</th></tr>`}
 
-function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderBody(applyAll())}
+function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderHead();renderBody(applyAll())}
 
 function sortArr(arr){arr.sort((a,b)=>{if(['name','code','sector','_reportShort'].includes(sortCol))return sortAsc?(a[sortCol]||'').localeCompare(b[sortCol]||''):(b[sortCol]||'').localeCompare(a[sortCol]||'');let va,vb;if(sortCol==='_price'){va=a._price;vb=b._price}else if(METRICS[sortCol]){const m=METRICS[sortCol];va=m.get(a)??-9999;vb=m.get(b)??-9999}else{va=a._mcap;vb=b._mcap}return sortAsc?va-vb:vb-va});return arr}
 
@@ -656,7 +680,7 @@ function exportCSV(){
     if (k==='mcap'||k==='netCash'||k==='avgTV20') return c+'('+nUnit+')';
     return c;
   });
-  const headers=['Company','Code','Sector','Report','Close('+pUnit+')',...colHeaders,'Result'];
+  const headers=['Company','Code','Sector','Report','Price('+pUnit+')',...colHeaders,'Result'];
   csv+=headers.join(',')+'\n';
 
   const pctKeys = new Set(['roe','avgOPM','latestOPM','avgNPM','latestNPM','divPayout','shReturn','revGrowth','opGrowth','turnover','majorSH']);
