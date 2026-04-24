@@ -219,7 +219,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>종가:</strong> 기준일(직전 영업일)의 보통주 종가(원)<br>
       <strong>PER:</strong> 주가 ÷ 지배주주 EPS<br>
       <strong>PBR:</strong> 주가 ÷ 지배주주 BPS<br>
-      <strong>ROE:</strong> 지배주주 당기순이익 ÷ 지배주주 자본 × 100<br>
+      <strong>ROE:</strong> 지배주주 당기순이익 ÷ 평균 지배주주 자본 × 100. 평균 자본 = (당기말 + 전기말) / 2<br>
       <strong>3년 평균 영업이익률:</strong> 최근 3개 사업연도 평균 OPM. 본업에서의 수익성 측정<br>
       <strong>최근연도 영업이익률:</strong> 가장 최근 사업연도의 OPM. 본업에서의 수익성 측정<br>
       <strong>3년 평균 당기순이익률:</strong> 3년 평균 NPM. 비영업손익 포함 수익성 측정<br>
@@ -426,9 +426,13 @@ function preprocessStock(s) {
   const ocf = s.ocf || [0,0,0];
   const capex = s.capex || [0,0,0];
   const eq = s.equityParent || s.equity || 0;
+  const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
+  const niP = s.niParent || ni[2] || 0;
+  // 평균 자본 = (당기말 + 전기말) / 2. 전기값이 없으면 당기만 사용 (신규 상장 등)
+  const avgEq = (eqPrior > 0) ? (eq + eqPrior) / 2 : eq;
 
   let roe = null;
-  if (eq > 0 && ni[2] !== 0) roe = (ni[2] / eq) * 100;
+  if (avgEq > 0 && niP !== 0) roe = (niP / avgEq) * 100;
 
   const opm = rev.map((r,i) => r > 0 ? (op[i]/r)*100 : null);
   const validOPM = opm.filter(v => v !== null);

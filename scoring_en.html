@@ -219,7 +219,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>Closing Price:</strong> Common-stock closing price (KRW) on the most recent trading session.<br>
       <strong>P/E (Price-to-Earnings):</strong> Share price ÷ basic EPS attributable to controlling interests.<br>
       <strong>P/B (Price-to-Book):</strong> Share price ÷ book value per share attributable to controlling interests (treasury shares excluded from the share count).<br>
-      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ controlling-interest equity × 100.<br>
+      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ average controlling-interest equity × 100. Average equity = (current year-end + prior year-end) / 2.<br>
       <strong>3Y Avg Operating Margin:</strong> Simple average of operating margin over the trailing three fiscal years. Gauges through-the-cycle core profitability.<br>
       <strong>Latest Operating Margin:</strong> Operating margin for the most recent fiscal year. Snapshot of current core profitability.<br>
       <strong>3Y Avg Net Margin:</strong> Simple average of net margin over the trailing three fiscal years, inclusive of non-operating items (e.g., FX, fair-value adjustments, impairments).<br>
@@ -425,9 +425,13 @@ function preprocessStock(s) {
   const ocf = s.ocf || [0,0,0];
   const capex = s.capex || [0,0,0];
   const eq = s.equityParent || s.equity || 0;
+  const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
+  const niP = s.niParent || ni[2] || 0;
+  // Average equity = (current + prior) / 2. Fallback to current if prior missing (newly listed, etc.)
+  const avgEq = (eqPrior > 0) ? (eq + eqPrior) / 2 : eq;
 
   let roe = null;
-  if (eq > 0 && ni[2] !== 0) roe = (ni[2] / eq) * 100;
+  if (avgEq > 0 && niP !== 0) roe = (niP / avgEq) * 100;
 
   const opm = rev.map((r,i) => r > 0 ? (op[i]/r)*100 : null);
   const validOPM = opm.filter(v => v !== null);

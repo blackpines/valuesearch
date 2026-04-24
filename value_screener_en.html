@@ -216,7 +216,7 @@
       <strong>Closing Price:</strong> Common-stock closing price (KRW) on the most recent trading session.<br>
       <strong>P/E (Price-to-Earnings):</strong> Share price ÷ basic EPS attributable to controlling interests.<br>
       <strong>P/B (Price-to-Book):</strong> Share price ÷ book value per share attributable to controlling interests (treasury shares excluded from the share count).<br>
-      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ controlling-interest equity × 100.<br>
+      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ average controlling-interest equity × 100. Average equity = (current year-end + prior year-end) / 2.<br>
       <strong>3Y Avg Operating Margin:</strong> Simple average of operating margin over the trailing three fiscal years. Gauges through-the-cycle core profitability.<br>
       <strong>Latest Operating Margin:</strong> Operating margin for the most recent fiscal year. Snapshot of current core profitability.<br>
       <strong>3Y Avg Net Margin:</strong> Simple average of net margin over the trailing three fiscal years, inclusive of non-operating items (e.g., FX, fair-value adjustments, impairments).<br>
@@ -488,11 +488,13 @@ function compute(s) {
   const latestOPM = lastRev > 0 ? Math.round((s.op[2] / lastRev) * 10000) / 100 : null;
   const latestNPM = lastRev > 0 ? Math.round((s.ni[2] / lastRev) * 10000) / 100 : null;
 
-  // ROE = 지배주주 당기순이익 ÷ 지배주주 자본 × 100
+  // ROE = net income attributable to controlling interests ÷ average controlling-interest equity × 100
   const eqP = s.equityParent || s.equity || 0;
+  const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
   const niP = s.niParent || s.ni[2] || 0;
   const lastNI = s.ni[2] || 0;
-  const roe = eqP > 0 && niP !== 0 ? Math.round((niP / eqP) * 10000) / 100 : null;
+  const avgEq = (eqPrior > 0) ? (eqP + eqPrior) / 2 : eqP;
+  const roe = avgEq > 0 && niP !== 0 ? Math.round((niP / avgEq) * 10000) / 100 : null;
 
   // 3년 평균 OCF/OP = 연도별 (OCF ÷ 영업이익) 산술평균
   const ocfArr = Array.isArray(s.ocf) ? s.ocf : [0,0,s.ocf||0]; // 하위호환
@@ -562,7 +564,7 @@ const METRICS = {
   mcap:      {label:'Market Cap',              unit:'100M KRW ≥',desc:'Minimum market cap for liquidity and institutional investability',dv:1000,step:100,col:'Mkt Cap',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
   per:       {label:'PER',                     unit:'x ≤',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'x',cmp:'lte'},
   pbr:       {label:'PBR',                     unit:'x ≤',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'x',cmp:'lte'},
-  roe:       {label:'ROE',                     unit:'% ≥',      desc:'Return on equity (latest NI ÷ equity)',                        dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  roe:       {label:'ROE',                     unit:'% ≥',      desc:'Return on equity (NI ÷ avg. equity)',                        dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3Y Avg OPM',              unit:'% ≥',      desc:'3-year average operating profit margin',                       dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'Latest OPM',              unit:'% ≥',      desc:'Most recent fiscal year operating profit margin',              dv:10,  step:1,  col:'Latest OPM',    get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgNPM:    {label:'3Y Avg NPM',              unit:'% ≥',      desc:'3-year average net profit margin',                             dv:5,   step:1,  col:'3Y Avg NPM',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},

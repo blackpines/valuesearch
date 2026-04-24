@@ -219,7 +219,7 @@
       <strong>종가:</strong> 기준일(직전 영업일)의 보통주 종가(원)<br>
       <strong>PER:</strong> 주가 ÷ 지배주주 EPS<br>
       <strong>PBR:</strong> 주가 ÷ 지배주주 BPS<br>
-      <strong>ROE:</strong> 지배주주 당기순이익 ÷ 지배주주 자본 × 100<br>
+      <strong>ROE:</strong> 지배주주 당기순이익 ÷ 평균 지배주주 자본 × 100. 평균 자본 = (당기말 + 전기말) / 2<br>
       <strong>3년 평균 영업이익률:</strong> 최근 3개 사업연도 평균 OPM. 본업에서의 수익성 측정<br>
       <strong>최근연도 영업이익률:</strong> 가장 최근 사업연도의 OPM. 본업에서의 수익성 측정<br>
       <strong>3년 평균 당기순이익률:</strong> 3년 평균 NPM. 비영업손익 포함 수익성 측정<br>
@@ -488,11 +488,13 @@ function compute(s) {
   const latestOPM = lastRev > 0 ? Math.round((s.op[2] / lastRev) * 10000) / 100 : null;
   const latestNPM = lastRev > 0 ? Math.round((s.ni[2] / lastRev) * 10000) / 100 : null;
 
-  // ROE = 지배주주 당기순이익 ÷ 지배주주 자본 × 100
+  // ROE = 지배주주 당기순이익 ÷ 평균 지배주주 자본 × 100 (평균 자본 = (당기+전기)/2)
   const eqP = s.equityParent || s.equity || 0;
+  const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
   const niP = s.niParent || s.ni[2] || 0;
   const lastNI = s.ni[2] || 0;
-  const roe = eqP > 0 && niP !== 0 ? Math.round((niP / eqP) * 10000) / 100 : null;
+  const avgEq = (eqPrior > 0) ? (eqP + eqPrior) / 2 : eqP;
+  const roe = avgEq > 0 && niP !== 0 ? Math.round((niP / avgEq) * 10000) / 100 : null;
 
   // 3년 평균 OCF/OP = 연도별 (OCF ÷ 영업이익) 산술평균
   const ocfArr = Array.isArray(s.ocf) ? s.ocf : [0,0,s.ocf||0]; // 하위호환
@@ -562,7 +564,7 @@ const METRICS = {
   mcap:      {label:'시가총액',               unit:'억원 이상',desc:'일정 규모 이상의 기업만 선별',         dv:1000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
   per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'배',cmp:'lte'},
   pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'배',cmp:'lte'},
-  roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(최근연도 순이익÷자기자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(지배주주순이익÷평균자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3년 평균 영업이익률',    unit:'% 이상',  desc:'3년 평균 영업이익률 기준 수익성 검증',      dv:10,  step:1,  col:'3년 평균 영업이익률',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'최근연도 영업이익률',    unit:'% 이상',  desc:'가장 최근 사업연도 영업이익률',            dv:10,  step:1,  col:'최근연도 영업이익률',      get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgNPM:    {label:'3년 평균 당기순이익률',  unit:'% 이상',  desc:'3년 평균 당기순이익률 기준 실질 수익성',    dv:5,   step:1,  col:'3년 평균 당기순이익률',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
