@@ -25,7 +25,7 @@
   .header-left h1 span{color:var(--gold)}
   .header-left .subtitle{font-size:14px;color:var(--text-secondary);margin-top:8px;font-weight:300;letter-spacing:.5px}
   .header-right{display:flex;gap:10px;align-items:center;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
-  .header-badge{background:var(--gold-dim);color:var(--gold);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,168,83,0.25);font-family:'DM Mono',monospace}
+  .header-badge{background:var(--gold-dim);color:var(--gold);font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,168,83,0.25);font-family:'DM Mono','Noto Sans KR',monospace}
 
   /* Date Info Bar */
   .date-bar{display:flex;align-items:stretch;gap:12px;margin-bottom:28px;flex-wrap:wrap}
@@ -73,6 +73,15 @@
   .step-threshold input{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:'DM Mono',monospace;font-size:14px;padding:7px 10px;width:110px;outline:none;transition:border .2s}
   .step-threshold input:focus{border-color:var(--accent-blue)}
   .step-threshold .unit{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;white-space:nowrap}
+  .step-threshold.step-sector{flex-direction:column;align-items:stretch;gap:8px}
+  .sector-summary{font-size:12px;color:var(--text-secondary);font-family:'DM Mono',monospace;display:flex;justify-content:space-between;align-items:center}
+  .sector-clear{background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:11px;padding:3px 8px;cursor:pointer;font-family:'DM Mono',monospace}
+  .sector-clear:hover{color:var(--text-primary);border-color:var(--text-secondary)}
+  .sector-options{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;max-height:240px;overflow-y:auto}
+  .sector-chip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-family:'DM Mono',monospace;background:transparent;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1.3}
+  .sector-chip:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
+  .sector-chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);font-weight:500}
+  .sector-chip.selected:hover{background:rgba(212,168,83,0.25)}
   .step-stat{margin-top:14px;padding-top:12px;border-top:1px solid rgba(42,53,80,0.5);font-family:'DM Mono',monospace;font-size:13px;display:flex;align-items:center;gap:6px}
   .step-stat .pass-count{color:var(--pass-text);font-weight:500}
   .step-stat .total-count{color:var(--text-muted)}
@@ -224,14 +233,16 @@
       <strong>CFO / Operating Income (3Y Avg):</strong> Simple average of annual cash flow from operations ÷ operating income. Measures the cash-conversion quality of reported operating earnings.<br>
       <strong>FCF / Net Income (3Y Avg):</strong> Simple average of annual free cash flow (CFO − CapEx) ÷ net income. Measures the cash-conversion quality of reported net earnings.<br>
       <strong>Dividend Payout Ratio:</strong> Total declared dividends for the attributable fiscal year (final + interim) ÷ controlling-interest net income × 100. Under Korean corporate law, final dividends are confirmed at the following year's AGM; the ratio therefore reflects the most recently ratified fiscal year.<br>
-      <strong>Total Shareholder Yield:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Uses the same reference year as the payout ratio.<br>
+      <strong>Shareholder Payout Ratio:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Captures total earnings returned to equity holders via both dividends and buybacks. Uses the same reference year as the payout ratio.<br>
+      <strong>Dividend Yield:</strong> Declared dividends ÷ market capitalization × treasury adjustment factor × 100. The numerator is the most recently ratified fiscal-year dividend; the denominator is daily-updated market capitalization (previous close). Treasury adjustment factor = 1 ÷ (1 − treasury share ratio), correcting for the structural mismatch where Korean market cap is computed on issued shares while dividends are paid only on outstanding shares.<br>
+      <strong>Shareholder Yield:</strong> (Declared dividends + absolute value of share repurchases) ÷ market capitalization × treasury adjustment factor × 100. Extends dividend yield to incorporate buybacks (which mechanically increase per-share intrinsic value through float reduction).<br>
       <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + short-term investment securities) − (short-term borrowings + current portion of long-term debt + bonds payable + long-term borrowings). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
       <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
       <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
       <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
       <strong>3Y Operating Income CAGR:</strong> Compound annual growth rate of operating income over the trailing three fiscal years.<br>
       <strong>3Y CFO CAGR:</strong> Compound annual growth rate of cash flow from operations over the trailing three fiscal years.<br>
-      <strong>20D Avg Daily Turnover:</strong> Trailing 20-session average daily trading value (₩100M). Practical gauge of market depth and execution capacity.<br>
+      <strong>20D Avg Daily Turnover:</strong> Trailing 20-session average daily trading value (₩B). Practical gauge of market depth and execution capacity.<br>
       <strong>Turnover Ratio:</strong> 20-day average daily turnover ÷ market capitalization × 100 (%). Size-adjusted liquidity measure; at identical won turnover, large-caps print lower ratios than mid-caps.<br>
       <strong>Major Shareholder Ownership:</strong> Aggregate year-end ownership (%) of the largest shareholder and related parties per the latest DART periodic filing. Higher concentration typically reflects stable control, but may constrain free float.<br>
       <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100 (%). Treasury shares carry no voting rights.<br>
@@ -525,6 +536,25 @@ function compute(s) {
 
   const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.shortInv||0);
   const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.bonds||0)+(s.longBorrow||0);
+  const netCashVal = cashSide - debtSide;
+
+  // ─── Treasury share adjustment factor ───
+  // DPS is based on outstanding shares; market cap uses total issued shares.
+  // adjFactor = 1 / (1 - treasury share ratio) corrects for buyback-rich companies.
+  const treasuryRatio = (s.treasuryShareRatio || 0) / 100;
+  const adjFactor = treasuryRatio > 0 && treasuryRatio < 1 ? 1 / (1 - treasuryRatio) : 1;
+
+  // Dividend Yield = dividends ÷ market cap × adjFactor × 100
+  const divYield = (s.mcap > 0 && divTotal > 0)
+    ? Math.round((divTotal / s.mcap) * adjFactor * 10000) / 100 : null;
+
+  // Shareholder Yield = (dividends + |buyback|) ÷ market cap × adjFactor × 100
+  const shYield = (s.mcap > 0 && (divTotal + buyback) > 0)
+    ? Math.round(((divTotal + buyback) / s.mcap) * adjFactor * 10000) / 100 : null;
+
+  // EV (Enterprise Value) = market cap − net cash
+  const ev = s.mcap > 0 ? s.mcap - netCashVal : null;
+
   return {
     ...s,
     _price:s.price, _mcap:s.mcap, _per:s.per, _pbr:s.pbr,
@@ -534,9 +564,10 @@ function compute(s) {
     avgNPM: avgNPM !== null ? Math.round(avgNPM*100)/100 : null,
     latestOPM, latestNPM,
     roe, avgOcfOp, avgFcfNi, divPayout, shReturn,
-    netCash: cashSide-debtSide,
-    netCashRatio: s.mcap > 0 ? Math.round(((cashSide-debtSide) / s.mcap) * 10000) / 100 : null,
-    netCashEquityRatio: eqP > 0 ? Math.round(((cashSide-debtSide) / eqP) * 10000) / 100 : null,
+    divYield, shYield, ev,
+    netCash: netCashVal,
+    netCashRatio: s.mcap > 0 ? Math.round((netCashVal / s.mcap) * 10000) / 100 : null,
+    netCashEquityRatio: eqP > 0 ? Math.round((netCashVal / eqP) * 10000) / 100 : null,
     revGrowth: cagrC(s.rev[0],s.rev[2],2),
     opGrowth: cagrC(s.op[0],s.op[2],2),
     ocfGrowth: cagrC(s.ocf[0],s.ocf[2],2),
@@ -554,35 +585,47 @@ const METRIC_CATEGORIES = [
   { name: 'Valuation',     keys: ['mcap', 'per', 'pbr'] },
   { name: 'Profitability', keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi'] },
-  { name: 'Shareholder Return', keys: ['divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',        keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
   { name: 'Governance',    keys: ['majorSH', 'treasurySHR'] },
+  { name: 'Sector',        keys: ['sector'] },
+];
+
+// WI26 26 standard sectors + Other (English)
+const WI26_OPTIONS = [
+  'Energy','Chemicals','Non-Ferrous Metals','Steel','Construction','Machinery','Shipbuilding','Trading & Capital Goods',
+  'Transportation','Automobiles','Cosmetics & Apparel','Hotels & Leisure','Media & Education','Retail',
+  'Consumer Staples','Healthcare','Banks','Securities','Insurance','Software','IT Hardware',
+  'Semiconductors','Consumer Electronics','Display','Telecom','Utilities','Other'
 ];
 
 const METRICS = {
-  mcap:      {label:'Market Cap',              unit:'100M KRW ≥',desc:'Minimum market cap for liquidity and institutional investability',dv:1000,step:100,col:'Mkt Cap',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'gte'},
-  per:       {label:'PER',                     unit:'x ≤',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'x',cmp:'lte'},
-  pbr:       {label:'PBR',                     unit:'x ≤',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'x',cmp:'lte'},
-  roe:       {label:'ROE',                     unit:'% ≥',      desc:'Return on equity (NI ÷ avg. equity)',                        dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  avgOPM:    {label:'3Y Avg OPM',              unit:'% ≥',      desc:'3-year average operating profit margin',                       dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  latestOPM: {label:'Latest OPM',              unit:'% ≥',      desc:'Most recent fiscal year operating profit margin',              dv:10,  step:1,  col:'Latest OPM',    get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  avgNPM:    {label:'3Y Avg NPM',              unit:'% ≥',      desc:'3-year average net profit margin',                             dv:5,   step:1,  col:'3Y Avg NPM',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  latestNPM: {label:'Latest NPM',              unit:'% ≥',      desc:'Most recent fiscal year net profit margin',                    dv:5,   step:1,  col:'Latest NPM',    get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  ocfOp:     {label:'3Y Avg CFO/OP',           unit:'x ≥',      desc:'3-year avg cash flow from operations ÷ operating income (cash quality)',dv:1.0,step:0.1,col:'3Y CFO/OP',   get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
-  fcfNi:     {label:'3Y Avg FCF/NI',           unit:'x ≥',      desc:'3-year avg free cash flow ÷ net income (FCF=CFO−CapEx)',       dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
-  divPayout: {label:'Dividend Payout',         unit:'% ≥',      desc:'(Interim + final dividends) ÷ controlling shareholder NI',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  shReturn:  {label:'Shareholder Return',      unit:'% ≥',      desc:'(Dividends + buyback) ÷ controlling shareholder NI',           dv:30,  step:5,  col:'SH Return',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCash:   {label:'Net Cash',                unit:'100M KRW >',desc:'(Cash & equiv. + ST financial instruments) − (borrowings + bonds)',             dv:0,   step:100,col:'Net Cash',       get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
-  netCashRatio:{label:'Net Cash / Mkt Cap',   unit:'% ≥',       desc:'Net cash as % of market cap (higher = cash-rich)',                            dv:0,   step:5,  col:'NC/MC',         get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCashEquityRatio:{label:'Net Cash / Equity',unit:'% ≥',     desc:'Net cash as % of controlling equity (cash weight in assets)',                  dv:0,   step:5,  col:'NC/Equity',     get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  revGrowth: {label:'3Y Revenue CAGR',         unit:'% ≥',      desc:'3-year compound annual growth rate of revenue',                dv:5,   step:1,  col:'3Y Rev CAGR',   get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  opGrowth:  {label:'3Y OP CAGR',             unit:'% ≥',      desc:'3-year compound annual growth rate of operating profit',        dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  ocfGrowth: {label:'3Y CFO CAGR',            unit:'% ≥',      desc:'3-year compound annual growth rate of cash flow from operations',     dv:5,   step:1,  col:'3Y CFO CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  avgTV20:   {label:'20D Avg Trading Value',   unit:'100M KRW ≥',desc:'20-day average daily trading value (liquidity)',               dv:10,  step:5,  col:'20D Trading',   get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
-  turnover:  {label:'Turnover Ratio',          unit:'% ≥',      desc:'20D avg trading value ÷ market cap × 100',                    dv:0.1, step:0.05,col:'Turnover',       get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
+  mcap:      {label:'Market Cap',              prefix:'₩',unit:'B',desc:'Filter companies within a market cap range',dv:100,dv2:10000,step:10,col:'Mkt Cap',       get:s=>s._mcap/10,      fmt:v=>fmtN(v*10),cmp:'range'},
+  per:       {label:'PER',                     unit:'x',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'x',cmp:'lte'},
+  pbr:       {label:'PBR',                     unit:'x',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'x',cmp:'lte'},
+  roe:       {label:'ROE',                     unit:'%',      desc:'Return on equity (NI ÷ avg. equity)',                        dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  avgOPM:    {label:'3Y Avg OPM',              unit:'%',      desc:'3-year average operating profit margin',                       dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  latestOPM: {label:'Latest OPM',              unit:'%',      desc:'Most recent fiscal year operating profit margin',              dv:10,  step:1,  col:'Latest OPM',    get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  avgNPM:    {label:'3Y Avg NPM',              unit:'%',      desc:'3-year average net profit margin',                             dv:5,   step:1,  col:'3Y Avg NPM',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  latestNPM: {label:'Latest NPM',              unit:'%',      desc:'Most recent fiscal year net profit margin',                    dv:5,   step:1,  col:'Latest NPM',    get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  ocfOp:     {label:'3Y Avg CFO/OP',           unit:'x',      desc:'3-year avg cash flow from operations ÷ operating income (cash quality)',dv:1.0,step:0.1,col:'3Y CFO/OP',   get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
+  fcfNi:     {label:'3Y Avg FCF/NI',           unit:'x',      desc:'3-year avg free cash flow ÷ net income (FCF=CFO−CapEx)',       dv:0.5, step:0.1,col:'3Y FCF/NI',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'gte'},
+  divYield:  {label:'Dividend Yield',          unit:'%',      desc:'Dividends ÷ market cap (previous close, treasury-share-adjusted)',                  dv:3,   step:0.5,col:'Div Yield',     get:s=>s.divYield,   fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
+  shYield:   {label:'Shareholder Yield',       unit:'%',      desc:'(Dividends + buyback) ÷ market cap (previous close, treasury-share-adjusted)',     dv:5,   step:0.5,col:'SH Yield',      get:s=>s.shYield,    fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
+  divPayout: {label:'Dividend Payout Ratio',  unit:'%',      desc:'(Interim + final dividends) ÷ controlling shareholder NI',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  shReturn:  {label:'Shareholder Payout Ratio',unit:'%',      desc:'(Dividends + buyback) ÷ controlling shareholder NI',           dv:30,  step:5,  col:'SH Payout',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  netCash:   {label:'Net Cash',                prefix:'₩',unit:'B',desc:'(Cash & equiv. + ST financial instruments) − (borrowings + bonds)',             dv:0,   step:10, col:'Net Cash',       get:s=>s.netCash/10,    fmt:v=>fmtN(v*10),cmp:'gt'},
+  netCashRatio:{label:'Net Cash / Mkt Cap',   unit:'%',       desc:'Net cash as % of market cap',                            dv:0,   step:5,  col:'NC/MC',         get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  netCashEquityRatio:{label:'Net Cash / Equity',unit:'%',     desc:'Net cash as % of controlling equity (cash weight in assets)',                  dv:0,   step:5,  col:'NC/Equity',     get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  revGrowth: {label:'3Y Revenue CAGR',         unit:'%',      desc:'3-year compound annual growth rate of revenue',                dv:5,   step:1,  col:'3Y Rev CAGR',   get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  opGrowth:  {label:'3Y OP CAGR',             unit:'%',      desc:'3-year compound annual growth rate of operating profit',        dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  ocfGrowth: {label:'3Y CFO CAGR',            unit:'%',      desc:'3-year compound annual growth rate of cash flow from operations',     dv:5,   step:1,  col:'3Y CFO CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  avgTV20:   {label:'20D Avg Trading Value',   prefix:'₩',unit:'B',desc:'20-day average daily trading value (liquidity)',               dv:1,  step:0.5,  col:'20D Trading',   get:s=>s._avgTV20/10,   fmt:v=>fmtN(v*10),cmp:'gte'},
+  turnover:  {label:'Turnover Ratio',          unit:'%',      desc:'20D avg trading value ÷ market cap × 100',                    dv:0.1, step:0.05,col:'Turnover',       get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   majorSH:   {label:'Major Shareholder %',      unit:'%',       desc:'Largest shareholder + related parties combined stake',  dv:20,  dv2:80, step:5,  col:'Major SH%',     get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
-  treasurySHR:{label:'Treasury Share Ratio',    unit:'% ≥',     desc:'Treasury shares ÷ total issued shares', dv:1, step:1, col:'Treasury%', get:s=>s._treasurySHR, fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'gte'},
+  treasurySHR:{label:'Treasury Share Ratio',    unit:'%',     desc:'Treasury shares ÷ total issued shares', dv:1, step:1, col:'Treasury%', get:s=>s._treasurySHR, fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'gte'},
+  sector:    {label:'Sector',                  unit:'',         desc:'Select sectors to include (multi-select; empty = all)', dv:[], step:1,  col:'Sector',         get:s=>s.sectorEn,   fmt:v=>v||'Other', cmp:'in', options:WI26_OPTIONS},
 };
 
 function buildMetricOptions(selectedKey) {
@@ -598,12 +641,19 @@ let steps=[{id:1,metric:'mcap',threshold:1000},{id:2,metric:'avgOPM',threshold:1
 let nxtId=4, viewMode='pass', sortCol='mcap', sortAsc=false;
 
 // ── Filter state URL serialization (preserved across language switch) ──
-function stepsToParam(){return steps.map(s=>{let p=s.metric+':'+s.threshold;if(s.threshold2!=null)p+=':'+s.threshold2;return p}).join(',')}
-function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const o={id:id++,metric:a[0],threshold:Number(a[1])};if(a[2]!=null)o.threshold2=Number(a[2]);return o})}catch(e){return null}}
+// URL uses 억원 (KRW 100M) as the canonical unit. EN UI uses ₩B internally,
+// so we multiply by 10 when exporting and divide by 10 when importing.
+const BUNIT_METRICS = new Set(['mcap','netCash','avgTV20']);
+function stepsToParam(){return steps.map(s=>{const M=METRICS[s.metric];if(M&&M.cmp==='in'){const arr=Array.isArray(s.threshold)?s.threshold:[];return s.metric+':'+arr.join('|')}const m=BUNIT_METRICS.has(s.metric)?10:1;let t=s.threshold!=null?(s.threshold*m):s.threshold;let p=s.metric+':'+t;if(s.threshold2!=null)p+=':'+(s.threshold2*m);return p}).join(',')}
+function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const metric=a[0];const M=METRICS[metric];if(M&&M.cmp==='in'){const arr=(a[1]||'').split('|').filter(x=>x);return{id:id++,metric,threshold:arr}}const m=BUNIT_METRICS.has(a[0])?10:1;const o={id:id++,metric:a[0],threshold:Number(a[1])/m};if(a[2]!=null)o.threshold2=Number(a[2])/m;return o})}catch(e){return null}}
 function switchLang(url){window.location.href=url+'?steps='+encodeURIComponent(stepsToParam())}
 (function(){const p=new URLSearchParams(window.location.search).get('steps');const restored=paramToSteps(p);if(restored&&restored.length>0&&restored.every(s=>METRICS[s.metric])){steps=restored;nxtId=Math.max(...steps.map(s=>s.id))+1}})();
 
-function evalStep(s,step){const m=METRICS[step.metric],v=m.get(s);if(v===null)return false;if(m.cmp==='range')return v>=step.threshold&&v<=(step.threshold2!=null?step.threshold2:999);if(m.cmp==='gt')return v>step.threshold;if(m.cmp==='lte')return v<=step.threshold;return v>=step.threshold}
+// Normalize sector to WI26 27 standard set (non-standard → 'Other')
+const WI26_SET = new Set(WI26_OPTIONS);
+function normalizeSector(s){return WI26_SET.has(s)?s:'Other'}
+
+function evalStep(s,step){const m=METRICS[step.metric];if(m.cmp==='in'){const sel=step.threshold;if(!Array.isArray(sel)||sel.length===0)return true;return sel.includes(normalizeSector(m.get(s)||''))}const v=m.get(s);if(v===null)return false;if(m.cmp==='range'){const lo=step.threshold!=null?step.threshold:-Infinity;const hi=step.threshold2!=null?step.threshold2:Infinity;return v>=lo&&v<=hi}if(step.threshold==null)return true;if(m.cmp==='gt')return v>step.threshold;if(m.cmp==='lte')return v<=step.threshold;return v>=step.threshold}
 
 function applyAll(){return DATA.map(s=>{const res={};let pass=true;steps.forEach(st=>{const p=evalStep(s,st);res[st.id]=p;if(!p)pass=false});return{...s,sr:res,passAll:pass}})}
 
@@ -615,9 +665,22 @@ function renderPipeline(){
     const moveL = i > 0 ? `<button title="왼쪽으로" onclick="moveStep(${st.id},-1)">◀</button>` : '';
     const moveR = i < steps.length-1 ? `<button title="오른쪽으로" onclick="moveStep(${st.id},1)">▶</button>` : '';
     const delBtn = steps.length>1 ? `<button class="btn-del" title="삭제" onclick="removeStep(${st.id})">✕</button>` : '';
-    const thresholdUI = m.cmp === 'range'
-      ? `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" style="width:60px" oninput="chgThresh(${st.id},this.value)"><span class="unit">% min</span><span style="margin:0 4px;color:var(--text-muted)">~</span><input type="number" value="${st.threshold2!=null?st.threshold2:m.dv2||100}" step="${m.step}" style="width:60px" oninput="chgThresh2(${st.id},this.value)"><span class="unit">% max</span></div>`
-      : `<div class="step-threshold"><input type="number" value="${st.threshold}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
+    const cmpSign = m.cmp === 'gte' ? '≥' : m.cmp === 'lte' ? '≤' : m.cmp === 'gt' ? '>' : '';
+    const px = m.prefix || '';
+    const thresholdUI = m.cmp === 'in'
+      ? (function(){
+          const selected = Array.isArray(st.threshold) ? st.threshold : [];
+          const opts = m.options.map(opt => {
+            const isOn = selected.includes(opt);
+            const safe = opt.replace(/'/g, "\\'");
+            return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${st.id},'${safe}')">${opt}</button>`;
+          }).join('');
+          const summary = selected.length === 0 ? 'All sectors' : `${selected.length} selected`;
+          return `<div class="step-threshold step-sector"><div class="sector-summary">${summary} <button class="sector-clear" onclick="clearSectorSelection(${st.id})" title="Clear all">Clear</button></div><div class="sector-options">${opts}</div></div>`;
+        })()
+      : m.cmp === 'range'
+      ? `<div class="step-threshold"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-2px">from</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" style="width:95px" oninput="chgThresh(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;white-space:nowrap">${m.unit}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold2!=null?st.threshold2:''}" step="${m.step}" style="width:95px" oninput="chgThresh2(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif">${m.unit}</span></div>`
+      : `<div class="step-threshold">${cmpSign?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;font-size:14px;margin-right:-4px">${cmpSign}</span>`:''}${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
     c.innerHTML=`<div class="step-card-header"><div class="step-number">Filter ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
       <select class="step-metric-select" onchange="chgMetric(${st.id},this.value)">${buildMetricOptions(st.metric)}</select>
       <div class="step-metric-desc">${m.desc}</div>
@@ -629,7 +692,7 @@ function renderPipeline(){
 
 function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[steps[j].id]);const p=pool.filter(s=>s.sr[st.id]).length;const el=document.getElementById(`ss-${st.id}`);if(el)el.innerHTML=`<span class="stat-label">Pass</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
 
-function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
+function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(st.metric==='sector')return;if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
 
 let nameSticky = true;
 function togglePin(){
@@ -639,7 +702,7 @@ function togglePin(){
   document.querySelectorAll('.pin-btn').forEach(el=>{el.classList.toggle('pin-active', nameSticky)});
 }
 function sIcon(col){return sortCol===col?(sortAsc?' <span class="sort-icon">▲</span>':' <span class="sort-icon">▼</span>'):' <span class="sort-icon" style="opacity:0.4">↕</span>'}
-function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">Company${sIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th><th onclick="doSort('code')">Code${sIcon('code')}</th><th onclick="doSort('sector')">Sector${sIcon('sector')}</th><th onclick="doSort('_reportShort')">Report${sIcon('_reportShort')}</th><th onclick="doSort('_price')" style="text-align:right">Price${sIcon('_price')}</th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col}${sIcon(k)}</th>`).join('')}<th style="text-align:center">Result</th></tr>`}
+function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">Company${sIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th><th onclick="doSort('code')">Ticker${sIcon('code')}</th><th onclick="doSort('sector')">Sector${sIcon('sector')}</th><th onclick="doSort('_reportShort')">Report${sIcon('_reportShort')}</th><th onclick="doSort('_price')" style="text-align:right">Price${sIcon('_price')}</th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col}${sIcon(k)}</th>`).join('')}<th style="text-align:center">Result</th></tr>`}
 
 function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderHead();renderBody(applyAll())}
 
@@ -656,12 +719,14 @@ function renderBody(f){
 
 function fullRender(){renderPipeline();renderHead();const f=applyAll();updateStats(f);renderBody(f)}
 
-function addStep(){const used=new Set(steps.map(s=>s.metric)),avail=Object.keys(METRICS).find(k=>!used.has(k))||Object.keys(METRICS)[0];steps.push({id:nxtId++,metric:avail,threshold:METRICS[avail].dv});fullRender();setTimeout(()=>document.querySelector('.pipeline-scroll').scrollLeft=9999,50)}
+function addStep(){const used=new Set(steps.map(s=>s.metric)),avail=Object.keys(METRICS).find(k=>!used.has(k))||Object.keys(METRICS)[0];const dv=METRICS[avail].dv;steps.push({id:nxtId++,metric:avail,threshold:Array.isArray(dv)?[...dv]:dv});fullRender();setTimeout(()=>document.querySelector('.pipeline-scroll').scrollLeft=9999,50)}
 function removeStep(id){steps=steps.filter(s=>s.id!==id);fullRender()}
 function moveStep(id,dir){const idx=steps.findIndex(s=>s.id===id);const newIdx=idx+dir;if(newIdx<0||newIdx>=steps.length)return;[steps[idx],steps[newIdx]]=[steps[newIdx],steps[idx]];fullRender()}
-function chgMetric(id,metric){const st=steps.find(s=>s.id===id);if(st){st.metric=metric;st.threshold=METRICS[metric].dv;if(METRICS[metric].cmp==='range')st.threshold2=METRICS[metric].dv2||100;else delete st.threshold2;fullRender()}}
-function chgThresh(id,val){const st=steps.find(s=>s.id===id);if(st){st.threshold=parseFloat(val)||0;const f=applyAll();updateStats(f);renderBody(f)}}
-function chgThresh2(id,val){const st=steps.find(s=>s.id===id);if(st){st.threshold2=parseFloat(val)||100;const f=applyAll();updateStats(f);renderBody(f)}}
+function chgMetric(id,metric){const st=steps.find(s=>s.id===id);if(st){st.metric=metric;const m=METRICS[metric];st.threshold=Array.isArray(m.dv)?[...m.dv]:m.dv;if(m.cmp==='range')st.threshold2=m.dv2||100;else delete st.threshold2;fullRender()}}
+function chgThresh(id,val){const st=steps.find(s=>s.id===id);if(st){const t=val===''||val==null?null:parseFloat(val);st.threshold=isNaN(t)?null:t;const f=applyAll();updateStats(f);renderBody(f)}}
+function chgThresh2(id,val){const st=steps.find(s=>s.id===id);if(st){const t=val===''||val==null?null:parseFloat(val);st.threshold2=isNaN(t)?null:t;const f=applyAll();updateStats(f);renderBody(f)}}
+function toggleSectorOption(id,sector){const st=steps.find(s=>s.id===id);if(!st)return;if(!Array.isArray(st.threshold))st.threshold=[];const idx=st.threshold.indexOf(sector);if(idx>=0){st.threshold.splice(idx,1)}else{st.threshold.push(sector)}fullRender()}
+function clearSectorSelection(id){const st=steps.find(s=>s.id===id);if(!st)return;st.threshold=[];fullRender()}
 function toggleView(mode){viewMode=mode;document.getElementById('btn-pass').classList.toggle('active',mode==='pass');document.getElementById('btn-all').classList.toggle('active',mode==='all');renderBody(applyAll())}
 
 function exportCSV(){
@@ -672,27 +737,27 @@ function exportCSV(){
 
   const isUSD = currencyMode === 'USD';
   const pUnit = isUSD ? 'USD' : 'KRW';
-  const nUnit = isUSD ? 'USD' : '100M KRW';
+  const nUnit = isUSD ? 'USD' : '₩B';
 
   // BOM for Excel UTF-8
   let csv='\uFEFF';
   // Header with units
   const colHeaders = mk.map(k => {
     const c = METRICS[k].col;
-    if (k==='mcap'||k==='netCash'||k==='avgTV20') return c+'('+nUnit+')';
+    if (k==='mcap'||k==='ev'||k==='netCash'||k==='avgTV20') return c+'('+nUnit+')';
     return c;
   });
-  const headers=['Company','Code','Sector','Report','Price('+pUnit+')',...colHeaders,'Result'];
+  const headers=['Company','Ticker','Sector','Report','Price('+pUnit+')',...colHeaders,'Result'];
   csv+=headers.join(',')+'\n';
 
-  const pctKeys = new Set(['roe','avgOPM','latestOPM','avgNPM','latestNPM','divPayout','shReturn','revGrowth','opGrowth','turnover','majorSH']);
+  const pctKeys = new Set(['roe','avgOPM','latestOPM','avgNPM','latestNPM','divYield','shYield','divPayout','shReturn','revGrowth','opGrowth','turnover','majorSH']);
 
   disp.forEach(s=>{
     const vals=mk.map(k=>{
       const m=METRICS[k],v=m.get(s);
       if(v===null)return'N/A';
-      if(k==='mcap'||k==='netCash'||k==='avgTV20'){
-        if(isUSD) return (v * 100000000 / USD_KRW_RATE).toFixed(0);
+      if(k==='mcap'||k==='ev'||k==='netCash'||k==='avgTV20'){
+        if(isUSD) return (v * 1000000000 / USD_KRW_RATE).toFixed(0);
         return v;
       }
       if(k==='per')return v===0?'N/A':v.toFixed(1);
@@ -731,8 +796,8 @@ async function init() {
     if (resp.ok) {
       jsonData = await resp.json();
       if (jsonData.stocks && jsonData.stocks.length > 0) {
-        // Exclude preferred shares, infra funds (no reportShort)
-        stockSource = jsonData.stocks.filter(s => s.reportShort && s.reportShort.length > 0);
+        // Exclude preferred shares, infra funds, KONEX
+        stockSource = jsonData.stocks.filter(s => s.reportShort && s.reportShort.length > 0 && s.market !== 'KONEX');
         marketDateStr = jsonData.market_date_display || LAST_BIZ_STR;
         isRealData = true;
         if (jsonData.usd_krw_rate) USD_KRW_RATE = jsonData.usd_krw_rate;

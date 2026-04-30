@@ -17,11 +17,14 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;min-height:100vh}
-.app{max-width:1500px;margin:0 auto;padding:40px 32px 80px}
+.app{max-width:1520px;margin:0 auto;padding:40px 32px 80px}
 .header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;border-bottom:1px solid #2a3550;padding-bottom:32px}
-.header h1{font-family:Verdana,Geneva,sans-serif;font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.1}
-.header h1 span{color:var(--gold)}
-.header h1 a{text-decoration:none;color:inherit}
+.header-left h1{font-family:Verdana,Geneva,sans-serif;font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.1}
+.header-left h1 span{color:var(--gold)}
+.header-left h1 a{text-decoration:none;color:inherit}
+.header-left .subtitle{color:var(--text-secondary);font-size:14px;margin-top:8px;font-weight:300;letter-spacing:.5px}
+.header-right{display:flex;gap:10px;align-items:center;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.header-badge{background:var(--gold-dim);color:var(--gold);font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,168,83,0.25);font-family:'DM Mono','Noto Sans KR',monospace}
 
 /* Data note (sample data banner) */
 .data-note{display:flex;align-items:center;gap:8px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:12px 16px;margin-bottom:32px;font-size:12px;color:var(--accent-blue)}
@@ -33,8 +36,6 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 .section-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:0 4px}
 .section-label{font-family:'DM Mono',monospace;font-size:12.5px;color:#fff;text-transform:uppercase;letter-spacing:2px;font-weight:700}
 .section-count{color:var(--text-muted);font-size:11px;margin-left:auto;font-family:'DM Mono',monospace}
-.subtitle{color:var(--text-secondary);font-size:14px;margin-top:8px;font-weight:300;letter-spacing:.5px}
-.badge{background:rgba(212,168,83,0.08);color:var(--gold);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,168,83,0.25);font-family:'DM Mono',monospace}
 
 /* 2-column layout */
 .config-area{display:flex;gap:20px;margin-bottom:24px}
@@ -49,7 +50,18 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 
 /* Filter rows */
 .filter-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.filter-row.filter-row-sector{align-items:flex-start}
 .filter-row:last-child{border-bottom:none}
+.sector-block{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.sector-desc{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;line-height:1.5;font-weight:300}
+.sector-summary{font-size:12px;color:var(--text-secondary);font-family:'DM Mono',monospace;display:flex;justify-content:space-between;align-items:center}
+.sector-clear{background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:11px;padding:3px 8px;cursor:pointer;font-family:'DM Mono',monospace}
+.sector-clear:hover{color:var(--text-primary);border-color:var(--text-secondary)}
+.sector-options{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;max-height:160px;overflow-y:auto}
+.sector-chip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-family:'DM Mono',monospace;background:transparent;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1.3}
+.sector-chip:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
+.sector-chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);font-weight:500}
+.sector-chip.selected:hover{background:rgba(212,168,83,0.25)}
 .filter-num{font-family:'DM Mono',monospace;font-size:11px;color:#fff;letter-spacing:1px;min-width:26px;text-align:center}
 .filter-move{display:flex;flex-direction:column;gap:0}
 .btn-move{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:11px;padding:1px 5px;border-radius:4px;line-height:1;transition:all .2s}
@@ -57,7 +69,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 .btn-move:disabled{opacity:0.3;cursor:not-allowed}
 .filter-select{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px;font-family:inherit;min-width:160px}
 .filter-cmp{color:var(--text-muted);font-size:13px;min-width:30px;text-align:center}
-.filter-input{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px;font-family:'DM Mono',monospace;width:80px;text-align:right}
+.filter-input{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px;font-family:'DM Mono',monospace;width:95px;text-align:right}
 .filter-unit{color:var(--text-muted);font-size:12px;min-width:40px}
 .btn-remove{cursor:pointer;color:var(--text-muted);font-size:16px;padding:4px 8px;border-radius:6px;border:none;background:none}
 .btn-remove:hover{color:var(--fail-text);background:rgba(248,113,113,0.1)}
@@ -135,7 +147,8 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
 
 @media(max-width:900px){
   .app{padding:16px 12px 60px}
-  .header{flex-direction:column;align-items:flex-start;gap:8px}
+  .header{flex-direction:column;align-items:flex-start;gap:16px}
+  .header-left h1{font-size:28px}
   .config-area{flex-direction:column}
   #filters,#factors{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .factor-row,.filter-row{flex-wrap:nowrap;min-width:min-content}
@@ -149,13 +162,13 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
 <body>
 <div class="app">
   <div class="header">
-    <div>
+    <div class="header-left">
       <h1><a href="value_screener_en.html"><span>Value</span> Screener</a></h1>
       <div class="subtitle">Korea Equity Fundamental Screener</div>
     </div>
-    <div style="display:flex;gap:8px">
-      <a href="#" onclick="switchLang('scoring.html');return false" style="text-decoration:none"><div class="badge" style="cursor:pointer">한국어</div></a>
-      <div class="badge" id="data-badge">SAMPLE DATA</div>
+    <div class="header-right">
+      <a href="#" onclick="switchLang('scoring.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">한국어</div></a>
+      <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
   </div>
 
@@ -227,14 +240,16 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>CFO / Operating Income (3Y Avg):</strong> Simple average of annual cash flow from operations ÷ operating income. Measures the cash-conversion quality of reported operating earnings.<br>
       <strong>FCF / Net Income (3Y Avg):</strong> Simple average of annual free cash flow (CFO − CapEx) ÷ net income. Measures the cash-conversion quality of reported net earnings.<br>
       <strong>Dividend Payout Ratio:</strong> Total declared dividends for the attributable fiscal year (final + interim) ÷ controlling-interest net income × 100. Under Korean corporate law, final dividends are confirmed at the following year's AGM; the ratio therefore reflects the most recently ratified fiscal year.<br>
-      <strong>Total Shareholder Yield:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Uses the same reference year as the payout ratio.<br>
+      <strong>Shareholder Payout Ratio:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Captures total earnings returned to equity holders via both dividends and buybacks. Uses the same reference year as the payout ratio.<br>
+      <strong>Dividend Yield:</strong> Declared dividends ÷ market capitalization × treasury adjustment factor × 100. The numerator is the most recently ratified fiscal-year dividend; the denominator is daily-updated market capitalization (previous close). Treasury adjustment factor = 1 ÷ (1 − treasury share ratio), correcting for the structural mismatch where Korean market cap is computed on issued shares while dividends are paid only on outstanding shares.<br>
+      <strong>Shareholder Yield:</strong> (Declared dividends + absolute value of share repurchases) ÷ market capitalization × treasury adjustment factor × 100. Extends dividend yield to incorporate buybacks (which mechanically increase per-share intrinsic value through float reduction).<br>
       <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + short-term investment securities) − (short-term borrowings + current portion of long-term debt + bonds payable + long-term borrowings). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
       <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
       <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
       <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
       <strong>3Y Operating Income CAGR:</strong> Compound annual growth rate of operating income over the trailing three fiscal years.<br>
       <strong>3Y CFO CAGR:</strong> Compound annual growth rate of cash flow from operations over the trailing three fiscal years.<br>
-      <strong>20D Avg Daily Turnover:</strong> Trailing 20-session average daily trading value (₩100M). Practical gauge of market depth and execution capacity.<br>
+      <strong>20D Avg Daily Turnover:</strong> Trailing 20-session average daily trading value (₩B). Practical gauge of market depth and execution capacity.<br>
       <strong>Turnover Ratio:</strong> 20-day average daily turnover ÷ market capitalization × 100 (%). Size-adjusted liquidity measure; at identical won turnover, large-caps print lower ratios than mid-caps.<br>
       <strong>Major Shareholder Ownership:</strong> Aggregate year-end ownership (%) of the largest shareholder and related parties per the latest DART periodic filing. Higher concentration typically reflects stable control, but may constrain free float.<br>
       <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100 (%). Treasury shares carry no voting rights.<br>
@@ -251,7 +266,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>▲ Higher value → higher score (top-percentile orientation)</strong><br>
       ROE, 3Y Avg Operating Margin, Latest Operating Margin, 3Y Avg Net Margin, Latest Net Margin,<br>
       3Y Avg CFO/Operating Income, 3Y Avg FCF/Net Income, Net Cash / Market Cap, Net Cash / Equity,<br>
-      Dividend Payout Ratio, Total Shareholder Yield, 3Y Revenue CAGR, 3Y Operating Income CAGR, 3Y CFO CAGR, 20D Avg Daily Turnover<br><br>
+      Dividend Payout Ratio, Shareholder Payout Ratio, Dividend Yield, Shareholder Yield, 3Y Revenue CAGR, 3Y Operating Income CAGR, 3Y CFO CAGR, 20D Avg Daily Turnover<br><br>
       <strong>▼ Lower value → higher score (bottom-percentile orientation)</strong><br>
       P/E, P/B, Major Shareholder Ownership
     </p>
@@ -297,10 +312,19 @@ function toggleCurrency() {
 }
 
 // ── State serialization (preserve filters/factors across language switch) ──
+// URL uses 억원 (KRW 100M) as canonical unit. EN UI uses ₩B internally for these metrics.
+const BUNIT_METRICS = new Set(['mcap','netCash','avgTV20']);
 function stateToParam() {
   const f = filters.map(x => {
-    let s = x.metric + ':' + x.threshold;
-    if (x.threshold2 != null) s += ':' + x.threshold2;
+    const M = FILTER_METRICS[x.metric];
+    if (M && M.cmp === 'in') {
+      const arr = Array.isArray(x.threshold) ? x.threshold : [];
+      return x.metric + ':' + arr.join('|');
+    }
+    const m = BUNIT_METRICS.has(x.metric) ? 10 : 1;
+    let t = x.threshold != null ? (x.threshold * m) : x.threshold;
+    let s = x.metric + ':' + t;
+    if (x.threshold2 != null) s += ':' + (x.threshold2 * m);
     return s;
   }).join(',');
   const g = factors.map(x => x.metric + ':' + x.weight).join(',');
@@ -313,8 +337,15 @@ function paramToState(fParam, gParam) {
       let id = 1;
       out.filters = fParam.split(',').filter(Boolean).map(p => {
         const a = p.split(':');
-        const o = {id: id++, metric: a[0], threshold: Number(a[1])};
-        if (a[2] != null) o.threshold2 = Number(a[2]);
+        const metric = a[0];
+        const M = FILTER_METRICS[metric];
+        if (M && M.cmp === 'in') {
+          const arr = (a[1] || '').split('|').filter(x => x);
+          return {id: id++, metric, threshold: arr};
+        }
+        const m = BUNIT_METRICS.has(metric) ? 10 : 1;
+        const o = {id: id++, metric, threshold: Number(a[1]) / m};
+        if (a[2] != null) o.threshold2 = Number(a[2]) / m;
         return o;
       });
     } catch(e) {}
@@ -339,24 +370,35 @@ const FILTER_CATEGORIES = [
   { name: 'Valuation', keys: ['mcap', 'per', 'pbr'] },
   { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',   keys: ['ocfOp', 'fcfNi'] },
-  { name: 'Shareholder Return',   keys: ['divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
   { name: 'Governance',   keys: ['majorSH', 'treasuryRatio'] },
+  { name: 'Sector',       keys: ['sector'] },
 ];
 const SCORE_CATEGORIES = [
   { name: 'Valuation', keys: ['per', 'pbr'] },
   { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',   keys: ['avgOcfOp', 'avgFcfNi'] },
-  { name: 'Shareholder Return',   keys: ['divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['avgTV20'] },
   { name: 'Governance',    keys: ['majorSH'] },
 ];
 
+// WI26 26 standard sectors + Other (English)
+const WI26_OPTIONS = [
+  'Energy','Chemicals','Non-Ferrous Metals','Steel','Construction','Machinery','Shipbuilding','Trading & Capital Goods',
+  'Transportation','Automobiles','Cosmetics & Apparel','Hotels & Leisure','Media & Education','Retail',
+  'Consumer Staples','Healthcare','Banks','Securities','Insurance','Software','IT Hardware',
+  'Semiconductors','Consumer Electronics','Display','Telecom','Utilities','Other'
+];
+const WI26_SET = new Set(WI26_OPTIONS);
+function normalizeSector(s){return WI26_SET.has(s)?s:'Other'}
+
 // ─── Filter metric definitions ───
 const FILTER_METRICS = {
-  mcap:        {label:'Market Cap',              unit:'₩100M', cmp:'gte', dv:1000, get:s=>s._mcap},
+  mcap:        {label:'Market Cap',              prefix:'₩',unit:'B', cmp:'range', dv:100, dv2:10000, get:s=>s._mcap/10},
   per:         {label:'PER',                  unit:'x',  cmp:'lte', dv:15,   get:s=>s._per>0?s._per:null},
   pbr:         {label:'PBR',                  unit:'x',  cmp:'lte', dv:1.5,  get:s=>s._pbr>0?s._pbr:null},
   roe:         {label:'ROE',                  unit:'%',   cmp:'gte', dv:10,   get:s=>s.roe},
@@ -366,18 +408,21 @@ const FILTER_METRICS = {
   latestNPM:   {label:'Latest NPM',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.latestNPM},
   ocfOp:       {label:'3Y Avg CFO/OP',   unit:'x',  cmp:'gte', dv:1.0,  get:s=>s.avgOcfOp},
   fcfNi:       {label:'3Y Avg FCF/NI',     unit:'x',  cmp:'gte', dv:0.5,  get:s=>s.avgFcfNi},
-  netCash:     {label:'Net Cash',            unit:'₩100M', cmp:'gte', dv:0,    get:s=>s.netCash},
+  netCash:     {label:'Net Cash',            prefix:'₩',unit:'B', cmp:'gte', dv:0,    get:s=>s.netCash/10},
   netCashRatio:{label:'Net Cash / Mkt Cap',    unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashRatio},
   netCashEquityRatio:{label:'Net Cash / Equity', unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashEquityRatio},
-  divPayout:   {label:'Div Payout',               unit:'%',   cmp:'gte', dv:20,   get:s=>s.divPayout},
-  shReturn:    {label:'SH Return',             unit:'%',   cmp:'gte', dv:30,   get:s=>s.shReturn},
+  divYield:    {label:'Dividend Yield',          unit:'%',   cmp:'gte', dv:3,    get:s=>s.divYield},
+  shYield:     {label:'Shareholder Yield',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.shYield},
+  divPayout:   {label:'Dividend Payout Ratio',  unit:'%',   cmp:'gte', dv:20,   get:s=>s.divPayout},
+  shReturn:    {label:'Shareholder Payout Ratio', unit:'%',   cmp:'gte', dv:30,   get:s=>s.shReturn},
   revGrowth:   {label:'3Y Rev CAGR',          unit:'%',   cmp:'gte', dv:5,    get:s=>s.revGrowth},
   opGrowth:    {label:'3Y OP CAGR',       unit:'%',   cmp:'gte', dv:10,   get:s=>s.opGrowth},
   ocfGrowth:   {label:'3Y CFO CAGR',            unit:'%',   cmp:'gte', dv:5,    get:s=>s.ocfGrowth},
-  avgTV20:     {label:'20D Avg Trading Value',       unit:'₩100M', cmp:'gte', dv:10,   get:s=>s._avgTV20},
+  avgTV20:     {label:'20D Avg Trading Value',       prefix:'₩',unit:'B', cmp:'gte', dv:1,   get:s=>s._avgTV20/10},
   turnover:    {label:'Turnover Ratio',    unit:'%',   cmp:'gte', dv:0.1,  get:s=>s._turnover},
   majorSH:     {label:'Major Shareholder %',           unit:'%',   cmp:'range', dv:20, dv2:80, get:s=>s._majorSH},
   treasuryRatio:{label:'Treasury Share Ratio',       unit:'%',   cmp:'gte', dv:0,    get:s=>s._treasuryRatio},
+  sector:      {label:'Sector',                       unit:'',    cmp:'in', dv:[],     get:s=>s.sectorEn,  options:WI26_OPTIONS, desc:'Select sectors to include (multi-select)'},
 };
 
 // ─── Scoring metric definitions ───
@@ -391,8 +436,10 @@ const SCORE_METRICS = {
   avgFcfNi:    {label:'3Y Avg FCF/NI',          get:s=>s.avgFcfNi,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
   netCashRatio:{label:'Net Cash / Mkt Cap',        get:s=>s.netCashRatio,   dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   netCashEquityRatio:{label:'Net Cash / Equity',    get:s=>s.netCashEquityRatio, dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  divPayout:   {label:'Div Payout',                   get:s=>s.divPayout,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  shReturn:    {label:'SH Return',                  get:s=>s.shReturn,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  divYield:    {label:'Dividend Yield',                get:s=>s.divYield,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
+  shYield:     {label:'Shareholder Yield',                 get:s=>s.shYield,        dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
+  divPayout:   {label:'Dividend Payout Ratio',     get:s=>s.divPayout,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  shReturn:    {label:'Shareholder Payout Ratio',   get:s=>s.shReturn,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   revGrowth:   {label:'3Y Rev CAGR',              get:s=>s.revGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   opGrowth:    {label:'3Y OP CAGR',           get:s=>s.opGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   ocfGrowth:   {label:'3Y CFO CAGR',               get:s=>s.ocfGrowth,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
@@ -404,7 +451,7 @@ const SCORE_METRICS = {
 
 let DATA = [];
 let filters = [
-  {id:1, metric:'mcap', threshold:1000},
+  {id:1, metric:'mcap', threshold:100, threshold2:10000},
   {id:2, metric:'avgOPM', threshold:5},
 ];
 let factors = [
@@ -469,6 +516,21 @@ function preprocessStock(s) {
   const netCashRatio = mcap > 0 ? (netCash / mcap) * 100 : null;
   const netCashEquityRatio = eq > 0 ? (netCash / eq) * 100 : null;
 
+  // ─── Treasury share adjustment factor ───
+  // DPS uses outstanding shares; market cap uses total issued shares.
+  // adjFactor = 1 / (1 - treasury share ratio) corrects for buyback-rich firms.
+  const treasuryRatio = (s.treasuryShareRatio || 0) / 100;
+  const adjFactor = treasuryRatio > 0 && treasuryRatio < 1 ? 1 / (1 - treasuryRatio) : 1;
+  const divTotalAbs = Math.abs(s.dividendTotal || 0);
+  const buybackAbs = Math.abs(s.sharesBuyback || 0);
+
+  // Dividend Yield
+  const divYield = (mcap > 0 && divTotalAbs > 0) ? (divTotalAbs / mcap) * adjFactor * 100 : null;
+  // Shareholder Yield
+  const shYield = (mcap > 0 && (divTotalAbs + buybackAbs) > 0) ? ((divTotalAbs + buybackAbs) / mcap) * adjFactor * 100 : null;
+  // Enterprise Value
+  const ev = mcap > 0 ? mcap - netCash : null;
+
   let ocfGrowth = null;
   if (ocf[0] > 0 && ocf[2] > 0) ocfGrowth = (Math.pow(ocf[2]/ocf[0], 0.5) - 1) * 100;
 
@@ -482,6 +544,7 @@ function preprocessStock(s) {
     roe, avgOPM, latestOPM, avgNPM, latestNPM,
     avgOcfOp, avgFcfNi, revGrowth, opGrowth, ocfGrowth,
     divPayout, shReturn, netCash, netCashRatio, netCashEquityRatio,
+    divYield, shYield, ev,
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,
     _majorSH: s.majorShareholderRate || 0,
@@ -496,9 +559,20 @@ function applyFilters(stocks) {
     return filters.every(f => {
       const m = FILTER_METRICS[f.metric];
       if (!m) return true;
+      // Sector filter (multi-select)
+      if (m.cmp === 'in') {
+        const sel = f.threshold;
+        if (!Array.isArray(sel) || sel.length === 0) return true;
+        return sel.includes(normalizeSector(m.get(s) || ''));
+      }
       const v = m.get(s);
       if (v === null || v === undefined) return false;
-      if (m.cmp === 'range') return v >= f.threshold && v <= (f.threshold2 != null ? f.threshold2 : 999);
+      if (m.cmp === 'range') {
+        const lo = f.threshold != null ? f.threshold : -Infinity;
+        const hi = f.threshold2 != null ? f.threshold2 : Infinity;
+        return v >= lo && v <= hi;
+      }
+      if (f.threshold == null) return true;
       if (m.cmp === 'gte') return v >= f.threshold;
       if (m.cmp === 'lte') return v <= f.threshold;
       if (m.cmp === 'gt') return v > f.threshold;
@@ -562,14 +636,39 @@ function renderFilters() {
     const upBtn = idx > 0 ? `<button class="btn-move" onclick="moveFilter(${f.id},-1)" title="Up">▲</button>` : `<button class="btn-move" disabled>▲</button>`;
     const downBtn = idx < filters.length-1 ? `<button class="btn-move" onclick="moveFilter(${f.id},1)" title="Down">▼</button>` : `<button class="btn-move" disabled>▼</button>`;
     const moveBtns = `<div class="filter-move">${upBtn}${downBtn}</div>`;
+    const px = m.prefix || '';
+    if (m.cmp === 'in') {
+      const selected = Array.isArray(f.threshold) ? f.threshold : [];
+      const opts = m.options.map(opt => {
+        const isOn = selected.includes(opt);
+        const safe = opt.replace(/'/g, "\\'");
+        return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${f.id},'${safe}')">${opt}</button>`;
+      }).join('');
+      const summary = selected.length === 0 ? 'All sectors' : `${selected.length} selected`;
+      const descText = m.desc || 'Select sectors to include (multi-select; empty = all stocks)';
+      return `<div class="filter-row filter-row-sector">
+        ${num}${moveBtns}
+        <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>
+        <div class="sector-block">
+          <div class="sector-desc">${descText}</div>
+          <div class="sector-summary">${summary} <button class="sector-clear" onclick="clearSectorSelection(${f.id})" title="Clear all">Clear</button></div>
+          <div class="sector-options">${opts}</div>
+        </div>
+        <button class="btn-remove" onclick="removeFilter(${f.id})" title="Remove">✕</button>
+      </div>`;
+    }
     if (m.cmp === 'range') {
       return `<div class="filter-row">
         ${num}${moveBtns}
         <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>
-        <input class="filter-input" type="number" value="${f.threshold}" onchange="changeFilterVal(${f.id},+this.value)" step="any">
-        <div class="filter-cmp">~</div>
-        <input class="filter-input" type="number" value="${f.threshold2 != null ? f.threshold2 : m.dv2 || 100}" onchange="changeFilterVal2(${f.id},+this.value)" step="any">
-        <div class="filter-unit">${m.unit}</div>
+        <div class="filter-unit" style="min-width:auto;white-space:nowrap">from</div>
+        ${px?`<div class="filter-unit" style="min-width:auto;white-space:nowrap;margin-right:-6px">${px}</div>`:''}
+        <input class="filter-input" type="number" value="${f.threshold!=null?f.threshold:''}" onchange="changeFilterVal(${f.id},this.value)" step="any">
+        <div class="filter-unit" style="min-width:auto;white-space:nowrap;margin-left:-4px">${m.unit}</div>
+        <div class="filter-unit" style="min-width:auto;white-space:nowrap">to</div>
+        ${px?`<div class="filter-unit" style="min-width:auto;white-space:nowrap;margin-right:-6px">${px}</div>`:''}
+        <input class="filter-input" type="number" value="${f.threshold2!=null?f.threshold2:''}" onchange="changeFilterVal2(${f.id},this.value)" step="any">
+        <div class="filter-unit" style="min-width:auto;white-space:nowrap;margin-left:-4px">${m.unit}</div>
         <button class="btn-remove" onclick="removeFilter(${f.id})" title="Remove">✕</button>
       </div>`;
     }
@@ -578,7 +677,8 @@ function renderFilters() {
       ${num}${moveBtns}
       <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>
       <div class="filter-cmp">${cmpLabel}</div>
-      <input class="filter-input" type="number" value="${f.threshold}" onchange="changeFilterVal(${f.id},+this.value)" step="any">
+      ${px?`<div class="filter-unit" style="min-width:auto;white-space:nowrap;margin-right:-6px">${px}</div>`:''}
+      <input class="filter-input" type="number" value="${f.threshold!=null?f.threshold:''}" onchange="changeFilterVal(${f.id},this.value)" step="any">
       <div class="filter-unit">${m.unit}</div>
       <button class="btn-remove" onclick="removeFilter(${f.id})" title="Remove">✕</button>
     </div>`;
@@ -660,7 +760,7 @@ function renderTable() {
     `<tr>
       <th class="${thRankSticky}" style="text-align:center" onclick="doSort('_score')">Rank${sortIcon('_score')}</th>
       <th class="${thSticky}" onclick="doSort('name')">Company${sortIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th>
-      <th onclick="doSort('code')">Code${sortIcon('code')}</th>
+      <th onclick="doSort('code')">Ticker${sortIcon('code')}</th>
       <th onclick="doSort('sector')">Sector${sortIcon('sector')}</th>
       <th onclick="doSort('_reportShort')">Report${sortIcon('_reportShort')}</th>
       <th style="text-align:right" onclick="doSort('_price')">Price${sortIcon('_price')}</th>
@@ -686,7 +786,7 @@ function renderTable() {
     }).join('');
 
     const mkt = s._market || '';
-    const mktBadge = mkt ? `<span class="market-badge ${mkt.startsWith('KOSDAQ')?'kd':mkt==='KONEX'?'kn':'kp'}">${mkt.startsWith('KOSDAQ')?'KOSDAQ':mkt==='KONEX'?'KONEX':'KOSPI'}</span>` : '';
+    const mktBadge = `<span class="market-badge ${mkt.startsWith('KOSDAQ')?'kd':mkt==='KONEX'?'kn':'kp'}">${mkt.startsWith('KOSDAQ')?'KOSDAQ':mkt==='KONEX'?'KONEX':'KOSPI'}</span>`;
     return `<tr class="${i < 3 ? 'top3' : ''}">
       <td class="col-rank${nameSticky?' sticky':''}">${i + 1}</td>
       <td class="col-name${nameSticky?' sticky':''}">${s.name} ${mktBadge}</td>
@@ -713,7 +813,7 @@ function addFilter() {
   const avail = Object.keys(FILTER_METRICS).find(k => !used.has(k));
   if (!avail) return alert('All filters already added.');
   const m = FILTER_METRICS[avail];
-  filters.push({id: nextFilterId++, metric: avail, threshold: m.dv});
+  filters.push({id: nextFilterId++, metric: avail, threshold: Array.isArray(m.dv) ? [...m.dv] : m.dv});
   fullRender();
 }
 function removeFilter(id) {
@@ -724,9 +824,10 @@ function changeFilter(id, metric) {
   const f = filters.find(f => f.id === id);
   if (f) {
     f.metric = metric;
-    f.threshold = FILTER_METRICS[metric].dv;
-    if (FILTER_METRICS[metric].cmp === 'range') {
-      f.threshold2 = FILTER_METRICS[metric].dv2 || 100;
+    const m = FILTER_METRICS[metric];
+    f.threshold = Array.isArray(m.dv) ? [...m.dv] : m.dv;
+    if (m.cmp === 'range') {
+      f.threshold2 = m.dv2 || 100;
     } else {
       delete f.threshold2;
     }
@@ -735,11 +836,37 @@ function changeFilter(id, metric) {
 }
 function changeFilterVal(id, val) {
   const f = filters.find(f => f.id === id);
-  if (f) { f.threshold = val; renderTable(); }
+  if (f) {
+    const t = (val === '' || val == null) ? null : parseFloat(val);
+    f.threshold = isNaN(t) ? null : t;
+    renderTable();
+  }
 }
 function changeFilterVal2(id, val) {
   const f = filters.find(f => f.id === id);
-  if (f) { f.threshold2 = val; renderTable(); }
+  if (f) {
+    const t = (val === '' || val == null) ? null : parseFloat(val);
+    f.threshold2 = isNaN(t) ? null : t;
+    renderTable();
+  }
+}
+function toggleSectorOption(id, sector) {
+  const f = filters.find(f => f.id === id);
+  if (!f) return;
+  if (!Array.isArray(f.threshold)) f.threshold = [];
+  const idx = f.threshold.indexOf(sector);
+  if (idx >= 0) {
+    f.threshold.splice(idx, 1);
+  } else {
+    f.threshold.push(sector);
+  }
+  fullRender();
+}
+function clearSectorSelection(id) {
+  const f = filters.find(f => f.id === id);
+  if (!f) return;
+  f.threshold = [];
+  fullRender();
 }
 
 // ─── Factor events ───
@@ -818,7 +945,7 @@ function exportCSV() {
   scored.sort((a, b) => (b._score||0) - (a._score||0));
   const valid = scored.filter(s => s._score !== null);
 
-  const header = ['Rank','Name','Code','Sector','Mkt Cap(₩100M)','Score'];
+  const header = ['Rank','Name','Ticker','Sector','Mkt Cap(₩B)','Score'];
   factors.forEach(f => {
     const m = SCORE_METRICS[f.metric];
     header.push(m.label + '(raw)');
@@ -826,7 +953,7 @@ function exportCSV() {
   });
 
   const rows = valid.map((s, i) => {
-    const row = [i+1, s.name, `="${s.code}"`, s.sector, s._mcap, s._score?.toFixed(1) || ''];
+    const row = [i+1, s.name, `="${s.code}"`, s.sector, (s._mcap/10).toFixed(1), s._score?.toFixed(1) || ''];
     factors.forEach((f, fi) => {
       const m = SCORE_METRICS[f.metric];
       const raw = m.get(s);
@@ -854,8 +981,8 @@ async function init() {
     const resp = await fetch('./screener_data.json');
     if (resp.ok) {
       const json = await resp.json();
-      // Exclude preferred shares, infrastructure funds etc. (no reportShort) - same as filter mode
-      const stockSource = (json.stocks || []).filter(s => s.reportShort && s.reportShort.length > 0);
+      // Exclude preferred shares, infrastructure funds, KONEX - same as filter mode
+      const stockSource = (json.stocks || []).filter(s => s.reportShort && s.reportShort.length > 0 && s.market !== 'KONEX');
       DATA = stockSource.map(preprocessStock);
       if (json.usd_krw_rate) USD_KRW_RATE = json.usd_krw_rate;
       document.getElementById('data-badge').textContent = `LIVE DATA`;
