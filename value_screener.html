@@ -69,7 +69,7 @@
   .step-metric-select optgroup{font-style:normal;font-weight:700;color:var(--gold);font-size:12px;padding:6px 0 2px;letter-spacing:0.5px}
   .step-metric-select option{font-weight:400;color:var(--text-primary);padding:4px 8px;font-size:13px}
   .step-metric-desc{font-size:12px;color:var(--text-muted);margin-top:8px;line-height:1.5;font-weight:300;min-height:18px}
-  .step-threshold{margin-top:12px;display:flex;align-items:center;gap:8px}
+  .step-threshold{margin-top:12px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
   .step-threshold input{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:'DM Mono',monospace;font-size:14px;padding:7px 10px;width:110px;outline:none;transition:border .2s}
   .step-threshold input:focus{border-color:var(--accent-blue)}
   .step-threshold .unit{font-size:12px;color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;white-space:nowrap}
@@ -689,7 +689,7 @@ function renderPipeline(){
 
 function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[steps[j].id]);const p=pool.filter(s=>s.sr[st.id]).length;const el=document.getElementById(`ss-${st.id}`);if(el)el.innerHTML=`<span class="stat-label">통과</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
 
-function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
+function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(st.metric==='sector')return;if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
 
 let nameSticky = true;
 function togglePin(){
