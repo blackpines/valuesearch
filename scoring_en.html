@@ -54,12 +54,12 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 .filter-row-sector > .sector-block{flex:1 1 100%;width:100%;margin-left:0;margin-top:6px}
 .filter-row:last-child{border-bottom:none}
 .sector-block{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
-.sector-desc{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;line-height:1.5;font-weight:300}
-.sector-summary{font-size:12px;color:var(--text-secondary);font-family:'DM Mono',monospace;display:flex;justify-content:space-between;align-items:center}
-.sector-clear{background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:11px;padding:3px 8px;cursor:pointer;font-family:'DM Mono',monospace}
+.sector-desc{font-size:12px;color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;line-height:1.5;font-weight:300}
+.sector-summary{font-size:12px;color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;display:flex;justify-content:space-between;align-items:center}
+.sector-clear{background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:11px;padding:3px 8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
 .sector-clear:hover{color:var(--text-primary);border-color:var(--text-secondary)}
 .sector-options{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;max-height:160px;overflow-y:auto}
-.sector-chip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-family:'DM Mono',monospace;background:transparent;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1.3}
+.sector-chip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-family:'Noto Sans KR',sans-serif;background:transparent;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1.3}
 .sector-chip:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
 .sector-chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);font-weight:500}
 .sector-chip.selected:hover{background:rgba(212,168,83,0.25)}
@@ -259,7 +259,8 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>Treasury Share Ratio:</strong> Treasury shares ÷ total issued shares × 100 (%). Treasury shares carry no voting rights.<br>
       <strong>TTM (Trailing Twelve Months):</strong> Where indicated, income-statement and cash-flow metrics are computed on a rolling four-quarter basis using the latest quarterly, semi-annual, or annual filing available on DART.<br><br>
       📌 This tool performs purely quantitative screening. A complete investment thesis requires qualitative judgment — moat, management, regulatory exposure, and sector dynamics — beyond the numbers.<br>
-      📌 Preferred shares and infrastructure funds are structurally incompatible with these metrics and are automatically excluded from the screening universe.
+      📌 Preferred shares and infrastructure funds are structurally incompatible with these metrics and are automatically excluded from the screening universe.<br>
+      📌 Conventional profitability and growth metrics do not translate to Banks, Securities, and Insurance sectors due to fundamentally different income statement structures under K-IFRS. ROE remains a valid cross-sector comparator.
     </p>
   </div>
 
@@ -428,7 +429,7 @@ const FILTER_METRICS = {
   turnover:    {label:'Turnover Ratio',    unit:'%',   cmp:'gte', dv:0.1,  get:s=>s._turnover},
   majorSH:     {label:'Major Shareholder %',           unit:'%',   cmp:'range', dv:20, dv2:80, get:s=>s._majorSH},
   treasuryRatio:{label:'Treasury Share Ratio',       unit:'%',   cmp:'gte', dv:0,    get:s=>s._treasuryRatio},
-  sector:      {label:'Sector',                       unit:'',    cmp:'in', dv:[],     get:s=>s.sectorEn,  options:WI26_OPTIONS, desc:'Select sectors to include (multi-select)'},
+  sector:      {label:'Sector',                       unit:'',    cmp:'in', dv:[],     get:s=>s.sectorEn,  options:WI26_OPTIONS, desc:'Select sectors to include (multi-select; all sectors if none selected)'},
 };
 
 // ─── Scoring metric definitions ───
@@ -656,7 +657,7 @@ function renderFilters() {
         return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${f.id},'${safe}')">${opt}</button>`;
       }).join('');
       const summary = selected.length === 0 ? 'All sectors' : `${selected.length} selected`;
-      const descText = m.desc || 'Select sectors to include (multi-select; empty = all stocks)';
+      const descText = m.desc || 'Select sectors to include (multi-select; all sectors if none selected)';
       return `<div class="filter-row filter-row-sector">
         ${num}${moveBtns}
         <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>

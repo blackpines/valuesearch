@@ -259,7 +259,8 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>자기주식 보유비율:</strong> 자기주식수 ÷ 발행주식총수 × 100(%). 자기주식은 의결권 없음<br>
       <strong>TTM(Trailing Twelve Months):</strong> 최근연도 실적은 가장 최신 분기/반기/사업보고서를 기준으로 누적 4분기 합산(TTM) 실적 사용<br><br>
       📌 본 프로그램은 정량적 스크리닝 툴입니다. 투자 판단에는 이외에 정성적 요소 고려가 필요할 수 있습니다.<br>
-      📌 우선주, 인프라펀드 등은 특성 상 스크리닝 지표가 적용되지 않고 필터에서 자동으로 제외됩니다.
+      📌 우선주, 인프라펀드 등은 특성 상 스크리닝 지표가 적용되지 않고 필터에서 자동으로 제외됩니다.<br>
+      📌 은행, 증권, 보험 업종은 K-IFRS 손익계산서 구조가 일반 기업과 근본적으로 달라 매출·영업이익 기반의 수익성·성장성 지표가 적용되지 않습니다. ROE는 업종 간 비교 가능한 지표로서 유효합니다.
     </p>
   </div>
 
@@ -424,7 +425,7 @@ const FILTER_METRICS = {
   turnover:    {label:'회전율(거래대금/시총)',    unit:'%',   cmp:'gte', dv:0.1,  get:s=>s._turnover},
   majorSH:     {label:'대주주 지분율',           unit:'%',   cmp:'range', dv:20, dv2:80, get:s=>s._majorSH},
   treasuryRatio:{label:'자기주식 보유비율',       unit:'%',   cmp:'gte', dv:0,    get:s=>s._treasuryRatio},
-  sector:      {label:'업종',                    unit:'',    cmp:'in', dv:[],     get:s=>s.sector,    options:WI26_OPTIONS, desc:'관심 업종을 선택하세요 (다중 선택 가능)'},
+  sector:      {label:'업종',                    unit:'',    cmp:'in', dv:[],     get:s=>s.sector,    options:WI26_OPTIONS, desc:'관심 업종을 선택하세요 (다중 선택 가능, 미선택 시 전체 업종)'},
 };
 
 // ─── 스코어 지표 정의 (용어 통일) ───
@@ -648,7 +649,7 @@ function renderFilters() {
         return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${f.id},'${safe}')">${opt}</button>`;
       }).join('');
       const summary = selected.length === 0 ? '전체' : `${selected.length}개 선택`;
-      const descText = m.desc || '관심 업종을 선택하세요 (다중 선택 가능, 미선택 시 전체 통과)';
+      const descText = m.desc || '관심 업종을 선택하세요 (다중 선택 가능, 미선택 시 전체 업종)';
       return `<div class="filter-row filter-row-sector">
         ${num}${moveBtns}
         <select class="filter-select" onchange="changeFilter(${f.id},this.value)">${options}</select>
