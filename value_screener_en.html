@@ -69,8 +69,7 @@
   .step-metric-select optgroup{font-style:normal;font-weight:700;color:var(--gold);font-size:12px;padding:6px 0 2px;letter-spacing:0.5px}
   .step-metric-select option{font-weight:400;color:var(--text-primary);padding:4px 8px;font-size:13px}
   .step-metric-desc{font-size:12px;color:var(--text-muted);margin-top:8px;line-height:1.5;font-weight:300;min-height:18px}
-  .step-threshold{margin-top:12px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-  .range-group{display:flex;align-items:center;gap:8px}
+  .step-threshold{margin-top:12px;display:flex;align-items:center;gap:8px}
   .step-threshold input{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:'DM Mono',monospace;font-size:14px;padding:7px 10px;width:110px;outline:none;transition:border .2s}
   .step-threshold input:focus{border-color:var(--accent-blue)}
   .step-threshold .unit{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;white-space:nowrap}
@@ -603,8 +602,8 @@ const WI26_OPTIONS = [
 
 const METRICS = {
   mcap:      {label:'Market Cap',              prefix:'₩',unit:'B',desc:'Filter companies within a market cap range',dv:100,dv2:10000,step:10,col:'Mkt Cap',       get:s=>s._mcap/10,      fmt:v=>fmtN(v*10),cmp:'range'},
-  per:       {label:'PER',                     unit:'x',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'x',cmp:'lte'},
-  pbr:       {label:'PBR',                     unit:'x',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'x',cmp:'lte'},
+  per:       {label:'PER',                     unit:'x',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'PER',           get:s=>s._per>0?s._per:null,       fmt:v=>v===null?'N/A':v.toFixed(1)+'x',cmp:'lte'},
+  pbr:       {label:'PBR',                     unit:'x',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr>0?s._pbr:null,       fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'lte'},
   roe:       {label:'ROE',                     unit:'%',      desc:'Return on equity (NI ÷ avg. equity)',                        dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3Y Avg OPM',              unit:'%',      desc:'3-year average operating profit margin',                       dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'Latest OPM',              unit:'%',      desc:'Most recent fiscal year operating profit margin',              dv:10,  step:1,  col:'Latest OPM',    get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -616,7 +615,7 @@ const METRICS = {
   shYield:   {label:'Shareholder Yield',       unit:'%',      desc:'(Dividends + buyback) ÷ market cap (previous close, treasury-share-adjusted)',     dv:5,   step:0.5,col:'SH Yield',      get:s=>s.shYield,    fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   divPayout: {label:'Dividend Payout Ratio',  unit:'%',      desc:'(Interim + final dividends) ÷ controlling shareholder NI',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   shReturn:  {label:'Shareholder Payout Ratio',unit:'%',      desc:'(Dividends + buyback) ÷ controlling shareholder NI',           dv:30,  step:5,  col:'SH Payout',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCash:   {label:'Net Cash',                prefix:'₩',unit:'B',desc:'(Cash & equiv. + ST financial instruments) − (borrowings + bonds)',             dv:0,   step:10, col:'Net Cash',       get:s=>s.netCash/10,    fmt:v=>fmtN(v*10),cmp:'gt'},
+  netCash:   {label:'Net Cash',                prefix:'₩',unit:'B',desc:'(Cash & equiv. + ST financial instruments) − (borrowings + bonds)',             dv:0,   step:10, col:'Net Cash',       get:s=>s.netCash/10,    fmt:v=>fmtN(v*10),cmp:'gte'},
   netCashRatio:{label:'Net Cash / Mkt Cap',   unit:'%',       desc:'Net cash as % of market cap',                            dv:0,   step:5,  col:'NC/MC',         get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCashEquityRatio:{label:'Net Cash / Equity',unit:'%',     desc:'Net cash as % of controlling equity (cash weight in assets)',                  dv:0,   step:5,  col:'NC/Equity',     get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3Y Revenue CAGR',         unit:'%',      desc:'3-year compound annual growth rate of revenue',                dv:5,   step:1,  col:'3Y Rev CAGR',   get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -680,7 +679,7 @@ function renderPipeline(){
           return `<div class="step-threshold step-sector"><div class="sector-summary">${summary} <button class="sector-clear" onclick="clearSectorSelection(${st.id})" title="Clear all">Clear</button></div><div class="sector-options">${opts}</div></div>`;
         })()
       : m.cmp === 'range'
-      ? `<div class="step-threshold"><div class="range-group"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-2px">from</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" style="width:95px" oninput="chgThresh(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif">${m.unit}</span></div><div class="range-group"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-2px">to</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold2!=null?st.threshold2:''}" step="${m.step}" style="width:95px" oninput="chgThresh2(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif">${m.unit}</span></div></div>`
+      ? `<div class="step-threshold"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-2px">from</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" style="width:95px" oninput="chgThresh(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;white-space:nowrap">${m.unit}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold2!=null?st.threshold2:''}" step="${m.step}" style="width:95px" oninput="chgThresh2(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif">${m.unit}</span></div>`
       : `<div class="step-threshold">${cmpSign?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;font-size:14px;margin-right:-4px">${cmpSign}</span>`:''}${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
     c.innerHTML=`<div class="step-card-header"><div class="step-number">Filter ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
       <select class="step-metric-select" onchange="chgMetric(${st.id},this.value)">${buildMetricOptions(st.metric)}</select>
@@ -693,7 +692,7 @@ function renderPipeline(){
 
 function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[steps[j].id]);const p=pool.filter(s=>s.sr[st.id]).length;const el=document.getElementById(`ss-${st.id}`);if(el)el.innerHTML=`<span class="stat-label">Pass</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
 
-function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(st.metric==='sector')return;if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
+function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
 
 let nameSticky = true;
 function togglePin(){

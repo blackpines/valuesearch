@@ -69,7 +69,7 @@
   .step-metric-select optgroup{font-style:normal;font-weight:700;color:var(--gold);font-size:12px;padding:6px 0 2px;letter-spacing:0.5px}
   .step-metric-select option{font-weight:400;color:var(--text-primary);padding:4px 8px;font-size:13px}
   .step-metric-desc{font-size:12px;color:var(--text-muted);margin-top:8px;line-height:1.5;font-weight:300;min-height:18px}
-  .step-threshold{margin-top:12px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+  .step-threshold{margin-top:12px;display:flex;align-items:center;gap:8px}
   .step-threshold input{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:'DM Mono',monospace;font-size:14px;padding:7px 10px;width:110px;outline:none;transition:border .2s}
   .step-threshold input:focus{border-color:var(--accent-blue)}
   .step-threshold .unit{font-size:12px;color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;white-space:nowrap}
@@ -603,8 +603,8 @@ const WI26_OPTIONS = [
 
 const METRICS = {
   mcap:      {label:'시가총액',               unit:'억원',     desc:'일정 시가총액 범위 내 기업 선별',         dv:1000,dv2:100000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'range'},
-  per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per,       fmt:v=>v===0?'N/A':v.toFixed(1)+'배',cmp:'lte'},
-  pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr,       fmt:v=>v===0?'N/A':v.toFixed(2)+'배',cmp:'lte'},
+  per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per>0?s._per:null,       fmt:v=>v===null?'N/A':v.toFixed(1)+'배',cmp:'lte'},
+  pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr>0?s._pbr:null,       fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'lte'},
   roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(지배주주순이익÷평균자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3년 평균 영업이익률',    unit:'% 이상',  desc:'3년 평균 영업이익률 기준 수익성 검증',      dv:10,  step:1,  col:'3년 평균 영업이익률',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'최근연도 영업이익률',    unit:'% 이상',  desc:'가장 최근 사업연도 영업이익률',            dv:10,  step:1,  col:'최근연도 영업이익률',      get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -616,7 +616,7 @@ const METRICS = {
   shYield:   {label:'주주환원수익률',         unit:'% 이상',  desc:'(배당+자사주매입)÷시가총액 (전일 종가 기준, 자기주식 보정)',         dv:5,   step:0.5,col:'주주환원수익률', get:s=>s.shYield,    fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   divPayout: {label:'배당성향',              unit:'% 이상',  desc:'(중간+기말배당)÷지배주주순이익',   dv:20,  step:5,  col:'배당성향',       get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   shReturn:  {label:'주주환원율',            unit:'% 이상',  desc:'(배당+자사주)÷지배주주순이익',dv:30, step:5,  col:'주주환원율',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCash:   {label:'순현금성자산',           unit:'억원 초과',desc:'(현금및현금성자산+단기금융상품)−(차입금+사채) 순액',          dv:0,   step:100,col:'순현금성자산',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gt'},
+  netCash:   {label:'순현금성자산',           unit:'억원 이상',desc:'(현금및현금성자산+단기금융상품)−(차입금+사채) 순액',          dv:0,   step:100,col:'순현금성자산',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gte'},
   netCashRatio:{label:'순현금성자산/시가총액',         unit:'% 이상',  desc:'순현금성자산÷시가총액',                   dv:0,   step:5,  col:'순현금성자산/시가총액',    get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCashEquityRatio:{label:'순현금성자산/순자산',    unit:'% 이상',  desc:'순현금성자산÷지배주주자본 (자본 내 현금비중)',                dv:0,   step:5,  col:'순현금성자산/순자산',  get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3년 매출액 성장률(CAGR)',unit:'% 이상',  desc:'3년간 매출액 연평균 성장률',              dv:5,   step:1,  col:'3년 매출 CAGR',  get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -689,7 +689,7 @@ function renderPipeline(){
 
 function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[steps[j].id]);const p=pool.filter(s=>s.sr[st.id]).length;const el=document.getElementById(`ss-${st.id}`);if(el)el.innerHTML=`<span class="stat-label">통과</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
 
-function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(st.metric==='sector')return;if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
+function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
 
 let nameSticky = true;
 function togglePin(){
