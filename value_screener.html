@@ -667,7 +667,12 @@ function renderPipeline(){
     const thresholdUI = m.cmp === 'in'
       ? (function(){
           const selected = Array.isArray(st.threshold) ? st.threshold : [];
-          const opts = m.options.map(opt => {
+          // 선택된 항목 먼저, 그 다음 미선택 항목 (각 그룹 내에서는 WI26 정의 순서 유지)
+          const sortedOpts = [
+            ...m.options.filter(o => selected.includes(o)),
+            ...m.options.filter(o => !selected.includes(o))
+          ];
+          const opts = sortedOpts.map(opt => {
             const isOn = selected.includes(opt);
             const safe = opt.replace(/'/g, "\\'");
             return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${st.id},'${safe}')">${opt}</button>`;
