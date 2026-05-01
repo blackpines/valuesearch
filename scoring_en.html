@@ -63,7 +63,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 .sector-chip:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
 .sector-chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);font-weight:500}
 .sector-chip.selected:hover{background:rgba(212,168,83,0.25)}
-.filter-num{font-family:'DM Mono',monospace;font-size:11px;color:#fff;letter-spacing:1px;min-width:26px;text-align:center}
+.filter-num{font-family:'DM Mono',monospace;font-size:11px;color:#fff;letter-spacing:1px;min-width:26px;text-align:center;display:flex;align-items:center;justify-content:center}
 .filter-move{display:flex;flex-direction:column;gap:0}
 .btn-move{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:11px;padding:1px 5px;border-radius:4px;line-height:1;transition:all .2s}
 .btn-move:hover:not(:disabled){color:var(--accent-blue);background:rgba(59,130,246,0.1)}
@@ -85,6 +85,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 
 .add-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 18px;border:1px dashed var(--text-muted);border-radius:10px;background:none;color:var(--text-secondary);cursor:pointer;font-size:12px;line-height:1;margin-top:10px}
 .add-btn:hover{border-color:var(--gold);color:var(--gold)}
+.factor-help{font-size:11px;color:var(--text-muted);margin-top:14px;line-height:1.5}
 
 .btn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:8px 18px;border-radius:8px;cursor:pointer;transition:all .2s}
 .btn:hover{border-color:var(--gold);color:var(--gold)}
@@ -200,6 +201,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       </div>
       <div class="panel">
         <div id="factors"></div>
+        <div class="factor-help">Select scoring factors and adjust their weights (numbers on the right)</div>
         <button class="add-btn" onclick="addFactor()">+ Add Factor</button>
       </div>
     </div>
