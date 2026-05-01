@@ -73,11 +73,11 @@
   .step-threshold input{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:'DM Mono',monospace;font-size:14px;padding:7px 10px;width:110px;outline:none;transition:border .2s}
   .step-threshold input:focus{border-color:var(--accent-blue)}
   .step-threshold .unit{font-size:12px;color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;white-space:nowrap}
-  .step-threshold.step-sector{flex-direction:column;align-items:stretch;gap:8px}
-  .sector-summary{font-size:12px;color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;display:flex;justify-content:space-between;align-items:center}
-  .sector-clear{background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:11px;padding:3px 8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+  .step-threshold.step-sector{flex-direction:column;align-items:stretch;gap:8px;min-width:0;width:100%}
+  .sector-summary{font-size:12px;color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;min-width:0;max-width:100%}
+  .sector-clear{background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:11px;padding:3px 8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;flex-shrink:0;white-space:nowrap}
   .sector-clear:hover{color:var(--text-primary);border-color:var(--text-secondary)}
-  .sector-options{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;max-height:240px;overflow-y:auto}
+  .sector-options{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;max-height:240px;overflow-y:auto;overflow-x:hidden;min-width:0;max-width:100%;box-sizing:border-box}
   .sector-chip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-family:'Noto Sans KR',sans-serif;background:transparent;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1.3}
   .sector-chip:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
   .sector-chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);font-weight:500}
@@ -642,8 +642,8 @@ let steps=[{id:1,metric:'mcap',threshold:1000},{id:2,metric:'avgOPM',threshold:1
 let nxtId=4, viewMode='pass', sortCol='mcap', sortAsc=false;
 
 // ── 필터 상태 URL 직렬화/역직렬화 (언어 전환 시 유지) ──
-function stepsToParam(){return steps.map(s=>{const m=METRICS[s.metric];if(m&&m.cmp==='in'){const arr=Array.isArray(s.threshold)?s.threshold:[];return s.metric+':'+arr.join('|')}let p=s.metric+':'+s.threshold;if(s.threshold2!=null)p+=':'+s.threshold2;return p}).join(',')}
-function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const metric=a[0];const m=METRICS[metric];if(m&&m.cmp==='in'){const arr=(a[1]||'').split('|').filter(x=>x);return{id:id++,metric,threshold:arr}}const o={id:id++,metric,threshold:Number(a[1])};if(a[2]!=null)o.threshold2=Number(a[2]);return o})}catch(e){return null}}
+function stepsToParam(){return steps.map(s=>{const m=METRICS[s.metric];if(m&&m.cmp==='in'){const arr=Array.isArray(s.threshold)?s.threshold:[];const idx=arr.map(v=>m.options.indexOf(v)).filter(i=>i>=0);return s.metric+':'+idx.join('|')}let p=s.metric+':'+s.threshold;if(s.threshold2!=null)p+=':'+s.threshold2;return p}).join(',')}
+function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const metric=a[0];const m=METRICS[metric];if(m&&m.cmp==='in'){const idx=(a[1]||'').split('|').filter(x=>x!=='').map(Number);const arr=idx.map(i=>m.options[i]).filter(v=>v!=null);return{id:id++,metric,threshold:arr}}const o={id:id++,metric,threshold:Number(a[1])};if(a[2]!=null)o.threshold2=Number(a[2]);return o})}catch(e){return null}}
 function switchLang(url){window.location.href=url+'?steps='+encodeURIComponent(stepsToParam())}
 // 페이지 로드 시 URL 파라미터에서 steps 복원
 (function(){const p=new URLSearchParams(window.location.search).get('steps');const restored=paramToSteps(p);if(restored&&restored.length>0&&restored.every(s=>METRICS[s.metric])){steps=restored;nxtId=Math.max(...steps.map(s=>s.id))+1}})();

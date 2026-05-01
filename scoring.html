@@ -51,7 +51,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 
 /* 필터 행 */
 .filter-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
-.filter-row.filter-row-sector{align-items:flex-start}
+.filter-row.filter-row-sector{align-items:stretch;flex-wrap:wrap}
+.filter-row-sector > .sector-block{flex:1 1 100%;width:100%;margin-left:0;margin-top:6px}
 .filter-row:last-child{border-bottom:none}
 .sector-block{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
 .sector-desc{font-size:12px;color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;line-height:1.5;font-weight:300}
@@ -152,6 +153,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
   .config-area{flex-direction:column}
   #filters,#factors{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .factor-row,.filter-row{flex-wrap:nowrap;min-width:min-content}
+  .filter-row.filter-row-sector{flex-wrap:wrap;min-width:0}
   .filter-select{min-width:140px;flex-shrink:0}
   .filter-input{flex-shrink:0}
   .filter-unit{flex-shrink:0;white-space:nowrap}
@@ -318,7 +320,8 @@ function stateToParam() {
     const m = FILTER_METRICS[x.metric];
     if (m && m.cmp === 'in') {
       const arr = Array.isArray(x.threshold) ? x.threshold : [];
-      return x.metric + ':' + arr.join('|');
+      const idx = arr.map(v => m.options.indexOf(v)).filter(i => i >= 0);
+      return x.metric + ':' + idx.join('|');
     }
     let s = x.metric + ':' + x.threshold;
     if (x.threshold2 != null) s += ':' + x.threshold2;
@@ -337,7 +340,8 @@ function paramToState(fParam, gParam) {
         const metric = a[0];
         const m = FILTER_METRICS[metric];
         if (m && m.cmp === 'in') {
-          const arr = (a[1] || '').split('|').filter(x => x);
+          const idx = (a[1] || '').split('|').filter(x => x !== '').map(Number);
+          const arr = idx.map(i => m.options[i]).filter(v => v != null);
           return {id: id++, metric, threshold: arr};
         }
         const o = {id: id++, metric, threshold: Number(a[1])};
@@ -631,7 +635,12 @@ function renderFilters() {
     const moveBtns = `<div class="filter-move">${upBtn}${downBtn}</div>`;
     if (m.cmp === 'in') {
       const selected = Array.isArray(f.threshold) ? f.threshold : [];
-      const opts = m.options.map(opt => {
+      // 선택된 항목 먼저, 그 다음 미선택 항목 (각 그룹 내에서는 WI26 정의 순서 유지)
+      const sortedOpts = [
+        ...m.options.filter(o => selected.includes(o)),
+        ...m.options.filter(o => !selected.includes(o))
+      ];
+      const opts = sortedOpts.map(opt => {
         const isOn = selected.includes(opt);
         const safe = opt.replace(/'/g, "\\'");
         return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${f.id},'${safe}')">${opt}</button>`;
