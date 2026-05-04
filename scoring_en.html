@@ -976,13 +976,24 @@ function exportCSV() {
     return row;
   });
 
+  // CSV cell escape: wrap with quotes if contains comma/quote/newline; double internal quotes
+  const csvEsc = (v) => {
+    if (v == null) return '';
+    const s = String(v);
+    if (/[",\n\r]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+    return s;
+  };
+
   const bom = '\uFEFF';
-  const csv = bom + [header, ...rows].map(r => r.join(',')).join('\n');
+  const csv = bom + [header, ...rows].map(r => r.map(csvEsc).join(',')).join('\n');
   const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
+  const now = new Date();
+  const ts = now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '_' + String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0');
+  const suffix = currencyMode === 'USD' ? '_USD' : '_KRW';
   a.href = url;
-  a.download = `scoring_result_${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = `scoring_${ts}${suffix}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }
