@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-04 22:34:33",
+  "generated_at": "2026-05-05 21:21:12",
   "market_date": "2026-05-04",
   "market_date_display": "2026.05.04",
-  "run_time_display": "2026.05.04 22:34",
-  "financial_data_date": "2026-05-04 20:19:02",
-  "total_stocks": 2194,
-  "usd_krw_rate": 1474.01,
+  "run_time_display": "2026.05.05 21:21",
+  "financial_data_date": "2026-05-05 21:05:01",
+  "total_stocks": 2195,
+  "usd_krw_rate": 1471.73,
   "stocks": [
     {
       "name": "동화약품",
@@ -1638,19 +1638,19 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        328,
-        324,
-        402
+        0,
+        0,
+        0
       ],
       "op": [
         -299,
-        -86,
+        -51,
         32
       ],
       "ni": [
-        -1772,
-        1135,
-        65
+        -1751,
+        1132,
+        58
       ],
       "cashEq": 66,
       "shortFin": 0,
@@ -1659,9 +1659,9 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 4,
-      "equity": -979,
+      "equity": 321,
       "equityPriorYear": 269,
-      "equityParent": 335,
+      "equityParent": 362,
       "equityParentPriorYear": 322,
       "ocf": [
         167,
@@ -1698,14 +1698,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 70.33,
       "treasuryShareRatio": 0,
       "price": 4200,
       "mcap": 1740,
-      "per": 35.8,
-      "pbr": 5.19,
+      "per": 34.5,
+      "pbr": 4.81,
       "avgTradingValue20": 0
     },
     {
@@ -1821,7 +1821,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 64,
+      "equity": 27076,
       "equityPriorYear": 29531,
       "equityParent": 26696,
       "equityParentPriorYear": 28665,
@@ -1860,7 +1860,7 @@
         366
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 51.55,
       "treasuryShareRatio": 0.96,
@@ -1967,12 +1967,12 @@
         0
       ],
       "op": [
-        3963,
+        3754,
         311,
         647
       ],
       "ni": [
-        3016,
+        2856,
         242,
         513
       ],
@@ -1983,7 +1983,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 88,
+      "equity": 6135,
       "equityPriorYear": 7942,
       "equityParent": 6135,
       "equityParentPriorYear": 7942,
@@ -2009,11 +2009,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 477,
       "niParent3yr": [
-        0,
-        0,
-        0
+        477,
+        211,
+        3117
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -2022,13 +2022,13 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 77.04,
       "treasuryShareRatio": 0.4,
       "price": 2195,
       "mcap": 6812,
-      "per": 13.3,
+      "per": 14.3,
       "pbr": 1.11,
       "avgTradingValue20": 14
     },
@@ -3899,8 +3899,8 @@
       "name": "한화",
       "nameEn": "HANWHA CORP",
       "code": "000880",
-      "sector": "상사,자본재",
-      "sectorEn": "Trading & Capital Goods",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSPI",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -3927,7 +3927,7 @@
       "curLongDebt": 0,
       "bonds": 367455,
       "longBorrow": 0,
-      "equity": 49638,
+      "equity": 484353,
       "equityPriorYear": 397776,
       "equityParent": 118402,
       "equityParentPriorYear": 107600,
@@ -3966,7 +3966,7 @@
         737
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 55.84,
       "treasuryShareRatio": 7.45,
@@ -6072,7 +6072,7 @@
         135
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 30.93,
       "treasuryShareRatio": 42.73,
@@ -6315,7 +6315,7 @@
         26
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 42.82,
       "treasuryShareRatio": 1.71,
@@ -6498,18 +6498,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        846,
+        964,
         1095
       ],
       "op": [
-        0,
-        0,
+        22,
+        48,
         60
       ],
       "ni": [
-        0,
-        0,
+        -4,
+        10,
         52
       ],
       "cashEq": 197,
@@ -6519,18 +6519,18 @@
       "curLongDebt": 24,
       "bonds": 0,
       "longBorrow": 91,
-      "equity": 0,
+      "equity": 417,
       "equityPriorYear": 45,
       "equityParent": 419,
       "equityParentPriorYear": 47,
       "ocf": [
-        0,
-        0,
+        60,
+        63,
         82
       ],
       "capex": [
-        0,
-        0,
+        -20,
+        -116,
         -41
       ],
       "dividendPaid": 0,
@@ -6558,7 +6558,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 52.43,
       "treasuryShareRatio": 0,
@@ -7329,7 +7329,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 510,
+      "equity": 5205,
       "equityPriorYear": 5643,
       "equityParent": 5184,
       "equityParentPriorYear": 5607,
@@ -7339,7 +7339,7 @@
         39
       ],
       "capex": [
-        -457,
+        -459,
         -324,
         -635
       ],
@@ -7368,7 +7368,7 @@
         48
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 25.43,
       "treasuryShareRatio": 0.01,
@@ -8139,7 +8139,7 @@
       "curLongDebt": 724,
       "bonds": 4692,
       "longBorrow": 1857,
-      "equity": 418,
+      "equity": 10969,
       "equityPriorYear": 14476,
       "equityParent": 10709,
       "equityParentPriorYear": 14214,
@@ -8178,7 +8178,7 @@
         288
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.72,
       "treasuryShareRatio": 0,
@@ -9069,7 +9069,7 @@
         86
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 45.41,
       "treasuryShareRatio": 20.65,
@@ -10326,7 +10326,7 @@
       "curLongDebt": 0,
       "bonds": 296,
       "longBorrow": 509,
-      "equity": 617,
+      "equity": 2783,
       "equityPriorYear": 2891,
       "equityParent": 2766,
       "equityParentPriorYear": 2873,
@@ -10365,7 +10365,7 @@
         41
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.38,
       "treasuryShareRatio": 5.61,
@@ -10569,7 +10569,7 @@
       "curLongDebt": 450,
       "bonds": 0,
       "longBorrow": 450,
-      "equity": 321,
+      "equity": 4379,
       "equityPriorYear": 3829,
       "equityParent": 4357,
       "equityParentPriorYear": 3840,
@@ -10608,7 +10608,7 @@
         46
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 41.93,
       "treasuryShareRatio": 6.03,
@@ -12027,7 +12027,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 329,
-      "equity": 30,
+      "equity": 2426,
       "equityPriorYear": 2254,
       "equityParent": 2478,
       "equityParentPriorYear": 2294,
@@ -12066,7 +12066,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 47.77,
       "treasuryShareRatio": 2.86,
@@ -12714,7 +12714,7 @@
         23
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.61,
       "treasuryShareRatio": 4.7,
@@ -14334,7 +14334,7 @@
         821
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 15.99,
       "treasuryShareRatio": 24.27,
@@ -15186,12 +15186,12 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 130,
+      "equity": 36834,
       "equityPriorYear": 34529,
       "equityParent": 36834,
       "equityParentPriorYear": 34529,
       "ocf": [
-        6386,
+        6845,
         11511,
         16687
       ],
@@ -15225,13 +15225,13 @@
         795
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 20.33,
       "treasuryShareRatio": 9.29,
       "price": 12170,
       "mcap": 21507,
-      "per": 6.7,
+      "per": 7.9,
       "pbr": 0.53,
       "avgTradingValue20": 37
     },
@@ -15591,7 +15591,7 @@
       "curLongDebt": 0,
       "bonds": 1995,
       "longBorrow": 0,
-      "equity": 30,
+      "equity": 8455,
       "equityPriorYear": 7845,
       "equityParent": 8455,
       "equityParentPriorYear": 7845,
@@ -15630,7 +15630,7 @@
         66
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 64.78,
       "treasuryShareRatio": 1.52,
@@ -15996,7 +15996,7 @@
       "curLongDebt": 10599,
       "bonds": 25739,
       "longBorrow": 32424,
-      "equity": 2606,
+      "equity": 198402,
       "equityPriorYear": 193336,
       "equityParent": 193707,
       "equityParentPriorYear": 189183,
@@ -16035,7 +16035,7 @@
         1315
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.96,
       "treasuryShareRatio": 1.42,
@@ -16320,7 +16320,7 @@
       "curLongDebt": 119,
       "bonds": 0,
       "longBorrow": 245,
-      "equity": 4,
+      "equity": 1663,
       "equityPriorYear": 1103,
       "equityParent": 1658,
       "equityParentPriorYear": 1095,
@@ -16359,7 +16359,7 @@
         4
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 41.44,
       "treasuryShareRatio": 0.75,
@@ -16700,44 +16700,44 @@
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        1808,
         1757,
-        1918
+        1918,
+        1952
       ],
       "op": [
-        69,
         2,
-        42
+        42,
+        71
       ],
       "ni": [
-        61,
         -6,
-        25
+        25,
+        39
       ],
-      "cashEq": 25,
+      "cashEq": 187,
       "shortFin": 0,
       "shortInv": 0,
-      "shortBorrow": 439,
+      "shortBorrow": 444,
       "curLongDebt": 0,
       "bonds": 0,
-      "longBorrow": 57,
-      "equity": 20,
-      "equityPriorYear": 791,
-      "equityParent": 821,
-      "equityParentPriorYear": 791,
+      "longBorrow": 54,
+      "equity": 1348,
+      "equityPriorYear": 821,
+      "equityParent": 1348,
+      "equityParentPriorYear": 821,
       "ocf": [
         -45,
         -24,
-        -1
+        -22
       ],
       "capex": [
         -46,
         -98,
-        -46
+        -47
       ],
       "dividendPaid": 8,
       "dividendPaid3yr": [
@@ -16764,14 +16764,14 @@
         9
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
       "majorShareholderRate": 24.26,
       "treasuryShareRatio": 18.33,
       "price": 8590,
       "mcap": 2749,
       "per": 109.2,
-      "pbr": 2.73,
+      "pbr": 1.67,
       "avgTradingValue20": 36
     },
     {
@@ -17736,7 +17736,7 @@
         46
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 27.11,
       "treasuryShareRatio": 17.45,
@@ -17979,7 +17979,7 @@
         31
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 22.44,
       "treasuryShareRatio": 2.16,
@@ -18546,7 +18546,7 @@
         22
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 59.73,
       "treasuryShareRatio": 11.7,
@@ -18560,8 +18560,8 @@
       "name": "조광페인트",
       "nameEn": "CHOKWANG PAINT CO.,LTD",
       "code": "004910",
-      "sector": "건설",
-      "sectorEn": "Construction",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSPI",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -18588,7 +18588,7 @@
       "curLongDebt": 63,
       "bonds": 121,
       "longBorrow": 636,
-      "equity": 379,
+      "equity": 2120,
       "equityPriorYear": 1901,
       "equityParent": 2115,
       "equityParentPriorYear": 1897,
@@ -18627,7 +18627,7 @@
         20
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 37.78,
       "treasuryShareRatio": 20.04,
@@ -19113,7 +19113,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 48.06,
       "treasuryShareRatio": 0,
@@ -20166,7 +20166,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 30.54,
       "treasuryShareRatio": 0.11,
@@ -20208,7 +20208,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 53,
+      "equity": 4052,
       "equityPriorYear": 3702,
       "equityParent": 4052,
       "equityParentPriorYear": 3702,
@@ -20247,7 +20247,7 @@
         31
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 59.54,
       "treasuryShareRatio": 3.42,
@@ -21342,7 +21342,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 4577,
+      "equity": 109353,
       "equityPriorYear": 93912,
       "equityParent": 108808,
       "equityParentPriorYear": 92966,
@@ -21381,7 +21381,7 @@
         3182
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 25.96,
       "treasuryShareRatio": 12.6,
@@ -23244,7 +23244,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 30.32,
       "treasuryShareRatio": 0,
@@ -24459,7 +24459,7 @@
         13
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 58.19,
       "treasuryShareRatio": 8.78,
@@ -26657,8 +26657,8 @@
       "avgTradingValue20": 1
     },
     {
-      "name": "에스엠코어",
-      "nameEn": "SMCore.Inc",
+      "name": "엠엑스로보틱스",
+      "nameEn": "MX Robotics Inc.",
       "code": "007820",
       "sector": "기계",
       "sectorEn": "Machinery",
@@ -26727,7 +26727,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 21.15,
       "treasuryShareRatio": 1.58,
@@ -27417,7 +27417,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1257,
+      "equity": 1949,
       "equityPriorYear": 1860,
       "equityParent": 1949,
       "equityParentPriorYear": 1860,
@@ -27427,9 +27427,9 @@
         -119
       ],
       "capex": [
-        0,
-        0,
-        0
+        -20,
+        -2,
+        -2
       ],
       "dividendPaid": 9,
       "dividendPaid3yr": [
@@ -27456,13 +27456,13 @@
         10
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 46.37,
       "treasuryShareRatio": 0,
       "price": 2985,
       "mcap": 612,
-      "per": 10.4,
+      "per": 8.6,
       "pbr": 0.31,
       "avgTradingValue20": 63
     },
@@ -27558,9 +27558,9 @@
       "reportShort": "AR 2025.12",
       "currency": "USD",
       "rev": [
-        4422,
-        2948,
-        2948
+        4415,
+        2943,
+        2943
       ],
       "op": [
         0,
@@ -27579,10 +27579,10 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1474,
-      "equityPriorYear": 1474,
-      "equityParent": 1474,
-      "equityParentPriorYear": 1474,
+      "equity": 1472,
+      "equityPriorYear": 1472,
+      "equityParent": 1472,
+      "equityParentPriorYear": 1472,
       "ocf": [
         0,
         0,
@@ -27625,7 +27625,7 @@
       "price": 1488,
       "mcap": 1148,
       "per": 18.8,
-      "pbr": 0.83,
+      "pbr": 0.84,
       "avgTradingValue20": 21
     },
     {
@@ -27882,18 +27882,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        38,
+        24,
         74
       ],
       "op": [
-        0,
-        0,
+        -43,
+        -60,
         -28
       ],
       "ni": [
-        0,
-        0,
+        -161,
+        -71,
         28
       ],
       "cashEq": 18,
@@ -27906,15 +27906,15 @@
       "equity": 100,
       "equityPriorYear": -306,
       "equityParent": 100,
-      "equityParentPriorYear": -306,
+      "equityParentPriorYear": 0,
       "ocf": [
-        0,
-        0,
+        -34,
+        -49,
         -54
       ],
       "capex": [
-        0,
-        0,
+        -6,
+        -1,
         -2
       ],
       "dividendPaid": 0,
@@ -27929,11 +27929,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 28,
       "niParent3yr": [
-        0,
-        0,
-        0
+        28,
+        -71,
+        -161
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -27942,7 +27942,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 46.25,
       "treasuryShareRatio": 0,
@@ -28956,7 +28956,7 @@
       "curLongDebt": 23,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 75,
+      "equity": 2281,
       "equityPriorYear": 2200,
       "equityParent": 2281,
       "equityParentPriorYear": 2200,
@@ -28995,7 +28995,7 @@
         46
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 65.58,
       "treasuryShareRatio": 4.19,
@@ -29319,7 +29319,7 @@
         79
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.61,
       "treasuryShareRatio": 0.79,
@@ -29900,24 +29900,24 @@
       "name": "한화솔루션",
       "nameEn": "HANWHA SOLUTIONS CORPORATION",
       "code": "009830",
-      "sector": "에너지",
-      "sectorEn": "Energy",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSPI",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        132887,
+        130785,
         123940,
         133331
       ],
       "op": [
-        6045,
+        5792,
         -3002,
         -3648
       ],
       "ni": [
-        -1553,
+        -882,
         -13690,
         -6153
       ],
@@ -29928,7 +29928,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 78520,
-      "equity": 50374,
+      "equity": 111850,
       "equityPriorYear": 106069,
       "equityParent": 91012,
       "equityParentPriorYear": 94496,
@@ -29967,7 +29967,7 @@
         517
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 36.48,
       "treasuryShareRatio": 1.48,
@@ -30576,7 +30576,7 @@
       "curLongDebt": 0,
       "bonds": 15962,
       "longBorrow": 10728,
-      "equity": 5086,
+      "equity": 111842,
       "equityPriorYear": 75954,
       "equityParent": 109377,
       "equityParentPriorYear": 73336,
@@ -30615,7 +30615,7 @@
         3027
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 32.88,
       "treasuryShareRatio": 2.3,
@@ -32654,8 +32654,8 @@
       "name": "유니켐",
       "nameEn": "UNICHEM CO.,LTD",
       "code": "011330",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "자동차",
+      "sectorEn": "Automobiles",
       "market": "KOSPI",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -32702,11 +32702,11 @@
         0,
         14
       ],
-      "sharesBuyback": 0,
+      "sharesBuyback": -22,
       "sharesBuyback3yr": [
-        0,
-        0,
-        -3
+        -22,
+        -150,
+        0
       ],
       "niParent": 9,
       "niParent3yr": [
@@ -32721,7 +32721,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 20.58,
       "treasuryShareRatio": 1.9,
@@ -32747,13 +32747,13 @@
         6451
       ],
       "op": [
-        242,
+        251,
         265,
         626
       ],
       "ni": [
-        85,
-        193,
+        499,
+        132,
         289
       ],
       "cashEq": 2001,
@@ -32802,7 +32802,7 @@
         30
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 11.26,
       "treasuryShareRatio": 1.98,
@@ -33552,13 +33552,13 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        15708,
-        17216,
+        14921,
+        17179,
         18400
       ],
       "op": [
-        -2163,
-        -2768,
+        -2130,
+        -2758,
         -3050
       ],
       "ni": [
@@ -33573,7 +33573,7 @@
       "curLongDebt": 6124,
       "bonds": 1496,
       "longBorrow": 16704,
-      "equity": 1518,
+      "equity": 20257,
       "equityPriorYear": 22927,
       "equityParent": 8321,
       "equityParentPriorYear": 11723,
@@ -33612,7 +33612,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.89,
       "treasuryShareRatio": 0.54,
@@ -34098,7 +34098,7 @@
         7
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 45.27,
       "treasuryShareRatio": 0,
@@ -34443,12 +34443,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        93590,
+        78897,
         112401,
         267029
       ],
       "op": [
-        6911,
+        5943,
         17319,
         30893
       ],
@@ -34464,7 +34464,7 @@
       "curLongDebt": 0,
       "bonds": 69822,
       "longBorrow": 0,
-      "equity": 21902,
+      "equity": 167882,
       "equityPriorYear": 114920,
       "equityParent": 96849,
       "equityParentPriorYear": 49951,
@@ -34503,7 +34503,7 @@
         910
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.55,
       "treasuryShareRatio": 0.22,
@@ -35112,7 +35112,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -11,
+      "equity": 1523,
       "equityPriorYear": 1465,
       "equityParent": 1523,
       "equityParentPriorYear": 1465,
@@ -35122,8 +35122,8 @@
         116
       ],
       "capex": [
-        0,
-        0,
+        -129,
+        -84,
         -31
       ],
       "dividendPaid": 22,
@@ -35151,7 +35151,7 @@
         20
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 32.58,
       "treasuryShareRatio": 3.56,
@@ -35193,7 +35193,7 @@
       "curLongDebt": 88,
       "bonds": 787,
       "longBorrow": 237,
-      "equity": 38,
+      "equity": 3022,
       "equityPriorYear": 3154,
       "equityParent": 2843,
       "equityParentPriorYear": 2801,
@@ -35232,7 +35232,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.7,
       "treasuryShareRatio": 16.26,
@@ -35598,7 +35598,7 @@
       "curLongDebt": 796,
       "bonds": 0,
       "longBorrow": 253,
-      "equity": 5,
+      "equity": 735,
       "equityPriorYear": 668,
       "equityParent": 732,
       "equityParentPriorYear": 665,
@@ -35608,9 +35608,9 @@
         148
       ],
       "capex": [
-        -1,
+        -9,
         -3,
-        0
+        -2
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -35637,7 +35637,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 60.42,
       "treasuryShareRatio": 0,
@@ -35821,17 +35821,17 @@
       "currency": "KRW",
       "rev": [
         29770,
-        31694,
+        31271,
         28874
       ],
       "op": [
         1007,
-        977,
+        871,
         1669
       ],
       "ni": [
         519,
-        545,
+        524,
         979
       ],
       "cashEq": 5532,
@@ -35841,18 +35841,18 @@
       "curLongDebt": 2688,
       "bonds": 0,
       "longBorrow": 3539,
-      "equity": 1013,
+      "equity": 9909,
       "equityPriorYear": 9024,
       "equityParent": 9456,
       "equityParentPriorYear": 8556,
       "ocf": [
         220,
-        -101,
+        -80,
         2099
       ],
       "capex": [
         -259,
-        -294,
+        -315,
         -553
       ],
       "dividendPaid": 35,
@@ -35880,7 +35880,7 @@
         35
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.5,
       "treasuryShareRatio": 0.14,
@@ -37764,12 +37764,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        14305,
+        11421,
         11604,
         13276
       ],
       "op": [
-        575,
+        132,
         243,
         1117
       ],
@@ -37824,7 +37824,7 @@
         373
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 53.2,
       "treasuryShareRatio": 10.35,
@@ -39081,7 +39081,7 @@
       "curLongDebt": 4,
       "bonds": 1098,
       "longBorrow": 2,
-      "equity": 691,
+      "equity": 6134,
       "equityPriorYear": 5891,
       "equityParent": 4595,
       "equityParentPriorYear": 4396,
@@ -39120,7 +39120,7 @@
         40
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 72.74,
       "treasuryShareRatio": 0.3,
@@ -39363,7 +39363,7 @@
         107
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 54.57,
       "treasuryShareRatio": 22.18,
@@ -39496,9 +39496,9 @@
         -17
       ],
       "capex": [
-        0,
-        0,
-        0
+        -29,
+        -7,
+        -67
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -39525,7 +39525,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 21.56,
       "treasuryShareRatio": 1.55,
@@ -39982,8 +39982,8 @@
         232
       ],
       "capex": [
-        -83,
-        -195,
+        -86,
+        -204,
         -127
       ],
       "dividendPaid": 8,
@@ -40011,7 +40011,7 @@
         8
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 68.53,
       "treasuryShareRatio": 0,
@@ -40215,7 +40215,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 2065,
-      "equity": 42,
+      "equity": 6177,
       "equityPriorYear": 5834,
       "equityParent": 3101,
       "equityParentPriorYear": 3036,
@@ -40254,7 +40254,7 @@
         38
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 59.87,
       "treasuryShareRatio": 3.22,
@@ -41338,8 +41338,8 @@
         4428
       ],
       "ni": [
-        3163,
-        1778,
+        3239,
+        1930,
         2338
       ],
       "cashEq": 6259,
@@ -41349,7 +41349,7 @@
       "curLongDebt": 0,
       "bonds": 9977,
       "longBorrow": 0,
-      "equity": 9757,
+      "equity": 31445,
       "equityPriorYear": 27880,
       "equityParent": 29281,
       "equityParentPriorYear": 27787,
@@ -41388,7 +41388,7 @@
         718
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 72.11,
       "treasuryShareRatio": 2.76,
@@ -43131,7 +43131,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 1,
-      "equity": 35,
+      "equity": 5726,
       "equityPriorYear": 5259,
       "equityParent": 5696,
       "equityParentPriorYear": 5232,
@@ -43170,7 +43170,7 @@
         152
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 65.38,
       "treasuryShareRatio": 0.14,
@@ -43332,7 +43332,7 @@
         44
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 45.01,
       "treasuryShareRatio": 2.39,
@@ -43941,7 +43941,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 951,
+      "equity": 2414,
       "equityPriorYear": 2302,
       "equityParent": 2312,
       "equityParentPriorYear": 2188,
@@ -43980,7 +43980,7 @@
         30
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 42.94,
       "treasuryShareRatio": 0,
@@ -44999,7 +44999,7 @@
       "equityParent": 2105,
       "equityParentPriorYear": 2455,
       "ocf": [
-        3,
+        18,
         -79,
         -301
       ],
@@ -45033,7 +45033,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 36.58,
       "treasuryShareRatio": 0.02,
@@ -45237,7 +45237,7 @@
       "curLongDebt": 58,
       "bonds": 0,
       "longBorrow": 502,
-      "equity": 2,
+      "equity": 1189,
       "equityPriorYear": 1416,
       "equityParent": 1101,
       "equityParentPriorYear": 1318,
@@ -45276,7 +45276,7 @@
         18
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 48.5,
       "treasuryShareRatio": 0.66,
@@ -45290,8 +45290,8 @@
       "name": "삼천리자전거",
       "nameEn": "SAMCHULY BICYCLE CO., LTD",
       "code": "024950",
-      "sector": "도매",
-      "sectorEn": "Wholesale",
+      "sector": "화장품,의류",
+      "sectorEn": "Cosmetics & Apparel",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -45519,7 +45519,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 11.61,
       "treasuryShareRatio": 0.02,
@@ -45600,7 +45600,7 @@
         34
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 61.66,
       "treasuryShareRatio": 9.25,
@@ -46533,12 +46533,12 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -59,
+      "equity": 454,
       "equityPriorYear": 403,
       "equityParent": 454,
       "equityParentPriorYear": 403,
       "ocf": [
-        16,
+        15,
         10,
         -15
       ],
@@ -46572,7 +46572,7 @@
         14
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.34,
       "treasuryShareRatio": 8.24,
@@ -46991,8 +46991,8 @@
       "name": "코리아나",
       "nameEn": "COREANA COSMETICS CO., LTD",
       "code": "027050",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -47058,7 +47058,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 14.97,
       "treasuryShareRatio": 19.5,
@@ -48159,7 +48159,7 @@
       "equityParentPriorYear": 2322,
       "ocf": [
         286,
-        50,
+        47,
         -156
       ],
       "capex": [
@@ -48192,7 +48192,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 25.59,
       "treasuryShareRatio": 0.03,
@@ -50340,7 +50340,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 30134,
+      "equity": 648353,
       "equityPriorYear": 381027,
       "equityParent": 627243,
       "equityParentPriorYear": 360974,
@@ -50379,7 +50379,7 @@
         6644
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 43.56,
       "treasuryShareRatio": 10.21,
@@ -51312,7 +51312,7 @@
       "curLongDebt": 20,
       "bonds": 0,
       "longBorrow": 108,
-      "equity": 4,
+      "equity": 4546,
       "equityPriorYear": 4062,
       "equityParent": 4546,
       "equityParentPriorYear": 4062,
@@ -51351,13 +51351,13 @@
         61
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.72,
       "treasuryShareRatio": 2.9,
       "price": 20050,
       "mcap": 3190,
-      "per": 8.3,
+      "per": 1338.3,
       "pbr": 0.68,
       "avgTradingValue20": 6
     },
@@ -51696,17 +51696,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        5314,
+        5338,
         5974,
         7422
       ],
       "op": [
-        373,
+        400,
         540,
         726
       ],
       "ni": [
-        287,
+        298,
         393,
         559
       ],
@@ -51727,7 +51727,7 @@
         847
       ],
       "capex": [
-        -1,
+        -156,
         -232,
         -156
       ],
@@ -51756,7 +51756,7 @@
         73
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.01,
       "treasuryShareRatio": 0.19,
@@ -52203,7 +52203,7 @@
       "curLongDebt": 0,
       "bonds": -12,
       "longBorrow": 0,
-      "equity": -1,
+      "equity": 983,
       "equityPriorYear": 561,
       "equityParent": 983,
       "equityParentPriorYear": 561,
@@ -52229,11 +52229,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -59,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -59,
+        -25,
+        -19
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -52242,7 +52242,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 44.95,
       "treasuryShareRatio": 0.18,
@@ -53295,7 +53295,7 @@
         229
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 73.55,
       "treasuryShareRatio": 1.75,
@@ -53337,7 +53337,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 2,
+      "equity": 2120,
       "equityPriorYear": 2029,
       "equityParent": 2120,
       "equityParentPriorYear": 2029,
@@ -53347,7 +53347,7 @@
         -109
       ],
       "capex": [
-        0,
+        -12,
         -31,
         -21
       ],
@@ -53376,7 +53376,7 @@
         73
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.78,
       "treasuryShareRatio": 0,
@@ -54957,7 +54957,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 276,
+      "equity": 3852,
       "equityPriorYear": 3609,
       "equityParent": 3851,
       "equityParentPriorYear": 3609,
@@ -54996,7 +54996,7 @@
         77
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 37.51,
       "treasuryShareRatio": 1.57,
@@ -55119,7 +55119,7 @@
       "curLongDebt": 137,
       "bonds": 0,
       "longBorrow": 302,
-      "equity": 841,
+      "equity": 2813,
       "equityPriorYear": 2860,
       "equityParent": 2811,
       "equityParentPriorYear": 2857,
@@ -55158,7 +55158,7 @@
         252
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 56.19,
       "treasuryShareRatio": 5.23,
@@ -55341,9 +55341,9 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        18957,
-        18205,
-        22357
+        0,
+        0,
+        0
       ],
       "op": [
         1790,
@@ -55372,9 +55372,9 @@
         1201
       ],
       "capex": [
-        -60,
-        -104,
-        -105
+        -441,
+        -748,
+        -1143
       ],
       "dividendPaid": 516,
       "dividendPaid3yr": [
@@ -55401,8 +55401,8 @@
         116
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
-      "isFinancial": false,
+      "ttmLabel": "",
+      "isFinancial": true,
       "majorShareholderRate": 64.47,
       "treasuryShareRatio": 8.63,
       "price": 61100,
@@ -56010,7 +56010,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 11,
+      "equity": 1255,
       "equityPriorYear": 1185,
       "equityParent": 1255,
       "equityParentPriorYear": 1185,
@@ -56049,7 +56049,7 @@
         27
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 50.02,
       "treasuryShareRatio": 4.52,
@@ -56940,7 +56940,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.6,
       "treasuryShareRatio": 0,
@@ -57021,7 +57021,7 @@
         22
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.74,
       "treasuryShareRatio": 0,
@@ -60666,7 +60666,7 @@
         12
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 15.32,
       "treasuryShareRatio": 3.54,
@@ -63356,44 +63356,44 @@
       "sector": "IT하드웨어",
       "sectorEn": "IT Hardware",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        806,
         762,
-        819
+        819,
+        838
       ],
       "op": [
-        140,
         134,
-        97
+        97,
+        85
       ],
       "ni": [
-        301,
         147,
+        89,
         89
       ],
-      "cashEq": 60,
-      "shortFin": 300,
+      "cashEq": 65,
+      "shortFin": 332,
       "shortInv": 0,
       "shortBorrow": 40,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1029,
-      "equityPriorYear": 1060,
-      "equityParent": 1029,
-      "equityParentPriorYear": 1060,
+      "equity": 1051,
+      "equityPriorYear": 1029,
+      "equityParent": 1051,
+      "equityParentPriorYear": 1029,
       "ocf": [
         251,
         180,
-        107
+        130
       ],
       "capex": [
         -80,
         -52,
-        -153
+        -173
       ],
       "dividendPaid": 19,
       "dividendPaid3yr": [
@@ -63420,14 +63420,14 @@
         15
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
-      "majorShareholderRate": 27.83,
+      "majorShareholderRate": 28.67,
       "treasuryShareRatio": 6.51,
       "price": 20000,
       "mcap": 1537,
       "per": 17.3,
-      "pbr": 1.4,
+      "pbr": 1.37,
       "avgTradingValue20": 18
     },
     {
@@ -63927,17 +63927,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        2961,
+        2933,
         2514,
         2710
       ],
       "op": [
-        -282,
+        -674,
         -371,
         4
       ],
       "ni": [
-        -474,
+        -794,
         504,
         -66
       ],
@@ -63953,12 +63953,12 @@
       "equityParent": 137,
       "equityParentPriorYear": 149,
       "ocf": [
-        120,
+        76,
         -95,
         -192
       ],
       "capex": [
-        -88,
+        -89,
         -71,
         -126
       ],
@@ -63987,7 +63987,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 22.28,
       "treasuryShareRatio": 0.23,
@@ -64656,13 +64656,13 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        331328,
-        323408,
+        330182,
+        322610,
         323736
       ],
       "op": [
-        11631,
-        11169,
+        11985,
+        11578,
         11653
       ],
       "ni": [
@@ -64677,7 +64677,7 @@
       "curLongDebt": 0,
       "bonds": 17810,
       "longBorrow": 13712,
-      "equity": 121,
+      "equity": 78127,
       "equityPriorYear": 73495,
       "equityParent": 67084,
       "equityParentPriorYear": 65446,
@@ -64716,7 +64716,7 @@
         1702
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 70.72,
       "treasuryShareRatio": 3.11,
@@ -65297,8 +65297,8 @@
       "name": "현대바이오",
       "nameEn": "HYUNDAI BIOSCIENCE CO., LTD.",
       "code": "048410",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -65336,8 +65336,8 @@
       ],
       "capex": [
         -5,
-        -1,
-        -4
+        -2,
+        -12
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -65364,7 +65364,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 10.24,
       "treasuryShareRatio": 0.0,
@@ -66174,7 +66174,7 @@
         22
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.43,
       "treasuryShareRatio": 0.7,
@@ -67065,7 +67065,7 @@
         30
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 10.52,
       "treasuryShareRatio": 1.37,
@@ -67244,44 +67244,44 @@
       "sector": "디스플레이",
       "sectorEn": "Display",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        4474,
         6238,
-        6403
+        6403,
+        6563
       ],
       "op": [
-        257,
         584,
-        572
+        572,
+        606
       ],
       "ni": [
-        129,
         613,
-        447
+        447,
+        524
       ],
-      "cashEq": 573,
-      "shortFin": 175,
+      "cashEq": 500,
+      "shortFin": 177,
       "shortInv": 0,
-      "shortBorrow": 899,
+      "shortBorrow": 886,
       "curLongDebt": 282,
       "bonds": 0,
-      "longBorrow": 98,
-      "equity": 35,
-      "equityPriorYear": 2646,
-      "equityParent": 2800,
-      "equityParentPriorYear": 2402,
+      "longBorrow": 84,
+      "equity": 3135,
+      "equityPriorYear": 3053,
+      "equityParent": 2877,
+      "equityParentPriorYear": 2800,
       "ocf": [
         349,
         610,
-        535
+        596
       ],
       "capex": [
         -538,
         -166,
-        -175
+        -166
       ],
       "dividendPaid": 46,
       "dividendPaid3yr": [
@@ -67308,14 +67308,14 @@
         25
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
-      "majorShareholderRate": 15.85,
-      "treasuryShareRatio": 4.93,
+      "majorShareholderRate": 16.93,
+      "treasuryShareRatio": 0,
       "price": 18400,
       "mcap": 2745,
       "per": 6.4,
-      "pbr": 0.93,
+      "pbr": 0.95,
       "avgTradingValue20": 9
     },
     {
@@ -68484,7 +68484,7 @@
       "curLongDebt": 0,
       "bonds": 64,
       "longBorrow": 0,
-      "equity": 186,
+      "equity": 3883,
       "equityPriorYear": 3611,
       "equityParent": 3680,
       "equityParentPriorYear": 3398,
@@ -68523,7 +68523,7 @@
         27
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.81,
       "treasuryShareRatio": 25.86,
@@ -68787,13 +68787,13 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        5451,
-        5534,
+        5544,
+        5695,
         5188
       ],
       "op": [
-        286,
-        548,
+        378,
+        709,
         355
       ],
       "ni": [
@@ -68808,7 +68808,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 47,
+      "equity": 6250,
       "equityPriorYear": 5775,
       "equityParent": 6250,
       "equityParentPriorYear": 5775,
@@ -68847,7 +68847,7 @@
         196
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 51.0,
       "treasuryShareRatio": 0.46,
@@ -69537,7 +69537,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 998,
-      "equity": 163,
+      "equity": 5632,
       "equityPriorYear": 5766,
       "equityParent": 5422,
       "equityParentPriorYear": 5502,
@@ -69576,7 +69576,7 @@
         166
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 50.31,
       "treasuryShareRatio": 0.48,
@@ -70266,7 +70266,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 110,
+      "equity": 1942,
       "equityPriorYear": 1841,
       "equityParent": 1942,
       "equityParentPriorYear": 1841,
@@ -70305,7 +70305,7 @@
         30
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 62.48,
       "treasuryShareRatio": 7.43,
@@ -70428,7 +70428,7 @@
       "curLongDebt": 624,
       "bonds": 0,
       "longBorrow": 1096,
-      "equity": 51,
+      "equity": 4194,
       "equityPriorYear": 3814,
       "equityParent": 4194,
       "equityParentPriorYear": 3815,
@@ -70467,7 +70467,7 @@
         11
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.72,
       "treasuryShareRatio": 0,
@@ -71167,9 +71167,9 @@
         98
       ],
       "capex": [
-        -4,
-        -5,
-        -8
+        -20,
+        -16,
+        -11
       ],
       "dividendPaid": 18,
       "dividendPaid3yr": [
@@ -71196,7 +71196,7 @@
         12
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 12.18,
       "treasuryShareRatio": 0,
@@ -71763,7 +71763,7 @@
         46
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 39.19,
       "treasuryShareRatio": 4.73,
@@ -72048,7 +72048,7 @@
       "curLongDebt": 15,
       "bonds": 5,
       "longBorrow": 9,
-      "equity": 195,
+      "equity": 941,
       "equityPriorYear": 868,
       "equityParent": 940,
       "equityParentPriorYear": 872,
@@ -72087,7 +72087,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.41,
       "treasuryShareRatio": 0,
@@ -72108,12 +72108,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        18812,
+        18604,
         20454,
         16310
       ],
       "op": [
-        855,
+        889,
         -484,
         859
       ],
@@ -72168,7 +72168,7 @@
         94
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.73,
       "treasuryShareRatio": 22.31,
@@ -73464,7 +73464,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 39.81,
       "treasuryShareRatio": 0,
@@ -74619,9 +74619,9 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        12855,
-        13711,
-        13350
+        0,
+        0,
+        0
       ],
       "op": [
         922,
@@ -74640,7 +74640,7 @@
       "curLongDebt": 1041,
       "bonds": 2892,
       "longBorrow": 57,
-      "equity": 13236,
+      "equity": 10758,
       "equityPriorYear": 10646,
       "equityParent": 10719,
       "equityParentPriorYear": 10629,
@@ -74679,8 +74679,8 @@
         191
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
-      "isFinancial": false,
+      "ttmLabel": "",
+      "isFinancial": true,
       "majorShareholderRate": 36.55,
       "treasuryShareRatio": 1.46,
       "price": 43250,
@@ -74909,11 +74909,11 @@
         0,
         50
       ],
-      "niParent": 0,
+      "niParent": -2,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -2,
+        65,
+        39
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -74922,7 +74922,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 36.87,
       "treasuryShareRatio": 2.7,
@@ -75024,17 +75024,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        2145,
         3340,
         5019
       ],
       "op": [
-        0,
+        466,
         1092,
         1786
       ],
       "ni": [
-        0,
+        391,
         837,
         1489
       ],
@@ -75050,12 +75050,12 @@
       "equityParent": 5855,
       "equityParentPriorYear": 4342,
       "ocf": [
-        0,
+        352,
         155,
         1155
       ],
       "capex": [
-        0,
+        -227,
         -898,
         -153
       ],
@@ -75084,7 +75084,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 55.35,
       "treasuryShareRatio": 0.2,
@@ -75425,44 +75425,44 @@
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        473,
         448,
-        533
+        533,
+        558
       ],
       "op": [
-        27,
         35,
+        46,
         46
       ],
       "ni": [
-        47,
         49,
+        55,
         55
       ],
-      "cashEq": 67,
-      "shortFin": 0,
-      "shortInv": 150,
+      "cashEq": 68,
+      "shortFin": 152,
+      "shortInv": 0,
       "shortBorrow": 4,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 673,
-      "equityPriorYear": 618,
-      "equityParent": 673,
-      "equityParentPriorYear": 618,
+      "equity": 672,
+      "equityPriorYear": 673,
+      "equityParent": 672,
+      "equityParentPriorYear": 673,
       "ocf": [
         77,
         73,
-        68
+        88
       ],
       "capex": [
         -28,
         -1,
-        -26
+        -19
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -75489,7 +75489,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
       "majorShareholderRate": 29.92,
       "treasuryShareRatio": 0,
@@ -76098,7 +76098,7 @@
       "curLongDebt": 28,
       "bonds": 0,
       "longBorrow": 601,
-      "equity": 11,
+      "equity": 2270,
       "equityPriorYear": 2269,
       "equityParent": 2097,
       "equityParentPriorYear": 2139,
@@ -76137,7 +76137,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 18.06,
       "treasuryShareRatio": 0,
@@ -76320,9 +76320,9 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
-        0
+        5907,
+        5165,
+        5798
       ],
       "op": [
         410,
@@ -76341,7 +76341,7 @@
       "curLongDebt": 0,
       "bonds": 14633,
       "longBorrow": 0,
-      "equity": 161,
+      "equity": 3095,
       "equityPriorYear": 2595,
       "equityParent": 3014,
       "equityParentPriorYear": 2124,
@@ -76380,8 +76380,8 @@
         85
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
-      "isFinancial": true,
+      "ttmLabel": "",
+      "isFinancial": false,
       "majorShareholderRate": 30.7,
       "treasuryShareRatio": 0.13,
       "price": 15880,
@@ -76574,7 +76574,7 @@
       ],
       "ni": [
         221,
-        32,
+        46,
         -457
       ],
       "cashEq": 471,
@@ -76623,7 +76623,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 27.61,
       "treasuryShareRatio": 7.39,
@@ -77778,12 +77778,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        189,
+        172,
         175,
         173
       ],
       "op": [
-        -65,
+        -74,
         -83,
         -62
       ],
@@ -77838,7 +77838,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 37.0,
       "treasuryShareRatio": 0.0,
@@ -77880,7 +77880,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -9,
+      "equity": 441,
       "equityPriorYear": 426,
       "equityParent": 441,
       "equityParentPriorYear": 426,
@@ -77906,11 +77906,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 17,
       "niParent3yr": [
-        0,
-        0,
-        0
+        17,
+        -5,
+        28
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -77919,7 +77919,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 10.49,
       "treasuryShareRatio": 0.02,
@@ -78345,12 +78345,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        2217,
+        2165,
         2496,
         2716
       ],
       "op": [
-        116,
+        112,
         125,
         102
       ],
@@ -78405,7 +78405,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 13.97,
       "treasuryShareRatio": 1.26,
@@ -78567,7 +78567,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 22.34,
       "treasuryShareRatio": 4.32,
@@ -80553,7 +80553,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 55,
-      "equity": 187,
+      "equity": 9083,
       "equityPriorYear": 8749,
       "equityParent": 9021,
       "equityParentPriorYear": 8680,
@@ -80563,7 +80563,7 @@
         1024
       ],
       "capex": [
-        -1141,
+        -1124,
         -324,
         -105
       ],
@@ -80592,7 +80592,7 @@
         384
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.42,
       "treasuryShareRatio": 6.13,
@@ -82871,8 +82871,8 @@
       "avgTradingValue20": 36
     },
     {
-      "name": "이노와이어리스",
-      "nameEn": "InnoWirelessCo.,Ltd.",
+      "name": "LIG아큐버",
+      "nameEn": "LIG Accuver Co.,Ltd.",
       "code": "073490",
       "sector": "IT하드웨어",
       "sectorEn": "IT Hardware",
@@ -82941,7 +82941,7 @@
         27
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 30.11,
       "treasuryShareRatio": 0,
@@ -84177,12 +84177,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        807,
+        531,
         564,
         678
       ],
       "op": [
-        -74,
+        -16,
         -13,
         -5
       ],
@@ -84224,11 +84224,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -19,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -19,
+        -130,
+        -213
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -84237,7 +84237,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 89.14,
       "treasuryShareRatio": 0,
@@ -84318,7 +84318,7 @@
         5
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 50.92,
       "treasuryShareRatio": 1.25,
@@ -86547,7 +86547,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -51,
+      "equity": 1574,
       "equityPriorYear": 1584,
       "equityParent": 1574,
       "equityParentPriorYear": 1584,
@@ -86557,8 +86557,8 @@
         -64
       ],
       "capex": [
-        -8,
         -1,
+        -5,
         -5
       ],
       "dividendPaid": 6,
@@ -86586,7 +86586,7 @@
         5
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 30.0,
       "treasuryShareRatio": 6.3,
@@ -86850,17 +86850,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        2321,
+        2330,
         2180,
         1957
       ],
       "op": [
-        150,
+        101,
         -44,
         -31
       ],
       "ni": [
-        87,
+        19,
         263,
         -220
       ],
@@ -86910,7 +86910,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 17.88,
       "treasuryShareRatio": 1.99,
@@ -87017,12 +87017,12 @@
         0
       ],
       "op": [
-        3343,
+        2943,
         3681,
         1988
       ],
       "ni": [
-        2706,
+        2398,
         3143,
         1245
       ],
@@ -87039,7 +87039,7 @@
       "equityParentPriorYear": 19691,
       "ocf": [
         10513,
-        -3882,
+        -3897,
         26458
       ],
       "capex": [
@@ -87072,7 +87072,7 @@
         624
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 75.46,
       "treasuryShareRatio": 3.28,
@@ -88086,7 +88086,7 @@
       "curLongDebt": 396,
       "bonds": 24,
       "longBorrow": 767,
-      "equity": 64,
+      "equity": 10912,
       "equityPriorYear": 9642,
       "equityParent": 5467,
       "equityParentPriorYear": 5201,
@@ -88125,7 +88125,7 @@
         64
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.14,
       "treasuryShareRatio": 3.61,
@@ -88410,7 +88410,7 @@
       "curLongDebt": 0,
       "bonds": 320,
       "longBorrow": 0,
-      "equity": -2,
+      "equity": 2148,
       "equityPriorYear": 2343,
       "equityParent": 2148,
       "equityParentPriorYear": 2343,
@@ -88436,11 +88436,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -186,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -186,
+        -206,
+        -94
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -88449,7 +88449,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 62.64,
       "treasuryShareRatio": 0.0,
@@ -88470,9 +88470,9 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        52594,
-        53579,
-        56288
+        0,
+        0,
+        0
       ],
       "op": [
         1146,
@@ -88491,7 +88491,7 @@
       "curLongDebt": 0,
       "bonds": 6539,
       "longBorrow": 3001,
-      "equity": 203,
+      "equity": 13061,
       "equityPriorYear": 16710,
       "equityParent": 6183,
       "equityParentPriorYear": 7676,
@@ -88530,8 +88530,8 @@
         100
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
-      "isFinancial": false,
+      "ttmLabel": "",
+      "isFinancial": true,
       "majorShareholderRate": 67.3,
       "treasuryShareRatio": 0,
       "price": 9420,
@@ -88551,13 +88551,13 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        4206,
-        4891,
+        4214,
+        4898,
         5366
       ],
       "op": [
-        354,
-        260,
+        361,
+        266,
         159
       ],
       "ni": [
@@ -88572,7 +88572,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 78,
+      "equity": 2173,
       "equityPriorYear": 2299,
       "equityParent": 1900,
       "equityParentPriorYear": 2089,
@@ -88611,7 +88611,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.84,
       "treasuryShareRatio": 6.55,
@@ -88880,12 +88880,12 @@
         0
       ],
       "op": [
-        1691,
+        1487,
         1221,
         1945
       ],
       "ni": [
-        1172,
+        1014,
         1361,
         1308
       ],
@@ -88896,7 +88896,7 @@
       "curLongDebt": 0,
       "bonds": 5986,
       "longBorrow": 0,
-      "equity": 785,
+      "equity": 24481,
       "equityPriorYear": 25637,
       "equityParent": 24481,
       "equityParentPriorYear": 25637,
@@ -88935,7 +88935,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 60.28,
       "treasuryShareRatio": 26.29,
@@ -88967,7 +88967,7 @@
       ],
       "ni": [
         -56,
-        -146,
+        -113,
         -1467
       ],
       "cashEq": 2376,
@@ -89016,7 +89016,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 28.19,
       "treasuryShareRatio": 0,
@@ -89259,7 +89259,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 23.11,
       "treasuryShareRatio": 3.46,
@@ -90840,7 +90840,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 4241,
+      "equity": 166234,
       "equityPriorYear": 143007,
       "equityParent": 138752,
       "equityParentPriorYear": 118176,
@@ -90879,7 +90879,7 @@
         1127
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 45.05,
       "treasuryShareRatio": 13.49,
@@ -92470,7 +92470,7 @@
         1
       ],
       "capex": [
-        0,
+        -8,
         -1,
         -3
       ],
@@ -92486,11 +92486,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -52,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -52,
+        22,
+        7
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -92499,13 +92499,13 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.4,
       "treasuryShareRatio": 0,
       "price": 71600,
       "mcap": 6981,
-      "per": 342.2,
+      "per": 0.0,
       "pbr": 8.04,
       "avgTradingValue20": 54
     },
@@ -92784,12 +92784,12 @@
       "curLongDebt": 254,
       "bonds": 1443,
       "longBorrow": 1050,
-      "equity": 825,
+      "equity": 7908,
       "equityPriorYear": 7409,
       "equityParent": 7484,
       "equityParentPriorYear": 7151,
       "ocf": [
-        905,
+        1117,
         1865,
         1592
       ],
@@ -92823,7 +92823,7 @@
         79
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 21.75,
       "treasuryShareRatio": 3.71,
@@ -93482,8 +93482,8 @@
       "avgTradingValue20": 21
     },
     {
-      "name": "티웨이항공",
-      "nameEn": "T'way Air Co., Ltd.",
+      "name": "트리니티항공",
+      "nameEn": "Trinity Airways Co., Ltd.",
       "code": "091810",
       "sector": "운송",
       "sectorEn": "Transportation",
@@ -93552,7 +93552,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 71.25,
       "treasuryShareRatio": 0.06,
@@ -93633,7 +93633,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 4.59,
       "treasuryShareRatio": 0.29,
@@ -94038,7 +94038,7 @@
         40
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 31.29,
       "treasuryShareRatio": 0,
@@ -94080,7 +94080,7 @@
       "curLongDebt": 90,
       "bonds": 0,
       "longBorrow": 386,
-      "equity": 513,
+      "equity": 16419,
       "equityPriorYear": 15503,
       "equityParent": 11055,
       "equityParentPriorYear": 10086,
@@ -94119,7 +94119,7 @@
         138
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 48.44,
       "treasuryShareRatio": 6.53,
@@ -94566,7 +94566,7 @@
       "curLongDebt": 45,
       "bonds": 0,
       "longBorrow": 530,
-      "equity": 513,
+      "equity": 4640,
       "equityPriorYear": 4649,
       "equityParent": 4640,
       "equityParentPriorYear": 4649,
@@ -94576,9 +94576,9 @@
         238
       ],
       "capex": [
-        0,
-        0,
-        0
+        -304,
+        -256,
+        -436
       ],
       "dividendPaid": 365,
       "dividendPaid3yr": [
@@ -94605,7 +94605,7 @@
         182
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 61.67,
       "treasuryShareRatio": 0,
@@ -95922,9 +95922,9 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        687,
-        808,
-        921
+        0,
+        0,
+        0
       ],
       "op": [
         64,
@@ -95943,7 +95943,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -6,
+      "equity": 991,
       "equityPriorYear": 863,
       "equityParent": 991,
       "equityParentPriorYear": 863,
@@ -95982,7 +95982,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 42.1,
       "treasuryShareRatio": 3.74,
@@ -96063,7 +96063,7 @@
         2
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 25.93,
       "treasuryShareRatio": 5.46,
@@ -97295,39 +97295,39 @@
       "sector": "전자/반도체",
       "sectorEn": "Electronics & Semiconductors",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        271,
         244,
-        245
+        245,
+        237
       ],
       "op": [
-        -173,
         -26,
-        18
+        18,
+        4
       ],
       "ni": [
-        -436,
         -28,
-        17
+        17,
+        14
       ],
-      "cashEq": 51,
+      "cashEq": 68,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 9,
       "curLongDebt": 3,
-      "bonds": 18,
+      "bonds": 0,
       "longBorrow": 7,
-      "equity": 144,
-      "equityPriorYear": 120,
-      "equityParent": 144,
-      "equityParentPriorYear": 119,
+      "equity": 158,
+      "equityPriorYear": 144,
+      "equityParent": 158,
+      "equityParentPriorYear": 144,
       "ocf": [
         -16,
         9,
-        43
+        44
       ],
       "capex": [
         -4,
@@ -97359,14 +97359,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
       "majorShareholderRate": 28.43,
       "treasuryShareRatio": 0,
       "price": 2965,
       "mcap": 516,
       "per": 30.2,
-      "pbr": 3.58,
+      "pbr": 3.25,
       "avgTradingValue20": 0
     },
     {
@@ -97725,7 +97725,7 @@
       "curLongDebt": 676,
       "bonds": 202,
       "longBorrow": 438,
-      "equity": 391,
+      "equity": 6696,
       "equityPriorYear": 3434,
       "equityParent": 6696,
       "equityParentPriorYear": 3434,
@@ -97764,7 +97764,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 48.9,
       "treasuryShareRatio": 0.01,
@@ -98736,7 +98736,7 @@
         16
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 37.52,
       "treasuryShareRatio": 0,
@@ -100074,7 +100074,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 178,
+      "equity": 1576,
       "equityPriorYear": 1598,
       "equityParent": 1576,
       "equityParentPriorYear": 1598,
@@ -100085,7 +100085,7 @@
       ],
       "capex": [
         0,
-        0,
+        -1,
         0
       ],
       "dividendPaid": 0,
@@ -100113,7 +100113,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 78.91,
       "treasuryShareRatio": 0.59,
@@ -100437,7 +100437,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 16.62,
       "treasuryShareRatio": 1.34,
@@ -100842,7 +100842,7 @@
         204
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 51.3,
       "treasuryShareRatio": 0,
@@ -102488,12 +102488,12 @@
         0
       ],
       "op": [
-        64353,
+        63850,
         80453,
         85177
       ],
       "ni": [
-        45634,
+        45263,
         50286,
         58407
       ],
@@ -102504,7 +102504,7 @@
       "curLongDebt": 0,
       "bonds": 800493,
       "longBorrow": 0,
-      "equity": 11372,
+      "equity": 608300,
       "equityPriorYear": 598152,
       "equityParent": 590482,
       "equityParentPriorYear": 578890,
@@ -102543,7 +102543,7 @@
         11739
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 8.68,
       "treasuryShareRatio": 6.0,
@@ -103124,8 +103124,8 @@
       "name": "새빗켐",
       "nameEn": "Sebitchem Co., LTD",
       "code": "107600",
-      "sector": "IT가전",
-      "sectorEn": "Consumer Electronics",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -103152,7 +103152,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 289,
-      "equity": 39,
+      "equity": 454,
       "equityPriorYear": 530,
       "equityParent": 454,
       "equityParentPriorYear": 530,
@@ -103178,11 +103178,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -180,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -180,
+        -107,
+        -12
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -103191,7 +103191,7 @@
         7
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.38,
       "treasuryShareRatio": 0,
@@ -104205,7 +104205,7 @@
       "curLongDebt": 1741,
       "bonds": 259,
       "longBorrow": 1060,
-      "equity": 40,
+      "equity": 4232,
       "equityPriorYear": 3583,
       "equityParent": 3638,
       "equityParentPriorYear": 3583,
@@ -104244,7 +104244,7 @@
         63
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.12,
       "treasuryShareRatio": 10.97,
@@ -104406,7 +104406,7 @@
         28
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.56,
       "treasuryShareRatio": 8.61,
@@ -105230,8 +105230,8 @@
       "name": "아이패밀리에스씨",
       "nameEn": "iFamilySC Co,. Ltd.",
       "code": "114840",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -105268,9 +105268,9 @@
         430
       ],
       "capex": [
-        -2,
-        -1,
-        -4
+        -5,
+        -4,
+        -27
       ],
       "dividendPaid": 55,
       "dividendPaid3yr": [
@@ -105297,7 +105297,7 @@
         14
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 41.7,
       "treasuryShareRatio": 1.68,
@@ -106290,13 +106290,13 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        833,
-        620,
+        522,
+        486,
         485
       ],
       "op": [
-        -72,
-        -49,
+        -73,
+        -22,
         -3
       ],
       "ni": [
@@ -106311,18 +106311,18 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 4,
-      "equity": 21,
+      "equity": 1718,
       "equityPriorYear": 1685,
       "equityParent": 1726,
       "equityParentPriorYear": 1647,
       "ocf": [
         -59,
-        128,
+        146,
         188
       ],
       "capex": [
-        -118,
-        -117,
+        -105,
+        -111,
         -101
       ],
       "dividendPaid": 0,
@@ -106350,7 +106350,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 13.89,
       "treasuryShareRatio": 0.61,
@@ -106431,7 +106431,7 @@
         10
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.51,
       "treasuryShareRatio": 1.71,
@@ -106533,12 +106533,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        50612,
+        47349,
         48430,
         48734
       ],
       "op": [
-        1576,
+        1997,
         1587,
         1089
       ],
@@ -106554,7 +106554,7 @@
       "curLongDebt": 0,
       "bonds": 15027,
       "longBorrow": 10602,
-      "equity": 2935,
+      "equity": 40650,
       "equityPriorYear": 37730,
       "equityParent": 39276,
       "equityParentPriorYear": 36459,
@@ -106593,7 +106593,7 @@
         395
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 34.8,
       "treasuryShareRatio": 0.03,
@@ -106776,12 +106776,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        4271,
+        4241,
         3862,
         3543
       ],
       "op": [
-        531,
+        537,
         394,
         280
       ],
@@ -106797,7 +106797,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 4278,
+      "equity": 7501,
       "equityPriorYear": 7465,
       "equityParent": 7448,
       "equityParentPriorYear": 7413,
@@ -106836,7 +106836,7 @@
         70
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 55.36,
       "treasuryShareRatio": 9.83,
@@ -106917,7 +106917,7 @@
         31
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 21.79,
       "treasuryShareRatio": 1.88,
@@ -106959,7 +106959,7 @@
       "curLongDebt": 87,
       "bonds": 0,
       "longBorrow": 45,
-      "equity": 5368,
+      "equity": 6446,
       "equityPriorYear": 6382,
       "equityParent": 6444,
       "equityParentPriorYear": 6379,
@@ -106998,7 +106998,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 34.25,
       "treasuryShareRatio": 0.01,
@@ -107045,7 +107045,7 @@
       "equityParent": 845,
       "equityParentPriorYear": 859,
       "ocf": [
-        36,
+        69,
         133,
         53
       ],
@@ -107079,7 +107079,7 @@
         22
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 26.88,
       "treasuryShareRatio": 12.52,
@@ -107160,7 +107160,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 32.32,
       "treasuryShareRatio": 0.99,
@@ -107445,7 +107445,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 438,
+      "equity": 6508,
       "equityPriorYear": 6033,
       "equityParent": 5135,
       "equityParentPriorYear": 4831,
@@ -107484,7 +107484,7 @@
         56
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 22.95,
       "treasuryShareRatio": 0.77,
@@ -109283,44 +109283,44 @@
       "sector": "IT가전",
       "sectorEn": "Consumer Electronics",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        0,
         334,
-        383
+        383,
+        418
       ],
       "op": [
-        0,
         29,
-        11
+        11,
+        18
       ],
       "ni": [
-        0,
         32,
-        28
+        28,
+        45
       ],
-      "cashEq": 85,
+      "cashEq": 108,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 0,
-      "longBorrow": 39,
-      "equity": 558,
-      "equityPriorYear": 528,
-      "equityParent": 558,
-      "equityParentPriorYear": 528,
+      "longBorrow": 0,
+      "equity": 572,
+      "equityPriorYear": 558,
+      "equityParent": 572,
+      "equityParentPriorYear": 558,
       "ocf": [
-        0,
+        75,
         44,
-        46
+        74
       ],
       "capex": [
-        0,
+        -34,
         -50,
-        -46
+        -41
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -109347,14 +109347,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
-      "majorShareholderRate": 66.59,
-      "treasuryShareRatio": 6.27,
+      "majorShareholderRate": 64.56,
+      "treasuryShareRatio": 6.35,
       "price": 22000,
       "mcap": 1929,
       "per": 67.3,
-      "pbr": 3.24,
+      "pbr": 3.16,
       "avgTradingValue20": 46
     },
     {
@@ -109428,7 +109428,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 16.97,
       "treasuryShareRatio": 0.16,
@@ -109914,7 +109914,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.08,
       "treasuryShareRatio": 17.19,
@@ -111791,8 +111791,8 @@
       "name": "제이씨케미칼",
       "nameEn": "JC Chemical Corporation, LTD.",
       "code": "137950",
-      "sector": "에너지",
-      "sectorEn": "Energy",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -111858,7 +111858,7 @@
         33
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 42.84,
       "treasuryShareRatio": 3.07,
@@ -111939,7 +111939,7 @@
         4483
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": true,
       "majorShareholderRate": 56.13,
       "treasuryShareRatio": 3.87,
@@ -112629,7 +112629,7 @@
       "curLongDebt": 97,
       "bonds": 341,
       "longBorrow": 0,
-      "equity": 13,
+      "equity": 1800,
       "equityPriorYear": 1929,
       "equityParent": 1780,
       "equityParentPriorYear": 1907,
@@ -112668,7 +112668,7 @@
         10
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 56.7,
       "treasuryShareRatio": 6.81,
@@ -113196,7 +113196,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 127,
+      "equity": 1803,
       "equityPriorYear": 1782,
       "equityParent": 1805,
       "equityParentPriorYear": 1780,
@@ -113235,7 +113235,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 20.2,
       "treasuryShareRatio": 17.17,
@@ -113657,44 +113657,44 @@
       "sector": "디스플레이",
       "sectorEn": "Display",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        478,
         591,
-        805
+        805,
+        957
       ],
       "op": [
-        -111,
         -50,
-        59
+        59,
+        96
       ],
       "ni": [
-        -129,
         -39,
-        56
+        56,
+        103
       ],
-      "cashEq": 30,
-      "shortFin": 47,
+      "cashEq": 63,
+      "shortFin": 112,
       "shortInv": 0,
       "shortBorrow": 32,
       "curLongDebt": 10,
       "bonds": 0,
       "longBorrow": 10,
-      "equity": 301,
-      "equityPriorYear": 248,
-      "equityParent": 307,
-      "equityParentPriorYear": 253,
+      "equity": 344,
+      "equityPriorYear": 301,
+      "equityParent": 349,
+      "equityParentPriorYear": 307,
       "ocf": [
         41,
         -15,
-        -17
+        37
       ],
       "capex": [
         -3,
         0,
-        -1
+        -2
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -113721,14 +113721,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
       "majorShareholderRate": 19.38,
       "treasuryShareRatio": 2.05,
       "price": 1400,
       "mcap": 624,
       "per": 11.2,
-      "pbr": 1.99,
+      "pbr": 1.75,
       "avgTradingValue20": 6
     },
     {
@@ -114126,7 +114126,7 @@
         34
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 18.95,
       "treasuryShareRatio": 22.09,
@@ -114720,12 +114720,12 @@
       ],
       "op": [
         53,
-        -48,
+        -64,
         41
       ],
       "ni": [
         82,
-        -55,
+        -71,
         31
       ],
       "cashEq": 30,
@@ -114741,7 +114741,7 @@
       "equityParentPriorYear": 682,
       "ocf": [
         -11,
-        52,
+        55,
         -1
       ],
       "capex": [
@@ -114774,7 +114774,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 45.8,
       "treasuryShareRatio": 21.49,
@@ -115869,7 +115869,7 @@
       "curLongDebt": 572,
       "bonds": 0,
       "longBorrow": 1710,
-      "equity": 1765,
+      "equity": 7164,
       "equityPriorYear": 7410,
       "equityParent": 7141,
       "equityParentPriorYear": 7367,
@@ -115908,7 +115908,7 @@
         121
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 62.23,
       "treasuryShareRatio": 0.76,
@@ -116799,7 +116799,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 44.46,
       "treasuryShareRatio": 1.22,
@@ -117246,7 +117246,7 @@
       "curLongDebt": 0,
       "bonds": 244,
       "longBorrow": 252,
-      "equity": 33,
+      "equity": 1438,
       "equityPriorYear": 464,
       "equityParent": 1438,
       "equityParentPriorYear": 464,
@@ -117285,7 +117285,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 47.13,
       "treasuryShareRatio": 7.73,
@@ -117785,25 +117785,25 @@
       "name": "아이큐어",
       "nameEn": "Icure Pharmaceutical Incorporation",
       "code": "175250",
-      "sector": "의약품",
-      "sectorEn": "Pharmaceuticals",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
         568,
-        692,
+        506,
         834
       ],
       "op": [
-        -227,
-        -172,
+        -225,
+        -152,
         -120
       ],
       "ni": [
-        -323,
-        0,
+        -322,
+        2,
         -345
       ],
       "cashEq": 83,
@@ -117852,7 +117852,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 15.08,
       "treasuryShareRatio": 0.5,
@@ -119007,17 +119007,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        105,
+        99,
         88,
         79
       ],
       "op": [
-        -673,
+        -675,
         -41,
         -25
       ],
       "ni": [
-        -1534,
+        -1536,
         -369,
         -73
       ],
@@ -119031,7 +119031,7 @@
       "equity": 71,
       "equityPriorYear": -250,
       "equityParent": 71,
-      "equityParentPriorYear": -250,
+      "equityParentPriorYear": 0,
       "ocf": [
         -351,
         -13,
@@ -119067,7 +119067,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 64.5,
       "treasuryShareRatio": 0.01,
@@ -122754,7 +122754,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -134,
+      "equity": 2996,
       "equityPriorYear": 2285,
       "equityParent": 2996,
       "equityParentPriorYear": 2285,
@@ -122793,7 +122793,7 @@
         54
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 37.45,
       "treasuryShareRatio": 1.17,
@@ -122916,7 +122916,7 @@
       "curLongDebt": 418,
       "bonds": 0,
       "longBorrow": 3399,
-      "equity": 1118,
+      "equity": 12329,
       "equityPriorYear": 11615,
       "equityParent": 11714,
       "equityParentPriorYear": 10998,
@@ -122955,7 +122955,7 @@
         54
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.06,
       "treasuryShareRatio": 0.02,
@@ -123807,7 +123807,7 @@
       "curLongDebt": 0,
       "bonds": 88,
       "longBorrow": 0,
-      "equity": 179,
+      "equity": 2354,
       "equityPriorYear": 2491,
       "equityParent": 2151,
       "equityParentPriorYear": 2293,
@@ -123817,9 +123817,9 @@
         101
       ],
       "capex": [
-        0,
-        0,
-        0
+        -221,
+        -12,
+        -1
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -123846,7 +123846,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 14.91,
       "treasuryShareRatio": 12.54,
@@ -126480,7 +126480,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 186,
+      "equity": 5206,
       "equityPriorYear": 4667,
       "equityParent": 4971,
       "equityParentPriorYear": 4488,
@@ -126519,7 +126519,7 @@
         232
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.72,
       "treasuryShareRatio": 0.12,
@@ -127896,7 +127896,7 @@
         26
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.59,
       "treasuryShareRatio": 0.92,
@@ -128100,9 +128100,9 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 114,
+      "equity": 101,
       "equityPriorYear": 100,
-      "equityParent": 114,
+      "equityParent": 101,
       "equityParentPriorYear": 100,
       "ocf": [
         -54,
@@ -128139,14 +128139,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 13.8,
       "treasuryShareRatio": 0.06,
       "price": 1797,
       "mcap": 695,
       "per": 0.0,
-      "pbr": 6.1,
+      "pbr": 6.86,
       "avgTradingValue20": 4
     },
     {
@@ -128160,17 +128160,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        27,
+        314,
         301,
         320
       ],
       "op": [
-        -73,
+        13,
         10,
         -29
       ],
       "ni": [
-        -92,
+        17,
         -2,
         -39
       ],
@@ -128181,17 +128181,17 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 130,
-      "equity": -194,
+      "equity": 243,
       "equityPriorYear": 282,
       "equityParent": 243,
       "equityParentPriorYear": 282,
       "ocf": [
-        -22,
+        16,
         -5,
         -60
       ],
       "capex": [
-        0,
+        -3,
         -4,
         -1
       ],
@@ -128207,11 +128207,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -39,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -39,
+        -2,
+        17
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -128220,7 +128220,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 81.13,
       "treasuryShareRatio": 0.04,
@@ -128625,7 +128625,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.93,
       "treasuryShareRatio": 0.35,
@@ -128748,7 +128748,7 @@
       "curLongDebt": 0,
       "bonds": 10,
       "longBorrow": 0,
-      "equity": 13,
+      "equity": 299,
       "equityPriorYear": 249,
       "equityParent": 299,
       "equityParentPriorYear": 249,
@@ -128774,11 +128774,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 6,
       "niParent3yr": [
+        6,
         0,
-        0,
-        0
+        -2
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -128787,13 +128787,13 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 40.72,
       "treasuryShareRatio": 0,
       "price": 5760,
       "mcap": 777,
-      "per": 37.9,
+      "per": 138.6,
       "pbr": 2.6,
       "avgTradingValue20": 25
     },
@@ -129132,12 +129132,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        275,
+        195,
         217,
         189
       ],
       "op": [
-        3,
+        -4,
         -32,
         -75
       ],
@@ -129192,7 +129192,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 36.53,
       "treasuryShareRatio": 0.02,
@@ -132291,17 +132291,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        909,
         1051,
         1135
       ],
       "op": [
-        0,
+        165,
         150,
         170
       ],
       "ni": [
-        0,
+        97,
         31,
         114
       ],
@@ -132317,14 +132317,14 @@
       "equityParent": 1229,
       "equityParentPriorYear": 799,
       "ocf": [
-        0,
+        63,
         185,
         120
       ],
       "capex": [
-        0,
-        0,
-        0
+        -44,
+        -120,
+        -138
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -132351,7 +132351,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 48.57,
       "treasuryShareRatio": 0,
@@ -132534,58 +132534,58 @@
       "reportShort": "AR 2025.12",
       "currency": "USD",
       "rev": [
-        110551,
-        92863,
-        91389
+        110380,
+        92719,
+        91247
       ],
       "op": [
-        16214,
-        8844,
-        7370
+        16189,
+        8830,
+        7359
       ],
       "ni": [
-        10318,
-        5896,
-        4422
+        10302,
+        5887,
+        4415
       ],
-      "cashEq": 20636,
+      "cashEq": 20604,
       "shortFin": 0,
       "shortInv": 0,
-      "shortBorrow": 1474,
-      "curLongDebt": 1474,
+      "shortBorrow": 1472,
+      "curLongDebt": 1472,
       "bonds": 0,
-      "longBorrow": 11792,
+      "longBorrow": 11774,
       "equity": 0,
-      "equityPriorYear": 69278,
-      "equityParent": 73700,
-      "equityParentPriorYear": 69278,
+      "equityPriorYear": 69171,
+      "equityParent": 73586,
+      "equityParentPriorYear": 69171,
       "ocf": [
-        14740,
-        7370,
-        11792
+        14717,
+        7359,
+        11774
       ],
       "capex": [
-        -1474,
-        -2948,
-        -2948
+        -1472,
+        -2943,
+        -2943
       ],
-      "dividendPaid": 1474,
+      "dividendPaid": 1472,
       "dividendPaid3yr": [
-        1474,
-        1474,
-        1474
+        1472,
+        1472,
+        1472
       ],
-      "sharesBuyback": 1474,
+      "sharesBuyback": 1472,
       "sharesBuyback3yr": [
-        1474,
+        1472,
         0,
         0
       ],
-      "niParent": 4422,
+      "niParent": 4415,
       "niParent3yr": [
-        4422,
-        5896,
-        10318
+        4415,
+        5887,
+        10302
       ],
       "dividendTotal": 1627,
       "dividendTotal3yr": [
@@ -132770,8 +132770,8 @@
       "name": "코스메카코리아",
       "nameEn": "COSMECCA KOREA CO., LTD.",
       "code": "241710",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -132798,7 +132798,7 @@
       "curLongDebt": 42,
       "bonds": 0,
       "longBorrow": 296,
-      "equity": 7,
+      "equity": 3362,
       "equityPriorYear": 3076,
       "equityParent": 2527,
       "equityParentPriorYear": 2184,
@@ -132837,7 +132837,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 39.0,
       "treasuryShareRatio": 0,
@@ -133661,8 +133661,8 @@
       "name": "아스타",
       "nameEn": "ASTA Co., Ltd.",
       "code": "246720",
-      "sector": "헬스케어",
-      "sectorEn": "Healthcare",
+      "sector": "의약품",
+      "sectorEn": "Pharmaceuticals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -133678,7 +133678,7 @@
         -26
       ],
       "ni": [
-        0,
+        -28,
         -39,
         -33
       ],
@@ -133689,7 +133689,7 @@
       "curLongDebt": 0,
       "bonds": 24,
       "longBorrow": 0,
-      "equity": 25,
+      "equity": 92,
       "equityPriorYear": 41,
       "equityParent": 92,
       "equityParentPriorYear": 41,
@@ -133715,11 +133715,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -33,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -33,
+        -39,
+        -28
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -133728,7 +133728,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.11,
       "treasuryShareRatio": 0,
@@ -133932,7 +133932,7 @@
       "curLongDebt": 273,
       "bonds": 0,
       "longBorrow": 1104,
-      "equity": 58,
+      "equity": 5628,
       "equityPriorYear": 4344,
       "equityParent": 5480,
       "equityParentPriorYear": 4337,
@@ -133971,7 +133971,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 14.22,
       "treasuryShareRatio": 0,
@@ -134214,7 +134214,7 @@
         16
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 69.6,
       "treasuryShareRatio": 2.99,
@@ -134580,7 +134580,7 @@
       "curLongDebt": 313,
       "bonds": 51,
       "longBorrow": 313,
-      "equity": 22,
+      "equity": 2183,
       "equityPriorYear": 1966,
       "equityParent": 1892,
       "equityParentPriorYear": 1717,
@@ -134619,7 +134619,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 36.56,
       "treasuryShareRatio": 1.88,
@@ -135441,7 +135441,7 @@
     },
     {
       "name": "한국비엔씨",
-      "nameEn": "BNC Korea Co, Ltd",
+      "nameEn": "BNC KOREA, Inc.",
       "code": "256840",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
@@ -135471,7 +135471,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 200,
-      "equity": 17,
+      "equity": 2395,
       "equityPriorYear": 2365,
       "equityParent": 2337,
       "equityParentPriorYear": 2299,
@@ -135510,7 +135510,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 19.58,
       "treasuryShareRatio": 0,
@@ -136320,7 +136320,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 28.26,
       "treasuryShareRatio": 0,
@@ -139095,12 +139095,12 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        24531,
+        24525,
         28037,
         36642
       ],
       "op": [
-        929,
+        1226,
         2193,
         1199
       ],
@@ -139155,7 +139155,7 @@
         524
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 59.53,
       "treasuryShareRatio": 1.02,
@@ -140127,7 +140127,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 16.93,
       "treasuryShareRatio": 1.42,
@@ -140817,7 +140817,7 @@
       "curLongDebt": 0,
       "bonds": 1514,
       "longBorrow": 0,
-      "equity": 102,
+      "equity": 31404,
       "equityPriorYear": 30330,
       "equityParent": 22593,
       "equityParentPriorYear": 22007,
@@ -140827,7 +140827,7 @@
         2359
       ],
       "capex": [
-        -3758,
+        -3891,
         -4221,
         -3851
       ],
@@ -140856,7 +140856,7 @@
         126
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 42.71,
       "treasuryShareRatio": 0.17,
@@ -141086,11 +141086,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -56,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -56,
+        2,
+        -63
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -142254,13 +142254,13 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        1907,
-        1241,
+        1541,
+        1207,
         868
       ],
       "op": [
-        -178,
-        -174,
+        -107,
+        -153,
         -82
       ],
       "ni": [
@@ -142314,14 +142314,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 53.89,
-      "treasuryShareRatio": 0,
+      "treasuryShareRatio": 4.1,
       "price": 3315,
       "mcap": 1164,
       "per": 57.5,
-      "pbr": 3.33,
+      "pbr": 3.19,
       "avgTradingValue20": 3
     },
     {
@@ -143085,7 +143085,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 197,
+      "equity": 1705,
       "equityPriorYear": 1468,
       "equityParent": 1705,
       "equityParentPriorYear": 1468,
@@ -143124,7 +143124,7 @@
         10
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 30.31,
       "treasuryShareRatio": 0.43,
@@ -143895,7 +143895,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 4645,
-      "equity": 474,
+      "equity": 24897,
       "equityPriorYear": 20556,
       "equityParent": 23517,
       "equityParentPriorYear": 19085,
@@ -143934,7 +143934,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.96,
       "treasuryShareRatio": 0.14,
@@ -144599,44 +144599,44 @@
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        1473,
         804,
-        1020
+        1020,
+        949
       ],
       "op": [
-        -203,
         -118,
-        -96
+        -96,
+        -79
       ],
       "ni": [
-        467,
         -603,
-        -418
+        -418,
+        -293
       ],
-      "cashEq": 467,
+      "cashEq": 180,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 110,
       "curLongDebt": 10,
-      "bonds": 138,
+      "bonds": 144,
       "longBorrow": 7,
-      "equity": 386,
-      "equityPriorYear": 1736,
-      "equityParent": 1270,
-      "equityParentPriorYear": 1675,
+      "equity": 1384,
+      "equityPriorYear": 1322,
+      "equityParent": 1334,
+      "equityParentPriorYear": 1270,
       "ocf": [
         -21,
         -76,
-        -93
+        27
       ],
       "capex": [
         -25,
         -8,
-        -5
+        -6
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -144663,14 +144663,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
       "majorShareholderRate": 38.05,
       "treasuryShareRatio": 0.95,
       "price": 408,
       "mcap": 698,
       "per": 0.0,
-      "pbr": 0.54,
+      "pbr": 0.52,
       "avgTradingValue20": 6
     },
     {
@@ -146537,6 +146537,87 @@
       "avgTradingValue20": 0
     },
     {
+      "name": "조이웍스앤코",
+      "nameEn": "JOYWORKS&Co Co.,Ltd.",
+      "code": "309930",
+      "sector": "건설",
+      "sectorEn": "Construction",
+      "market": "KOSDAQ",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
+      "currency": "KRW",
+      "rev": [
+        410,
+        473,
+        460
+      ],
+      "op": [
+        21,
+        -24,
+        -88
+      ],
+      "ni": [
+        25,
+        10,
+        -207
+      ],
+      "cashEq": 24,
+      "shortFin": 20,
+      "shortInv": 0,
+      "shortBorrow": 4,
+      "curLongDebt": 1,
+      "bonds": 114,
+      "longBorrow": 1,
+      "equity": 187,
+      "equityPriorYear": 294,
+      "equityParent": 194,
+      "equityParentPriorYear": 283,
+      "ocf": [
+        45,
+        2,
+        -33
+      ],
+      "capex": [
+        -2,
+        -4,
+        -92
+      ],
+      "dividendPaid": 0,
+      "dividendPaid3yr": [
+        0,
+        0,
+        0
+      ],
+      "sharesBuyback": 16,
+      "sharesBuyback3yr": [
+        16,
+        20,
+        0
+      ],
+      "niParent": -189,
+      "niParent3yr": [
+        -189,
+        14,
+        25
+      ],
+      "dividendTotal": 0,
+      "dividendTotal3yr": [
+        0,
+        0,
+        0
+      ],
+      "shReturnYear": 2025,
+      "ttmLabel": "",
+      "isFinancial": false,
+      "majorShareholderRate": 14.69,
+      "treasuryShareRatio": 2.25,
+      "price": 2210,
+      "mcap": 541,
+      "per": 0.0,
+      "pbr": 2.73,
+      "avgTradingValue20": 22
+    },
+    {
       "name": "LB인베스트먼트",
       "nameEn": "LB Investment Inc.",
       "code": "309960",
@@ -147600,18 +147681,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        2423,
+        2694,
         2873
       ],
       "op": [
-        0,
-        0,
+        836,
+        928,
         925
       ],
       "ni": [
-        0,
-        0,
+        745,
+        687,
         814
       ],
       "cashEq": 318,
@@ -147626,13 +147707,13 @@
       "equityParent": 7944,
       "equityParentPriorYear": 5318,
       "ocf": [
-        0,
-        0,
+        761,
+        830,
         816
       ],
       "capex": [
-        0,
-        0,
+        -46,
+        -102,
         -300
       ],
       "dividendPaid": 112,
@@ -147660,7 +147741,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 73.8,
       "treasuryShareRatio": 0,
@@ -148308,7 +148389,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 35.63,
       "treasuryShareRatio": 10.34,
@@ -148713,7 +148794,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 13.49,
       "treasuryShareRatio": 0,
@@ -149079,7 +149160,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 20,
-      "equity": 9,
+      "equity": 635,
       "equityPriorYear": 682,
       "equityParent": 635,
       "equityParentPriorYear": 682,
@@ -149105,11 +149186,11 @@
         10,
         20
       ],
-      "niParent": 0,
+      "niParent": -64,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -64,
+        59,
+        34
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -149118,7 +149199,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 54.4,
       "treasuryShareRatio": 1.42,
@@ -150609,7 +150690,7 @@
       "ni": [
         195,
         -77,
-        202
+        164
       ],
       "cashEq": 213,
       "shortFin": 27,
@@ -150618,7 +150699,7 @@
       "curLongDebt": 59,
       "bonds": 10,
       "longBorrow": 217,
-      "equity": 1372,
+      "equity": 1333,
       "equityPriorYear": 901,
       "equityParent": 1304,
       "equityParentPriorYear": 862,
@@ -150657,7 +150738,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 29.65,
       "treasuryShareRatio": 1.07,
@@ -151488,17 +151569,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        5139,
         5197,
         5501
       ],
       "op": [
-        0,
+        297,
         260,
         89
       ],
       "ni": [
-        0,
+        227,
         199,
         61
       ],
@@ -151509,17 +151590,17 @@
       "curLongDebt": 128,
       "bonds": 57,
       "longBorrow": 518,
-      "equity": 19,
+      "equity": 1939,
       "equityPriorYear": 1842,
       "equityParent": 1823,
       "equityParentPriorYear": 1815,
       "ocf": [
-        0,
+        237,
         348,
         -91
       ],
       "capex": [
-        0,
+        -592,
         -148,
         -224
       ],
@@ -151548,7 +151629,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 74.1,
       "treasuryShareRatio": 0,
@@ -151595,7 +151676,7 @@
       "equityParent": 1162,
       "equityParentPriorYear": 1109,
       "ocf": [
-        170,
+        132,
         298,
         27
       ],
@@ -151629,7 +151710,7 @@
         23
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 45.5,
       "treasuryShareRatio": 0,
@@ -151646,39 +151727,39 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 반기보고서",
+      "reportShort": "SR 2026.06",
       "currency": "KRW",
       "rev": [
-        146,
-        146,
-        40
+        111,
+        40,
+        127
       ],
       "op": [
-        128,
-        70,
-        -2
+        106,
+        -2,
+        113
       ],
       "ni": [
-        128,
-        71,
-        1
+        108,
+        1,
+        116
       ],
-      "cashEq": 84,
-      "shortFin": 50,
+      "cashEq": 582,
+      "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1095,
-      "equityPriorYear": 1117,
-      "equityParent": 1095,
-      "equityParentPriorYear": 1117,
+      "equity": 1076,
+      "equityPriorYear": 1095,
+      "equityParent": 1076,
+      "equityParentPriorYear": 1095,
       "ocf": [
-        -4,
         105,
-        -5
+        17,
+        26
       ],
       "capex": [
         0,
@@ -151710,14 +151791,14 @@
         24
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 8.28,
+      "majorShareholderRate": 7.29,
       "treasuryShareRatio": 0,
       "price": 4675,
       "mcap": 872,
       "per": 604.4,
-      "pbr": 0.8,
+      "pbr": 0.81,
       "avgTradingValue20": 5
     },
     {
@@ -152865,9 +152946,9 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        116,
-        173,
-        148
+        0,
+        0,
+        0
       ],
       "op": [
         -185,
@@ -152925,7 +153006,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 15.94,
       "treasuryShareRatio": 0,
@@ -153168,7 +153249,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 29.83,
       "treasuryShareRatio": 0,
@@ -153249,7 +153330,7 @@
         51
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 27.02,
       "treasuryShareRatio": 2.68,
@@ -154967,39 +155048,39 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 반기보고서",
+      "reportShort": "SR 2026.06",
       "currency": "KRW",
       "rev": [
-        315,
-        485,
-        386
+        349,
+        386,
+        394
       ],
       "op": [
-        181,
-        356,
-        242
+        255,
+        242,
+        259
       ],
       "ni": [
-        107,
-        238,
-        67
+        123,
+        67,
+        88
       ],
-      "cashEq": 351,
+      "cashEq": 381,
       "shortFin": 0,
       "shortInv": 0,
-      "shortBorrow": 9,
+      "shortBorrow": 0,
       "curLongDebt": 120,
-      "bonds": 200,
-      "longBorrow": 6681,
-      "equity": 4805,
-      "equityPriorYear": 4897,
-      "equityParent": 4805,
-      "equityParentPriorYear": 4897,
+      "bonds": 300,
+      "longBorrow": 6790,
+      "equity": 4687,
+      "equityPriorYear": 4805,
+      "equityParent": 4687,
+      "equityParentPriorYear": 4805,
       "ocf": [
-        171,
         81,
-        34
+        178,
+        106
       ],
       "capex": [
         0,
@@ -155031,14 +155112,14 @@
         177
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
       "majorShareholderRate": 12.1,
       "treasuryShareRatio": 0,
       "price": 4585,
       "mcap": 4463,
       "per": 66.9,
-      "pbr": 0.93,
+      "pbr": 0.95,
       "avgTradingValue20": 7
     },
     {
@@ -155129,23 +155210,23 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 반기보고서",
+      "reportShort": "SR 2026.06",
       "currency": "KRW",
       "rev": [
-        109,
+        70,
         69,
         69
       ],
       "op": [
-        81,
-        40,
-        41
+        47,
+        41,
+        47
       ],
       "ni": [
-        56,
-        15,
-        3
+        17,
+        3,
+        9
       ],
       "cashEq": 20,
       "shortFin": 0,
@@ -155154,14 +155235,14 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 1538,
-      "equity": 961,
-      "equityPriorYear": 993,
-      "equityParent": 961,
-      "equityParentPriorYear": 993,
+      "equity": 939,
+      "equityPriorYear": 961,
+      "equityParent": 939,
+      "equityParentPriorYear": 961,
       "ocf": [
-        27,
         24,
-        18
+        34,
+        25
       ],
       "capex": [
         0,
@@ -155193,14 +155274,14 @@
         31
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 12.02,
+      "majorShareholderRate": 11.53,
       "treasuryShareRatio": 0,
       "price": 2290,
       "mcap": 572,
       "per": 219.4,
-      "pbr": 0.6,
+      "pbr": 0.61,
       "avgTradingValue20": 1
     },
     {
@@ -156587,43 +156668,43 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 반기보고서",
+      "reportShort": "SR 2026.06",
       "currency": "KRW",
       "rev": [
-        530,
-        569,
-        596
+        587,
+        596,
+        629
       ],
       "op": [
-        242,
-        266,
-        259
+        287,
+        259,
+        318
       ],
       "ni": [
-        119,
-        36,
-        -34
+        98,
+        -34,
+        87
       ],
-      "cashEq": 1714,
-      "shortFin": 43,
+      "cashEq": 1608,
+      "shortFin": 189,
       "shortInv": 0,
-      "shortBorrow": 265,
-      "curLongDebt": 1303,
+      "shortBorrow": 200,
+      "curLongDebt": 6042,
       "bonds": 0,
-      "longBorrow": 14302,
-      "equity": 1484,
-      "equityPriorYear": 10652,
-      "equityParent": 11652,
-      "equityParentPriorYear": 10652,
+      "longBorrow": 9383,
+      "equity": 11365,
+      "equityPriorYear": 11652,
+      "equityParent": 11365,
+      "equityParentPriorYear": 11652,
       "ocf": [
-        365,
         77,
-        88
+        256,
+        222
       ],
       "capex": [
-        0,
-        -1,
+        -812,
+        -2,
         0
       ],
       "dividendPaid": 292,
@@ -156651,14 +156732,14 @@
         288
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 24.85,
+      "majorShareholderRate": 21.52,
       "treasuryShareRatio": 0,
       "price": 4385,
       "mcap": 10791,
       "per": 0.0,
-      "pbr": 0.93,
+      "pbr": 0.95,
       "avgTradingValue20": 19
     },
     {
@@ -157746,7 +157827,7 @@
       "curLongDebt": 5193,
       "bonds": 4443,
       "longBorrow": 0,
-      "equity": 5519,
+      "equity": 52441,
       "equityPriorYear": 48457,
       "equityParent": 52441,
       "equityParentPriorYear": 48457,
@@ -157756,9 +157837,9 @@
         2321
       ],
       "capex": [
-        -29,
-        -33,
-        -88
+        -121,
+        -95,
+        -170
       ],
       "dividendPaid": 230,
       "dividendPaid3yr": [
@@ -157785,7 +157866,7 @@
         202
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 24.82,
       "treasuryShareRatio": 2.94,
@@ -159665,44 +159746,44 @@
       "sector": "반도체",
       "sectorEn": "Semiconductors",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        893,
         708,
-        919
+        919,
+        1150
       ],
       "op": [
-        183,
         116,
-        78
+        78,
+        165
       ],
       "ni": [
-        176,
         125,
-        63
+        63,
+        152
       ],
-      "cashEq": 28,
-      "shortFin": 143,
+      "cashEq": 67,
+      "shortFin": 260,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 6,
       "bonds": 0,
       "longBorrow": 112,
-      "equity": 1178,
-      "equityPriorYear": 1114,
-      "equityParent": 1178,
-      "equityParentPriorYear": 1114,
+      "equity": 1241,
+      "equityPriorYear": 1178,
+      "equityParent": 1241,
+      "equityParentPriorYear": 1178,
       "ocf": [
         -36,
         32,
-        89
+        319
       ],
       "capex": [
         -32,
         -122,
-        -81
+        -74
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -159729,14 +159810,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
       "majorShareholderRate": 29.71,
       "treasuryShareRatio": 0,
       "price": 8800,
       "mcap": 2801,
       "per": 44.3,
-      "pbr": 2.38,
+      "pbr": 2.26,
       "avgTradingValue20": 171
     },
     {
@@ -160391,8 +160472,8 @@
       "name": "지에프씨생명과학",
       "nameEn": "GFC Life Science Co., Ltd.",
       "code": "388610",
-      "sector": "헬스케어",
-      "sectorEn": "Healthcare",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -160445,11 +160526,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 6,
       "niParent3yr": [
-        0,
-        0,
-        0
+        6,
+        -59,
+        21
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -160581,7 +160662,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -13,
+      "equity": 216,
       "equityPriorYear": 208,
       "equityParent": 216,
       "equityParentPriorYear": 208,
@@ -160607,11 +160688,11 @@
         0,
         2
       ],
-      "niParent": 0,
+      "niParent": 3,
       "niParent3yr": [
-        0,
-        0,
-        0
+        3,
+        -38,
+        -58
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -160620,7 +160701,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.57,
       "treasuryShareRatio": 0.32,
@@ -161208,17 +161289,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        49,
         95,
         165
       ],
       "op": [
-        0,
+        -52,
         -36,
         -7
       ],
       "ni": [
-        0,
+        -75,
         29,
         -3
       ],
@@ -161229,17 +161310,17 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 35,
+      "equity": 481,
       "equityPriorYear": 452,
       "equityParent": 481,
       "equityParentPriorYear": 452,
       "ocf": [
-        0,
+        -42,
         -12,
         13
       ],
       "capex": [
-        0,
+        -1,
         -4,
         -32
       ],
@@ -161255,11 +161336,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -3,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -3,
+        29,
+        -75
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -161268,7 +161349,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 30.29,
       "treasuryShareRatio": 0,
@@ -162095,39 +162176,39 @@
       "sector": "반도체",
       "sectorEn": "Semiconductors",
       "market": "KOSDAQ",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 1분기보고서",
+      "reportShort": "1Q 2026.03",
       "currency": "KRW",
       "rev": [
-        128,
         152,
-        152
+        152,
+        150
       ],
       "op": [
-        15,
         20,
-        25
+        25,
+        24
       ],
       "ni": [
-        22,
         34,
-        36
+        36,
+        33
       ],
-      "cashEq": 13,
+      "cashEq": 41,
       "shortFin": 526,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 660,
-      "equityPriorYear": 633,
-      "equityParent": 660,
-      "equityParentPriorYear": 633,
+      "equity": 671,
+      "equityPriorYear": 660,
+      "equityParent": 671,
+      "equityParentPriorYear": 660,
       "ocf": [
         20,
         59,
-        19
+        32
       ],
       "capex": [
         0,
@@ -162159,14 +162240,14 @@
         8
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "TTM(2026.3M+2025AR-2025.3M)",
       "isFinancial": false,
-      "majorShareholderRate": 57.58,
+      "majorShareholderRate": 57.64,
       "treasuryShareRatio": 0,
       "price": 8150,
       "mcap": 1314,
       "per": 36.8,
-      "pbr": 1.99,
+      "pbr": 1.96,
       "avgTradingValue20": 13
     },
     {
@@ -163455,7 +163536,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 65.46,
       "treasuryShareRatio": 0.47,
@@ -163685,11 +163766,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -162,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -162,
+        -85,
+        -2
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -163698,7 +163779,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 15.38,
       "treasuryShareRatio": 0,
@@ -163719,17 +163800,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        1432,
         2475,
         1513
       ],
       "op": [
-        0,
+        18,
         -1296,
         -72
       ],
       "ni": [
-        0,
+        -44,
         -1215,
         -157
       ],
@@ -163743,14 +163824,14 @@
       "equity": -115,
       "equityPriorYear": -190,
       "equityParent": -115,
-      "equityParentPriorYear": -190,
+      "equityParentPriorYear": 0,
       "ocf": [
-        0,
+        -91,
         -636,
         -317
       ],
       "capex": [
-        0,
+        -49,
         -12,
         0
       ],
@@ -163779,7 +163860,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 50.83,
       "treasuryShareRatio": 0,
@@ -164265,7 +164346,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 51.58,
       "treasuryShareRatio": 0,
@@ -164346,7 +164427,7 @@
         15
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 43.51,
       "treasuryShareRatio": 0,
@@ -165119,7 +165200,7 @@
       "longBorrow": 757,
       "equity": 917,
       "equityPriorYear": 1042,
-      "equityParent": 731,
+      "equityParent": 642,
       "equityParentPriorYear": 738,
       "ocf": [
         88,
@@ -165156,14 +165237,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 51.34,
       "treasuryShareRatio": 0,
       "price": 1889,
       "mcap": 1080,
       "per": 0.0,
-      "pbr": 1.48,
+      "pbr": 1.68,
       "avgTradingValue20": 41
     },
     {
@@ -165818,8 +165899,8 @@
       "name": "티이엠씨",
       "nameEn": "TEMC Co., Ltd.",
       "code": "425040",
-      "sector": "반도체",
-      "sectorEn": "Semiconductors",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
@@ -165846,7 +165927,7 @@
       "curLongDebt": 0,
       "bonds": 87,
       "longBorrow": 0,
-      "equity": 4,
+      "equity": 2907,
       "equityPriorYear": 2797,
       "equityParent": 1973,
       "equityParentPriorYear": 1841,
@@ -165885,7 +165966,7 @@
         74
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 32.74,
       "treasuryShareRatio": 2.0,
@@ -166145,49 +166226,49 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 사업보고서",
+      "reportShort": "AR 2026.12",
       "currency": "KRW",
       "rev": [
-        286,
-        298,
-        304
+        382,
+        304,
+        324
       ],
       "op": [
-        -214,
-        -268,
-        -724
+        266,
+        -724,
+        -9
       ],
       "ni": [
-        -554,
-        -318,
-        -994
+        190,
+        -994,
+        -211
       ],
-      "cashEq": 266,
+      "cashEq": 336,
       "shortFin": 0,
       "shortInv": 0,
-      "shortBorrow": 0,
+      "shortBorrow": 847,
       "curLongDebt": 0,
-      "bonds": 1447,
+      "bonds": 297,
       "longBorrow": 0,
-      "equity": 2629,
-      "equityPriorYear": 3825,
-      "equityParent": 2629,
-      "equityParentPriorYear": 3825,
+      "equity": 1958,
+      "equityPriorYear": 2629,
+      "equityParent": 1958,
+      "equityParentPriorYear": 2629,
       "ocf": [
-        53,
-        137,
-        138
+        177,
+        138,
+        216
       ],
       "capex": [
         0,
         0,
         0
       ],
-      "dividendPaid": 183,
+      "dividendPaid": 172,
       "dividendPaid3yr": [
+        172,
         183,
-        191,
         191
       ],
       "sharesBuyback": 0,
@@ -166196,27 +166277,27 @@
         0,
         0
       ],
-      "niParent": -994,
+      "niParent": -211,
       "niParent3yr": [
+        -211,
         -994,
-        190,
-        -318
+        190
       ],
-      "dividendTotal": 183,
+      "dividendTotal": 256,
       "dividendTotal3yr": [
+        256,
         183,
-        191,
-        167
+        191
       ],
-      "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "shReturnYear": 2026,
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 16.6,
       "treasuryShareRatio": 0,
       "price": 2020,
       "mcap": 2049,
       "per": 0.0,
-      "pbr": 0.78,
+      "pbr": 1.05,
       "avgTradingValue20": 13
     },
     {
@@ -166901,7 +166982,7 @@
       "longBorrow": 8,
       "equity": 448,
       "equityPriorYear": 471,
-      "equityParent": 455,
+      "equityParent": 448,
       "equityParentPriorYear": 471,
       "ocf": [
         -11,
@@ -166938,14 +167019,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 22.55,
       "treasuryShareRatio": 0,
       "price": 3260,
       "mcap": 1103,
       "per": 0.0,
-      "pbr": 2.43,
+      "pbr": 2.46,
       "avgTradingValue20": 5
     },
     {
@@ -168089,39 +168170,39 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "25 사업보고서",
-      "reportShort": "AR 2025.12",
+      "report": "26 사업보고서",
+      "reportShort": "AR 2026.12",
       "currency": "KRW",
       "rev": [
-        93,
-        102,
+        122,
+        122,
         122
       ],
       "op": [
-        56,
-        59,
-        74
+        75,
+        74,
+        86
       ],
       "ni": [
-        5,
-        4,
-        31
+        31,
+        31,
+        43
       ],
-      "cashEq": 305,
+      "cashEq": 296,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
-      "curLongDebt": 4292,
+      "curLongDebt": 4294,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 4065,
-      "equityPriorYear": 4097,
-      "equityParent": 4065,
-      "equityParentPriorYear": 4097,
+      "equity": 4046,
+      "equityPriorYear": 4065,
+      "equityParent": 4046,
+      "equityParentPriorYear": 4065,
       "ocf": [
-        22,
-        52,
-        46
+        41,
+        46,
+        54
       ],
       "capex": [
         0,
@@ -168132,7 +168213,7 @@
       "dividendPaid3yr": [
         63,
         63,
-        66
+        63
       ],
       "sharesBuyback": 0,
       "sharesBuyback3yr": [
@@ -168140,27 +168221,27 @@
         0,
         0
       ],
-      "niParent": 31,
+      "niParent": 43,
       "niParent3yr": [
+        43,
         31,
-        31,
-        35
+        31
       ],
-      "dividendTotal": 66,
+      "dividendTotal": 63,
       "dividendTotal3yr": [
+        63,
         66,
-        56,
-        45
+        56
       ],
-      "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "shReturnYear": 2026,
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 39.34,
       "treasuryShareRatio": 0,
       "price": 5770,
       "mcap": 5254,
-      "per": 171.2,
-      "pbr": 1.29,
+      "per": 121.7,
+      "pbr": 1.3,
       "avgTradingValue20": 14
     },
     {
@@ -168276,7 +168357,7 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 405,
+      "equity": 11447,
       "equityPriorYear": 7376,
       "equityParent": 11447,
       "equityParentPriorYear": 7376,
@@ -168315,7 +168396,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 45.67,
       "treasuryShareRatio": 0,
@@ -168336,17 +168417,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        160,
         162,
         166
       ],
       "op": [
-        0,
+        16,
         12,
         9
       ],
       "ni": [
-        0,
+        18,
         18,
         15
       ],
@@ -168362,12 +168443,12 @@
       "equityParent": 464,
       "equityParentPriorYear": 455,
       "ocf": [
-        0,
+        15,
         11,
         18
       ],
       "capex": [
-        0,
+        -82,
         -34,
         -20
       ],
@@ -168396,7 +168477,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.04,
       "treasuryShareRatio": 0,
@@ -168417,17 +168498,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        175,
         288,
         379
       ],
       "op": [
-        0,
+        16,
         67,
         104
       ],
       "ni": [
-        0,
+        9,
         54,
         92
       ],
@@ -168443,12 +168524,12 @@
       "equityParent": 468,
       "equityParentPriorYear": 196,
       "ocf": [
-        0,
+        15,
         44,
         50
       ],
       "capex": [
-        0,
+        -16,
         -12,
         -14
       ],
@@ -168477,7 +168558,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 46.97,
       "treasuryShareRatio": 0,
@@ -168572,24 +168653,24 @@
       "name": "삐아",
       "nameEn": "BBIA.CO.,LTD.",
       "code": "451250",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        383,
         576,
         680
       ],
       "op": [
-        0,
+        42,
         55,
         45
       ],
       "ni": [
-        0,
+        77,
         6,
         48
       ],
@@ -168605,12 +168686,12 @@
       "equityParent": 444,
       "equityParentPriorYear": 422,
       "ocf": [
-        0,
+        62,
         -10,
         31
       ],
       "capex": [
-        0,
+        -4,
         -9,
         -9
       ],
@@ -168639,7 +168720,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 59.78,
       "treasuryShareRatio": 3.93,
@@ -168741,18 +168822,18 @@
       "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
-        233,
-        335,
+        504,
+        524,
         534
       ],
       "op": [
-        124,
-        191,
+        309,
+        300,
         320
       ],
       "ni": [
-        28,
-        28,
+        108,
+        116,
         145
       ],
       "cashEq": 214,
@@ -171090,17 +171171,17 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        45,
         36,
         44
       ],
       "op": [
-        0,
+        -29,
         -43,
         -42
       ],
       "ni": [
-        0,
+        -50,
         -40,
         -38
       ],
@@ -171111,17 +171192,17 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 7,
-      "equity": 9,
+      "equity": 276,
       "equityPriorYear": 313,
       "equityParent": 276,
       "equityParentPriorYear": 313,
       "ocf": [
-        0,
+        -34,
         -69,
         -42
       ],
       "capex": [
-        0,
+        -5,
         -4,
         -25
       ],
@@ -171137,11 +171218,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -38,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -38,
+        -40,
+        -50
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -171150,7 +171231,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 22.32,
       "treasuryShareRatio": 0,
@@ -171830,7 +171911,7 @@
       ],
       "ni": [
         241,
-        66,
+        13,
         31
       ],
       "cashEq": 360,
@@ -171850,7 +171931,7 @@
         40
       ],
       "capex": [
-        -91,
+        -97,
         -144,
         -205
       ],
@@ -171879,7 +171960,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 80.18,
       "treasuryShareRatio": 0.05,
@@ -172953,18 +173034,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        518,
+        612,
         757
       ],
       "op": [
-        0,
-        0,
+        46,
+        57,
         86
       ],
       "ni": [
-        0,
-        0,
+        7,
+        54,
         85
       ],
       "cashEq": 91,
@@ -172979,13 +173060,13 @@
       "equityParent": 618,
       "equityParentPriorYear": 284,
       "ocf": [
-        0,
-        0,
+        24,
+        69,
         104
       ],
       "capex": [
-        0,
-        0,
+        -14,
+        -5,
         -22
       ],
       "dividendPaid": 0,
@@ -173013,7 +173094,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 38.59,
       "treasuryShareRatio": 0,
@@ -173175,7 +173256,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 76.3,
       "treasuryShareRatio": 0.02,
@@ -175052,24 +175133,24 @@
       "name": "달바글로벌",
       "nameEn": "d'Alba Global Co., Ltd.",
       "code": "483650",
-      "sector": "화장품,의류",
-      "sectorEn": "Cosmetics & Apparel",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSPI",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
+        2008,
         3091,
         5197
       ],
       "op": [
-        0,
+        324,
         598,
         1015
       ],
       "ni": [
-        0,
+        136,
         154,
         791
       ],
@@ -175085,12 +175166,12 @@
       "equityParent": 1986,
       "equityParentPriorYear": 1021,
       "ocf": [
-        0,
+        243,
         158,
         685
       ],
       "capex": [
-        0,
+        -1,
         -8,
         -3
       ],
@@ -175119,7 +175200,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 21.51,
       "treasuryShareRatio": 0,
@@ -175221,18 +175302,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        830,
+        1416,
         1546
       ],
       "op": [
-        0,
-        0,
+        69,
+        181,
         266
       ],
       "ni": [
-        0,
-        0,
+        92,
+        165,
         227
       ],
       "cashEq": 57,
@@ -175242,18 +175323,18 @@
       "curLongDebt": 4,
       "bonds": 0,
       "longBorrow": 174,
-      "equity": 37,
+      "equity": 1565,
       "equityPriorYear": 534,
       "equityParent": 1565,
       "equityParentPriorYear": 534,
       "ocf": [
-        0,
-        0,
+        172,
+        -69,
         177
       ],
       "capex": [
-        0,
-        0,
+        -361,
+        -192,
         -74
       ],
       "dividendPaid": 0,
@@ -175268,11 +175349,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 227,
       "niParent3yr": [
-        0,
-        0,
-        0
+        227,
+        165,
+        92
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -175281,7 +175362,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 44.69,
       "treasuryShareRatio": 0,
@@ -175302,18 +175383,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        332,
+        572,
         566
       ],
       "op": [
-        0,
-        0,
+        36,
+        53,
         -8
       ],
       "ni": [
-        0,
-        0,
+        22,
+        38,
         -153
       ],
       "cashEq": 125,
@@ -175323,18 +175404,18 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": -419,
+      "equity": 553,
       "equityPriorYear": 299,
       "equityParent": 553,
       "equityParentPriorYear": 299,
       "ocf": [
-        0,
-        0,
+        19,
+        -93,
         -24
       ],
       "capex": [
-        0,
-        0,
+        -53,
+        -35,
         -20
       ],
       "dividendPaid": 0,
@@ -175349,11 +175430,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": -153,
       "niParent3yr": [
-        0,
-        0,
-        0
+        -153,
+        38,
+        22
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -175362,7 +175443,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 57.6,
       "treasuryShareRatio": 0,
@@ -175464,18 +175545,18 @@
       "reportShort": "AR 2025.12",
       "currency": "KRW",
       "rev": [
-        0,
-        0,
+        36,
+        84,
         131
       ],
       "op": [
-        0,
-        0,
+        -113,
+        -120,
         -153
       ],
       "ni": [
-        0,
-        0,
+        -131,
+        -249,
         -166
       ],
       "cashEq": 119,
@@ -175488,16 +175569,16 @@
       "equity": 275,
       "equityPriorYear": -705,
       "equityParent": 275,
-      "equityParentPriorYear": -705,
+      "equityParentPriorYear": 0,
       "ocf": [
-        0,
-        0,
+        -80,
+        -108,
         -118
       ],
       "capex": [
-        0,
-        0,
-        0
+        -1,
+        -3,
+        -1
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -175524,7 +175605,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 19.85,
       "treasuryShareRatio": 0,
@@ -175956,7 +176037,7 @@
       ],
       "op": [
         0,
-        -1,
+        55,
         1623
       ],
       "ni": [
@@ -176010,7 +176091,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 33.95,
       "treasuryShareRatio": 0.22,
@@ -176194,17 +176275,17 @@
       "currency": "KRW",
       "rev": [
         0,
-        0,
+        276,
         116
       ],
       "op": [
-        0,
-        0,
+        -86,
+        140,
         3
       ],
       "ni": [
-        0,
-        0,
+        -485,
+        -119,
         9
       ],
       "cashEq": 82,
@@ -176214,18 +176295,18 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 5,
+      "equity": 735,
       "equityPriorYear": -772,
       "equityParent": 735,
-      "equityParentPriorYear": -772,
+      "equityParentPriorYear": 0,
       "ocf": [
-        0,
-        0,
+        -95,
+        169,
         4
       ],
       "capex": [
-        0,
-        0,
+        -1,
+        -3,
         -5
       ],
       "dividendPaid": 0,
@@ -176240,11 +176321,11 @@
         0,
         0
       ],
-      "niParent": 0,
+      "niParent": 9,
       "niParent3yr": [
-        0,
-        0,
-        0
+        9,
+        -119,
+        -485
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -176253,7 +176334,7 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2025 AR)",
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 19.08,
       "treasuryShareRatio": 0,
@@ -176594,13 +176675,13 @@
       "sector": "자동차판매",
       "sectorEn": "Auto Sales",
       "market": "KOSPI",
-      "report": "25 3분기보고서",
-      "reportShort": "3Q 2025.09",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
       "currency": "USD",
       "rev": [
-        2948,
-        2948,
-        2948
+        2943,
+        2943,
+        4415
       ],
       "op": [
         0,
@@ -176615,16 +176696,16 @@
       "cashEq": 0,
       "shortFin": 0,
       "shortInv": 0,
-      "shortBorrow": 1474,
+      "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 5896,
-      "equityPriorYear": 4422,
-      "equityParent": 5896,
-      "equityParentPriorYear": 4422,
+      "equity": 5887,
+      "equityPriorYear": 4415,
+      "equityParent": 4415,
+      "equityParentPriorYear": 4415,
       "ocf": [
-        1474,
+        0,
         0,
         0
       ],
@@ -176657,31 +176738,31 @@
         0,
         0
       ],
-      "shReturnYear": 2023,
-      "ttmLabel": "TTM(2025.9M+2024AR-2024.9M)",
+      "shReturnYear": 2025,
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 46.96,
-      "treasuryShareRatio": 0.15,
+      "treasuryShareRatio": 0.16,
       "price": 1695,
       "mcap": 3275,
-      "per": 0.0,
-      "pbr": 0.63,
+      "per": 100.7,
+      "pbr": 0.64,
       "avgTradingValue20": 11
     },
     {
       "name": "크리스탈신소재",
       "nameEn": "China Crystal New Material Holdings Co.,  Ltd.",
       "code": "900250",
-      "sector": "금융업",
-      "sectorEn": "Banking & Finance",
+      "sector": "화학",
+      "sectorEn": "Chemicals",
       "market": "KOSDAQ",
-      "report": "25 3분기보고서",
-      "reportShort": "3Q 2025.09",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
       "currency": "CNY",
       "rev": [
-        0,
-        0,
-        0
+        647,
+        647,
+        862
       ],
       "op": [
         216,
@@ -176690,27 +176771,27 @@
       ],
       "ni": [
         216,
-        216,
-        216
+        0,
+        0
       ],
-      "cashEq": 3023,
+      "cashEq": 3018,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 5398,
-      "equityPriorYear": 5182,
-      "equityParent": 5182,
-      "equityParentPriorYear": 5182,
+      "equity": 5389,
+      "equityPriorYear": 5173,
+      "equityParent": 5173,
+      "equityParentPriorYear": 5173,
       "ocf": [
-        864,
-        648,
+        647,
+        216,
         216
       ],
       "capex": [
-        -216,
+        0,
         0,
         0
       ],
@@ -176729,8 +176810,8 @@
       "niParent": 0,
       "niParent3yr": [
         0,
-        216,
-        216
+        0,
+        0
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -176738,14 +176819,14 @@
         0,
         0
       ],
-      "shReturnYear": 2023,
-      "ttmLabel": "TTM(2025.9M+2024AR-2024.9M)",
-      "isFinancial": true,
-      "majorShareholderRate": 18.62,
+      "shReturnYear": 2025,
+      "ttmLabel": "",
+      "isFinancial": false,
+      "majorShareholderRate": 20.06,
       "treasuryShareRatio": 0,
       "price": 600,
       "mcap": 860,
-      "per": 16.6,
+      "per": 0.0,
       "pbr": 0.16,
       "avgTradingValue20": 9
     },
@@ -176753,45 +176834,45 @@
       "name": "로스웰",
       "nameEn": "ROTHWELL INTERNATIONAL CO., LIMITED",
       "code": "900260",
-      "sector": "금융업",
-      "sectorEn": "Banking & Finance",
+      "sector": "자동차",
+      "sectorEn": "Automobiles",
       "market": "KOSDAQ",
-      "report": "25 3분기보고서",
-      "reportShort": "3Q 2025.09",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
       "currency": "CNY",
       "rev": [
-        0,
-        0,
-        0
+        4311,
+        5820,
+        8191
       ],
       "op": [
-        0,
+        216,
         216,
         216
       ],
       "ni": [
-        -216,
+        216,
         216,
         216
       ],
-      "cashEq": 864,
-      "shortFin": 648,
+      "cashEq": 431,
+      "shortFin": 4096,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 216,
-      "bonds": 432,
+      "bonds": 647,
       "longBorrow": 216,
-      "equity": 2807,
-      "equityPriorYear": 2807,
-      "equityParent": 2807,
-      "equityParentPriorYear": 2807,
+      "equity": 3018,
+      "equityPriorYear": 2802,
+      "equityParent": 3018,
+      "equityParentPriorYear": 2802,
       "ocf": [
-        -216,
         216,
-        0
+        1940,
+        647
       ],
       "capex": [
-        -216,
+        0,
         0,
         0
       ],
@@ -176810,8 +176891,8 @@
       "niParent": 216,
       "niParent3yr": [
         216,
-        -216,
-        0
+        216,
+        216
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -176819,15 +176900,15 @@
         0,
         0
       ],
-      "shReturnYear": 2023,
-      "ttmLabel": "TTM(2025.9M+2024AR-2024.9M)",
-      "isFinancial": true,
-      "majorShareholderRate": 32.98,
-      "treasuryShareRatio": 0.59,
+      "shReturnYear": 2025,
+      "ttmLabel": "",
+      "isFinancial": false,
+      "majorShareholderRate": 25.82,
+      "treasuryShareRatio": 0,
       "price": 1644,
       "mcap": 757,
-      "per": 14.5,
-      "pbr": 0.27,
+      "per": 3.5,
+      "pbr": 0.25,
       "avgTradingValue20": 0
     },
     {
@@ -176846,35 +176927,35 @@
         0
       ],
       "op": [
-        864,
-        1727,
-        1511
+        862,
+        1724,
+        1509
       ],
       "ni": [
-        648,
-        1295,
-        1080
+        647,
+        1293,
+        1078
       ],
-      "cashEq": 864,
+      "cashEq": 862,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 216,
-      "bonds": 432,
+      "bonds": 431,
       "longBorrow": 216,
-      "equity": 11659,
-      "equityPriorYear": 10579,
-      "equityParent": 9716,
-      "equityParentPriorYear": 9068,
+      "equity": 11640,
+      "equityPriorYear": 10562,
+      "equityParent": 9700,
+      "equityParentPriorYear": 9054,
       "ocf": [
-        432,
-        432,
-        1080
+        431,
+        431,
+        1078
       ],
       "capex": [
-        -3454,
-        -648,
-        -1295
+        -3449,
+        -647,
+        -1293
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -176888,11 +176969,11 @@
         0,
         0
       ],
-      "niParent": 864,
+      "niParent": 862,
       "niParent3yr": [
-        864,
-        1080,
-        648
+        862,
+        1078,
+        647
       ],
       "dividendTotal": 532,
       "dividendTotal3yr": [
@@ -176915,42 +176996,42 @@
       "name": "오가닉티코스메틱",
       "nameEn": "ORGANIC TEA COSMETICS HOLDINGS COMPANY LIMITED",
       "code": "900300",
-      "sector": "금융업",
-      "sectorEn": "Banking & Finance",
+      "sector": "화장품,의류",
+      "sectorEn": "Cosmetics & Apparel",
       "market": "KOSDAQ",
-      "report": "25 3분기보고서",
-      "reportShort": "3Q 2025.09",
+      "report": "25 사업보고서",
+      "reportShort": "AR 2025.12",
       "currency": "CNY",
       "rev": [
-        0,
-        0,
-        0
+        2156,
+        1940,
+        1940
       ],
       "op": [
-        -648,
-        -864,
-        -648
+        -862,
+        -647,
+        -647
       ],
       "ni": [
-        -1080,
-        -864,
-        -648
+        -862,
+        -647,
+        -862
       ],
-      "cashEq": 1295,
+      "cashEq": 1293,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 216,
       "longBorrow": 0,
-      "equity": 2591,
-      "equityPriorYear": 2807,
-      "equityParent": 2591,
-      "equityParentPriorYear": 2807,
+      "equity": 2802,
+      "equityPriorYear": 2802,
+      "equityParent": 2802,
+      "equityParentPriorYear": 2802,
       "ocf": [
-        864,
         0,
-        -432
+        -431,
+        -647
       ],
       "capex": [
         0,
@@ -176969,11 +177050,11 @@
         0,
         0
       ],
-      "niParent": -864,
+      "niParent": -862,
       "niParent3yr": [
-        -864,
-        -1080,
-        0
+        -862,
+        -647,
+        -862
       ],
       "dividendTotal": 0,
       "dividendTotal3yr": [
@@ -176981,15 +177062,15 @@
         0,
         0
       ],
-      "shReturnYear": 2023,
-      "ttmLabel": "TTM(2025.9M+2024AR-2024.9M)",
-      "isFinancial": true,
-      "majorShareholderRate": 9.27,
-      "treasuryShareRatio": 0.01,
+      "shReturnYear": 2025,
+      "ttmLabel": "",
+      "isFinancial": false,
+      "majorShareholderRate": 7.97,
+      "treasuryShareRatio": 0.0,
       "price": 205,
       "mcap": 515,
       "per": 0.0,
-      "pbr": 0.2,
+      "pbr": 0.18,
       "avgTradingValue20": 130
     },
     {
@@ -177003,8 +177084,8 @@
       "reportShort": "AR 2025.12",
       "currency": "USD",
       "rev": [
-        4422,
-        1474,
+        4415,
+        1472,
         0
       ],
       "op": [
@@ -177015,9 +177096,9 @@
       "ni": [
         0,
         0,
-        -1474
+        -1472
       ],
-      "cashEq": 2948,
+      "cashEq": 2943,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
@@ -177025,11 +177106,11 @@
       "bonds": 0,
       "longBorrow": 0,
       "equity": 0,
-      "equityPriorYear": 5896,
-      "equityParent": 5896,
-      "equityParentPriorYear": 5896,
+      "equityPriorYear": 5887,
+      "equityParent": 5887,
+      "equityParentPriorYear": 5887,
       "ocf": [
-        -1474,
+        -1472,
         0,
         0
       ],
@@ -177050,9 +177131,9 @@
         0,
         0
       ],
-      "niParent": -1474,
+      "niParent": -1472,
       "niParent3yr": [
-        -1474,
+        -1472,
         0,
         0
       ],
@@ -177084,9 +177165,9 @@
       "reportShort": "AR 2025.12",
       "currency": "USD",
       "rev": [
-        2948,
-        1474,
-        2948
+        2943,
+        1472,
+        2943
       ],
       "op": [
         0,
@@ -177105,10 +177186,10 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1474,
-      "equityPriorYear": 1474,
-      "equityParent": 1474,
-      "equityParentPriorYear": 1474,
+      "equity": 1472,
+      "equityPriorYear": 1472,
+      "equityParent": 1472,
+      "equityParentPriorYear": 1472,
       "ocf": [
         0,
         0,
@@ -177177,19 +177258,19 @@
       "ni": [
         0,
         0,
-        -1474
+        -1472
       ],
       "cashEq": 0,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
-      "bonds": 1474,
+      "bonds": 1472,
       "longBorrow": 0,
       "equity": 0,
-      "equityPriorYear": 1474,
+      "equityPriorYear": 1472,
       "equityParent": 0,
-      "equityParentPriorYear": 1474,
+      "equityParentPriorYear": 1472,
       "ocf": [
         0,
         0,
@@ -177232,7 +177313,7 @@
       "price": 104800,
       "mcap": 88803,
       "per": 0.0,
-      "pbr": 134.9,
+      "pbr": 135.11,
       "avgTradingValue20": 387
     },
     {
@@ -177247,8 +177328,8 @@
       "currency": "JPY",
       "rev": [
         347,
-        1531,
-        3193
+        1529,
+        3189
       ],
       "op": [
         -141,
@@ -177257,8 +177338,8 @@
       ],
       "ni": [
         -141,
-        207,
-        798
+        206,
+        797
       ],
       "cashEq": 704,
       "shortFin": 38,
@@ -177267,13 +177348,13 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1784,
-      "equityPriorYear": 864,
-      "equityParent": 1784,
-      "equityParentPriorYear": 901,
+      "equity": 1782,
+      "equityPriorYear": 863,
+      "equityParent": 1782,
+      "equityParentPriorYear": 900,
       "ocf": [
         -9,
-        85,
+        84,
         507
       ],
       "capex": [
@@ -177293,9 +177374,9 @@
         0,
         0
       ],
-      "niParent": 789,
+      "niParent": 788,
       "niParent3yr": [
-        789,
+        788,
         235,
         -122
       ],
@@ -177327,9 +177408,9 @@
       "reportShort": "AR 2025.12",
       "currency": "USD",
       "rev": [
-        1474,
-        1474,
-        1474
+        1472,
+        1472,
+        1472
       ],
       "op": [
         0,
@@ -177348,10 +177429,10 @@
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 1474,
-      "equityPriorYear": 1474,
-      "equityParent": 1474,
-      "equityParentPriorYear": 1474,
+      "equity": 1472,
+      "equityPriorYear": 1472,
+      "equityParent": 1472,
+      "equityParentPriorYear": 1472,
       "ocf": [
         0,
         0,
@@ -177393,7 +177474,7 @@
       "treasuryShareRatio": 0.06,
       "price": 8090,
       "mcap": 1053,
-      "per": 11.9,
+      "per": 12.0,
       "pbr": 0.66,
       "avgTradingValue20": 4
     },
@@ -177494,7 +177575,7 @@
         0
       ],
       "op": [
-        -1474,
+        -1472,
         0,
         0
       ],
@@ -177503,17 +177584,17 @@
         0,
         0
       ],
-      "cashEq": 1474,
+      "cashEq": 1472,
       "shortFin": 0,
       "shortInv": 0,
       "shortBorrow": 0,
       "curLongDebt": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "equity": 5896,
-      "equityPriorYear": 5896,
-      "equityParent": 4422,
-      "equityParentPriorYear": 4422,
+      "equity": 5887,
+      "equityPriorYear": 5887,
+      "equityParent": 4415,
+      "equityParentPriorYear": 4415,
       "ocf": [
         0,
         0,
@@ -177718,7 +177799,7 @@
       "price": 6650,
       "mcap": 2362,
       "per": 0.0,
-      "pbr": 6.93,
+      "pbr": 6.94,
       "avgTradingValue20": 41
     }
   ]
