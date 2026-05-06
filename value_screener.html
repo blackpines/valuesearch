@@ -171,7 +171,6 @@
     </div>
     <div class="header-right">
       <a href="#" onclick="switchLang('value_screener_en.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">English</div></a>
-      <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
   </div>
 
@@ -824,14 +823,9 @@ async function init() {
   // DATA 재구성
   DATA = stockSource.map(compute);
 
-  // 배지 업데이트
-  const badge = document.getElementById('data-badge');
+  // 데이터 노트 갱신
   const dataNote = document.getElementById('data-note');
-  if (isRealData) {
-    badge.textContent = 'LIVE DATA';
-    badge.style.background = 'rgba(16,185,129,0.15)';
-    badge.style.color = '#34d399';
-    badge.style.borderColor = 'rgba(16,185,129,0.3)';
+  if (isRealData && dataNote) {
     dataNote.style.display = 'none';
   }
 

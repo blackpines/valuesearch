@@ -171,7 +171,6 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
     </div>
     <div class="header-right">
       <a href="#" onclick="switchLang('scoring_en.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">English</div></a>
-      <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
   </div>
 
@@ -995,10 +994,6 @@ async function init() {
       const stockSource = (json.stocks || []).filter(s => s.reportShort && s.reportShort.length > 0 && s.market !== 'KONEX');
       DATA = stockSource.map(preprocessStock);
       if (json.usd_krw_rate) USD_KRW_RATE = json.usd_krw_rate;
-      document.getElementById('data-badge').textContent = `LIVE DATA`;
-      document.getElementById('data-badge').style.background = 'rgba(16,185,129,0.15)';
-      document.getElementById('data-badge').style.color = '#34d399';
-      document.getElementById('data-badge').style.borderColor = 'rgba(16,185,129,0.3)';
       // Market date 표시
       if (json.market_date_display) {
         document.getElementById('scoring-market-date').textContent = json.market_date_display;

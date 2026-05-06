@@ -172,7 +172,6 @@
     </div>
     <div class="header-right">
       <a href="#" onclick="switchLang('value_screener.html');return false" style="text-decoration:none"><div class="header-badge" style="cursor:pointer">한국어</div></a>
-      <div class="header-badge" id="data-badge">SAMPLE DATA</div>
     </div>
   </div>
 
@@ -831,14 +830,9 @@ async function init() {
   // Rebuild DATA
   DATA = stockSource.map(compute);
 
-  // Badge update
-  const badge = document.getElementById('data-badge');
+  // Data note update
   const dataNote = document.getElementById('data-note');
-  if (isRealData) {
-    badge.textContent = 'LIVE DATA';
-    badge.style.background = 'rgba(16,185,129,0.15)';
-    badge.style.color = '#34d399';
-    badge.style.borderColor = 'rgba(16,185,129,0.3)';
+  if (isRealData && dataNote) {
     dataNote.style.display = 'none';
   }
 
