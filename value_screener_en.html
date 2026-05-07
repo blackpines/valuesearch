@@ -17,7 +17,6 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;min-height:100vh}
-  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
   .app{position:relative;z-index:1;max-width:1520px;margin:0 auto;padding:40px 32px 80px}
 
   .header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;border-bottom:1px solid var(--border);padding-bottom:32px}
@@ -226,9 +225,9 @@
     <p>
       <strong>Market Capitalization:</strong> Reference-date closing price × total shares outstanding. Standard proxy for free-float liquidity and institutional investability.<br>
       <strong>Closing Price:</strong> Common-stock closing price (KRW) on the most recent trading session.<br>
-      <strong>P/E (Price-to-Earnings):</strong> Share price ÷ basic EPS attributable to controlling interests.<br>
+      <strong>P/E (Price-to-Earnings):</strong> Share price ÷ TTM (trailing twelve months) basic EPS attributable to controlling interests. Quarterly: rolling 12-month earnings; Annual: full-year EPS.<br>
       <strong>P/B (Price-to-Book):</strong> Share price ÷ book value per share attributable to controlling interests (treasury shares excluded from the share count).<br>
-      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ average controlling-interest equity × 100. Average equity = (current year-end + prior year-end) / 2.<br>
+      <strong>ROE (Return on Equity):</strong> TTM net income attributable to controlling interests ÷ average controlling-interest equity × 100 (equity: average of current and prior-year same period)<br>
       <strong>3Y Avg Operating Margin:</strong> Simple average of operating margin over the trailing three fiscal years. Gauges through-the-cycle core profitability.<br>
       <strong>Latest Operating Margin:</strong> Operating margin for the most recent fiscal year. Snapshot of current core profitability.<br>
       <strong>3Y Avg Net Margin:</strong> Simple average of net margin over the trailing three fiscal years, inclusive of non-operating items (e.g., FX, fair-value adjustments, impairments).<br>
@@ -503,13 +502,17 @@ function compute(s) {
   const latestOPM = lastRev > 0 ? Math.round((s.op[2] / lastRev) * 10000) / 100 : null;
   const latestNPM = lastRev > 0 ? Math.round((s.ni[2] / lastRev) * 10000) / 100 : null;
 
-  // ROE = net income attributable to controlling interests ÷ average controlling-interest equity × 100
+  // ROE = TTM net income attributable to controlling interests ÷ average controlling-interest equity × 100
+  // - Quarterly: numerator = TTM NI, denominator = (current + prior-year same Q) / 2
+  // - Annual: numerator = annual NI, denominator = (current YE + prior YE) / 2
   const eqP = s.equityParent || s.equity || 0;
   const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
+  const eqPrevQ = s.equityParentPrevQ || s.equityPrevQ || 0;
   const niP = s.niParent || s.ni[2] || 0;
+  const niPTTM = s.niParentTTM || s.niParent || s.ni[2] || 0;
   const lastNI = s.ni[2] || 0;
-  const avgEq = (eqPrior > 0) ? (eqP + eqPrior) / 2 : eqP;
-  const roe = avgEq > 0 && niP !== 0 ? Math.round((niP / avgEq) * 10000) / 100 : null;
+  const avgEq = (eqPrevQ > 0) ? (eqP + eqPrevQ) / 2 : ((eqPrior > 0) ? (eqP + eqPrior) / 2 : eqP);
+  const roe = avgEq > 0 && niPTTM !== 0 ? Math.round((niPTTM / avgEq) * 10000) / 100 : null;
 
   // 3년 평균 OCF/OP = 연도별 (OCF ÷ 영업이익) 산술평균
   const ocfArr = Array.isArray(s.ocf) ? s.ocf : [0,0,s.ocf||0]; // 하위호환

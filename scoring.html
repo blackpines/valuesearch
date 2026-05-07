@@ -233,9 +233,9 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
     <p style="font-size:12px;color:var(--text-muted);line-height:1.8;font-weight:300">
       <strong>시가총액:</strong> 기준일 종가 × 발행주식수. 유동성·기관 수급 가능 여부의 기준<br>
       <strong>종가:</strong> 기준일(직전 영업일)의 보통주 종가(원)<br>
-      <strong>PER:</strong> 주가 ÷ 지배주주 EPS<br>
+      <strong>PER:</strong> 주가 ÷ TTM 지배주주 EPS. 분기 시점은 최근 12개월 누적, AR 시점은 연간 EPS<br>
       <strong>PBR:</strong> 주가 ÷ 지배주주 BPS<br>
-      <strong>ROE:</strong> 지배주주 당기순이익 ÷ 평균 지배주주 자본 × 100. 평균 자본 = (당기말 + 전기말) / 2<br>
+      <strong>ROE:</strong> TTM 지배주주 당기순이익 ÷ 평균 지배주주 자본 × 100. 지배주주 자본은 당(분)기와 전년 동기 수치<br>
       <strong>3년 평균 영업이익률:</strong> 최근 3개 사업연도 평균 OPM. 본업에서의 수익성 측정<br>
       <strong>최근연도 영업이익률:</strong> 가장 최근 사업연도의 OPM. 본업에서의 수익성 측정<br>
       <strong>3년 평균 당기순이익률:</strong> 3년 평균 NPM. 비영업손익 포함 수익성 측정<br>
@@ -475,12 +475,18 @@ function preprocessStock(s) {
   const capex = s.capex || [0,0,0];
   const eq = s.equityParent || s.equity || 0;
   const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
+  const eqPrevQ = s.equityParentPrevQ || s.equityPrevQ || 0;  // 전년 동기 자본 (TTM ROE 분모용)
   const niP = s.niParent || ni[2] || 0;
-  // 평균 자본 = (당기말 + 전기말) / 2. 전기값이 없으면 당기만 사용 (신규 상장 등)
-  const avgEq = (eqPrior > 0) ? (eq + eqPrior) / 2 : eq;
+  const niPTTM = s.niParentTTM || s.niParent || ni[2] || 0;  // TTM 지배주주 NI (TTM ROE 분자용)
+
+  // ROE: TTM 정통 방식
+  // - 분기 시점: 분자 = TTM NI, 분모 = (당기 + 전년 동기) / 2 (eqPrevQ 사용)
+  // - AR 시점: 분자 = 연간 NI, 분모 = (당기말 + 전기말) / 2 (eqPrior 사용)
+  // eqPrevQ가 있으면 분기 시점, 없으면 AR 시점으로 판단
+  const avgEq = (eqPrevQ > 0) ? (eq + eqPrevQ) / 2 : ((eqPrior > 0) ? (eq + eqPrior) / 2 : eq);
 
   let roe = null;
-  if (avgEq > 0 && niP !== 0) roe = (niP / avgEq) * 100;
+  if (avgEq > 0 && niPTTM !== 0) roe = (niPTTM / avgEq) * 100;
 
   const opm = rev.map((r,i) => r > 0 ? (op[i]/r)*100 : null);
   const validOPM = opm.filter(v => v !== null);

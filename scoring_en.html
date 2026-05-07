@@ -233,9 +233,9 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
     <p style="font-size:12px;color:var(--text-muted);line-height:1.8;font-weight:300">
       <strong>Market Capitalization:</strong> Reference-date closing price × total shares outstanding. Standard proxy for free-float liquidity and institutional investability.<br>
       <strong>Closing Price:</strong> Common-stock closing price (KRW) on the most recent trading session.<br>
-      <strong>P/E (Price-to-Earnings):</strong> Share price ÷ basic EPS attributable to controlling interests.<br>
+      <strong>P/E (Price-to-Earnings):</strong> Share price ÷ TTM (trailing twelve months) basic EPS attributable to controlling interests. Quarterly: rolling 12-month earnings; Annual: full-year EPS.<br>
       <strong>P/B (Price-to-Book):</strong> Share price ÷ book value per share attributable to controlling interests (treasury shares excluded from the share count).<br>
-      <strong>ROE (Return on Equity):</strong> Net income attributable to controlling interests ÷ average controlling-interest equity × 100. Average equity = (current year-end + prior year-end) / 2.<br>
+      <strong>ROE (Return on Equity):</strong> TTM net income attributable to controlling interests ÷ average controlling-interest equity × 100 (equity: average of current and prior-year same period)<br>
       <strong>3Y Avg Operating Margin:</strong> Simple average of operating margin over the trailing three fiscal years. Gauges through-the-cycle core profitability.<br>
       <strong>Latest Operating Margin:</strong> Operating margin for the most recent fiscal year. Snapshot of current core profitability.<br>
       <strong>3Y Avg Net Margin:</strong> Simple average of net margin over the trailing three fiscal years, inclusive of non-operating items (e.g., FX, fair-value adjustments, impairments).<br>
@@ -479,12 +479,17 @@ function preprocessStock(s) {
   const capex = s.capex || [0,0,0];
   const eq = s.equityParent || s.equity || 0;
   const eqPrior = s.equityParentPriorYear || s.equityPriorYear || 0;
+  const eqPrevQ = s.equityParentPrevQ || s.equityPrevQ || 0;  // Prior-year same-quarter equity (TTM ROE denominator)
   const niP = s.niParent || ni[2] || 0;
-  // Average equity = (current + prior) / 2. Fallback to current if prior missing (newly listed, etc.)
-  const avgEq = (eqPrior > 0) ? (eq + eqPrior) / 2 : eq;
+  const niPTTM = s.niParentTTM || s.niParent || ni[2] || 0;  // TTM controlling NI (TTM ROE numerator)
+
+  // ROE: TTM-aligned formula
+  // - Quarterly: numerator = TTM NI, denominator = (current + prior-year same Q) / 2 (eqPrevQ)
+  // - Annual: numerator = annual NI, denominator = (current YE + prior YE) / 2 (eqPrior)
+  const avgEq = (eqPrevQ > 0) ? (eq + eqPrevQ) / 2 : ((eqPrior > 0) ? (eq + eqPrior) / 2 : eq);
 
   let roe = null;
-  if (avgEq > 0 && niP !== 0) roe = (niP / avgEq) * 100;
+  if (avgEq > 0 && niPTTM !== 0) roe = (niPTTM / avgEq) * 100;
 
   const opm = rev.map((r,i) => r > 0 ? (op[i]/r)*100 : null);
   const validOPM = opm.filter(v => v !== null);
