@@ -535,11 +535,11 @@ function compute(s) {
   // dividendTotal: alotMatter API 기준 (해당연도 귀속 배당)
   // niP: 지배기업의 소유주에게 귀속되는 당기순이익 (위 ROE 섹션에서 산출)
   const divTotal = Math.abs(s.dividendTotal || 0);
-  const divPayout = niP > 0 && divTotal > 0 ? Math.round((divTotal / niP) * 10000) / 100 : null;
+  const divPayout = niP > 0 ? Math.round((divTotal / niP) * 10000) / 100 : null;
 
   // 주주환원율 = (귀속 배당금총액 + |자사주매입|) ÷ 지배주주 당기순이익 × 100
   const buyback = Math.abs(s.sharesBuyback || 0);
-  const shReturn = niP > 0 && (divTotal + buyback) > 0 ? Math.round(((divTotal + buyback) / niP) * 10000) / 100 : null;
+  const shReturn = niP > 0 ? Math.round(((divTotal + buyback) / niP) * 10000) / 100 : null;
 
   const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.shortInv||0);
   const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.bonds||0)+(s.longBorrow||0);
@@ -552,11 +552,11 @@ function compute(s) {
   const adjFactor = treasuryRatio > 0 && treasuryRatio < 1 ? 1 / (1 - treasuryRatio) : 1;
 
   // Dividend Yield = dividends ÷ market cap × adjFactor × 100
-  const divYield = (s.mcap > 0 && divTotal > 0)
+  const divYield = (s.mcap > 0)
     ? Math.round((divTotal / s.mcap) * adjFactor * 10000) / 100 : null;
 
   // Shareholder Yield = (dividends + |buyback|) ÷ market cap × adjFactor × 100
-  const shYield = (s.mcap > 0 && (divTotal + buyback) > 0)
+  const shYield = (s.mcap > 0)
     ? Math.round(((divTotal + buyback) / s.mcap) * adjFactor * 10000) / 100 : null;
 
   // EV (Enterprise Value) = market cap − net cash

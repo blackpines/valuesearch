@@ -515,7 +515,7 @@ function preprocessStock(s) {
   const validFcfNi = fcfNi.filter(v => v !== null);
   const avgFcfNi = validFcfNi.length > 0 ? validFcfNi.reduce((a,b)=>a+b,0) / validFcfNi.length : null;
 
-  const divPayout = (s.niParent > 0 && s.dividendTotal > 0) ? (s.dividendTotal / s.niParent) * 100 : null;
+  const divPayout = (s.niParent > 0) ? (s.dividendTotal / s.niParent) * 100 : null;
   const shReturn = (s.niParent > 0) ? ((s.dividendTotal + Math.abs(s.sharesBuyback || 0)) / s.niParent) * 100 : null;
 
   const cashSide = (s.cashEq||0) + (s.shortFin||0) + (s.shortInv||0);
@@ -532,9 +532,9 @@ function preprocessStock(s) {
   const buybackAbs = Math.abs(s.sharesBuyback || 0);
 
   // 시가배당률 (Dividend Yield)
-  const divYield = (mcap > 0 && divTotalAbs > 0) ? (divTotalAbs / mcap) * adjFactor * 100 : null;
+  const divYield = (mcap > 0) ? (divTotalAbs / mcap) * adjFactor * 100 : null;
   // 환원수익률 (Total Shareholder Yield)
-  const shYield = (mcap > 0 && (divTotalAbs + buybackAbs) > 0) ? ((divTotalAbs + buybackAbs) / mcap) * adjFactor * 100 : null;
+  const shYield = (mcap > 0) ? ((divTotalAbs + buybackAbs) / mcap) * adjFactor * 100 : null;
   // EV (Enterprise Value)
   const ev = mcap > 0 ? mcap - netCash : null;
 
