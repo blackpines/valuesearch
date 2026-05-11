@@ -538,7 +538,7 @@ function compute(s) {
   const shReturn = niP > 0 ? Math.round(((divTotal + buyback) / niP) * 10000) / 100 : null;
 
   const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.shortInv||0);
-  const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.bonds||0)+(s.longBorrow||0);
+  const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.shortBonds||0)+(s.bonds||0)+(s.longBorrow||0)+(s.convertBondsCur||0)+(s.convertBondsNc||0)+(s.exchBondsCur||0)+(s.exchBondsNc||0)+(s.wrtBondsCur||0)+(s.wrtBondsNc||0)+(s.redeemPrefCur||0)+(s.redeemPrefNc||0);
   const netCashVal = cashSide - debtSide;
 
   // ─── 자기주식 보정 계수 ───
