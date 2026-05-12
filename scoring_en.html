@@ -373,22 +373,22 @@ function switchLang(url) {
 
 // ─── Category definitions ───
 const FILTER_CATEGORIES = [
-  { name: 'Valuation', keys: ['mcap', 'per', 'pbr'] },
+  { name: 'Valuation', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',   keys: ['ocfOp', 'fcfNi'] },
   { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
+  { name: 'Liquidity',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: 'Governance',   keys: ['majorSH', 'treasuryRatio'] },
   { name: 'Sector',       keys: ['sector'] },
 ];
 const SCORE_CATEGORIES = [
-  { name: 'Valuation', keys: ['per', 'pbr'] },
+  { name: 'Valuation', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',   keys: ['avgOcfOp', 'avgFcfNi'] },
   { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: 'Liquidity',     keys: ['avgTV20'] },
+  { name: 'Liquidity',     keys: ['mcap', 'avgTV20'] },
   { name: 'Governance',    keys: ['majorSH'] },
 ];
 
@@ -405,8 +405,10 @@ function normalizeSector(s){return WI26_SET.has(s)?s:'Other'}
 // ─── Filter metric definitions ───
 const FILTER_METRICS = {
   mcap:        {label:'Market Cap',              prefix:'₩',unit:'B', cmp:'range', dv:100, dv2:10000, get:s=>s._mcap/10},
-  per:         {label:'PER',                  unit:'x',  cmp:'lte', dv:15,   get:s=>s._per>0?s._per:null},
-  pbr:         {label:'PBR',                  unit:'x',  cmp:'lte', dv:1.5,  get:s=>s._pbr>0?s._pbr:null},
+  per:         {label:'P/E',                  unit:'x',  cmp:'lte', dv:15,   get:s=>s._per>0?s._per:null},
+  pbr:         {label:'P/B',                  unit:'x',  cmp:'lte', dv:1.5,  get:s=>s._pbr>0?s._pbr:null},
+  mcapOcf:     {label:'Mkt Cap/CFO',              unit:'x',  cmp:'lte', dv:15,   get:s=>{const o=(s.ocf||[])[0]||0;return o>0?Math.round(s._mcap/o*10)/10:null}},
+  mcapFcf:     {label:'Mkt Cap/FCF',              unit:'x',  cmp:'lte', dv:20,   get:s=>{const o=(s.ocf||[])[0]||0;const c=Math.abs((s.capex||[])[0]||0);const f=o-c;return f>0?Math.round(s._mcap/f*10)/10:null}},
   roe:         {label:'ROE',                  unit:'%',   cmp:'gte', dv:10,   get:s=>s.roe},
   avgOPM:      {label:'3Y Avg OPM',     unit:'%',   cmp:'gte', dv:10,   get:s=>s.avgOPM},
   latestOPM:   {label:'Latest OPM',     unit:'%',   cmp:'gte', dv:10,   get:s=>s.latestOPM},
@@ -449,8 +451,11 @@ const SCORE_METRICS = {
   revGrowth:   {label:'3Y Rev CAGR',              get:s=>s.revGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   opGrowth:    {label:'3Y OP CAGR',           get:s=>s.opGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   ocfGrowth:   {label:'3Y CFO CAGR',               get:s=>s.ocfGrowth,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  per:         {label:'PER',                       get:s=>s._per>0?s._per:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'x'},
-  pbr:         {label:'PBR',                       get:s=>s._pbr>0?s._pbr:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
+  per:         {label:'P/E',                       get:s=>s._per>0?s._per:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'x'},
+  pbr:         {label:'P/B',                       get:s=>s._pbr>0?s._pbr:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
+  mcap:        {label:'Market Cap',                 get:s=>s._mcap,               dir:'high',fmt:v=>v===null?'N/A':fmtN(v)},
+  mcapOcf:     {label:'Mkt Cap/CFO',                   get:s=>{const o=(s.ocf||[])[0]||0;return o>0?Math.round(s._mcap/o*10)/10:null}, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'x'},
+  mcapFcf:     {label:'Mkt Cap/FCF',                   get:s=>{const o=(s.ocf||[])[0]||0;const c=Math.abs((s.capex||[])[0]||0);const f=o-c;return f>0?Math.round(s._mcap/f*10)/10:null}, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'x'},
   avgTV20:     {label:'20D Avg Trading Value',             get:s=>s._avgTV20>0?s._avgTV20:null, dir:'high', fmt:v=>fmtN(v)},
   majorSH:     {label:'Major Shareholder %',               get:s=>s._majorSH>0?s._majorSH:null, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
 };
