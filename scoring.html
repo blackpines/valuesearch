@@ -240,8 +240,8 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>최근연도 영업이익률:</strong> 가장 최근 사업연도의 OPM. 본업에서의 수익성 측정<br>
       <strong>3년 평균 당기순이익률:</strong> 3년 평균 NPM. 비영업손익 포함 수익성 측정<br>
       <strong>최근연도 당기순이익률:</strong> 가장 최근 사업연도의 NPM. 비영업손익 포함 수익성 측정<br>
-      <strong>OCF/영업이익 (3년 평균):</strong> 연도별 영업활동현금흐름 ÷ 영업이익의 3년 산술평균. 영업활동에서의 이익이 현금으로 전환되는 속도 측정<br>
-      <strong>FCF/순이익 (3년 평균):</strong> 연도별 FCF (OCF − CAPEX) ÷ 당기순이익의 3년 산술평균. 이익이 현금으로 전환되는 속도 측정<br>
+      <strong>영업현금흐름/영업이익 (3년 평균):</strong> 연도별 영업활동현금흐름 ÷ 영업이익의 3년 산술평균. 영업활동에서의 이익이 현금으로 전환되는 속도 측정<br>
+      <strong>잉여현금흐름/순이익 (3년 평균):</strong> 연도별 잉여현금흐름 (영업현금흐름 − CAPEX) ÷ 당기순이익의 3년 산술평균. 이익이 현금으로 전환되는 속도 측정<br>
       <strong>배당성향:</strong> 해당 사업연도 귀속 배당금총액(기말+중간) ÷ 지배주주 당기순이익 × 100. 배당은 사업연도 종료 후 다음해 3월 주총에서 확정되므로, 데이터 시차를 반영하여 가장 최근 확정된 연도를 기준으로 산출<br>
       <strong>주주환원율:</strong> (귀속 배당금총액 + |자사주매입|) ÷ 지배주주 당기순이익 × 100. 배당성향과 동일한 기준연도 사용. 기업의 이익 중 주주에게 환원된 비중을 의미<br>
       <strong>시가배당률(Dividend Yield):</strong> 배당금총액 ÷ 시가총액 × 자기주식보정계수 × 100. 분자는 가장 최근 확정된 사업연도 귀속 배당금이며, 분모는 일별 갱신되는 시가총액(전일 종가 기준). 자기주식보정계수 = 1 ÷ (1 − 자기주식비율)로, 시가총액은 발행주식총수 기준이나 배당은 유통주식수에만 지급되는 구조적 불일치를 보정<br>
@@ -251,7 +251,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>순현금성자산/순자산:</strong> 순현금성자산 ÷ 지배주주 자본 × 100(%)<br>
       <strong>3년 매출액 성장률:</strong> 3개년 매출액 CAGR<br>
       <strong>3년 영업이익 성장률:</strong> 3개년 영업이익 CAGR<br>
-      <strong>3년 OCF 성장률:</strong> 3개년 영업활동현금흐름 CAGR<br>
+      <strong>3년 영업현금흐름 성장률:</strong> 3개년 영업활동현금흐름 CAGR<br>
       <strong>20일 평균 거래대금:</strong> 최근 20영업일 일평균 거래대금(억원). 유동성이 충분한 종목일수록 매매 용이함<br>
       <strong>회전율(거래대금/시총):</strong> 20일 평균 거래대금 ÷ 시가총액 × 100(%). 시총 대비 거래 활성도를 보여주며, 동일 거래대금이라도 시총이 큰 종목은 회전율이 낮음<br>
       <strong>대주주 지분율:</strong> DART 정기보고서 기준 최대주주 및 특수관계인 합산 기말 지분율(%). 합산 지분이 높을수록 지배력이 안정적<br>
@@ -269,8 +269,8 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       각 스코어 항목은 평가대상 종목 전체에서의 <strong>백분위 순위</strong>를 기준으로 0~100점으로 정규화됩니다. 항목별 가중치(1~10)에 따라 가중평균하여 종합점수를 산출합니다.<br><br>
       <strong>▲ 높을수록 높은 점수 (상위 백분위 = 고득점)</strong><br>
       ROE, 3년 평균 영업이익률, 최근연도 영업이익률, 3년 평균 순이익률, 최근연도 순이익률,<br>
-      3년 평균 OCF/영업이익, 3년 평균 FCF/순이익, 순현금성자산/시가총액, 순현금성자산/순자산,<br>
-      배당성향, 주주환원율, 시가배당률, 주주환원수익률, 3년 매출 CAGR, 3년 영업이익 CAGR, 3년 OCF CAGR, 20일 평균 거래대금<br><br>
+      3년 평균 영업현금흐름/영업이익, 3년 평균 잉여현금흐름/순이익, 순현금성자산/시가총액, 순현금성자산/순자산,<br>
+      배당성향, 주주환원율, 시가배당률, 주주환원수익률, 3년 매출 CAGR, 3년 영업이익 CAGR, 3년 영업현금흐름 CAGR, 20일 평균 거래대금<br><br>
       <strong>▼ 낮을수록 높은 점수 (하위 백분위 = 고득점)</strong><br>
       PER, PBR, 대주주 지분율
     </p>
@@ -369,22 +369,22 @@ function switchLang(url) {
 
 // ─── 카테고리 분류 (필터 모드와 동일) ───
 const FILTER_CATEGORIES = [
-  { name: '밸류에이션', keys: ['mcap', 'per', 'pbr'] },
+  { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: '현금흐름',   keys: ['ocfOp', 'fcfNi'] },
   { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: '유동성',     keys: ['avgTV20', 'turnover'] },
+  { name: '유동성',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: '지배구조',   keys: ['majorSH', 'treasuryRatio'] },
   { name: '업종',       keys: ['sector'] },
 ];
 const SCORE_CATEGORIES = [
-  { name: '밸류에이션', keys: ['per', 'pbr'] },
+  { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: '현금흐름',   keys: ['avgOcfOp', 'avgFcfNi'] },
   { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: '유동성',     keys: ['avgTV20'] },
+  { name: '유동성',     keys: ['mcap', 'avgTV20'] },
   { name: '지배구조',   keys: ['majorSH'] },
 ];
 
@@ -403,13 +403,15 @@ const FILTER_METRICS = {
   mcap:        {label:'시가총액',              unit:'억원', cmp:'range', dv:1000, dv2:100000, get:s=>s._mcap},
   per:         {label:'PER',                  unit:'배',  cmp:'lte', dv:15,   get:s=>s._per>0?s._per:null},
   pbr:         {label:'PBR',                  unit:'배',  cmp:'lte', dv:1.5,  get:s=>s._pbr>0?s._pbr:null},
+  mcapOcf:     {label:'시가총액/영업현금흐름',              unit:'배',  cmp:'lte', dv:15,   get:s=>{const a=s.ocf||[];const o=a[a.length-1]||0;return o>0?Math.round(s._mcap/o*10)/10:null}},
+  mcapFcf:     {label:'시가총액/잉여현금흐름',              unit:'배',  cmp:'lte', dv:20,   get:s=>{const a=s.ocf||[];const o=a[a.length-1]||0;const b=s.capex||[];const c=Math.abs(b[b.length-1]||0);const f=o-c;return f>0?Math.round(s._mcap/f*10)/10:null}},
   roe:         {label:'ROE',                  unit:'%',   cmp:'gte', dv:10,   get:s=>s.roe},
   avgOPM:      {label:'3년 평균 영업이익률',     unit:'%',   cmp:'gte', dv:10,   get:s=>s.avgOPM},
   latestOPM:   {label:'최근연도 영업이익률',     unit:'%',   cmp:'gte', dv:10,   get:s=>s.latestOPM},
   avgNPM:      {label:'3년 평균 순이익률',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.avgNPM},
   latestNPM:   {label:'최근연도 순이익률',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.latestNPM},
-  ocfOp:       {label:'3년 평균 OCF/영업이익',   unit:'배',  cmp:'gte', dv:1.0,  get:s=>s.avgOcfOp},
-  fcfNi:       {label:'3년 평균 FCF/순이익',     unit:'배',  cmp:'gte', dv:0.5,  get:s=>s.avgFcfNi},
+  ocfOp:       {label:'3년 평균 영업현금흐름/영업이익',   unit:'배',  cmp:'gte', dv:1.0,  get:s=>s.avgOcfOp},
+  fcfNi:       {label:'3년 평균 잉여현금흐름/순이익',     unit:'배',  cmp:'gte', dv:0.5,  get:s=>s.avgFcfNi},
   netCash:     {label:'순현금성자산',            unit:'억원', cmp:'gte', dv:0,    get:s=>s.netCash},
   netCashRatio:{label:'순현금성자산/시가총액',    unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashRatio},
   netCashEquityRatio:{label:'순현금성자산/순자산', unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashEquityRatio},
@@ -419,7 +421,7 @@ const FILTER_METRICS = {
   shReturn:    {label:'주주환원율',             unit:'%',   cmp:'gte', dv:30,   get:s=>s.shReturn},
   revGrowth:   {label:'3년 매출 CAGR',          unit:'%',   cmp:'gte', dv:5,    get:s=>s.revGrowth},
   opGrowth:    {label:'3년 영업이익 CAGR',       unit:'%',   cmp:'gte', dv:10,   get:s=>s.opGrowth},
-  ocfGrowth:   {label:'3년 OCF CAGR',            unit:'%',   cmp:'gte', dv:5,    get:s=>s.ocfGrowth},
+  ocfGrowth:   {label:'3년 영업현금흐름 CAGR',            unit:'%',   cmp:'gte', dv:5,    get:s=>s.ocfGrowth},
   avgTV20:     {label:'20일 평균 거래대금',       unit:'억원', cmp:'gte', dv:10,   get:s=>s._avgTV20},
   turnover:    {label:'회전율(거래대금/시총)',    unit:'%',   cmp:'gte', dv:0.1,  get:s=>s._turnover},
   majorSH:     {label:'대주주 지분율',           unit:'%',   cmp:'range', dv:20, dv2:80, get:s=>s._majorSH},
@@ -434,8 +436,8 @@ const SCORE_METRICS = {
   latestOPM:   {label:'최근연도 영업이익률',          get:s=>s.latestOPM,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   avgNPM:      {label:'3년 평균 순이익률',            get:s=>s.avgNPM,        dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   latestNPM:   {label:'최근연도 순이익률',            get:s=>s.latestNPM,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  avgOcfOp:    {label:'3년 평균 OCF/영업이익',        get:s=>s.avgOcfOp,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'배'},
-  avgFcfNi:    {label:'3년 평균 FCF/순이익',          get:s=>s.avgFcfNi,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'배'},
+  avgOcfOp:    {label:'3년 평균 영업현금흐름/영업이익',        get:s=>s.avgOcfOp,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'배'},
+  avgFcfNi:    {label:'3년 평균 잉여현금흐름/순이익',          get:s=>s.avgFcfNi,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'배'},
   netCashRatio:{label:'순현금성자산/시가총액',        get:s=>s.netCashRatio,   dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   netCashEquityRatio:{label:'순현금성자산/순자산',    get:s=>s.netCashEquityRatio, dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   divYield:    {label:'시가배당률',                get:s=>s.divYield,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
@@ -444,9 +446,12 @@ const SCORE_METRICS = {
   shReturn:    {label:'주주환원율',                  get:s=>s.shReturn,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   revGrowth:   {label:'3년 매출 CAGR',              get:s=>s.revGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   opGrowth:    {label:'3년 영업이익 CAGR',           get:s=>s.opGrowth,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  ocfGrowth:   {label:'3년 OCF CAGR',               get:s=>s.ocfGrowth,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
+  ocfGrowth:   {label:'3년 영업현금흐름 CAGR',               get:s=>s.ocfGrowth,     dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   per:         {label:'PER',                       get:s=>s._per>0?s._per:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'배'},
   pbr:         {label:'PBR',                       get:s=>s._pbr>0?s._pbr:null,  dir:'low', fmt:v=>v===null?'N/A':v.toFixed(2)+'배'},
+  mcap:        {label:'시가총액',                    get:s=>s._mcap,               dir:'high',fmt:v=>v===null?'N/A':fmtN(v)+'억'},
+  mcapOcf:     {label:'시가총액/영업현금흐름',                   get:s=>{const a=s.ocf||[];const o=a[a.length-1]||0;return o>0?Math.round(s._mcap/o*10)/10:null}, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'배'},
+  mcapFcf:     {label:'시가총액/잉여현금흐름',                   get:s=>{const a=s.ocf||[];const o=a[a.length-1]||0;const b=s.capex||[];const c=Math.abs(b[b.length-1]||0);const f=o-c;return f>0?Math.round(s._mcap/f*10)/10:null}, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'배'},
   avgTV20:     {label:'20일 평균 거래대금',             get:s=>s._avgTV20>0?s._avgTV20:null, dir:'high', fmt:v=>fmtN(v)},
   majorSH:     {label:'대주주 지분율',                 get:s=>s._majorSH>0?s._majorSH:null, dir:'low', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
 };
@@ -498,7 +503,7 @@ function preprocessStock(s) {
   const validNPM = npm.filter(v => v !== null);
   const avgNPM = validNPM.length > 0 ? validNPM.reduce((a,b)=>a+b,0)/validNPM.length : null;
 
-  const ocfOp = op.map((o,i) => o > 0 ? ocf[i]/o : null);
+  const ocfOp = op.map((o,i) => (o <= 0 && ocf[i] <= 0) || o === 0 ? null : ocf[i]/o);
   const validOcfOp = ocfOp.filter(v => v !== null);
   const avgOcfOp = validOcfOp.length > 0 ? validOcfOp.reduce((a,b)=>a+b,0)/validOcfOp.length : null;
 
@@ -512,7 +517,12 @@ function preprocessStock(s) {
   const latestNPM = lastRev > 0 ? (ni[2] / lastRev) * 100 : null;
 
   // FCF/NI
-  const fcfNi = ni.map((n,i) => n > 0 ? (ocf[i] - capex[i]) / n : null);
+  const fcfNi = ni.map((n,i) => {
+    if (n === 0) return null;
+    const fcf = ocf[i] + capex[i]; // capex는 음수이므로 +로 차감
+    if (n < 0 && fcf < 0) return null;
+    return fcf / n;
+  });
   const validFcfNi = fcfNi.filter(v => v !== null);
   const avgFcfNi = validFcfNi.length > 0 ? validFcfNi.reduce((a,b)=>a+b,0) / validFcfNi.length : null;
 

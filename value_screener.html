@@ -231,8 +231,8 @@
       <strong>최근연도 영업이익률:</strong> 가장 최근 사업연도의 OPM. 본업에서의 수익성 측정<br>
       <strong>3년 평균 당기순이익률:</strong> 3년 평균 NPM. 비영업손익 포함 수익성 측정<br>
       <strong>최근연도 당기순이익률:</strong> 가장 최근 사업연도의 NPM. 비영업손익 포함 수익성 측정<br>
-      <strong>OCF/영업이익 (3년 평균):</strong> 연도별 영업활동현금흐름 ÷ 영업이익의 3년 산술평균. 영업활동에서의 이익이 현금으로 전환되는 속도 측정<br>
-      <strong>FCF/순이익 (3년 평균):</strong> 연도별 FCF (OCF − CAPEX) ÷ 당기순이익의 3년 산술평균. 이익이 현금으로 전환되는 속도 측정<br>
+      <strong>영업현금흐름/영업이익 (3년 평균):</strong> 연도별 영업활동현금흐름 ÷ 영업이익의 3년 산술평균. 영업활동에서의 이익이 현금으로 전환되는 속도 측정<br>
+      <strong>잉여현금흐름/순이익 (3년 평균):</strong> 연도별 잉여현금흐름 (영업현금흐름 − CAPEX) ÷ 당기순이익의 3년 산술평균. 이익이 현금으로 전환되는 속도 측정<br>
       <strong>배당성향:</strong> 해당 사업연도 귀속 배당금총액(기말+중간) ÷ 지배주주 당기순이익 × 100. 배당은 사업연도 종료 후 다음해 3월 주총에서 확정되므로, 데이터 시차를 반영하여 가장 최근 확정된 연도를 기준으로 산출<br>
       <strong>주주환원율:</strong> (귀속 배당금총액 + |자사주매입|) ÷ 지배주주 당기순이익 × 100. 배당성향과 동일한 기준연도 사용. 기업의 이익 중 주주에게 환원된 비중을 의미<br>
       <strong>시가배당률(Dividend Yield):</strong> 배당금총액 ÷ 시가총액 × 자기주식보정계수 × 100. 분자는 가장 최근 확정된 사업연도 귀속 배당금이며, 분모는 일별 갱신되는 시가총액(전일 종가 기준). 자기주식보정계수 = 1 ÷ (1 − 자기주식비율)로, 시가총액은 발행주식총수 기준이나 배당은 유통주식수에만 지급되는 구조적 불일치를 보정<br>
@@ -242,7 +242,7 @@
       <strong>순현금성자산/순자산:</strong> 순현금성자산 ÷ 지배주주 자본 × 100(%)<br>
       <strong>3년 매출액 성장률:</strong> 3개년 매출액 CAGR<br>
       <strong>3년 영업이익 성장률:</strong> 3개년 영업이익 CAGR<br>
-      <strong>3년 OCF 성장률:</strong> 3개년 영업활동현금흐름 CAGR<br>
+      <strong>3년 영업현금흐름 성장률:</strong> 3개년 영업활동현금흐름 CAGR<br>
       <strong>20일 평균 거래대금:</strong> 최근 20영업일 일평균 거래대금(억원). 유동성이 충분한 종목일수록 매매 용이함<br>
       <strong>회전율(거래대금/시총):</strong> 20일 평균 거래대금 ÷ 시가총액 × 100(%). 시총 대비 거래 활성도를 보여주며, 동일 거래대금이라도 시총이 큰 종목은 회전율이 낮음<br>
       <strong>대주주 지분율:</strong> DART 정기보고서 기준 최대주주 및 특수관계인 합산 기말 지분율(%). 합산 지분이 높을수록 지배력이 안정적<br>
@@ -513,15 +513,16 @@ function compute(s) {
   // 3년 평균 OCF/OP = 연도별 (OCF ÷ 영업이익) 산술평균
   const ocfArr = Array.isArray(s.ocf) ? s.ocf : [0,0,s.ocf||0]; // 하위호환
   const capexArr = Array.isArray(s.capex) ? s.capex : [0,0,0];
-  const ocfOpArr = s.op.map((o,i) => o > 0 && ocfArr[i] !== 0 ? ocfArr[i] / o : null);
+  const ocfOpArr = s.op.map((o,i) => (o <= 0 && ocfArr[i] <= 0) || o === 0 ? null : ocfArr[i] / o);
   const validOcfOp = ocfOpArr.filter(v => v !== null && isFinite(v));
   const avgOcfOp = validOcfOp.length > 0 ? Math.round(validOcfOp.reduce((a,b)=>a+b,0) / validOcfOp.length * 100) / 100 : null;
 
   // 3년 평균 FCF/NI = 연도별 ((OCF - |CAPEX|) ÷ 순이익) 산술평균
   // FCF = OCF - CAPEX (CAPEX는 음수이므로 OCF + CAPEX, 또는 OCF - |CAPEX|)
   const fcfNiArr = s.ni.map((n,i) => {
-    if (n <= 0) return null;
+    if (n === 0) return null;
     const fcf = ocfArr[i] + capexArr[i]; // capex는 음수이므로 +로 차감됨
+    if (n < 0 && fcf < 0) return null; // 분모분자 동시 음수 → 양수 비율 왜곡 방지
     return fcf / n;
   });
   const validFcfNi = fcfNiArr.filter(v => v !== null && isFinite(v));
@@ -586,12 +587,12 @@ let DATA = STOCKS.map(compute);
 
 // ─── Metric Definitions ───
 const METRIC_CATEGORIES = [
-  { name: '밸류에이션', keys: ['mcap', 'per', 'pbr'] },
+  { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: '현금흐름',   keys: ['ocfOp', 'fcfNi'] },
   { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: '유동성',     keys: ['avgTV20', 'turnover'] },
+  { name: '유동성',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: '지배구조',   keys: ['majorSH', 'treasurySHR'] },
   { name: '업종',       keys: ['sector'] },
 ];
@@ -608,13 +609,15 @@ const METRICS = {
   mcap:      {label:'시가총액',               unit:'억원',     desc:'일정 시가총액 범위 내 기업 선별',         dv:1000,dv2:100000,step:100,col:'시가총액',       get:s=>s._mcap,      fmt:v=>fmtN(v),cmp:'range'},
   per:       {label:'PER',                   unit:'배 이하', desc:'주가수익비율(낮을수록 저평가 가능성)',       dv:15,  step:1,  col:'PER',           get:s=>s._per>0?s._per:null,       fmt:v=>v===null?'N/A':v.toFixed(1)+'배',cmp:'lte'},
   pbr:       {label:'PBR',                   unit:'배 이하', desc:'주가순자산비율(낮을수록 자산 대비 저평가)', dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr>0?s._pbr:null,       fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'lte'},
+  mcapOcf:   {label:'시가총액/영업현금흐름',               unit:'배 이하', desc:'시가총액÷영업활동현금흐름(낮을수록 현금창출력 대비 저평가)', dv:15, step:1, col:'시가총액/영업현금흐름', get:s=>{const a=s.ocf||[];const o=a[a.length-1]||0;return o>0?Math.round(s._mcap/o*10)/10:null}, fmt:v=>v===null?'N/A':v.toFixed(1)+'배',cmp:'lte'},
+  mcapFcf:   {label:'시가총액/잉여현금흐름',               unit:'배 이하', desc:'시가총액÷잉여현금흐름(잉여현금흐름=영업현금흐름−CAPEX, 낮을수록 저평가)', dv:20, step:1, col:'시가총액/잉여현금흐름', get:s=>{const a=s.ocf||[];const o=a[a.length-1]||0;const b=s.capex||[];const c=Math.abs(b[b.length-1]||0);const f=o-c;return f>0?Math.round(s._mcap/f*10)/10:null}, fmt:v=>v===null?'N/A':v.toFixed(1)+'배',cmp:'lte'},
   roe:       {label:'ROE',                   unit:'% 이상',  desc:'자기자본이익률(지배주주순이익÷평균자본)', dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3년 평균 영업이익률',    unit:'% 이상',  desc:'3년 평균 영업이익률 기준 수익성 검증',      dv:10,  step:1,  col:'3년 평균 영업이익률',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'최근연도 영업이익률',    unit:'% 이상',  desc:'가장 최근 사업연도 영업이익률',            dv:10,  step:1,  col:'최근연도 영업이익률',      get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgNPM:    {label:'3년 평균 당기순이익률',  unit:'% 이상',  desc:'3년 평균 당기순이익률 기준 실질 수익성',    dv:5,   step:1,  col:'3년 평균 당기순이익률',    get:s=>s.avgNPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestNPM: {label:'최근연도 당기순이익률',  unit:'% 이상',  desc:'가장 최근 사업연도 당기순이익률',          dv:5,   step:1,  col:'최근연도 당기순이익률',      get:s=>s.latestNPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  ocfOp:     {label:'3년 평균 OCF/영업이익',   unit:'배 이상', desc:'영업현금흐름÷영업이익 3년 평균(이익의 현금화 품질)',dv:1.0,step:0.1,col:'3년 평균 OCF/영업이익',     get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
-  fcfNi:     {label:'3년 평균 FCF/순이익',    unit:'배 이상', desc:'잉여현금흐름÷순이익 3년 평균(FCF=OCF−CAPEX)',     dv:0.5, step:0.1,col:'3년 평균 FCF/순이익',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
+  ocfOp:     {label:'3년 평균 영업현금흐름/영업이익',   unit:'배 이상', desc:'영업현금흐름÷영업이익 3년 평균(이익의 현금화 품질)',dv:1.0,step:0.1,col:'3년 평균 영업현금흐름/영업이익',     get:s=>s.avgOcfOp,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
+  fcfNi:     {label:'3년 평균 잉여현금흐름/순이익',    unit:'배 이상', desc:'잉여현금흐름÷순이익 3년 평균(잉여현금흐름=영업현금흐름−CAPEX)',     dv:0.5, step:0.1,col:'3년 평균 잉여현금흐름/순이익',     get:s=>s.avgFcfNi,   fmt:v=>v===null?'N/A':v.toFixed(2)+'배',cmp:'gte'},
   divYield:  {label:'시가배당률',             unit:'% 이상',  desc:'배당총액÷시가총액 (전일 종가 기준, 자기주식 보정)',                  dv:3,   step:0.5,col:'시가배당률',     get:s=>s.divYield,   fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   shYield:   {label:'주주환원수익률',         unit:'% 이상',  desc:'(배당+자사주매입)÷시가총액 (전일 종가 기준, 자기주식 보정)',         dv:5,   step:0.5,col:'주주환원수익률', get:s=>s.shYield,    fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   divPayout: {label:'배당성향',              unit:'% 이상',  desc:'(중간+기말배당)÷지배주주순이익',   dv:20,  step:5,  col:'배당성향',       get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -624,7 +627,7 @@ const METRICS = {
   netCashEquityRatio:{label:'순현금성자산/순자산',    unit:'% 이상',  desc:'순현금성자산÷지배주주자본 (자본 내 현금비중)',                dv:0,   step:5,  col:'순현금성자산/순자산',  get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3년 매출액 성장률(CAGR)',unit:'% 이상',  desc:'3년간 매출액 연평균 성장률',              dv:5,   step:1,  col:'3년 매출 CAGR',  get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   opGrowth:  {label:'3년 영업이익 성장률(CAGR)',unit:'% 이상', desc:'3년간 영업이익 연평균 성장률',           dv:10,  step:1,  col:'3년 영업이익 CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  ocfGrowth: {label:'3년 OCF 성장률(CAGR)',   unit:'% 이상',  desc:'3년간 영업활동현금흐름 연평균 성장률',    dv:5,   step:1,  col:'3년 OCF CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  ocfGrowth: {label:'3년 영업현금흐름 성장률(CAGR)',   unit:'% 이상',  desc:'3년간 영업활동현금흐름 연평균 성장률',    dv:5,   step:1,  col:'3년 영업현금흐름 CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgTV20:   {label:'20일 평균 거래대금',      unit:'억원 이상',desc:'최근 20영업일 일평균 거래대금(유동성)',  dv:10,  step:5,  col:'20일 평균 거래대금',  get:s=>s._avgTV20,   fmt:v=>fmtN(v),cmp:'gte'},
   turnover:  {label:'회전율(거래대금/시총)',   unit:'% 이상',  desc:'20일 평균 거래대금 ÷ 시가총액 × 100', dv:0.1, step:0.05,col:'회전율',        get:s=>s._turnover,  fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   majorSH:   {label:'대주주 지분율',           unit:'%',       desc:'최대주주+특수관계인 합산 지분율',     dv:20,  dv2:80, step:5,  col:'대주주 지분율',    get:s=>s._majorSH,   fmt:v=>v>0?v.toFixed(1)+'%':'N/A',cmp:'range'},
