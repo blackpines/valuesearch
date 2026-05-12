@@ -216,7 +216,7 @@
     </div>
     <div class="table-footer">
       <span id="footer-info"></span>
-      <span>Unit: KRW / x(P/E·P/B) / %</span>
+      <span>Unit: KRW / x(PER·PBR) / %</span>
     </div>
   </div>
 
@@ -476,9 +476,9 @@ function toggleCurrency() {
   }
   const footer = document.querySelector('.table-footer span:last-child');
   if (currencyMode === 'USD') {
-    footer.textContent = 'Unit: USD / x(P/E·P/B) / % — Rate: 1 USD = ₩' + USD_KRW_RATE.toLocaleString();
+    footer.textContent = 'Unit: USD / x(PER·PBR) / % — Rate: 1 USD = ₩' + USD_KRW_RATE.toLocaleString();
   } else {
-    footer.textContent = 'Unit: KRW / x(P/E·P/B) / %';
+    footer.textContent = 'Unit: KRW / x(PER·PBR) / %';
   }
   fullRender();
 }
@@ -589,12 +589,12 @@ let DATA = STOCKS.map(compute);
 
 // ─── Metric Definitions ───
 const METRIC_CATEGORIES = [
-  { name: 'Valuation',     keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
+  { name: 'Valuation',     keys: ['mcap', 'per', 'pbr'] },
   { name: 'Profitability', keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi'] },
   { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',        keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: 'Liquidity',     keys: ['mcap', 'avgTV20', 'turnover'] },
+  { name: 'Liquidity',     keys: ['avgTV20', 'turnover'] },
   { name: 'Governance',    keys: ['majorSH', 'treasurySHR'] },
   { name: 'Sector',        keys: ['sector'] },
 ];
@@ -609,10 +609,8 @@ const WI26_OPTIONS = [
 
 const METRICS = {
   mcap:      {label:'Market Cap',              prefix:'₩',unit:'B',desc:'Filter companies within a market cap range',dv:100,dv2:10000,step:10,col:'Mkt Cap',       get:s=>s._mcap/10,      fmt:v=>fmtN(v*10),cmp:'range'},
-  per:       {label:'P/E',                     unit:'x',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'P/E',           get:s=>s._per>0?s._per:null,       fmt:v=>v===null?'N/A':v.toFixed(1)+'x',cmp:'lte'},
-  pbr:       {label:'P/B',                     unit:'x',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'P/B',           get:s=>s._pbr>0?s._pbr:null,       fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'lte'},
-  mcapOcf:   {label:'Mkt Cap/CFO',                unit:'x',      desc:'Market cap / Operating cash flow (lower = better cash generation)', dv:15, step:1, col:'Mkt Cap/CFO', get:s=>{const o=(s.ocf||[])[0]||0;return o>0?Math.round(s._mcap/o*10)/10:null}, fmt:v=>v===null?'N/A':v.toFixed(1)+'x',cmp:'lte'},
-  mcapFcf:   {label:'Mkt Cap/FCF',                unit:'x',      desc:'Market cap / Free cash flow (FCF=OCF−CAPEX, lower = undervalued)', dv:20, step:1, col:'Mkt Cap/FCF', get:s=>{const o=(s.ocf||[])[0]||0;const c=Math.abs((s.capex||[])[0]||0);const f=o-c;return f>0?Math.round(s._mcap/f*10)/10:null}, fmt:v=>v===null?'N/A':v.toFixed(1)+'x',cmp:'lte'},
+  per:       {label:'PER',                     unit:'x',      desc:'Price-to-earnings ratio (lower = potentially undervalued)',      dv:15,  step:1,  col:'PER',           get:s=>s._per>0?s._per:null,       fmt:v=>v===null?'N/A':v.toFixed(1)+'x',cmp:'lte'},
+  pbr:       {label:'PBR',                     unit:'x',      desc:'Price-to-book ratio (lower = undervalued vs assets)',           dv:1.5, step:0.1,col:'PBR',           get:s=>s._pbr>0?s._pbr:null,       fmt:v=>v===null?'N/A':v.toFixed(2)+'x',cmp:'lte'},
   roe:       {label:'ROE',                     unit:'%',      desc:'Return on equity (NI ÷ avg. equity)',                        dv:10,  step:1,  col:'ROE',           get:s=>s.roe,        fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   avgOPM:    {label:'3Y Avg OPM',              unit:'%',      desc:'3-year average operating profit margin',                       dv:10,  step:1,  col:'3Y Avg OPM',    get:s=>s.avgOPM,     fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   latestOPM: {label:'Latest OPM',              unit:'%',      desc:'Most recent fiscal year operating profit margin',              dv:10,  step:1,  col:'Latest OPM',    get:s=>s.latestOPM,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
