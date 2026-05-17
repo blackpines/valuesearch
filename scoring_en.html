@@ -160,6 +160,33 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
   .filter-unit{flex-shrink:0;white-space:nowrap}
   .factor-row > *,.filter-row > *{flex-shrink:0}
 }
+/* Preset bar */
+.preset-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+.preset-bar label{font-size:12px;color:var(--text-secondary);font-weight:500;white-space:nowrap}
+.preset-select{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;padding:0 10px;font-size:12px;font-family:'Noto Sans KR',sans-serif;min-width:160px;cursor:pointer;height:32px}
+.preset-select:focus{border-color:var(--gold);outline:none}
+.preset-btn{background:none;border:1px solid var(--border);color:var(--text-secondary);padding:0 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;white-space:nowrap;transition:all .15s;height:32px;display:inline-flex;align-items:center}
+.preset-btn:hover{border-color:var(--gold);color:var(--gold)}
+.preset-btn.danger:hover{border-color:var(--fail-text);color:var(--fail-text)}
+.preset-name-input{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;padding:0 10px;font-size:12px;font-family:'Noto Sans KR',sans-serif;width:140px;height:32px}
+.preset-name-input:focus{border-color:var(--gold);outline:none}
+.preset-msg{font-size:11px;color:var(--pass-text);opacity:0;transition:opacity .3s}
+.preset-msg.show{opacity:1}
+
+/* Custom modal */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:9999}
+.modal-overlay.show{display:flex}
+.modal-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;min-width:300px;max-width:400px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.modal-box p{margin:0 0 20px;color:var(--text-primary);font-size:14px;line-height:1.5}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px}
+.modal-btn{padding:8px 18px;border-radius:6px;font-size:13px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;border:1px solid var(--border);transition:all .15s}
+.modal-btn.cancel{background:none;color:var(--text-secondary)}
+.modal-btn.cancel:hover{border-color:var(--text-secondary)}
+.modal-btn.confirm{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}
+.modal-btn.confirm:hover{opacity:0.85}
+.modal-btn.danger{background:var(--fail-text);color:#fff;border-color:var(--fail-text);font-weight:600}
+.modal-btn.danger:hover{opacity:0.85}
+
 </style>
 </head>
 <body>
@@ -174,12 +201,24 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
     </div>
   </div>
 
-  <div class="mode-tabs">
-    <a href="value_screener_en.html" class="mode-tab">Filtering</a>
-    <a href="scoring_en.html" class="mode-tab active">Scoring</a>
+  <div class="mode-tabs" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <div style="display:flex;gap:0">
+      <a href="value_screener_en.html" class="mode-tab">Filtering</a>
+      <a href="scoring_en.html" class="mode-tab active">Scoring</a>
+    </div>
+    <div class="preset-bar" id="preset-bar">
+      <label>📁 Preset</label>
+      <select class="preset-select" id="preset-select" onchange="loadPreset(this.value)"></select>
+      <input class="preset-name-input" id="preset-name" placeholder="Preset name" maxlength="20">
+      <button class="preset-btn" onclick="savePreset()">💾 Save</button>
+      <button class="preset-btn danger" onclick="deletePreset()">🗑️ Delete</button>
+      <button class="preset-btn" onclick="sharePreset()">📤 Copy URL</button>
+      <span class="preset-msg" id="preset-msg"></span>
+    </div>
   </div>
 
   <!-- Configuration: Filters + Scoring Factors -->
+
   <div class="config-area">
     <!-- Universe Filters -->
     <div class="section-wrap">
@@ -316,6 +355,106 @@ function toggleCurrency() {
 }
 
 // ── State serialization (preserve filters/factors across language switch) ──
+
+const PRESET_KEY = 'vs_scoring_presets';
+const PRESET_LAST = 'vs_scoring_last';
+const MAX_PRESETS = 5;
+
+function getPresets() {
+  try { return JSON.parse(localStorage.getItem(PRESET_KEY) || '{}'); } catch(e) { return {}; }
+}
+function setPresets(p) {
+  localStorage.setItem(PRESET_KEY, JSON.stringify(p));
+}
+
+function showPresetMsg(msg) {
+  const el = document.getElementById('preset-msg');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+function renderPresetSelect(selected) {
+  const sel = document.getElementById('preset-select');
+  const presets = getPresets();
+  const names = Object.keys(presets);
+  sel.innerHTML = '<option value="">— Select —</option>' +
+    names.map(n => `<option value="${n}" ${n===selected?'selected':''}>${n}</option>`).join('');
+  document.getElementById('preset-name').value = selected || '';
+}
+
+function savePreset() {
+  const nameEl = document.getElementById('preset-name');
+  const name = nameEl.value.trim();
+  if (!name) return showModal('Please enter a preset name.');
+  const presets = getPresets();
+  if (!presets[name] && Object.keys(presets).length >= MAX_PRESETS) {
+    return showModal('Maximum ' + MAX_PRESETS + ' presets allowed.\nDelete an existing preset first.');
+  }
+  presets[name] = {
+    filters: filters.map(f => {
+      const o = {metric: f.metric, threshold: f.threshold};
+      if (f.threshold2 != null) o.threshold2 = f.threshold2;
+      return o;
+    }),
+    factors: factors.map(f => ({metric: f.metric, weight: f.weight}))
+  };
+  setPresets(presets);
+  localStorage.setItem(PRESET_LAST, name);
+  renderPresetSelect(name);
+  showPresetMsg('✅ Saved');
+}
+
+function loadPreset(name) {
+  if (!name) return;
+  const presets = getPresets();
+  const p = presets[name];
+  if (!p) return;
+  let fid = 1;
+  filters = (p.filters || []).map(f => {
+    const o = {id: fid++, metric: f.metric, threshold: f.threshold};
+    if (f.threshold2 != null) o.threshold2 = f.threshold2;
+    return o;
+  }).filter(f => FILTER_METRICS[f.metric]);
+  nextFilterId = fid;
+  let gid = 1;
+  factors = (p.factors || []).map(f => ({id: gid++, metric: f.metric, weight: f.weight}))
+    .filter(f => SCORE_METRICS[f.metric]);
+  nextFactorId = gid;
+  if (factors.length === 0) {
+    factors = [{id:1, metric:'per', weight:3}];
+    nextFactorId = 2;
+  }
+  localStorage.setItem(PRESET_LAST, name);
+  document.getElementById('preset-name').value = name;
+  fullRender();
+  showPresetMsg('Loaded: ' + name);
+}
+
+async function deletePreset() {
+  const sel = document.getElementById('preset-select');
+  const name = sel.value;
+  if (!name) return showModal('Select a preset to delete.');
+  const ok = await showModal('Delete preset "' + name + '"?', {type:'confirm', danger:true, okText:'Delete'});
+  if (!ok) return;
+  const presets = getPresets();
+  delete presets[name];
+  setPresets(presets);
+  const last = localStorage.getItem(PRESET_LAST);
+  if (last === name) localStorage.removeItem(PRESET_LAST);
+  renderPresetSelect('');
+  showPresetMsg('Deleted');
+}
+
+function sharePreset() {
+  const url = window.location.origin + window.location.pathname + '?' + stateToParam();
+  navigator.clipboard.writeText(url).then(() => {
+    showPresetMsg('📋 URL copied');
+  }).catch(() => {
+    prompt('Copy this URL:', url);
+  });
+}
+
 // URL uses 억원 (KRW 100M) as canonical unit. EN UI uses ₩B internally for these metrics.
 const BUNIT_METRICS = new Set(['mcap','netCash','avgTV20']);
 function stateToParam() {
@@ -1069,17 +1208,62 @@ async function init() {
   // Restore filters/factors from URL params (for language switch persistence)
   const params = new URLSearchParams(window.location.search);
   const restored = paramToState(params.get('f'), params.get('g'));
+  let fromURL = false;
   if (restored.filters && restored.filters.length > 0 && restored.filters.every(f => FILTER_METRICS[f.metric])) {
     filters = restored.filters;
     nextFilterId = Math.max(...filters.map(f => f.id)) + 1;
+    fromURL = true;
   }
   if (restored.factors && restored.factors.length > 0 && restored.factors.every(f => SCORE_METRICS[f.metric])) {
     factors = restored.factors;
     nextFactorId = Math.max(...factors.map(f => f.id)) + 1;
+    fromURL = true;
   }
+  const lastPreset = localStorage.getItem(PRESET_LAST);
+  if (!fromURL && lastPreset) {
+    const presets = getPresets();
+    if (presets[lastPreset]) loadPreset(lastPreset);
+  }
+  renderPresetSelect(fromURL ? '' : (lastPreset || ''));
   fullRender();
 }
 init();
+
+// ── Custom modal (alert/confirm replacement) ──
+function showModal(msg, opts = {}) {
+  return new Promise(resolve => {
+    const ov = document.getElementById('custom-modal');
+    const mp = document.getElementById('modal-msg');
+    const ma = document.getElementById('modal-actions');
+    mp.textContent = msg;
+    ma.innerHTML = '';
+    if (opts.type === 'confirm') {
+      const bc = document.createElement('button');
+      bc.className = 'modal-btn cancel';
+      bc.textContent = 'Cancel';
+      bc.onclick = () => { ov.classList.remove('show'); resolve(false); };
+      const bo = document.createElement('button');
+      bo.className = 'modal-btn ' + (opts.danger ? 'danger' : 'confirm');
+      bo.textContent = opts.okText || 'OK';
+      bo.onclick = () => { ov.classList.remove('show'); resolve(true); };
+      ma.appendChild(bc);
+      ma.appendChild(bo);
+    } else {
+      const bo = document.createElement('button');
+      bo.className = 'modal-btn confirm';
+      bo.textContent = 'OK';
+      bo.onclick = () => { ov.classList.remove('show'); resolve(true); };
+      ma.appendChild(bo);
+    }
+    ov.classList.add('show');
+  });
+}
 </script>
+<div class="modal-overlay" id="custom-modal">
+  <div class="modal-box">
+    <p id="modal-msg"></p>
+    <div class="modal-actions" id="modal-actions"></div>
+  </div>
+</div>
 </body>
 </html>
