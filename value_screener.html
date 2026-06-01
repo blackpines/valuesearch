@@ -237,7 +237,7 @@
       <strong>주주환원율:</strong> (귀속 배당금총액 + |자사주매입|) ÷ 지배주주 당기순이익 × 100. 배당성향과 동일한 기준연도 사용. 기업의 이익 중 주주에게 환원된 비중을 의미<br>
       <strong>시가배당률(Dividend Yield):</strong> 배당금총액 ÷ 시가총액 × 자기주식보정계수 × 100. 분자는 가장 최근 확정된 사업연도 귀속 배당금이며, 분모는 일별 갱신되는 시가총액(전일 종가 기준). 자기주식보정계수 = 1 ÷ (1 − 자기주식비율)로, 시가총액은 발행주식총수 기준이나 배당은 유통주식수에만 지급되는 구조적 불일치를 보정<br>
       <strong>주주환원수익률(Shareholder Yield):</strong> (배당금총액 + |자사주매입|) ÷ 시가총액 × 자기주식보정계수 × 100. 시가배당률에 자사주 매입(소각 효과)까지 포함한 종합적 주주환원 수익률<br>
-      <strong>순현금성자산:</strong> (현금및현금성자산 + 단기금융상품 + 단기투자자산) − (단기차입금 + 유동성장기부채 + 사채 + 장기차입금). 양수일 경우 투자, 주주환원 여력 높음<br>
+      <strong>순현금성자산:</strong> (현금및현금성자산 + 단기금융상품 + 기타유동금융자산 등 유동금융자산) − (단기차입금 + 유동성장기부채 + 사채 + 장기차입금 + 전환사채 + 교환사채 등 전체 이자부부채). 양수일 경우 투자, 주주환원 여력 높음<br>
       <strong>순현금성자산/시가총액:</strong> 순현금성자산 ÷ 시가총액 × 100(%)<br>
       <strong>순현금성자산/순자산:</strong> 순현금성자산 ÷ 지배주주 자본 × 100(%)<br>
       <strong>3년 매출액 성장률:</strong> 3개년 매출액 CAGR<br>
@@ -538,7 +538,7 @@ function compute(s) {
   const buyback = Math.abs(s.sharesBuyback || 0);
   const shReturn = niP > 0 ? Math.round(((divTotal + buyback) / niP) * 10000) / 100 : null;
 
-  const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.shortInv||0);
+  const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.otherCurrentFinAssets||0)+(s.fvtplCurrent||0)+(s.shortInv||0);
   const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.shortBonds||0)+(s.bonds||0)+(s.longBorrow||0)+(s.convertBondsCur||0)+(s.convertBondsNc||0)+(s.exchBondsCur||0)+(s.exchBondsNc||0)+(s.wrtBondsCur||0)+(s.wrtBondsNc||0)+(s.redeemPrefCur||0)+(s.redeemPrefNc||0);
   const netCashVal = cashSide - debtSide;
 
@@ -622,7 +622,7 @@ const METRICS = {
   shYield:   {label:'주주환원수익률',         unit:'% 이상',  desc:'(배당+자사주매입)÷시가총액 (전일 종가 기준, 자기주식 보정)',         dv:5,   step:0.5,col:'주주환원수익률', get:s=>s.shYield,    fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   divPayout: {label:'배당성향',              unit:'% 이상',  desc:'(중간+기말배당)÷지배주주순이익',   dv:20,  step:5,  col:'배당성향',       get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   shReturn:  {label:'주주환원율',            unit:'% 이상',  desc:'(배당+자사주)÷지배주주순이익',dv:30, step:5,  col:'주주환원율',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  netCash:   {label:'순현금성자산',           unit:'억원 이상',desc:'(현금및현금성자산+단기금융상품)−(차입금+사채) 순액',          dv:0,   step:100,col:'순현금성자산',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gte'},
+  netCash:   {label:'순현금성자산',           unit:'억원 이상',desc:'(현금및현금성자산+단기금융상품 등)−(전체 이자부부채) 순액',          dv:0,   step:100,col:'순현금성자산',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gte'},
   netCashRatio:{label:'순현금성자산/시가총액',         unit:'% 이상',  desc:'순현금성자산÷시가총액',                   dv:0,   step:5,  col:'순현금성자산/시가총액',    get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCashEquityRatio:{label:'순현금성자산/순자산',    unit:'% 이상',  desc:'순현금성자산÷지배주주자본 (자본 내 현금비중)',                dv:0,   step:5,  col:'순현금성자산/순자산',  get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3년 매출액 성장률(CAGR)',unit:'% 이상',  desc:'3년간 매출액 연평균 성장률',              dv:5,   step:1,  col:'3년 매출 CAGR',  get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},

@@ -285,7 +285,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>Shareholder Payout Ratio:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Captures total earnings returned to equity holders via both dividends and buybacks. Uses the same reference year as the payout ratio.<br>
       <strong>Dividend Yield:</strong> Declared dividends ÷ market capitalization × treasury adjustment factor × 100. The numerator is the most recently ratified fiscal-year dividend; the denominator is daily-updated market capitalization (previous close). Treasury adjustment factor = 1 ÷ (1 − treasury share ratio), correcting for the structural mismatch where Korean market cap is computed on issued shares while dividends are paid only on outstanding shares.<br>
       <strong>Shareholder Yield:</strong> (Declared dividends + absolute value of share repurchases) ÷ market capitalization × treasury adjustment factor × 100. Extends dividend yield to incorporate buybacks (which mechanically increase per-share intrinsic value through float reduction).<br>
-      <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + short-term investment securities) − (short-term borrowings + current portion of long-term debt + bonds payable + long-term borrowings). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
+      <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + other current financial assets, etc.) − (all interest-bearing liabilities incl. borrowings, bonds, convertible bonds, etc.). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
       <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
       <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
       <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
@@ -671,7 +671,7 @@ function preprocessStock(s) {
   const divPayout = (s.niParent > 0) ? (s.dividendTotal / s.niParent) * 100 : null;
   const shReturn = (s.niParent > 0) ? ((s.dividendTotal + Math.abs(s.sharesBuyback || 0)) / s.niParent) * 100 : null;
 
-  const cashSide = (s.cashEq||0) + (s.shortFin||0) + (s.shortInv||0);
+  const cashSide = (s.cashEq||0) + (s.shortFin||0) + (s.otherCurrentFinAssets||0) + (s.fvtplCurrent||0) + (s.shortInv||0);
   const debtSide = (s.shortBorrow||0) + (s.curLongDebt||0) + (s.shortBonds||0) + (s.bonds||0) + (s.longBorrow||0) + (s.convertBondsCur||0) + (s.convertBondsNc||0) + (s.exchBondsCur||0) + (s.exchBondsNc||0) + (s.wrtBondsCur||0) + (s.wrtBondsNc||0) + (s.redeemPrefCur||0) + (s.redeemPrefNc||0);
   const netCash = cashSide - debtSide;
   const netCashRatio = mcap > 0 ? (netCash / mcap) * 100 : null;
