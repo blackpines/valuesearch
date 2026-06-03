@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-02 22:42:19",
+  "generated_at": "2026-06-03 23:58:18",
   "market_date": "2026-06-02",
   "market_date_display": "2026.06.02",
-  "run_time_display": "2026.06.02 22:42",
+  "run_time_display": "2026.06.03 23:58",
   "financial_data_date": "2026-06-01 23:09:10",
   "total_stocks": 2028,
-  "usd_krw_rate": 1506.84,
+  "usd_krw_rate": 1511.27,
   "stocks": [
     {
       "name": "동화약품",
@@ -30286,25 +30286,25 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        2855,
-        2281,
-        2040
+        2863,
+        2287,
+        2046
       ],
       "op": [
-        109,
+        110,
         51,
-        -14
+        -15
       ],
       "ni": [
         105,
-        62,
+        63,
         -7
       ],
-      "cashEq": 530,
+      "cashEq": 532,
       "shortFin": 0,
-      "otherCurrentFinAssets": 336,
+      "otherCurrentFinAssets": 337,
       "shortInv": 0,
-      "shortBorrow": 396,
+      "shortBorrow": 397,
       "curLongDebt": 0,
       "shortBonds": 0,
       "bonds": 0,
@@ -30317,16 +30317,16 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1358,
-      "equityPriorYear": 1405,
-      "equityPrevQ": 1365,
-      "equityParent": 1358,
-      "equityParentPriorYear": 1405,
-      "equityParentPrevQ": 1365,
+      "equity": 1362,
+      "equityPriorYear": 1409,
+      "equityPrevQ": 1369,
+      "equityParent": 1362,
+      "equityParentPriorYear": 1409,
+      "equityParentPrevQ": 1369,
       "ocf": [
-        456,
+        457,
         180,
-        184
+        185
       ],
       "capex": [
         -21,
@@ -30345,9 +30345,9 @@
         0,
         0
       ],
-      "niParent": 62,
+      "niParent": 63,
       "niParent3yr": [
-        62,
+        63,
         105,
         82
       ],
@@ -30366,7 +30366,7 @@
       "price": 1330,
       "mcap": 1026,
       "per": 0.0,
-      "pbr": 0.76,
+      "pbr": 0.75,
       "avgTradingValue20": 23
     },
     {
@@ -142710,29 +142710,29 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        94468,
-        93150,
-        94499
+        94746,
+        93424,
+        94776
       ],
       "op": [
-        9627,
-        7270,
-        7323
+        9655,
+        7291,
+        7345
       ],
       "ni": [
-        6224,
-        4263,
-        4439
+        6242,
+        4275,
+        4452
       ],
-      "cashEq": 22260,
+      "cashEq": 22326,
       "shortFin": 83,
       "otherCurrentFinAssets": 0,
       "shortInv": 0,
-      "shortBorrow": 1089,
-      "curLongDebt": 1172,
+      "shortBorrow": 1093,
+      "curLongDebt": 1175,
       "shortBonds": 0,
-      "bonds": 751,
-      "longBorrow": 12667,
+      "bonds": 753,
+      "longBorrow": 12704,
       "convertBondsCur": 0,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
@@ -142741,41 +142741,41 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 75315,
-      "equityPriorYear": 75517,
-      "equityPrevQ": 70681,
-      "equityParent": 75315,
-      "equityParentPriorYear": 75517,
-      "equityParentPrevQ": 70681,
+      "equity": 75537,
+      "equityPriorYear": 75739,
+      "equityPrevQ": 70889,
+      "equityParent": 75537,
+      "equityParentPriorYear": 75739,
+      "equityParentPrevQ": 70889,
       "ocf": [
-        8034,
-        12392,
-        11875
+        8057,
+        12429,
+        11910
       ],
       "capex": [
-        -3031,
-        -2537,
-        -2554
+        -3040,
+        -2545,
+        -2561
       ],
-      "dividendPaid": 2040,
+      "dividendPaid": 2046,
       "dividendPaid3yr": [
-        2040,
-        1775,
-        1812
+        2046,
+        1780,
+        1817
       ],
-      "sharesBuyback": 1456,
+      "sharesBuyback": 1460,
       "sharesBuyback3yr": [
-        1456,
-        667,
+        1460,
+        669,
         29
       ],
-      "niParent": 4263,
+      "niParent": 4275,
       "niParent3yr": [
-        4263,
-        6224,
-        10637
+        4275,
+        6242,
+        10668
       ],
-      "niParentTTM": 4439,
+      "niParentTTM": 4452,
       "dividendTotal": 1627,
       "dividendTotal3yr": [
         1627,
@@ -142789,7 +142789,7 @@
       "treasuryShareRatio": 0.15,
       "price": 65200,
       "mcap": 62498,
-      "per": 14.1,
+      "per": 14.0,
       "pbr": 0.83,
       "avgTradingValue20": 213
     },
@@ -189428,30 +189428,30 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        3158,
-        4164,
-        4416
+        3167,
+        4176,
+        4429
       ],
       "op": [
-        205,
-        408,
-        499
+        206,
+        410,
+        500
       ],
       "ni": [
         47,
-        155,
-        297
+        156,
+        298
       ],
-      "cashEq": 808,
+      "cashEq": 811,
       "shortFin": 0,
       "otherCurrentFinAssets": 0,
       "shortInv": 0,
-      "shortBorrow": 697,
+      "shortBorrow": 699,
       "curLongDebt": 173,
       "shortBonds": 0,
       "bonds": 0,
-      "longBorrow": 330,
-      "convertBondsCur": 222,
+      "longBorrow": 331,
+      "convertBondsCur": 223,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
       "exchBondsNc": 0,
@@ -189459,16 +189459,16 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 5637,
-      "equityPriorYear": 5490,
-      "equityPrevQ": 4871,
-      "equityParent": 5389,
-      "equityParentPriorYear": 5272,
-      "equityParentPrevQ": 4726,
+      "equity": 5653,
+      "equityPriorYear": 5506,
+      "equityPrevQ": 4885,
+      "equityParent": 5404,
+      "equityParentPriorYear": 5287,
+      "equityParentPrevQ": 4740,
       "ocf": [
         26,
         250,
-        392
+        393
       ],
       "capex": [
         -17,
@@ -189491,7 +189491,7 @@
       "niParent3yr": [
         33,
         13,
-        -435
+        -436
       ],
       "niParentTTM": 165,
       "dividendTotal": 0,
@@ -189522,12 +189522,12 @@
       "reportShort": "AR 2025.12",
       "currency": "CNY",
       "rev": [
-        769,
-        744,
-        787
+        772,
+        747,
+        789
       ],
       "op": [
-        197,
+        198,
         162,
         121
       ],
@@ -189536,7 +189536,7 @@
         100,
         -20
       ],
-      "cashEq": 3134,
+      "cashEq": 3144,
       "shortFin": 0,
       "otherCurrentFinAssets": 0,
       "shortInv": 0,
@@ -189553,15 +189553,15 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 5459,
-      "equityPriorYear": 5422,
-      "equityPrevQ": 5422,
-      "equityParent": 5422,
-      "equityParentPriorYear": 5337,
-      "equityParentPrevQ": 5337,
+      "equity": 5476,
+      "equityPriorYear": 5439,
+      "equityPrevQ": 5439,
+      "equityParent": 5439,
+      "equityParentPriorYear": 5354,
+      "equityParentPrevQ": 5354,
       "ocf": [
-        628,
-        261,
+        630,
+        262,
         241
       ],
       "capex": [
@@ -189584,7 +189584,7 @@
       "niParent": -30,
       "niParent3yr": [
         -30,
-        82,
+        83,
         91
       ],
       "niParentTTM": -30,
@@ -189616,25 +189616,25 @@
       "reportShort": "1Q 2026.03",
       "currency": "CNY",
       "rev": [
-        5998,
-        8503,
-        9887
+        6017,
+        8530,
+        9918
       ],
       "op": [
-        230,
+        231,
         126,
-        198
+        199
       ],
       "ni": [
-        204,
+        205,
         222,
-        306
+        307
       ],
-      "cashEq": 458,
-      "shortFin": 1970,
+      "cashEq": 459,
+      "shortFin": 1976,
       "otherCurrentFinAssets": 0,
       "shortInv": 0,
-      "shortBorrow": 704,
+      "shortBorrow": 706,
       "curLongDebt": 142,
       "shortBonds": 0,
       "bonds": 0,
@@ -189647,21 +189647,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 3171,
-      "equityPriorYear": 3091,
-      "equityPrevQ": 2838,
-      "equityParent": 3171,
-      "equityParentPriorYear": 3091,
-      "equityParentPrevQ": 2838,
+      "equity": 3181,
+      "equityPriorYear": 3101,
+      "equityPrevQ": 2847,
+      "equityParent": 3181,
+      "equityParentPriorYear": 3101,
+      "equityParentPrevQ": 2847,
       "ocf": [
-        1987,
-        664,
-        -1208
+        1994,
+        666,
+        -1212
       ],
       "capex": [
         -19,
         -14,
-        -12
+        -13
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -189678,10 +189678,10 @@
       "niParent": 222,
       "niParent3yr": [
         222,
-        204,
-        181
+        205,
+        182
       ],
-      "niParentTTM": 306,
+      "niParentTTM": 307,
       "dividendTotal": 0,
       "dividendTotal3yr": [
         0,
@@ -189710,30 +189710,30 @@
       "reportShort": "3Q 2026.09",
       "currency": "CNY",
       "rev": [
-        10187,
-        11009,
-        11669
+        10219,
+        11043,
+        11706
       ],
       "op": [
-        1777,
-        1576,
-        1711
+        1783,
+        1581,
+        1716
       ],
       "ni": [
-        1337,
-        1104,
-        1153
+        1341,
+        1108,
+        1157
       ],
-      "cashEq": 1538,
+      "cashEq": 1543,
       "shortFin": 26,
       "otherCurrentFinAssets": 0,
       "shortInv": 0,
-      "shortBorrow": 961,
-      "curLongDebt": 568,
+      "shortBorrow": 964,
+      "curLongDebt": 570,
       "shortBonds": 0,
       "bonds": 0,
-      "longBorrow": 5039,
-      "convertBondsCur": 417,
+      "longBorrow": 5055,
+      "convertBondsCur": 419,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
       "exchBondsNc": 0,
@@ -189741,21 +189741,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 15169,
-      "equityPriorYear": 11984,
-      "equityPrevQ": 11716,
-      "equityParent": 11494,
-      "equityParentPriorYear": 9956,
-      "equityParentPrevQ": 9931,
+      "equity": 15217,
+      "equityPriorYear": 12022,
+      "equityPrevQ": 11753,
+      "equityParent": 11531,
+      "equityParentPriorYear": 9987,
+      "equityParentPrevQ": 9962,
       "ocf": [
-        448,
-        1029,
-        1079
+        449,
+        1032,
+        1083
       ],
       "capex": [
-        -653,
-        -1391,
-        -3859
+        -655,
+        -1395,
+        -3871
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -189769,13 +189769,13 @@
         0,
         0
       ],
-      "niParent": 841,
+      "niParent": 844,
       "niParent3yr": [
-        841,
-        1082,
-        639
+        844,
+        1085,
+        641
       ],
-      "niParentTTM": 852,
+      "niParentTTM": 854,
       "dividendTotal": 532,
       "dividendTotal3yr": [
         532,
@@ -189804,23 +189804,23 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        1242,
-        331,
-        161
+        1246,
+        332,
+        162
       ],
       "op": [
         -47,
-        -671,
-        -702
+        -673,
+        -704
       ],
       "ni": [
         -12,
-        -880,
-        -889
+        -883,
+        -892
       ],
-      "cashEq": 2948,
+      "cashEq": 2957,
       "shortFin": 0,
-      "otherCurrentFinAssets": 150,
+      "otherCurrentFinAssets": 151,
       "shortInv": 0,
       "shortBorrow": 145,
       "curLongDebt": 0,
@@ -189835,16 +189835,16 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 5688,
-      "equityPriorYear": 5865,
-      "equityPrevQ": 6632,
-      "equityParent": 5676,
-      "equityParentPriorYear": 5851,
-      "equityParentPrevQ": 6611,
+      "equity": 5705,
+      "equityPriorYear": 5882,
+      "equityPrevQ": 6652,
+      "equityParent": 5693,
+      "equityParentPriorYear": 5868,
+      "equityParentPrevQ": 6631,
       "ocf": [
-        204,
-        -306,
-        -721
+        205,
+        -307,
+        -723
       ],
       "capex": [
         -19,
@@ -189855,7 +189855,7 @@
       "dividendPaid3yr": [
         0,
         0,
-        343
+        344
       ],
       "sharesBuyback": 0,
       "sharesBuyback3yr": [
@@ -189863,13 +189863,13 @@
         0,
         28
       ],
-      "niParent": -870,
+      "niParent": -873,
       "niParent3yr": [
-        -870,
+        -873,
         -4,
         -37
       ],
-      "niParentTTM": -880,
+      "niParentTTM": -883,
       "dividendTotal": 0,
       "dividendTotal3yr": [
         0,
@@ -189898,25 +189898,25 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        2013,
-        2297,
-        2367
+        2019,
+        2304,
+        2374
       ],
       "op": [
         208,
-        396,
-        406
+        397,
+        407
       ],
       "ni": [
         217,
-        263,
+        264,
         311
       ],
-      "cashEq": 472,
+      "cashEq": 473,
       "shortFin": 0,
       "otherCurrentFinAssets": 62,
       "shortInv": 0,
-      "shortBorrow": 181,
+      "shortBorrow": 182,
       "curLongDebt": 6,
       "shortBonds": 0,
       "bonds": 0,
@@ -189929,26 +189929,26 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1715,
-      "equityPriorYear": 1728,
-      "equityPrevQ": 1488,
-      "equityParent": 1715,
-      "equityParentPriorYear": 1728,
-      "equityParentPrevQ": 1488,
+      "equity": 1720,
+      "equityPriorYear": 1733,
+      "equityPrevQ": 1492,
+      "equityParent": 1720,
+      "equityParentPriorYear": 1733,
+      "equityParentPrevQ": 1492,
       "ocf": [
         143,
-        235,
-        225
+        236,
+        226
       ],
       "capex": [
         -55,
-        -70,
-        -77
+        -71,
+        -78
       ],
       "dividendPaid": 21,
       "dividendPaid3yr": [
         21,
-        22,
+        23,
         0
       ],
       "sharesBuyback": 0,
@@ -189957,13 +189957,13 @@
         0,
         0
       ],
-      "niParent": 263,
+      "niParent": 264,
       "niParent3yr": [
-        263,
+        264,
         217,
-        239
+        240
       ],
-      "niParentTTM": 263,
+      "niParentTTM": 264,
       "dividendTotal": 40,
       "dividendTotal3yr": [
         40,
@@ -189997,17 +189997,17 @@
         56
       ],
       "op": [
-        -243,
+        -244,
         -237,
         -236
       ],
       "ni": [
-        -373,
-        -2040,
-        -3007
+        -374,
+        -2046,
+        -3016
       ],
-      "cashEq": 944,
-      "shortFin": 271,
+      "cashEq": 947,
+      "shortFin": 272,
       "otherCurrentFinAssets": 0,
       "shortInv": 0,
       "shortBorrow": 0,
@@ -190015,7 +190015,7 @@
       "shortBonds": 0,
       "bonds": 0,
       "longBorrow": 0,
-      "convertBondsCur": 593,
+      "convertBondsCur": 595,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
       "exchBondsNc": 0,
@@ -190023,15 +190023,15 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1243,
-      "equityPriorYear": 673,
-      "equityPrevQ": 1887,
-      "equityParent": 1243,
-      "equityParentPriorYear": 673,
-      "equityParentPrevQ": 1887,
+      "equity": 1247,
+      "equityPriorYear": 675,
+      "equityPrevQ": 1893,
+      "equityParent": 1247,
+      "equityParentPriorYear": 675,
+      "equityParentPrevQ": 1893,
       "ocf": [
-        -226,
-        -254,
+        -227,
+        -255,
         -122
       ],
       "capex": [
@@ -190051,13 +190051,13 @@
         0,
         0
       ],
-      "niParent": -2040,
+      "niParent": -2046,
       "niParent3yr": [
-        -2040,
-        -373,
+        -2046,
+        -374,
         -199
       ],
-      "niParentTTM": -2040,
+      "niParentTTM": -2046,
       "dividendTotal": 0,
       "dividendTotal3yr": [
         0,
@@ -190072,7 +190072,7 @@
       "price": 108000,
       "mcap": 91515,
       "per": 0.0,
-      "pbr": 73.63,
+      "pbr": 73.41,
       "avgTradingValue20": 780
     },
     {
@@ -190086,9 +190086,9 @@
       "reportShort": "AR 2026.12",
       "currency": "JPY",
       "rev": [
-        1539,
-        3219,
-        3008
+        1541,
+        3222,
+        3011
       ],
       "op": [
         225,
@@ -190100,7 +190100,7 @@
         806,
         48
       ],
-      "cashEq": 667,
+      "cashEq": 668,
       "shortFin": 31,
       "otherCurrentFinAssets": 43,
       "shortInv": 0,
@@ -190108,7 +190108,7 @@
       "curLongDebt": 27,
       "shortBonds": 0,
       "bonds": 0,
-      "longBorrow": 71,
+      "longBorrow": 72,
       "convertBondsCur": 0,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
@@ -190117,12 +190117,12 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1776,
-      "equityPriorYear": 1801,
-      "equityPrevQ": 1801,
-      "equityParent": 1776,
-      "equityParentPriorYear": 1801,
-      "equityParentPrevQ": 1801,
+      "equity": 1778,
+      "equityPriorYear": 1803,
+      "equityPrevQ": 1803,
+      "equityParent": 1778,
+      "equityParentPriorYear": 1803,
+      "equityParentPrevQ": 1803,
       "ocf": [
         83,
         509,
@@ -190165,7 +190165,7 @@
       "treasuryShareRatio": 2.21,
       "price": 4805,
       "mcap": 2486,
-      "per": 51.5,
+      "per": 51.4,
       "pbr": 1.37,
       "avgTradingValue20": 8
     },
@@ -190180,22 +190180,22 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        947,
-        1192,
-        1193
+        950,
+        1196,
+        1196
       ],
       "op": [
-        170,
-        162,
+        171,
+        163,
         165
       ],
       "ni": [
         91,
-        83,
+        84,
         74
       ],
-      "cashEq": 121,
-      "shortFin": 813,
+      "cashEq": 122,
+      "shortFin": 815,
       "otherCurrentFinAssets": 110,
       "shortInv": 0,
       "shortBorrow": 0,
@@ -190211,14 +190211,14 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1613,
-      "equityPriorYear": 1665,
-      "equityPrevQ": 1566,
-      "equityParent": 1591,
-      "equityParentPriorYear": 1640,
-      "equityParentPrevQ": 1537,
+      "equity": 1617,
+      "equityPriorYear": 1670,
+      "equityPrevQ": 1571,
+      "equityParent": 1595,
+      "equityParentPriorYear": 1645,
+      "equityParentPrevQ": 1542,
       "ocf": [
-        242,
+        243,
         218,
         202
       ],
@@ -190230,13 +190230,13 @@
       "dividendPaid": 69,
       "dividendPaid3yr": [
         69,
-        106,
+        107,
         13
       ],
       "sharesBuyback": 0,
       "sharesBuyback3yr": [
         0,
-        65,
+        66,
         60
       ],
       "niParent": 90,
@@ -190245,7 +190245,7 @@
         95,
         255
       ],
-      "niParentTTM": 81,
+      "niParentTTM": 82,
       "dividendTotal": 73,
       "dividendTotal3yr": [
         73,
@@ -190274,9 +190274,9 @@
       "reportShort": "1Q 2026.03",
       "currency": "USD",
       "rev": [
-        482,
-        627,
-        642
+        484,
+        629,
+        644
       ],
       "op": [
         -58,
@@ -190286,7 +190286,7 @@
       "ni": [
         -69,
         -44,
-        -30
+        -31
       ],
       "cashEq": 101,
       "shortFin": 37,
@@ -190305,12 +190305,12 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 264,
-      "equityPriorYear": 270,
-      "equityPrevQ": 291,
+      "equity": 265,
+      "equityPriorYear": 271,
+      "equityPrevQ": 292,
       "equityParent": 284,
       "equityParentPriorYear": 287,
-      "equityParentPrevQ": 298,
+      "equityParentPrevQ": 299,
       "ocf": [
         34,
         9,
@@ -190337,7 +190337,7 @@
       "niParent3yr": [
         -32,
         -62,
-        -49
+        -50
       ],
       "niParentTTM": -17,
       "dividendTotal": 0,
@@ -190354,7 +190354,7 @@
       "price": 2840,
       "mcap": 546,
       "per": 0.0,
-      "pbr": 1.93,
+      "pbr": 1.92,
       "avgTradingValue20": 2
     },
     {
@@ -190370,23 +190370,23 @@
       "rev": [
         8,
         154,
-        159
+        160
       ],
       "op": [
-        -710,
-        -724,
-        -836
+        -712,
+        -726,
+        -838
       ],
       "ni": [
-        -623,
+        -625,
         45,
-        -761
+        -763
       ],
-      "cashEq": 632,
+      "cashEq": 633,
       "shortFin": 0,
       "otherCurrentFinAssets": 25,
       "shortInv": 0,
-      "shortBorrow": 602,
+      "shortBorrow": 604,
       "curLongDebt": 0,
       "shortBonds": 0,
       "bonds": 0,
@@ -190399,21 +190399,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 5523,
-      "equityPriorYear": 5647,
-      "equityPrevQ": 5560,
-      "equityParent": 4713,
-      "equityParentPriorYear": 4566,
-      "equityParentPrevQ": 4550,
+      "equity": 5539,
+      "equityPriorYear": 5663,
+      "equityPrevQ": 5576,
+      "equityParent": 4727,
+      "equityParentPriorYear": 4579,
+      "equityParentPrevQ": 4563,
       "ocf": [
-        -543,
-        -560,
-        -434
+        -545,
+        -562,
+        -436
       ],
       "capex": [
-        -227,
-        -438,
-        -173
+        -228,
+        -439,
+        -174
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -190430,10 +190430,10 @@
       "niParent": 240,
       "niParent3yr": [
         240,
-        -372,
-        200
+        -373,
+        201
       ],
-      "niParentTTM": -605,
+      "niParentTTM": -607,
       "dividendTotal": 0,
       "dividendTotal3yr": [
         0,
@@ -190467,16 +190467,16 @@
         6
       ],
       "op": [
-        -442,
-        -267,
-        -247
+        -444,
+        -268,
+        -248
       ],
       "ni": [
-        -452,
-        -337,
-        -328
+        -453,
+        -338,
+        -329
       ],
-      "cashEq": 350,
+      "cashEq": 351,
       "shortFin": 115,
       "otherCurrentFinAssets": 111,
       "shortInv": 0,
@@ -190493,16 +190493,16 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 541,
-      "equityPriorYear": 622,
-      "equityPrevQ": 339,
-      "equityParent": 541,
-      "equityParentPriorYear": 622,
-      "equityParentPrevQ": 339,
+      "equity": 542,
+      "equityPriorYear": 624,
+      "equityPrevQ": 340,
+      "equityParent": 542,
+      "equityParentPriorYear": 624,
+      "equityParentPrevQ": 340,
       "ocf": [
-        -432,
-        -265,
-        -260
+        -433,
+        -266,
+        -261
       ],
       "capex": [
         -17,
@@ -190521,13 +190521,13 @@
         0,
         0
       ],
-      "niParent": -337,
+      "niParent": -338,
       "niParent3yr": [
-        -337,
-        -452,
-        -616
+        -338,
+        -453,
+        -618
       ],
-      "niParentTTM": -337,
+      "niParentTTM": -338,
       "dividendTotal": 0,
       "dividendTotal3yr": [
         0,
@@ -190568,10 +190568,10 @@
       "ni": [
         0,
         0,
-        -32
+        -33
       ],
       "cashEq": 14,
-      "shortFin": 354,
+      "shortFin": 355,
       "otherCurrentFinAssets": 6,
       "shortInv": 0,
       "shortBorrow": 0,
@@ -190587,12 +190587,12 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 348,
-      "equityPriorYear": 27,
-      "equityPrevQ": 27,
-      "equityParent": 348,
-      "equityParentPriorYear": 27,
-      "equityParentPrevQ": 27,
+      "equity": 349,
+      "equityPriorYear": 28,
+      "equityPrevQ": 28,
+      "equityParent": 349,
+      "equityParentPriorYear": 28,
+      "equityParentPrevQ": 28,
       "ocf": [
         0,
         0,
@@ -190636,7 +190636,7 @@
       "price": 3410,
       "mcap": 1211,
       "per": 0.0,
-      "pbr": 3.48,
+      "pbr": 3.47,
       "avgTradingValue20": 47
     }
   ]
