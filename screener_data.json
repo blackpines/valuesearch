@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-08 23:35:01",
+  "generated_at": "2026-06-09 11:00:24",
   "market_date": "2026-06-08",
   "market_date_display": "2026.06.08",
-  "run_time_display": "2026.06.08 23:35",
+  "run_time_display": "2026.06.09 11:00",
   "financial_data_date": "2026-06-01 23:09:10",
   "total_stocks": 2028,
   "usd_krw_rate": 1533.07,
@@ -3389,7 +3389,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 122365
+      "avgTradingValue20": 122462
     },
     {
       "name": "영풍",
@@ -9593,7 +9593,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 2032
+      "avgTradingValue20": 2033
     },
     {
       "name": "이화공영",
@@ -11845,7 +11845,7 @@
       "isFinancial": false,
       "majorShareholderRate": 35.6,
       "treasuryShareRatio": 0,
-      "price": 483,
+      "price": 966,
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
@@ -18335,7 +18335,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 598
+      "avgTradingValue20": 602
     },
     {
       "name": "NPC",
@@ -24163,7 +24163,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 104762
+      "avgTradingValue20": 104830
     },
     {
       "name": "삼성전자우",
@@ -24257,7 +24257,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 12786
+      "avgTradingValue20": 12789
     },
     {
       "name": "NH투자증권",
@@ -24351,7 +24351,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 372
+      "avgTradingValue20": 373
     },
     {
       "name": "NH투자증권우",
@@ -31119,7 +31119,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 22528
+      "avgTradingValue20": 22529
     },
     {
       "name": "삼성전기우",
@@ -33939,7 +33939,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 6956
+      "avgTradingValue20": 6957
     },
     {
       "name": "흥국",
@@ -36947,7 +36947,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1592
+      "avgTradingValue20": 1593
     },
     {
       "name": "STX",
@@ -37793,7 +37793,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 2861
+      "avgTradingValue20": 2892
     },
     {
       "name": "더존비즈온",
@@ -38357,7 +38357,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 3
+      "avgTradingValue20": 4
     },
     {
       "name": "에스원",
@@ -48885,7 +48885,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 387
+      "avgTradingValue20": 388
     },
     {
       "name": "디씨엠",
@@ -49073,7 +49073,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 352
+      "avgTradingValue20": 353
     },
     {
       "name": "콜마홀딩스",
@@ -53209,7 +53209,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 295
+      "avgTradingValue20": 298
     },
     {
       "name": "다올투자증권",
@@ -56969,7 +56969,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 665
+      "avgTradingValue20": 687
     },
     {
       "name": "피노",
@@ -61951,7 +61951,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 6388
+      "avgTradingValue20": 6391
     },
     {
       "name": "파워넷",
@@ -68531,7 +68531,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1765
+      "avgTradingValue20": 1766
     },
     {
       "name": "피에이치에이",
@@ -74077,7 +74077,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 76
+      "avgTradingValue20": 77
     },
     {
       "name": "중앙첨단소재",
@@ -84511,7 +84511,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 858
+      "avgTradingValue20": 859
     },
     {
       "name": "스모트로닉",
@@ -85733,7 +85733,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1262
+      "avgTradingValue20": 1263
     },
     {
       "name": "선바이오",
@@ -88083,7 +88083,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 797
+      "avgTradingValue20": 798
     },
     {
       "name": "한국금융지주우",
@@ -93253,7 +93253,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 4188
+      "avgTradingValue20": 4190
     },
     {
       "name": "모다이노칩",
@@ -95603,7 +95603,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 427
+      "avgTradingValue20": 428
     },
     {
       "name": "이월드",
@@ -106319,7 +106319,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1046
+      "avgTradingValue20": 1047
     },
     {
       "name": "아이센스",
@@ -110831,7 +110831,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 2385
+      "avgTradingValue20": 2387
     },
     {
       "name": "한세실업",
@@ -113369,7 +113369,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 132
+      "avgTradingValue20": 133
     },
     {
       "name": "씨에스윈드",
@@ -127469,7 +127469,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1612
+      "avgTradingValue20": 1613
     },
     {
       "name": "PI첨단소재",
@@ -134331,7 +134331,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 114
+      "avgTradingValue20": 115
     },
     {
       "name": "디와이파워",
@@ -143355,7 +143355,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 505
+      "avgTradingValue20": 506
     },
     {
       "name": "휴온스",
@@ -150593,7 +150593,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1329
+      "avgTradingValue20": 1330
     },
     {
       "name": "HLB바이오스텝",
@@ -150969,7 +150969,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 133
+      "avgTradingValue20": 134
     },
     {
       "name": "케이씨텍",
@@ -159993,7 +159993,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1146
+      "avgTradingValue20": 1147
     },
     {
       "name": "LS티라유텍",
@@ -164129,7 +164129,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1295
+      "avgTradingValue20": 1296
     },
     {
       "name": "알체라",
@@ -165633,7 +165633,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1703
+      "avgTradingValue20": 1704
     },
     {
       "name": "대덕전자1우",
@@ -172025,7 +172025,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 156
+      "avgTradingValue20": 157
     },
     {
       "name": "파로스아이바이오",
@@ -174375,7 +174375,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 11774
+      "avgTradingValue20": 11787
     },
     {
       "name": "그린리소스",
@@ -174751,7 +174751,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1685
+      "avgTradingValue20": 1686
     },
     {
       "name": "신한서부티엔디리츠",
@@ -176161,7 +176161,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 413
+      "avgTradingValue20": 414
     },
     {
       "name": "코람코더원리츠",
@@ -178887,7 +178887,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 5226
+      "avgTradingValue20": 5227
     },
     {
       "name": "파두",
@@ -180485,7 +180485,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 499
+      "avgTradingValue20": 500
     },
     {
       "name": "아스테라시스",
@@ -186971,7 +186971,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 1248
+      "avgTradingValue20": 1249
     },
     {
       "name": "나라스페이스테크놀로지",
