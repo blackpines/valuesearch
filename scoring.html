@@ -288,9 +288,6 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>순현금성자산:</strong> (현금및현금성자산 + 단기금융상품 + 기타유동금융자산 등 유동금융자산) − (단기차입금 + 유동성장기부채 + 사채 + 장기차입금 + 전환사채 + 교환사채 등 전체 이자부부채). 양수일 경우 투자, 주주환원 여력 높음<br>
       <strong>순현금성자산/시가총액:</strong> 순현금성자산 ÷ 시가총액 × 100(%)<br>
       <strong>순현금성자산/순자산:</strong> 순현금성자산 ÷ 지배주주 자본 × 100(%)<br>
-      <strong>관계기업투자/시가총액:</strong> 관계기업·공동기업 지분(지분법 장부가) ÷ 시가총액 × 100(%). 비율이 높을수록 자회사·관계사 지분 가치가 시총 대비 큰 기업<br>
-      <strong>투자부동산/시가총액:</strong> 투자부동산(임대·시세차익 목적 부동산) ÷ 시가총액 × 100(%). 비율이 높을수록 보유 부동산 자산 가치가 시총 대비 큰 기업<br>
-      <strong>금융자산/시가총액:</strong> (유동·비유동 FVTPL + 유동·비유동 FVOCI) ÷ 시가총액 × 100(%). 당기손익·기타포괄손익 공정가치측정 금융자산의 시총 대비 보유 비중<br>
       <strong>3년 매출액 성장률:</strong> 3개년 매출액 CAGR<br>
       <strong>3년 영업이익 성장률:</strong> 3개년 영업이익 CAGR<br>
       <strong>3년 영업현금흐름 성장률:</strong> 3개년 영업활동현금흐름 CAGR<br>
@@ -516,8 +513,7 @@ const FILTER_CATEGORIES = [
   { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: '현금흐름',   keys: ['ocfOp', 'fcfNi'] },
-  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash'] },
-  { name: '자산가치',   keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
+  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: '유동성',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: '지배구조',   keys: ['majorSH', 'treasuryRatio'] },
@@ -527,8 +523,7 @@ const SCORE_CATEGORIES = [
   { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: '현금흐름',   keys: ['avgOcfOp', 'avgFcfNi'] },
-  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn'] },
-  { name: '자산가치',   keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
+  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: '유동성',     keys: ['mcap', 'avgTV20'] },
   { name: '지배구조',   keys: ['majorSH'] },
@@ -561,9 +556,6 @@ const FILTER_METRICS = {
   netCash:     {label:'순현금성자산',            unit:'억원', cmp:'gte', dv:0,    get:s=>s.netCash},
   netCashRatio:{label:'순현금성자산/시가총액',    unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashRatio},
   netCashEquityRatio:{label:'순현금성자산/순자산', unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashEquityRatio},
-  equityInvestRatio:{label:'관계기업투자/시가총액',  unit:'%',   cmp:'gte', dv:20,   get:s=>s.equityInvestRatio},
-  investPropertyRatio:{label:'투자부동산/시가총액',  unit:'%',   cmp:'gte', dv:20,   get:s=>s.investPropertyRatio},
-  finInvestRatio:{label:'금융자산/시가총액',       unit:'%',   cmp:'gte', dv:20,   get:s=>s.finInvestRatio},
   divYield:    {label:'시가배당률',            unit:'%',   cmp:'gte', dv:3,    get:s=>s.divYield},
   shYield:     {label:'주주환원수익률',         unit:'%',   cmp:'gte', dv:5,    get:s=>s.shYield},
   divPayout:   {label:'배당성향',               unit:'%',   cmp:'gte', dv:20,   get:s=>s.divPayout},
@@ -589,9 +581,6 @@ const SCORE_METRICS = {
   avgFcfNi:    {label:'3년 평균 잉여현금흐름/순이익',          get:s=>s.avgFcfNi,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'배'},
   netCashRatio:{label:'순현금성자산/시가총액',        get:s=>s.netCashRatio,   dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   netCashEquityRatio:{label:'순현금성자산/순자산',    get:s=>s.netCashEquityRatio, dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  equityInvestRatio:{label:'관계기업투자/시가총액',     get:s=>s.equityInvestRatio,  dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  investPropertyRatio:{label:'투자부동산/시가총액',     get:s=>s.investPropertyRatio,dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  finInvestRatio:{label:'금융자산/시가총액',           get:s=>s.finInvestRatio,    dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   divYield:    {label:'시가배당률',                get:s=>s.divYield,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
   shYield:     {label:'주주환원수익률',                 get:s=>s.shYield,        dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
   divPayout:   {label:'배당성향',                   get:s=>s.divPayout,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
@@ -686,10 +675,6 @@ function preprocessStock(s) {
   const netCash = cashSide - debtSide;
   const netCashRatio = mcap > 0 ? (netCash / mcap) * 100 : null;
   const netCashEquityRatio = eq > 0 ? (netCash / eq) * 100 : null;
-  const equityInvestRatio = mcap > 0 ? ((s.equityInvest||0) / mcap) * 100 : null;
-  const investPropertyRatio = mcap > 0 ? ((s.investProperty||0) / mcap) * 100 : null;
-  const _fi = (s.fvtplCurrent||0)+(s.fvtplNoncurrent||0)+(s.fvociCurrent||0)+(s.fvociNoncurrent||0)+(s.shortInv||0)+(s.longInvest||0);
-  const finInvestRatio = mcap > 0 ? (_fi / mcap) * 100 : null;
 
   // ─── 자기주식 보정 계수 ───
   // DPS는 유통주식수, 시가총액은 발행주식총수 → 자기주식 비율만큼 보정
@@ -716,7 +701,6 @@ function preprocessStock(s) {
     roe, avgOPM, latestOPM, avgNPM, latestNPM,
     avgOcfOp, avgFcfNi, revGrowth, opGrowth, ocfGrowth,
     divPayout, shReturn, netCash, netCashRatio, netCashEquityRatio,
-    equityInvestRatio, investPropertyRatio, finInvestRatio,
     divYield, shYield, ev,
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,

@@ -288,9 +288,6 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + other current financial assets, etc.) − (all interest-bearing liabilities incl. borrowings, bonds, convertible bonds, etc.). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
       <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
       <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
-      <strong>Equity Invest / Mkt Cap:</strong> Equity method investments (associates &amp; JV, book value) ÷ market cap × 100(%). Higher ratio indicates significant subsidiary/associate stake value relative to market cap.<br>
-      <strong>Inv Property / Mkt Cap:</strong> Investment property ÷ market cap × 100(%). Higher ratio indicates significant real estate asset value relative to market cap.<br>
-      <strong>Fin Assets / Mkt Cap:</strong> (Current &amp; non-current FVTPL + current &amp; non-current FVOCI) ÷ market cap × 100(%). Financial assets measured at fair value as % of market cap.<br>
       <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
       <strong>3Y Operating Income CAGR:</strong> Compound annual growth rate of operating income over the trailing three fiscal years.<br>
       <strong>3Y CFO CAGR:</strong> Compound annual growth rate of cash flow from operations over the trailing three fiscal years.<br>
@@ -518,8 +515,7 @@ const FILTER_CATEGORIES = [
   { name: 'Valuation', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',   keys: ['ocfOp', 'fcfNi'] },
-  { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash'] },
-  { name: 'Asset Value',       keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
+  { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: 'Governance',   keys: ['majorSH', 'treasuryRatio'] },
@@ -529,8 +525,7 @@ const SCORE_CATEGORIES = [
   { name: 'Valuation', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: 'Profitability',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',   keys: ['avgOcfOp', 'avgFcfNi'] },
-  { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn'] },
-  { name: 'Asset Value',       keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
+  { name: 'Shareholder Return',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['mcap', 'avgTV20'] },
   { name: 'Governance',    keys: ['majorSH'] },
@@ -563,9 +558,6 @@ const FILTER_METRICS = {
   netCash:     {label:'Net Cash',            prefix:'₩',unit:'B', cmp:'gte', dv:0,    get:s=>s.netCash/10},
   netCashRatio:{label:'Net Cash / Mkt Cap',    unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashRatio},
   netCashEquityRatio:{label:'Net Cash / Equity', unit:'%',   cmp:'gte', dv:0,    get:s=>s.netCashEquityRatio},
-  equityInvestRatio:{label:'Equity Invest / Mkt Cap',unit:'%', cmp:'gte', dv:20,   get:s=>s.equityInvestRatio},
-  investPropertyRatio:{label:'Inv Property / Mkt Cap',unit:'%',cmp:'gte', dv:20,   get:s=>s.investPropertyRatio},
-  finInvestRatio:{label:'Fin Assets / Mkt Cap',     unit:'%',cmp:'gte', dv:20,   get:s=>s.finInvestRatio},
   divYield:    {label:'Dividend Yield',          unit:'%',   cmp:'gte', dv:3,    get:s=>s.divYield},
   shYield:     {label:'Shareholder Yield',       unit:'%',   cmp:'gte', dv:5,    get:s=>s.shYield},
   divPayout:   {label:'Dividend Payout Ratio',  unit:'%',   cmp:'gte', dv:20,   get:s=>s.divPayout},
@@ -591,9 +583,6 @@ const SCORE_METRICS = {
   avgFcfNi:    {label:'3Y Avg FCF/NI',          get:s=>s.avgFcfNi,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'x'},
   netCashRatio:{label:'Net Cash / Mkt Cap',        get:s=>s.netCashRatio,   dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   netCashEquityRatio:{label:'Net Cash / Equity',    get:s=>s.netCashEquityRatio, dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  equityInvestRatio:{label:'Equity Invest / Mkt Cap', get:s=>s.equityInvestRatio,  dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  investPropertyRatio:{label:'Inv Property / Mkt Cap',get:s=>s.investPropertyRatio,dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
-  finInvestRatio:{label:'Fin Assets / Mkt Cap',     get:s=>s.finInvestRatio,    dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
   divYield:    {label:'Dividend Yield',                get:s=>s.divYield,       dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
   shYield:     {label:'Shareholder Yield',                 get:s=>s.shYield,        dir:'high', fmt:v=>v===null?'N/A':v.toFixed(2)+'%'},
   divPayout:   {label:'Dividend Payout Ratio',     get:s=>s.divPayout,      dir:'high', fmt:v=>v===null?'N/A':v.toFixed(1)+'%'},
@@ -687,10 +676,6 @@ function preprocessStock(s) {
   const netCash = cashSide - debtSide;
   const netCashRatio = mcap > 0 ? (netCash / mcap) * 100 : null;
   const netCashEquityRatio = eq > 0 ? (netCash / eq) * 100 : null;
-  const equityInvestRatio = mcap > 0 ? ((s.equityInvest||0) / mcap) * 100 : null;
-  const investPropertyRatio = mcap > 0 ? ((s.investProperty||0) / mcap) * 100 : null;
-  const _fi = (s.fvtplCurrent||0)+(s.fvtplNoncurrent||0)+(s.fvociCurrent||0)+(s.fvociNoncurrent||0)+(s.shortInv||0)+(s.longInvest||0);
-  const finInvestRatio = mcap > 0 ? (_fi / mcap) * 100 : null;
 
   // ─── Treasury share adjustment factor ───
   // DPS uses outstanding shares; market cap uses total issued shares.
@@ -720,7 +705,6 @@ function preprocessStock(s) {
     roe, avgOPM, latestOPM, avgNPM, latestNPM,
     avgOcfOp, avgFcfNi, revGrowth, opGrowth, ocfGrowth,
     divPayout, shReturn, netCash, netCashRatio, netCashEquityRatio,
-    equityInvestRatio, investPropertyRatio, finInvestRatio,
     divYield, shYield, ev,
     _avgTV20: s.avgTradingValue20 || 0,
     _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,

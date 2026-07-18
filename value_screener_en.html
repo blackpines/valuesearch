@@ -241,9 +241,6 @@
       <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + other current financial assets, etc.) − (all interest-bearing liabilities incl. borrowings, bonds, convertible bonds, etc.). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
       <strong>Net Cash / Market Cap:</strong> Net cash position ÷ market capitalization × 100 (%).<br>
       <strong>Net Cash / Equity:</strong> Net cash position ÷ controlling-interest equity × 100 (%).<br>
-      <strong>Equity Invest / Mkt Cap:</strong> Equity method investments (associates &amp; JV, book value) ÷ market cap × 100(%). Higher ratio indicates significant subsidiary/associate stake value relative to market cap.<br>
-      <strong>Inv Property / Mkt Cap:</strong> Investment property ÷ market cap × 100(%). Higher ratio indicates significant real estate asset value relative to market cap.<br>
-      <strong>Fin Assets / Mkt Cap:</strong> (Current &amp; non-current FVTPL + current &amp; non-current FVOCI) ÷ market cap × 100(%). Financial assets measured at fair value as % of market cap.<br>
       <strong>3Y Revenue CAGR:</strong> Compound annual growth rate of revenue over the trailing three fiscal years.<br>
       <strong>3Y Operating Income CAGR:</strong> Compound annual growth rate of operating income over the trailing three fiscal years.<br>
       <strong>3Y CFO CAGR:</strong> Compound annual growth rate of cash flow from operations over the trailing three fiscal years.<br>
@@ -579,9 +576,6 @@ function compute(s) {
     netCash: netCashVal,
     netCashRatio: s.mcap > 0 ? Math.round((netCashVal / s.mcap) * 10000) / 100 : null,
     netCashEquityRatio: eqP > 0 ? Math.round((netCashVal / eqP) * 10000) / 100 : null,
-    equityInvestRatio: s.mcap > 0 ? Math.round(((s.equityInvest||0) / s.mcap) * 10000) / 100 : null,
-    investPropertyRatio: s.mcap > 0 ? Math.round(((s.investProperty||0) / s.mcap) * 10000) / 100 : null,
-    finInvestRatio: s.mcap > 0 ? (function(){ var fi=(s.fvtplCurrent||0)+(s.fvtplNoncurrent||0)+(s.fvociCurrent||0)+(s.fvociNoncurrent||0)+(s.shortInv||0)+(s.longInvest||0); return Math.round((fi/s.mcap)*10000)/100; })() : null,
     revGrowth: cagrC(s.rev[0],s.rev[2],2),
     opGrowth: cagrC(s.op[0],s.op[2],2),
     ocfGrowth: cagrC(s.ocf[0],s.ocf[2],2),
@@ -599,8 +593,7 @@ const METRIC_CATEGORIES = [
   { name: 'Valuation',     keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: 'Profitability', keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi'] },
-  { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash'] },
-  { name: 'Asset Value',       keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
+  { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
   { name: 'Growth',        keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: 'Governance',    keys: ['majorSH', 'treasurySHR'] },
@@ -635,9 +628,6 @@ const METRICS = {
   netCash:   {label:'Net Cash',                prefix:'₩',unit:'B',desc:'(Cash + ST financial instruments, etc.) − (all interest-bearing liabilities)',             dv:0,   step:10, col:'Net Cash',       get:s=>s.netCash/10,    fmt:v=>fmtN(v*10),cmp:'gte'},
   netCashRatio:{label:'Net Cash / Mkt Cap',   unit:'%',       desc:'Net cash as % of market cap',                            dv:0,   step:5,  col:'NC/MC',         get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCashEquityRatio:{label:'Net Cash / Equity',unit:'%',     desc:'Net cash as % of controlling equity (cash weight in assets)',                  dv:0,   step:5,  col:'NC/Equity',     get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  equityInvestRatio:{label:'Equity Invest / Mkt Cap',unit:'%', desc:'Equity method investments ÷ market cap',    dv:20,  step:5,  col:'EqInv/MC',      get:s=>s.equityInvestRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  investPropertyRatio:{label:'Inv Property / Mkt Cap',unit:'%',desc:'Investment property ÷ market cap',                   dv:20,  step:5,  col:'InvProp/MC',    get:s=>s.investPropertyRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
-  finInvestRatio:{label:'Fin Assets / Mkt Cap',       unit:'%',desc:'(FVTPL + FVOCI) ÷ market cap',                               dv:20,  step:5,  col:'FinAsset/MC',   get:s=>s.finInvestRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3Y Revenue CAGR',         unit:'%',      desc:'3-year compound annual growth rate of revenue',                dv:5,   step:1,  col:'3Y Rev CAGR',   get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   opGrowth:  {label:'3Y OP CAGR',             unit:'%',      desc:'3-year compound annual growth rate of operating profit',        dv:10,  step:1,  col:'3Y OP CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   ocfGrowth: {label:'3Y CFO CAGR',            unit:'%',      desc:'3-year compound annual growth rate of cash flow from operations',     dv:5,   step:1,  col:'3Y CFO CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
