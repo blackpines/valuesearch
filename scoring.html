@@ -686,10 +686,10 @@ function preprocessStock(s) {
   const netCash = cashSide - debtSide;
   const netCashRatio = mcap > 0 ? (netCash / mcap) * 100 : null;
   const netCashEquityRatio = eq > 0 ? (netCash / eq) * 100 : null;
-  const equityInvestRatio = mcap > 0 && (s.equityInvest||0) > 0 ? ((s.equityInvest||0) / mcap) * 100 : null;
-  const investPropertyRatio = mcap > 0 && (s.investProperty||0) > 0 ? ((s.investProperty||0) / mcap) * 100 : null;
+  const equityInvestRatio = mcap > 0 ? ((s.equityInvest||0) / mcap) * 100 : null;
+  const investPropertyRatio = mcap > 0 ? ((s.investProperty||0) / mcap) * 100 : null;
   const _fi = (s.fvtplCurrent||0)+(s.fvtplNoncurrent||0)+(s.fvociCurrent||0)+(s.fvociNoncurrent||0);
-  const finInvestRatio = mcap > 0 && _fi > 0 ? (_fi / mcap) * 100 : null;
+  const finInvestRatio = mcap > 0 ? (_fi / mcap) * 100 : null;
 
   // ─── 자기주식 보정 계수 ───
   // DPS는 유통주식수, 시가총액은 발행주식총수 → 자기주식 비율만큼 보정
