@@ -240,6 +240,9 @@
       <strong>순현금성자산:</strong> (현금및현금성자산 + 단기금융상품 + 기타유동금융자산 등 유동금융자산) − (단기차입금 + 유동성장기부채 + 사채 + 장기차입금 + 전환사채 + 교환사채 등 전체 이자부부채). 양수일 경우 투자, 주주환원 여력 높음<br>
       <strong>순현금성자산/시가총액:</strong> 순현금성자산 ÷ 시가총액 × 100(%)<br>
       <strong>순현금성자산/순자산:</strong> 순현금성자산 ÷ 지배주주 자본 × 100(%)<br>
+      <strong>관계기업투자/시가총액:</strong> 관계기업·공동기업 지분(지분법 장부가) ÷ 시가총액 × 100(%). 비율이 높을수록 자회사·관계사 지분 가치가 시총 대비 큰 기업<br>
+      <strong>투자부동산/시가총액:</strong> 투자부동산(임대·시세차익 목적 부동산) ÷ 시가총액 × 100(%). 비율이 높을수록 보유 부동산 자산 가치가 시총 대비 큰 기업<br>
+      <strong>금융자산/시가총액:</strong> (유동·비유동 FVTPL + 유동·비유동 FVOCI) ÷ 시가총액 × 100(%). 당기손익·기타포괄손익 공정가치측정 금융자산의 시총 대비 보유 비중<br>
       <strong>3년 매출액 성장률:</strong> 3개년 매출액 CAGR<br>
       <strong>3년 영업이익 성장률:</strong> 3개년 영업이익 CAGR<br>
       <strong>3년 영업현금흐름 성장률:</strong> 3개년 영업활동현금흐름 CAGR<br>
@@ -573,6 +576,9 @@ function compute(s) {
     netCash: netCashVal,
     netCashRatio: s.mcap > 0 ? Math.round((netCashVal / s.mcap) * 10000) / 100 : null,
     netCashEquityRatio: eqP > 0 ? Math.round((netCashVal / eqP) * 10000) / 100 : null,
+    equityInvestRatio: s.mcap > 0 ? Math.round(((s.equityInvest||0) / s.mcap) * 10000) / 100 : null,
+    investPropertyRatio: s.mcap > 0 ? Math.round(((s.investProperty||0) / s.mcap) * 10000) / 100 : null,
+    finInvestRatio: s.mcap > 0 ? (function(){ var fi=(s.fvtplCurrent||0)+(s.fvtplNoncurrent||0)+(s.fvociCurrent||0)+(s.fvociNoncurrent||0)+(s.shortInv||0)+(s.longInvest||0); return Math.round((fi/s.mcap)*10000)/100; })() : null,
     revGrowth: cagrC(s.rev[0],s.rev[2],2),
     opGrowth: cagrC(s.op[0],s.op[2],2),
     ocfGrowth: cagrC(s.ocf[0],s.ocf[2],2),
@@ -590,7 +596,8 @@ const METRIC_CATEGORIES = [
   { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: '현금흐름',   keys: ['ocfOp', 'fcfNi'] },
-  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash', 'netCashRatio', 'netCashEquityRatio'] },
+  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash'] },
+  { name: '자산가치',   keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
   { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: '유동성',     keys: ['mcap', 'avgTV20', 'turnover'] },
   { name: '지배구조',   keys: ['majorSH', 'treasurySHR'] },
@@ -625,6 +632,9 @@ const METRICS = {
   netCash:   {label:'순현금성자산',           unit:'억원 이상',desc:'(현금및현금성자산+단기금융상품 등)−(전체 이자부부채) 순액',          dv:0,   step:100,col:'순현금성자산',         get:s=>s.netCash,    fmt:v=>fmtN(v),cmp:'gte'},
   netCashRatio:{label:'순현금성자산/시가총액',         unit:'% 이상',  desc:'순현금성자산÷시가총액',                   dv:0,   step:5,  col:'순현금성자산/시가총액',    get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCashEquityRatio:{label:'순현금성자산/순자산',    unit:'% 이상',  desc:'순현금성자산÷지배주주자본 (자본 내 현금비중)',                dv:0,   step:5,  col:'순현금성자산/순자산',  get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  equityInvestRatio:{label:'관계기업투자/시가총액',     unit:'% 이상',  desc:'관계기업투자(지분법)÷시가총액 — 자회사·관계사 지분가치 비중', dv:20,  step:5,  col:'관계기업투자/시가총액',  get:s=>s.equityInvestRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  investPropertyRatio:{label:'투자부동산/시가총액',     unit:'% 이상',  desc:'투자부동산÷시가총액 — 보유 투자부동산 가치 비중',           dv:20,  step:5,  col:'투자부동산/시가총액',    get:s=>s.investPropertyRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  finInvestRatio:{label:'금융자산/시가총액',           unit:'% 이상',  desc:'(FVTPL+FVOCI)÷시가총액 — 보유 금융투자자산 비중',          dv:20,  step:5,  col:'금융자산/시가총액',      get:s=>s.finInvestRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   revGrowth: {label:'3년 매출액 성장률(CAGR)',unit:'% 이상',  desc:'3년간 매출액 연평균 성장률',              dv:5,   step:1,  col:'3년 매출 CAGR',  get:s=>s.revGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   opGrowth:  {label:'3년 영업이익 성장률(CAGR)',unit:'% 이상', desc:'3년간 영업이익 연평균 성장률',           dv:10,  step:1,  col:'3년 영업이익 CAGR',    get:s=>s.opGrowth,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   ocfGrowth: {label:'3년 영업현금흐름 성장률(CAGR)',   unit:'% 이상',  desc:'3년간 영업활동현금흐름 연평균 성장률',    dv:5,   step:1,  col:'3년 영업현금흐름 CAGR',   get:s=>s.ocfGrowth,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
