@@ -343,7 +343,7 @@ function fmtN(n) {
     if (Math.abs(usd) >= 1e3) return '$' + (usd/1e3).toFixed(0) + 'K';
     return '$' + Math.round(usd).toLocaleString();
   }
-  if (Math.abs(n) >= 10000) return (n/10000).toFixed(1)+'조원';
+  if (Math.abs(n) >= 10000){var p=(n/10000).toFixed(1).split('.');p[0]=parseInt(p[0]).toLocaleString();return p.join('.')+'조원';}
   return n.toLocaleString()+'억원';
 }
 function fmtPrice(n) {
@@ -722,7 +722,7 @@ function preprocessStock(s) {
     _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,
     _majorSH: s.majorShareholderRate || 0,
     _treasuryRatio: s.treasuryShareRatio || 0,
-    _reportShort: (s.reportShort||'').replace('SR ','2Q ').replace('AR ','FY '),
+    _reportShort: (s.reportShort||'').replace('SR ','2Q ').replace('AR ','FY ').replace(/\.\d{2}$/,''),
   };
 }
 
@@ -964,7 +964,7 @@ function renderTable() {
       <td class="col-name${nameSticky?' sticky':''}">${s.name} ${mktBadge}</td>
       <td class="col-code">${s.code}</td>
       <td class="col-sector">${s.sector}</td>
-      <td class="col-code" style="color:var(--text-secondary)" title="${s.report||''}">${(s.reportShort||'-').replace('SR ','2Q ').replace('AR ','FY ')}</td>
+      <td class="col-code" style="color:var(--text-secondary)" title="${s.report||''}">${(s.reportShort||'-').replace('SR ','2Q ').replace('AR ','FY ').replace(/\.\d{2}$/,'')}</td>
       <td class="col-price">${fmtPrice(s._price)}</td>
       <td class="col-num">${fmtN(s._mcap)}</td>
       <td class="col-score ${scoreCls}">${s._score.toFixed(1)}</td>

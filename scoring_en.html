@@ -726,7 +726,7 @@ function preprocessStock(s) {
     _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,
     _majorSH: s.majorShareholderRate || 0,
     _treasuryRatio: s.treasuryShareRatio || 0,
-    _reportShort: (s.reportShort||'').replace('SR ','2Q ').replace('AR ','FY '),
+    _reportShort: (s.reportShort||'').replace('SR ','2Q ').replace('AR ','FY ').replace(/\.\d{2}$/,''),
   };
 }
 
@@ -974,7 +974,7 @@ function renderTable() {
       <td class="col-name${nameSticky?' sticky':''}">${s.name} ${mktBadge}</td>
       <td class="col-code">${s.code}</td>
       <td class="col-sector">${s.sector}</td>
-      <td class="col-code" style="color:var(--text-secondary)" title="${s.report||''}">${(s.reportShort||'-').replace('SR ','2Q ').replace('AR ','FY ')}</td>
+      <td class="col-code" style="color:var(--text-secondary)" title="${s.report||''}">${(s.reportShort||'-').replace('SR ','2Q ').replace('AR ','FY ').replace(/\.\d{2}$/,'')}</td>
       <td class="col-price">${fmtPrice(s._price)}</td>
       <td class="col-num">${fmtN(s._mcap)}</td>
       <td class="col-score ${scoreCls}">${s._score.toFixed(1)}</td>
