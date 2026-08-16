@@ -10,10 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-primary:#0a0f1a;--bg-secondary:#111827;--bg-card:#1a2235;--bg-card-hover:#1f2a40;
-    --border:#2a3550;--border-active:#3b82f6;--text-primary:#e8ecf4;--text-secondary:#8899b4;
-    --text-muted:#5a6a85;--accent-blue:#3b82f6;--gold:#d4a853;--gold-dim:rgba(212,168,83,0.15);
-    --pass:rgba(16,185,129,0.12);--fail:rgba(239,68,68,0.08);--pass-text:#34d399;--fail-text:#f87171;
+    --bg-primary:#ffffff;--bg-secondary:#f8f9fa;--bg-card:#f0f1f3;--bg-card-hover:#e5e7eb;
+    --border:#d1d5db;--border-active:#1e3a5f;--text-primary:#111827;--text-secondary:#374151;
+    --text-muted:#4b5563;--accent-blue:#1e3a5f;--gold:#1e3a5f;--gold-dim:rgba(30,58,95,0.08);
+    --pass:rgba(30,58,95,0.08);--fail:rgba(220,38,38,0.06);--pass-text:#1e3a5f;--fail-text:#dc2626;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;min-height:100vh}
@@ -46,7 +46,7 @@
 
   .pipeline-container{margin-bottom:48px}
   .pipeline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-  .pipeline-label{font-family:'Noto Sans KR',sans-serif;font-size:13px;letter-spacing:1px;color:#fff;font-weight:700;margin-top:8px}
+  .pipeline-label{font-family:'Noto Sans KR',sans-serif;font-size:13px;letter-spacing:1px;color:var(--accent-blue);font-weight:700;margin-top:8px}
   .btn-add-step{background:transparent;border:1px dashed var(--text-muted);color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:7px 18px;border-radius:8px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:6px}
   .btn-add-step:hover{border-color:var(--gold);color:var(--gold)}
   .pipeline-scroll{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth}
@@ -58,7 +58,7 @@
   .step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s ease;min-width:270px;flex-shrink:0;flex:1}
   .step-card:hover{background:var(--bg-card-hover);border-color:rgba(59,130,246,0.3)}
   .step-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
-  .step-number{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#fff;letter-spacing:1px;font-weight:700}
+  .step-number{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--accent-blue);letter-spacing:1px;font-weight:700}
   .step-actions{display:flex;gap:2px}
   .step-actions button{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px;transition:all .2s;line-height:1}
   .step-actions button:hover{color:var(--accent-blue);background:rgba(59,130,246,0.1)}
@@ -101,36 +101,36 @@
   .table-scroll::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:4px}
   .table-scroll::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,0.35)}
   .table-scroll{scrollbar-width:thin;scrollbar-color:rgba(148,163,184,0.2) transparent}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2}
   thead th:hover{color:var(--gold)}
   thead th .sort-icon{margin-left:3px;font-size:10px}
-  tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);transition:background .15s}
+  tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);transition:background .15s;background:#fff}
   tbody tr:hover{background:var(--bg-card-hover)}
   tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
   .col-name{font-weight:500;color:var(--text-primary)}
-  .col-name.sticky{position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
-  tr:hover .col-name.sticky{background:var(--bg-card-hover)}
-  tr.all-pass .col-name.sticky{background:#111D2A}
-  tr.all-pass:hover .col-name.sticky{background:#111D2A}
+  .col-name.sticky{position:sticky;left:0;z-index:1;background:inherit}
+  
+  
+  
   thead th.th-sticky{position:sticky;left:0;z-index:3;background:var(--bg-card)}
   .pin-btn{cursor:pointer;font-size:12px;opacity:0.35;transition:opacity 0.2s;vertical-align:middle;margin-left:12px;padding:4px}
   .pin-btn:hover{opacity:0.7}
   .pin-btn.pin-active{opacity:1}
-  .col-code{font-family:'DM Mono',monospace;color:var(--text-muted);font-size:12px}
-  .col-sector{color:var(--text-secondary);font-size:12px}
-  .col-num{font-family:'DM Mono',monospace;text-align:right;color:var(--text-primary)}
+  .col-code{color:var(--text-muted)}
+  .col-sector{color:var(--text-secondary)}
+  .col-num{text-align:right;color:var(--text-primary)}
   .col-num.positive{color:var(--pass-text)}
   .col-num.negative{color:var(--fail-text)}
   .col-num.neutral{color:var(--text-primary)}
-  .badge-pass{display:inline-block;background:var(--pass);color:var(--pass-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
+  .badge-pass{display:inline-block;background:var(--pass);color:var(--pass-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px}
   .market-badge{display:inline-block;font-size:9px;font-weight:500;padding:1px 5px;border-radius:4px;margin-left:4px;vertical-align:middle;letter-spacing:0.5px}
   .market-badge.kp{background:rgba(59,130,246,0.15);color:#60a5fa}
   .market-badge.kd{background:rgba(251,146,60,0.15);color:#fb923c}
   .market-badge.kn{background:rgba(168,85,247,0.15);color:#a855f7}
-  .badge-fail{display:inline-block;background:var(--fail);color:var(--fail-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px;font-family:'DM Mono',monospace}
-  tbody tr.all-pass{background:rgba(16,185,129,0.03)}
-  tbody tr.all-pass:hover{background:var(--bg-card-hover)}
+  .badge-fail{display:inline-block;background:var(--fail);color:var(--fail-text);font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px}
+  tbody tr.all-pass{background:#eef2f7}
+  tbody tr.all-pass:hover{background:#e5e7eb}
   .table-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted)}
   .empty-state{text-align:center;padding:80px 40px;color:var(--text-muted)}
   .empty-state .icon{font-size:48px;margin-bottom:16px;opacity:.4}
@@ -202,7 +202,7 @@
       <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과<br class="mobile-br"><span class="mobile-nowrap"> 기업만</span></button>
       <button class="btn" id="btn-all" onclick="toggleView('all')">전체<br class="mobile-br"><span class="mobile-nowrap"> 보기</span></button>
       <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">CSV<br class="mobile-br"><span class="mobile-nowrap"> 내보내기</span></button>
-      <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:#fff;background:rgba(59,130,246,0.25)">KRW →<br class="mobile-br"><span class="mobile-nowrap"> USD</span></button>
+      <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(30,58,95,0.06)">KRW →<br class="mobile-br"><span class="mobile-nowrap"> USD</span></button>
     </div>
   </div>
 
@@ -566,7 +566,7 @@ function compute(s) {
   return {
     ...s,
     _price:s.price, _mcap:s.mcap, _per:s.per, _pbr:s.pbr,
-    _report:s.report, _reportShort:s.reportShort,
+    _report:s.report, _reportShort:(s.reportShort||'').replace('SR ','2Q ').replace('AR ','FY '),
     _market:s.market||'',
     avgOPM: avgOPM !== null ? Math.round(avgOPM*100)/100 : null,
     avgNPM: avgNPM !== null ? Math.round(avgNPM*100)/100 : null,
@@ -731,7 +731,7 @@ function renderBody(f){
   document.getElementById('result-summary').innerHTML=`전체 <strong style="color:var(--text-primary)">${f.length}</strong>개 종목 중 ${steps.length}단계 통과: <strong>${passN}</strong>개`;
   const tb=document.getElementById('table-body');
   if(!disp.length){tb.innerHTML=`<tr><td colspan="${5+mk.length+1}"><div class="empty-state"><div class="icon">🔍</div><p>필터 조건에 해당하는 기업이 없습니다. 기준을 조정해보세요.</p></div></td></tr>`}
-  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('AR')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name${nameSticky?' sticky':''}">${s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'코스닥':s._market==='KONEX'?'코넥스':'코스피'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
+  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('FY')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name${nameSticky?' sticky':''}">${s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'코스닥':s._market==='KONEX'?'코넥스':'코스피'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sector}</td><td class="col-code" style="color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
   document.getElementById('footer-info').textContent=`${disp.length}개 종목 표시 중`;
 }
 

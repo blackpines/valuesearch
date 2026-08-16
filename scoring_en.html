@@ -7,13 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-primary:#0a0f1a;--bg-secondary:#111827;--bg-card:#1a2235;--bg-card-hover:#1f2a40;
-  --text-primary:#e8ecf4;--text-secondary:#8899b4;--text-muted:#5a6a85;
-  --gold:#d4a853;--gold-glow:rgba(212,168,83,0.15);--gold-dim:rgba(212,168,83,0.15);
-  --pass:rgba(16,185,129,0.12);--pass-bg:rgba(16,185,129,0.12);--pass-text:#34d399;
-  --fail:rgba(239,68,68,0.08);--fail-text:#f87171;
-  --border:#2a3550;--border-active:#3b82f6;
-  --accent-blue:#3b82f6;
+  --bg-primary:#ffffff;--bg-secondary:#f8f9fa;--bg-card:#f0f1f3;--bg-card-hover:#e5e7eb;
+  --text-primary:#111827;--text-secondary:#374151;--text-muted:#4b5563;
+  --gold:#1e3a5f;--gold-glow:rgba(30,58,95,0.08);--gold-dim:rgba(30,58,95,0.08);
+  --pass:rgba(30,58,95,0.08);--pass-bg:rgba(30,58,95,0.08);--pass-text:#1e3a5f;
+  --fail:rgba(220,38,38,0.06);--fail-text:#dc2626;
+  --border:#d1d5db;--border-active:#1e3a5f;
+  --accent-blue:#1e3a5f;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;min-height:100vh}
@@ -34,7 +34,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 /* Section headers (outside panel) */
 .section-wrap{flex:1;display:flex;flex-direction:column}
 .section-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:0 4px}
-.section-label{font-family:'DM Mono',monospace;font-size:12.5px;color:#fff;text-transform:uppercase;letter-spacing:2px;font-weight:700}
+.section-label{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--accent-blue);text-transform:uppercase;letter-spacing:2px;font-weight:700}
 .section-count{color:var(--text-muted);font-size:11px;margin-left:auto;font-family:'DM Mono',monospace}
 
 /* 2-column layout */
@@ -63,7 +63,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 .sector-chip:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
 .sector-chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);font-weight:500}
 .sector-chip.selected:hover{background:rgba(212,168,83,0.25)}
-.filter-num{font-family:'DM Mono',monospace;font-size:11px;color:#fff;letter-spacing:1px;min-width:26px;text-align:center;display:flex;align-items:center;justify-content:center}
+.filter-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent-blue);letter-spacing:1px;min-width:26px;text-align:center;display:flex;align-items:center;justify-content:center}
 .filter-move{display:flex;flex-direction:column;gap:0}
 .btn-move{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:11px;padding:1px 5px;border-radius:4px;line-height:1;transition:all .2s}
 .btn-move:hover:not(:disabled){color:var(--accent-blue);background:rgba(59,130,246,0.1)}
@@ -101,25 +101,25 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 .table-wrap::-webkit-scrollbar-track{background:transparent}
 .table-wrap::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:4px}
 .table-wrap::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,0.35)}
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;font-family:'Noto Sans KR',sans-serif}
-thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2;box-sizing:border-box}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;font-family:'Noto Sans KR',sans-serif}
+thead th{background:var(--bg-card);padding:14px 14px;text-align:left;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2;box-sizing:border-box}
 thead th:hover{color:var(--gold)}
-tbody tr{border-bottom:1px solid rgba(42,53,80,0.5)}
-tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:13px;border-bottom:1px solid var(--border);box-sizing:border-box}
+tbody tr{border-bottom:1px solid rgba(42,53,80,0.5);background:#fff}
+tbody td{padding:12px 14px;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:14px;border-bottom:1px solid var(--border);box-sizing:border-box}
 tbody tr:hover{background:var(--bg-card-hover)}
-.col-rank{text-align:center;min-width:70px;font-family:'DM Mono',monospace;color:var(--text-secondary);font-weight:700;box-sizing:border-box;padding-left:18px;padding-right:18px}
-.col-rank.sticky{position:sticky;left:0;z-index:1;background:var(--bg-secondary)}
-tr:hover .col-rank.sticky{background:var(--bg-card-hover)}
-tr.top3 .col-rank.sticky{background:#111E2B}
-tr.top3:hover .col-rank.sticky{background:#111E2B}
+.col-rank{text-align:center;min-width:70px;color:var(--text-primary);font-weight:700;box-sizing:border-box;padding-left:18px;padding-right:18px}
+.col-rank.sticky{position:sticky;left:0;z-index:1;background:inherit}
+
+
+
 thead th.th-rank-sticky{position:sticky;left:0;z-index:3;background:var(--bg-card)}
-.col-score{text-align:right;font-family:'DM Mono',monospace;font-weight:700;background:#11222D}
-.col-num{text-align:right;font-family:'DM Mono',monospace;white-space:nowrap}
-.col-name{font-weight:500;white-space:nowrap}
-.col-name.sticky{position:sticky;left:60px;z-index:1;background:var(--bg-secondary)}
-tr:hover .col-name.sticky{background:var(--bg-card-hover)}
-tr.top3 .col-name.sticky{background:#111E2B}
-tr.top3:hover .col-name.sticky{background:#111E2B}
+.col-score{text-align:right;font-weight:700;background:#eef2f7}
+.col-num{text-align:right;white-space:nowrap;color:var(--text-primary)}
+.col-name{font-weight:500;white-space:nowrap;color:var(--text-primary)}
+.col-name.sticky{position:sticky;left:60px;z-index:1;background:inherit}
+
+
+
 thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)}
 .pin-btn{cursor:pointer;font-size:12px;opacity:0.35;transition:opacity 0.2s;vertical-align:middle;margin-left:12px;padding:4px}
 .pin-btn:hover{opacity:0.7}
@@ -128,17 +128,17 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
 .market-badge.kp{background:rgba(59,130,246,0.15);color:#60a5fa}
 .market-badge.kd{background:rgba(251,146,60,0.15);color:#fb923c}
 .market-badge.kn{background:rgba(168,85,247,0.15);color:#a855f7}
-.col-sector{color:var(--text-muted);white-space:nowrap}
-.col-code{font-family:'DM Mono',monospace;color:var(--text-muted);white-space:nowrap}
-.col-price{text-align:right;font-family:'DM Mono',monospace;white-space:nowrap}
+.col-sector{color:var(--text-primary);white-space:nowrap}
+.col-code{color:var(--text-secondary);white-space:nowrap}
+.col-price{text-align:right;white-space:nowrap;color:var(--text-primary)}
 
 .score-bar{display:inline-block;height:5px;border-radius:3px;background:var(--gold);opacity:0.6;vertical-align:middle;margin-right:6px}
 .score-high{color:var(--pass-text)}
-.score-mid{color:var(--text-primary)}
+.score-mid{color:#059669}
 .score-low{color:var(--fail-text)}
 
-.top3{background:rgba(16,185,129,0.04)}
-.top3 .col-rank.sticky,.top3 .col-name.sticky{background:#17261e}
+.top3{background:#eef2f7}
+
 
 .mode-tabs{display:flex;gap:8px;margin-bottom:24px}
 .mode-tab{display:inline-block;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500;
@@ -255,7 +255,7 @@ thead th.th-sticky{position:sticky;left:60px;z-index:3;background:var(--bg-card)
       <span style="font-size:12px;color:var(--text-muted)">🏢 Coverage: KRX common stocks, Mkt Cap ≥ ₩50B (excl. preferred, funds)</span>
     </div>
     <div style="display:flex;gap:8px">
-      <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:#fff;background:rgba(59,130,246,0.25)">KRW → USD</button>
+      <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(30,58,95,0.06)">KRW → USD</button>
       <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">Export CSV</button>
     </div>
   </div>
@@ -726,7 +726,7 @@ function preprocessStock(s) {
     _turnover: (s.avgTradingValue20 && mcap > 0) ? (s.avgTradingValue20 / mcap) * 100 : null,
     _majorSH: s.majorShareholderRate || 0,
     _treasuryRatio: s.treasuryShareRatio || 0,
-    _reportShort: s.reportShort || '',
+    _reportShort: (s.reportShort||'').replace('SR ','2Q ').replace('AR ','FY '),
   };
 }
 
@@ -926,7 +926,7 @@ function renderTable() {
   document.getElementById('factor-count').textContent = `${factors.length} factors`;
   const validCount = scored.filter(s=>s._score!==null).length;
   document.getElementById('summary').innerHTML =
-    `Total <strong style="color:#fff;font-weight:700;font-size:22px;margin:0 4px">${DATA.length}</strong> companies, filtered &amp; scored: <strong style="color:var(--gold);font-weight:700;font-size:22px;margin:0 4px">${validCount}</strong>`;
+    `Total <strong style="color:var(--text-primary);font-weight:700;font-size:22px;margin:0 4px">${DATA.length}</strong> companies, filtered &amp; scored: <strong style="color:var(--gold);font-weight:700;font-size:22px;margin:0 4px">${validCount}</strong>`;
 
   // Header
   const sortIcon = col => sortCol === col ? (sortAsc ? ' ▲' : ' ▼') : ' <span style="opacity:0.4;font-size:10px">↕</span>';
@@ -947,7 +947,7 @@ function renderTable() {
       <th onclick="doSort('_reportShort')">Report${sortIcon('_reportShort')}</th>
       <th style="text-align:right" onclick="doSort('_price')">Price${sortIcon('_price')}</th>
       <th style="text-align:right" onclick="doSort('_mcap')">Mkt Cap${sortIcon('_mcap')}</th>
-      <th style="text-align:right;background:#18343E" onclick="doSort('_score')">Score${sortIcon('_score')}</th>
+      <th style="text-align:right;background:#e8ecf2" onclick="doSort('_score')">Score${sortIcon('_score')}</th>
       ${factorHeaders}
     </tr>`;
 
@@ -962,7 +962,7 @@ function renderTable() {
       const raw = m.get(s);
       const sc = s._factorScores[fi];
       const display = raw !== null ? m.fmt(raw) : 'N/A';
-      const scColor = sc !== null ? (sc >= 70 ? 'var(--pass-text)' : sc >= 40 ? 'var(--text-muted)' : 'var(--fail-text)') : 'var(--text-muted)';
+      const scColor = sc !== null ? (sc >= 70 ? 'var(--pass-text)' : sc >= 40 ? '#059669' : 'var(--fail-text)') : 'var(--text-muted)';
       const scDisplay = sc !== null ? `<span style="color:${scColor};font-size:10px"> ${sc.toFixed(0)}p</span>` : '';
       return `<td class="col-num">${display}${scDisplay}</td>`;
     }).join('');
@@ -974,7 +974,7 @@ function renderTable() {
       <td class="col-name${nameSticky?' sticky':''}">${s.name} ${mktBadge}</td>
       <td class="col-code">${s.code}</td>
       <td class="col-sector">${s.sector}</td>
-      <td class="col-code" style="font-size:11px;color:var(--text-secondary)" title="${s.report||''}">${s.reportShort||'-'}</td>
+      <td class="col-code" style="color:var(--text-secondary)" title="${s.report||''}">${(s.reportShort||'-').replace('SR ','2Q ').replace('AR ','FY ')}</td>
       <td class="col-price">${fmtPrice(s._price)}</td>
       <td class="col-num">${fmtN(s._mcap)}</td>
       <td class="col-score ${scoreCls}">${s._score.toFixed(1)}</td>
