@@ -699,7 +699,7 @@ function buildMetricOptions(selectedKey) {
 
 // ─── State ───
 let filters=[
-  {id:1, conds:[{cid:101, metric:'mcap', op:'gte', value:1000}]},
+  {id:1, conds:[{cid:101, metric:'mcap', op:'bt', value:1000, value2:100000}]},
   {id:2, conds:[{cid:102, metric:'avgOPM', op:'gte', value:10}]},
   {id:3, conds:[{cid:103, metric:'netCash', op:'gte', value:0}]}
 ];
@@ -744,7 +744,7 @@ function renderPipeline(){
     const condsHtml=flt.conds.map(cond=>renderCond(flt,cond)).join('<div class="cond-or">또는</div>');
     c.innerHTML=`<div class="step-card-header"><div class="step-number">필터 ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
       <div class="cond-list">${condsHtml}</div>
-      <button class="btn-add-cond" onclick="addCond(${flt.id})"><span style="font-size:14px">+</span> 또는(OR) 조건 추가</button>
+      
       <div class="step-stat" id="ss-${flt.id}"><span class="stat-label">통과</span></div>`;
     el.appendChild(c);
   });
@@ -762,14 +762,14 @@ function renderCond(flt,cond){
     const summary=selected.length===0?'전체':`${selected.length}개 선택`;
     opValUI=`<div class="step-threshold step-sector"><div class="sector-summary">${summary} <span class="sector-btns"><button class="sector-clear" onclick="selectAllCondSector(${flt.id},${cond.cid})" title="전체 선택">전체</button><button class="sector-clear" onclick="clearCondSector(${flt.id},${cond.cid})" title="전체 해제">초기화</button></span></div><div class="sector-options">${opts}</div></div>`;
   }else{
-    const opSel=`<select class="op-select" onchange="chgCondOp(${flt.id},${cond.cid},this.value)"><option value="gte" ${cond.op==='gte'?'selected':''}>이상 ≥</option><option value="lte" ${cond.op==='lte'?'selected':''}>이하 ≤</option><option value="bt" ${cond.op==='bt'?'selected':''}>구간</option></select>`;
     let inp;
+    const _dir = cond.op==='gte' ? ' 이상' : (cond.op==='lte' ? ' 이하' : '');
     if(cond.op==='bt'){
       inp=`<input type="number" class="cond-val" value="${cond.value!=null&&isFinite(cond.value)?cond.value:''}" step="${m.step}" placeholder="min" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">~</span><input type="number" class="cond-val" value="${cond.value2!=null&&isFinite(cond.value2)?cond.value2:''}" step="${m.step}" placeholder="max" oninput="chgCondValue2(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}</span>`;
     }else{
-      inp=`<input type="number" class="cond-val" value="${cond.value!=null?cond.value:''}" step="${m.step}" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}</span>`;
+      inp=`<input type="number" class="cond-val" value="${cond.value!=null?cond.value:''}" step="${m.step}" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}${_dir}</span>`;
     }
-    opValUI=`<div class="step-threshold cond-opval">${opSel}${inp}</div>`;
+    opValUI=`<div class="step-threshold cond-opval">${inp}</div>`;
   }
   return `<div class="cond-row"><div class="cond-row-head">${metricSel}${delCond}</div>${opValUI}</div>`;
 }

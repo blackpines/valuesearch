@@ -701,7 +701,7 @@ function buildMetricOptions(selectedKey) {
 
 // ─── State ───
 let filters=[
-  {id:1, conds:[{cid:101, metric:'mcap', op:'gte', value:1000}]},
+  {id:1, conds:[{cid:101, metric:'mcap', op:'bt', value:100, value2:10000}]},
   {id:2, conds:[{cid:102, metric:'avgOPM', op:'gte', value:10}]},
   {id:3, conds:[{cid:103, metric:'netCash', op:'gte', value:0}]}
 ];
@@ -747,7 +747,7 @@ function renderPipeline(){
     const condsHtml=flt.conds.map(cond=>renderCond(flt,cond)).join('<div class="cond-or">OR</div>');
     c.innerHTML=`<div class="step-card-header"><div class="step-number">FILTER ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
       <div class="cond-list">${condsHtml}</div>
-      <button class="btn-add-cond" onclick="addCond(${flt.id})"><span style="font-size:14px">+</span> Add OR condition</button>
+      
       <div class="step-stat" id="ss-${flt.id}"><span class="stat-label">Pass</span></div>`;
     el.appendChild(c);
   });
@@ -765,14 +765,14 @@ function renderCond(flt,cond){
     const summary=selected.length===0?'All':`${selected.length} selected`;
     opValUI=`<div class="step-threshold step-sector"><div class="sector-summary">${summary} <span class="sector-btns"><button class="sector-clear" onclick="selectAllCondSector(${flt.id},${cond.cid})" title="Select all">All</button><button class="sector-clear" onclick="clearCondSector(${flt.id},${cond.cid})" title="Clear all">Clear</button></span></div><div class="sector-options">${opts}</div></div>`;
   }else{
-    const opSel=`<select class="op-select" onchange="chgCondOp(${flt.id},${cond.cid},this.value)"><option value="gte" ${cond.op==='gte'?'selected':''}>≥ Min</option><option value="lte" ${cond.op==='lte'?'selected':''}>≤ Max</option><option value="bt" ${cond.op==='bt'?'selected':''}>Range</option></select>`;
     let inp;
+    const _dir = cond.op==='gte' ? ' or higher' : (cond.op==='lte' ? ' or lower' : '');
     if(cond.op==='bt'){
       inp=`<input type="number" class="cond-val" value="${cond.value!=null&&isFinite(cond.value)?cond.value:''}" step="${m.step}" placeholder="min" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">~</span><input type="number" class="cond-val" value="${cond.value2!=null&&isFinite(cond.value2)?cond.value2:''}" step="${m.step}" placeholder="max" oninput="chgCondValue2(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}</span>`;
     }else{
-      inp=`<input type="number" class="cond-val" value="${cond.value!=null?cond.value:''}" step="${m.step}" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}</span>`;
+      inp=`<input type="number" class="cond-val" value="${cond.value!=null?cond.value:''}" step="${m.step}" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}${_dir}</span>`;
     }
-    opValUI=`<div class="step-threshold cond-opval">${opSel}${inp}</div>`;
+    opValUI=`<div class="step-threshold cond-opval">${inp}</div>`;
   }
   return `<div class="cond-row"><div class="cond-row-head">${metricSel}${delCond}</div>${opValUI}</div>`;
 }
