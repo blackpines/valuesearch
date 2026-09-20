@@ -45,14 +45,26 @@
   @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
 
   .pipeline-container{margin-bottom:48px}
+  .preset-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:0 0 auto;padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+  .preset-bar label{font-size:12px;color:var(--text-secondary);font-weight:500;white-space:nowrap}
+  .preset-select{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;padding:0 10px;font-size:12px;font-family:inherit;min-width:150px;cursor:pointer;height:32px}
+  .preset-select:focus{border-color:var(--gold);outline:none}
+  .preset-btn{background:none;border:1px solid var(--border);color:var(--text-secondary);padding:0 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s;height:32px;display:inline-flex;align-items:center}
+  .preset-btn:hover{border-color:var(--gold);color:var(--gold)}
+  .preset-btn.danger:hover{border-color:var(--fail-text);color:var(--fail-text)}
+  .preset-name-input{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;padding:0 10px;font-size:12px;font-family:inherit;width:130px;height:32px}
+  .preset-name-input:focus{border-color:var(--gold);outline:none}
+  .preset-msg{font-size:11px;color:var(--pass-text);opacity:0;transition:opacity .3s}
+  .preset-msg.show{opacity:1}
   .pipeline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
   .pipeline-label{font-size:15px;text-transform:uppercase;letter-spacing:2px;color:var(--accent-blue);font-weight:700;margin-top:8px}
   .btn-add-step{background:transparent;border:1px dashed var(--text-muted);color:var(--text-secondary);font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:7px 18px;border-radius:8px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:6px}
   .btn-add-step:hover{border-color:var(--gold);color:var(--gold)}
-  .pipeline-scroll{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth}
-  .pipeline-scroll::-webkit-scrollbar{height:4px}
+  .pipeline-scroll{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(148,163,184,0.2) transparent}
+  .pipeline-scroll::-webkit-scrollbar{width:8px;height:8px}
   .pipeline-scroll::-webkit-scrollbar-track{background:transparent}
-  .pipeline-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+  .pipeline-scroll::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:4px}
+  .pipeline-scroll::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,0.35)}
   .pipeline-arrow{display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:18px;padding:0 6px;flex-shrink:0;opacity:.5}
 
   .step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s ease;min-width:270px;flex-shrink:0;flex:1}
@@ -86,6 +98,19 @@
   .step-stat .pass-count{color:var(--pass-text);font-weight:500}
   .step-stat .total-count{color:var(--text-muted)}
   .step-stat .stat-label{color:var(--text-muted);font-size:13px}
+  .cond-list{display:flex;flex-direction:column;gap:2px}
+  .cond-row{padding:10px 10px 12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:8px}
+  .cond-row-head{display:flex;align-items:center;gap:6px}
+  .cond-row-head .cond-metric{flex:1;font-size:14px;padding:7px 30px 7px 10px}
+  .btn-del-cond{background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:12px;padding:2px 5px;border-radius:4px;flex-shrink:0;line-height:1}
+  .btn-del-cond:hover{color:var(--fail-text);background:var(--fail)}
+  .cond-or{text-align:center;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;padding:3px 0}
+  .btn-add-cond{margin-top:10px;width:100%;background:transparent;border:1px dashed var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:13px;padding:8px;transition:all .2s}
+  .btn-add-cond:hover{border-color:var(--accent-blue);color:var(--accent-blue)}
+  .op-select{background:var(--bg-primary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-size:13px;padding:6px 8px;outline:none;cursor:pointer;flex-shrink:0}
+  .cond-opval{margin-top:10px;display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
+  .cond-opval .cond-val{width:82px}
+  .sector-btns{display:inline-flex;gap:6px;flex-shrink:0}
 
   .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
   .result-summary{font-size:14px;color:var(--text-secondary);font-weight:300}
@@ -155,7 +180,7 @@
     .header{flex-direction:column;align-items:flex-start;gap:16px}
     .app{padding:24px 16px 60px}
     .header-left h1{font-size:30px}
-    .step-card{min-width:240px}
+    .step-card{min-width:300px}
     .controls{flex-direction:column;gap:12px;align-items:flex-start}
     .date-bar{flex-direction:column}
     .mobile-br{display:inline}
@@ -174,10 +199,7 @@
     </div>
   </div>
 
-  <div class="mode-tabs">
-    <a href="value_screener_en.html" class="mode-tab active">Filtering</a>
-    <a href="scoring_en.html" class="mode-tab">Scoring</a>
-  </div>
+  
 
   <div class="data-note animate-in delay-1" id="data-note">
     <div class="dot"></div>
@@ -187,7 +209,7 @@
   <div class="pipeline-container animate-in delay-2">
     <div class="pipeline-header">
       <span class="pipeline-label">Screening Pipeline</span>
-      <button class="btn-add-step" onclick="addStep()"><span style="font-size:16px">+</span> Add Filter</button>
+      <button class="btn-add-step" onclick="addFilter()"><span style="font-size:16px">+</span> Add Filter</button>
     </div>
     <div class="pipeline-scroll" id="pipeline"></div>
   </div>
@@ -236,6 +258,7 @@
       <strong>FCF / Net Income (3Y Avg):</strong> Simple average of annual free cash flow (CFO − CapEx) ÷ net income. Measures the cash-conversion quality of reported net earnings.<br>
       <strong>Dividend Payout Ratio:</strong> Total declared dividends for the attributable fiscal year (final + interim) ÷ controlling-interest net income × 100. Under Korean corporate law, final dividends are confirmed at the following year's AGM; the ratio therefore reflects the most recently ratified fiscal year.<br>
       <strong>Shareholder Payout Ratio:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ controlling-interest net income × 100. Captures total earnings returned to equity holders via both dividends and buybacks. Uses the same reference year as the payout ratio.<br>
+      <strong>Shareholder Payout / FCF:</strong> (Attributable declared dividends + absolute value of share-repurchase outlays) ÷ annual free cash flow (FCF) × 100. Captures free cash flow returned to equity holders via both dividends and buybacks. Uses the same reference year as the payout ratio.<br>
       <strong>Dividend Yield:</strong> Declared dividends ÷ market capitalization × treasury adjustment factor × 100. The numerator is the most recently ratified fiscal-year dividend; the denominator is daily-updated market capitalization (previous close). Treasury adjustment factor = 1 ÷ (1 − treasury share ratio), correcting for the structural mismatch where Korean market cap is computed on issued shares while dividends are paid only on outstanding shares.<br>
       <strong>Shareholder Yield:</strong> (Declared dividends + absolute value of share repurchases) ÷ market capitalization × treasury adjustment factor × 100. Extends dividend yield to incorporate buybacks (which mechanically increase per-share intrinsic value through float reduction).<br>
       <strong>Net Cash Position:</strong> (Cash &amp; equivalents + short-term financial instruments + other current financial assets, etc.) − (all interest-bearing liabilities incl. borrowings, bonds, convertible bonds, etc.). A positive balance indicates balance-sheet flexibility to fund CapEx, M&amp;A, or capital returns.<br>
@@ -546,6 +569,24 @@ function compute(s) {
   const buyback = Math.abs(s.sharesBuyback || 0);
   const shReturn = niP > 0 ? Math.round(((divTotal + buyback) / niP) * 10000) / 100 : null;
 
+  // Shareholder payout / FCF = (attributable dividends + |buyback|) / annual FCF x 100
+  // Same full-year basis as shReturn: use the annual FCF of the numerator's reference year (not TTM).
+  const rptSR = s.reportShort || '';
+  const isAnnualSR = rptSR.startsWith('AR');
+  const lryMatchSR = rptSR.match(/(\d{4})\.\d{2}$/);
+  const lrySR = lryMatchSR ? parseInt(lryMatchSR[1], 10) : null;
+  let fyFcf = null;
+  if (lrySR && s.shReturnYear) {
+    const idxSR = s.shReturnYear - (lrySR - 2);
+    const okSR = isAnnualSR ? (idxSR >= 0 && idxSR <= 2) : (idxSR >= 0 && idxSR <= 1);
+    if (okSR) fyFcf = (ocfArr[idxSR] || 0) + (capexArr[idxSR] || 0);
+  }
+  if (fyFcf === null) {
+    const fiSR = isAnnualSR ? ocfArr.length - 1 : ocfArr.length - 2;
+    fyFcf = (ocfArr[fiSR] || 0) + (capexArr[fiSR] || 0);
+  }
+  const shReturnFcf = fyFcf > 0 ? Math.round(((divTotal + buyback) / fyFcf) * 10000) / 100 : null;
+
   const cashSide=(s.cashEq||0)+(s.shortFin||0)+(s.otherCurrentFinAssets||0)+(s.fvtplCurrent||0)+(s.shortInv||0);
   const debtSide=(s.shortBorrow||0)+(s.curLongDebt||0)+(s.shortBonds||0)+(s.bonds||0)+(s.longBorrow||0)+(s.convertBondsCur||0)+(s.convertBondsNc||0)+(s.exchBondsCur||0)+(s.exchBondsNc||0)+(s.wrtBondsCur||0)+(s.wrtBondsNc||0)+(s.redeemPrefCur||0)+(s.redeemPrefNc||0);
   const netCashVal = cashSide - debtSide;
@@ -575,7 +616,7 @@ function compute(s) {
     avgOPM: avgOPM !== null ? Math.round(avgOPM*100)/100 : null,
     avgNPM: avgNPM !== null ? Math.round(avgNPM*100)/100 : null,
     latestOPM, latestNPM,
-    roe, avgOcfOp, avgFcfNi, divPayout, shReturn,
+    roe, avgOcfOp, avgFcfNi, divPayout, shReturn, shReturnFcf,
     divYield, shYield, ev,
     netCash: netCashVal,
     netCashRatio: s.mcap > 0 ? Math.round((netCashVal / s.mcap) * 10000) / 100 : null,
@@ -600,7 +641,7 @@ const METRIC_CATEGORIES = [
   { name: 'Valuation',     keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
   { name: 'Profitability', keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
   { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi'] },
-  { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'netCash'] },
+  { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'shReturnFcf', 'netCash'] },
   { name: 'Asset Value',       keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
   { name: 'Growth',        keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
   { name: 'Liquidity',     keys: ['mcap', 'avgTV20', 'turnover'] },
@@ -633,6 +674,7 @@ const METRICS = {
   shYield:   {label:'Shareholder Yield',       unit:'%',      desc:'(Dividends + buyback) ÷ market cap (previous close, treasury-share-adjusted)',     dv:5,   step:0.5,col:'SH Yield',      get:s=>s.shYield,    fmt:v=>v===null?'N/A':v.toFixed(2)+'%',cmp:'gte'},
   divPayout: {label:'Dividend Payout Ratio',  unit:'%',      desc:'(Interim + final dividends) ÷ controlling shareholder NI',dv:20,  step:5,  col:'Div Payout',    get:s=>s.divPayout,  fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   shReturn:  {label:'Shareholder Payout Ratio',unit:'%',      desc:'(Dividends + buyback) ÷ controlling shareholder NI',           dv:30,  step:5,  col:'SH Payout',     get:s=>s.shReturn,   fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
+  shReturnFcf:{label:'Shareholder Payout / FCF',unit:'%',     desc:'(Dividends + buyback) ÷ annual FCF',dv:30,  step:5,  col:'SH Payout/FCF', get:s=>s.shReturnFcf,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCash:   {label:'Net Cash',                prefix:'₩',unit:'B',desc:'(Cash + ST financial instruments, etc.) − (all interest-bearing liabilities)',             dv:0,   step:10, col:'Net Cash',       get:s=>s.netCash/10,    fmt:v=>fmtN(v*10),cmp:'gte'},
   netCashRatio:{label:'Net Cash / Mkt Cap',   unit:'%',       desc:'Net cash as % of market cap',                            dv:0,   step:5,  col:'NC/MC',         get:s=>s.netCashRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
   netCashEquityRatio:{label:'Net Cash / Equity',unit:'%',     desc:'Net cash as % of controlling equity (cash weight in assets)',                  dv:0,   step:5,  col:'NC/Equity',     get:s=>s.netCashEquityRatio,fmt:v=>v===null?'N/A':v.toFixed(1)+'%',cmp:'gte'},
@@ -658,67 +700,86 @@ function buildMetricOptions(selectedKey) {
 }
 
 // ─── State ───
-let steps=[{id:1,metric:'mcap',threshold:1000},{id:2,metric:'avgOPM',threshold:10},{id:3,metric:'netCash',threshold:0}];
-let nxtId=4, viewMode='pass', sortCol='mcap', sortAsc=false;
+let filters=[
+  {id:1, conds:[{cid:101, metric:'mcap', op:'gte', value:1000}]},
+  {id:2, conds:[{cid:102, metric:'avgOPM', op:'gte', value:10}]},
+  {id:3, conds:[{cid:103, metric:'netCash', op:'gte', value:0}]}
+];
+let nxtId=4, nxtCid=104, viewMode='pass', sortCol='mcap', sortAsc=false;
 
 // ── Filter state URL serialization (preserved across language switch) ──
 // URL uses 억원 (KRW 100M) as the canonical unit. EN UI uses ₩B internally,
 // so we multiply by 10 when exporting and divide by 10 when importing.
 const BUNIT_METRICS = new Set(['mcap','netCash','avgTV20']);
-function stepsToParam(){return steps.map(s=>{const M=METRICS[s.metric];if(M&&M.cmp==='in'){const arr=Array.isArray(s.threshold)?s.threshold:[];const idx=arr.map(v=>M.options.indexOf(v)).filter(i=>i>=0);return s.metric+':'+idx.join('|')}const m=BUNIT_METRICS.has(s.metric)?10:1;let t=s.threshold!=null?(s.threshold*m):s.threshold;let p=s.metric+':'+t;if(s.threshold2!=null)p+=':'+(s.threshold2*m);return p}).join(',')}
-function paramToSteps(param){if(!param)return null;try{let id=1;return param.split(',').map(p=>{const a=p.split(':');const metric=a[0];const M=METRICS[metric];if(M&&M.cmp==='in'){const idx=(a[1]||'').split('|').filter(x=>x!=='').map(Number);const arr=idx.map(i=>M.options[i]).filter(v=>v!=null);return{id:id++,metric,threshold:arr}}const m=BUNIT_METRICS.has(a[0])?10:1;const o={id:id++,metric:a[0],threshold:Number(a[1])/m};if(a[2]!=null)o.threshold2=Number(a[2])/m;return o})}catch(e){return null}}
-function switchLang(url){window.location.href=url+'?steps='+encodeURIComponent(stepsToParam())}
-(function(){const p=new URLSearchParams(window.location.search).get('steps');const restored=paramToSteps(p);if(restored&&restored.length>0&&restored.every(s=>METRICS[s.metric])){steps=restored;nxtId=Math.max(...steps.map(s=>s.id))+1}})();
+// ── CNF filter core (verified, with BUNIT ×10/÷10 scaling for URL compat) ──
+const OP_KEYWORDS=new Set(['gte','lte','bt','in']);
+function _defaultOp(cmp){if(cmp==='lte')return 'lte';if(cmp==='range')return 'bt';if(cmp==='in')return 'in';return 'gte'}
+function _scale(metric){return BUNIT_METRICS.has(metric)?10:1}
+function isNewFormat(str){if(!str)return false;if(str.includes(';'))return true;return /(?:^|[|;])[^|;:]+:(gte|lte|bt|in)(?::|$)/.test(str)}
+function condToStr(c,M){const m=M[c.metric];if(c.op==='in'){const opts=(m&&m.options)||[];const idx=(Array.isArray(c.value)?c.value:[]).map(v=>opts.indexOf(v)).filter(i=>i>=0);return c.metric+':in:'+idx.join('.')}const sc=_scale(c.metric);if(c.op==='bt')return c.metric+':bt:'+(c.value*sc)+'~'+(c.value2*sc);return c.metric+':'+c.op+':'+(c.value*sc)}
+function filtersToParam(F,M){return F.map(f=>f.conds.map(c=>condToStr(c,M)).join('|')).join(';')}
+function parseCond(cStr,M){const a=cStr.split(':');const metric=a[0],op=a[1],val=a[2];if(!M[metric]||!OP_KEYWORDS.has(op))return null;const m=M[metric];if(op==='in'){const opts=m.options||[];const idx=(val||'').split('.').filter(x=>x!=='').map(Number);return{metric,op:'in',value:idx.map(i=>opts[i]).filter(v=>v!=null)}}const sc=_scale(metric);if(op==='bt'){const pr=(val||'').split('~');return{metric,op:'bt',value:Number(pr[0])/sc,value2:Number(pr[1])/sc}}return{metric,op,value:Number(val)/sc}}
+function paramToFilters(param,M){if(!param)return null;try{let id=1;if(isNewFormat(param)){const F=param.split(';').filter(x=>x!=='').map(fStr=>{const conds=fStr.split('|').filter(x=>x!=='').map(cStr=>parseCond(cStr,M)).filter(Boolean);return conds.length?{id:id++,conds}:null}).filter(Boolean);return F.length?F:null}
+  const F=param.split(',').filter(x=>x!=='').map(pp=>{const a=pp.split(':');const metric=a[0];const m=M[metric];if(!m)return null;const op=_defaultOp(m.cmp);const sc=_scale(metric);let cond;if(op==='in'){const opts=m.options||[];const idx=(a[1]||'').split('|').filter(x=>x!=='').map(Number);cond={metric,op:'in',value:idx.map(i=>opts[i]).filter(v=>v!=null)}}else if(op==='bt'){cond={metric,op:'bt',value:Number(a[1])/sc,value2:a[2]!=null?Number(a[2])/sc:Infinity}}else{cond={metric,op,value:Number(a[1])/sc}}return{id:id++,conds:[cond]}}).filter(Boolean);return F.length?F:null}catch(e){return null}}
+function evalCond(stock,cond,M,norm){const m=M[cond.metric];if(!m)return false;if(cond.op==='in'){const sel=cond.value;if(!Array.isArray(sel)||sel.length===0)return true;const sv=norm?norm(m.get(stock)||''):(m.get(stock)||'');return sel.includes(sv)}const v=m.get(stock);if(v===null||v===undefined)return false;if(cond.op==='bt'){const lo=(cond.value!=null&&isFinite(cond.value))?cond.value:-Infinity;const hi=(cond.value2!=null&&isFinite(cond.value2))?cond.value2:Infinity;return v>=lo&&v<=hi}if(cond.value==null||Number.isNaN(cond.value))return true;if(cond.op==='lte')return v<=cond.value;return v>=cond.value}
+function evalFilter(stock,flt,M,norm){if(!flt.conds||flt.conds.length===0)return true;return flt.conds.some(c=>evalCond(stock,c,M,norm))}
+function evalFilters(stock,F,M,norm){const res={};let pass=true;F.forEach(f=>{const p=evalFilter(stock,f,M,norm);res[f.id]=p;if(!p)pass=false});return{res,pass}}
+function switchLang(url){window.location.href=url+'?steps='+encodeURIComponent(filtersToParam(filters,METRICS))}
+(function(){const p=new URLSearchParams(window.location.search).get('steps');const restored=paramToFilters(p,METRICS);if(restored&&restored.length>0){filters=restored;let maxId=0;filters.forEach(f=>{maxId=Math.max(maxId,f.id||0);f.conds.forEach(c=>{c.cid=nxtCid++})});nxtId=maxId+1}})();
+
+// ── Templates (localStorage, shared key with KO; filters only) ──
+
 
 // Normalize sector to WI26 27 standard set (non-standard → 'Other')
 const WI26_SET = new Set(WI26_OPTIONS);
 function normalizeSector(s){return WI26_SET.has(s)?s:'Other'}
 
-function evalStep(s,step){const m=METRICS[step.metric];if(m.cmp==='in'){const sel=step.threshold;if(!Array.isArray(sel)||sel.length===0)return true;return sel.includes(normalizeSector(m.get(s)||''))}const v=m.get(s);if(v===null)return false;if(m.cmp==='range'){const lo=step.threshold!=null?step.threshold:-Infinity;const hi=step.threshold2!=null?step.threshold2:Infinity;return v>=lo&&v<=hi}if(step.threshold==null)return true;if(m.cmp==='gt')return v>step.threshold;if(m.cmp==='lte')return v<=step.threshold;return v>=step.threshold}
-
-function applyAll(){return DATA.map(s=>{const res={};let pass=true;steps.forEach(st=>{const p=evalStep(s,st);res[st.id]=p;if(!p)pass=false});return{...s,sr:res,passAll:pass}})}
+function applyAll(){return DATA.map(s=>{const r=evalFilters(s,filters,METRICS,normalizeSector);return{...s,sr:r.res,passAll:r.pass}})}
 
 function renderPipeline(){
   const el=document.getElementById('pipeline');el.innerHTML='';
-  steps.forEach((st,i)=>{
+  filters.forEach((flt,i)=>{
     if(i>0){const a=document.createElement('div');a.className='pipeline-arrow';a.textContent='→';el.appendChild(a)}
-    const m=METRICS[st.metric],c=document.createElement('div');c.className='step-card';
-    const moveL = i > 0 ? `<button title="왼쪽으로" onclick="moveStep(${st.id},-1)">◀</button>` : '';
-    const moveR = i < steps.length-1 ? `<button title="오른쪽으로" onclick="moveStep(${st.id},1)">▶</button>` : '';
-    const delBtn = steps.length>1 ? `<button class="btn-del" title="삭제" onclick="removeStep(${st.id})">✕</button>` : '';
-    const cmpSign = m.cmp === 'gte' ? '≥' : m.cmp === 'lte' ? '≤' : m.cmp === 'gt' ? '>' : '';
-    const px = m.prefix || '';
-    const thresholdUI = m.cmp === 'in'
-      ? (function(){
-          const selected = Array.isArray(st.threshold) ? st.threshold : [];
-          // Selected items first, then unselected (preserving WI26 order within each group)
-          const sortedOpts = [
-            ...m.options.filter(o => selected.includes(o)),
-            ...m.options.filter(o => !selected.includes(o))
-          ];
-          const opts = sortedOpts.map(opt => {
-            const isOn = selected.includes(opt);
-            const safe = opt.replace(/'/g, "\\'");
-            return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleSectorOption(${st.id},'${safe}')">${opt}</button>`;
-          }).join('');
-          const summary = selected.length === 0 ? 'All sectors' : `${selected.length} selected`;
-          return `<div class="step-threshold step-sector"><div class="sector-summary">${summary} <button class="sector-clear" onclick="clearSectorSelection(${st.id})" title="Clear all">Clear</button></div><div class="sector-options">${opts}</div></div>`;
-        })()
-      : m.cmp === 'range'
-      ? `<div class="step-threshold"><div class="range-group"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-2px">from</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" style="width:95px" oninput="chgThresh(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif">${m.unit}</span></div><div class="range-group"><span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-2px">to</span>${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold2!=null?st.threshold2:''}" step="${m.step}" style="width:95px" oninput="chgThresh2(${st.id},this.value)"><span class="unit" style="font-family:'Noto Sans KR',sans-serif">${m.unit}</span></div></div>`
-      : `<div class="step-threshold">${cmpSign?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;font-size:14px;margin-right:-4px">${cmpSign}</span>`:''}${px?`<span class="unit" style="font-family:'Noto Sans KR',sans-serif;margin-right:-4px">${px}</span>`:''}<input type="number" value="${st.threshold!=null?st.threshold:''}" step="${m.step}" oninput="chgThresh(${st.id},this.value)"><span class="unit">${m.unit}</span></div>`;
-    c.innerHTML=`<div class="step-card-header"><div class="step-number">Filter ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
-      <select class="step-metric-select" onchange="chgMetric(${st.id},this.value)">${buildMetricOptions(st.metric)}</select>
-      <div class="step-metric-desc">${m.desc}</div>
-      ${thresholdUI}
-      <div class="step-stat" id="ss-${st.id}"><span class="stat-label">Pass</span></div>`;
+    const c=document.createElement('div');c.className='step-card';
+    const moveL=i>0?`<button title="Move left" onclick="moveFilter(${flt.id},-1)">◀</button>`:'';
+    const moveR=i<filters.length-1?`<button title="Move right" onclick="moveFilter(${flt.id},1)">▶</button>`:'';
+    const delBtn=filters.length>1?`<button class="btn-del" title="Delete filter" onclick="removeFilter(${flt.id})">✕</button>`:'';
+    const condsHtml=flt.conds.map(cond=>renderCond(flt,cond)).join('<div class="cond-or">OR</div>');
+    c.innerHTML=`<div class="step-card-header"><div class="step-number">FILTER ${String(i+1).padStart(2,'0')}</div><div class="step-actions">${moveL}${moveR}${delBtn}</div></div>
+      <div class="cond-list">${condsHtml}</div>
+      <button class="btn-add-cond" onclick="addCond(${flt.id})"><span style="font-size:14px">+</span> Add OR condition</button>
+      <div class="step-stat" id="ss-${flt.id}"><span class="stat-label">Pass</span></div>`;
     el.appendChild(c);
   });
 }
+function bareUnit(m){return (m.unit||'').replace(/\s*(이상|이하)\s*$/,'').trim()}
+function renderCond(flt,cond){
+  const m=METRICS[cond.metric];
+  const delCond=flt.conds.length>1?`<button class="btn-del-cond" title="Delete condition" onclick="removeCond(${flt.id},${cond.cid})">✕</button>`:'';
+  const metricSel=`<select class="step-metric-select cond-metric" onchange="chgCondMetric(${flt.id},${cond.cid},this.value)">${buildMetricOptions(cond.metric)}</select>`;
+  let opValUI;
+  if(m.cmp==='in'){
+    const selected=Array.isArray(cond.value)?cond.value:[];
+    const sortedOpts=[...m.options.filter(o=>selected.includes(o)),...m.options.filter(o=>!selected.includes(o))];
+    const opts=sortedOpts.map(opt=>{const isOn=selected.includes(opt);const safe=opt.replace(/'/g,"\\'");return `<button type="button" class="sector-chip${isOn?' selected':''}" onclick="toggleCondSector(${flt.id},${cond.cid},'${safe}')">${opt}</button>`}).join('');
+    const summary=selected.length===0?'All':`${selected.length} selected`;
+    opValUI=`<div class="step-threshold step-sector"><div class="sector-summary">${summary} <span class="sector-btns"><button class="sector-clear" onclick="selectAllCondSector(${flt.id},${cond.cid})" title="Select all">All</button><button class="sector-clear" onclick="clearCondSector(${flt.id},${cond.cid})" title="Clear all">Clear</button></span></div><div class="sector-options">${opts}</div></div>`;
+  }else{
+    const opSel=`<select class="op-select" onchange="chgCondOp(${flt.id},${cond.cid},this.value)"><option value="gte" ${cond.op==='gte'?'selected':''}>≥ Min</option><option value="lte" ${cond.op==='lte'?'selected':''}>≤ Max</option><option value="bt" ${cond.op==='bt'?'selected':''}>Range</option></select>`;
+    let inp;
+    if(cond.op==='bt'){
+      inp=`<input type="number" class="cond-val" value="${cond.value!=null&&isFinite(cond.value)?cond.value:''}" step="${m.step}" placeholder="min" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">~</span><input type="number" class="cond-val" value="${cond.value2!=null&&isFinite(cond.value2)?cond.value2:''}" step="${m.step}" placeholder="max" oninput="chgCondValue2(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}</span>`;
+    }else{
+      inp=`<input type="number" class="cond-val" value="${cond.value!=null?cond.value:''}" step="${m.step}" oninput="chgCondValue(${flt.id},${cond.cid},this.value)"><span class="unit">${bareUnit(m)}</span>`;
+    }
+    opValUI=`<div class="step-threshold cond-opval">${opSel}${inp}</div>`;
+  }
+  return `<div class="cond-row"><div class="cond-row-head">${metricSel}${delCond}</div>${opValUI}</div>`;
+}
+function updateStats(f){filters.forEach((flt,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[filters[j].id]);const p=pool.filter(s=>s.sr[flt.id]).length;const el=document.getElementById(`ss-${flt.id}`);if(el)el.innerHTML=`<span class="stat-label">Pass</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
 
-function updateStats(f){steps.forEach((st,i)=>{let pool=f;for(let j=0;j<i;j++)pool=pool.filter(s=>s.sr[steps[j].id]);const p=pool.filter(s=>s.sr[st.id]).length;const el=document.getElementById(`ss-${st.id}`);if(el)el.innerHTML=`<span class="stat-label">Pass</span> <span class="pass-count">${p}</span><span class="total-count"> / ${pool.length}</span>`})}
-
-function getMetricKeys(){const seen=new Set(),keys=[];steps.forEach(st=>{if(st.metric==='sector')return;if(!seen.has(st.metric)){seen.add(st.metric);keys.push(st.metric)}});return keys}
+function getMetricKeys(){const seen=new Set(),keys=[];filters.forEach(flt=>flt.conds.forEach(c=>{if(c.metric==='sector')return;if(!seen.has(c.metric)){seen.add(c.metric);keys.push(c.metric)}}));return keys}
+function _refThresh(k){for(const flt of filters)for(const c of flt.conds){if(c.metric===k&&c.value!=null&&isFinite(c.value))return c.value}return 999}
 
 let nameSticky = true;
 function togglePin(){
@@ -736,23 +797,31 @@ function sortArr(arr){arr.sort((a,b)=>{if(['name','code','sector','_reportShort'
 
 function renderBody(f){
   const mk=getMetricKeys(),sorted=sortArr([...f]),disp=viewMode==='pass'?sorted.filter(s=>s.passAll):sorted,passN=f.filter(s=>s.passAll).length;
-  document.getElementById('result-summary').innerHTML=`<strong>${passN}</strong> of <strong style="color:var(--text-primary)">${f.length}</strong> companies passed ${steps.length} filters`;
+  document.getElementById('result-summary').innerHTML=`<strong>${passN}</strong> of <strong style="color:var(--text-primary)">${f.length}</strong> companies passed ${filters.length} filters`;
   const tb=document.getElementById('table-body');
   if(!disp.length){tb.innerHTML=`<tr><td colspan="${5+mk.length+1}"><div class="empty-state"><div class="icon">🔍</div><p>필터 조건에 해당하는 기업이 없습니다. 기준을 조정해보세요.</p></div></td></tr>`}
-  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=(steps.find(st=>st.metric===k)?.threshold??999)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('FY')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name${nameSticky?' sticky':''}">${s.nameEn||s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'KOSDAQ':s._market==='KONEX'?'KONEX':'KOSPI'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sectorEn||s.sector}</td><td class="col-code" style="color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
+  else{tb.innerHTML=disp.map(s=>{const cells=mk.map(k=>{const m=METRICS[k],v=m.get(s),dv=v===null?'N/A':m.fmt(v);let cls='neutral';if(v!==null){if(k==='per'||k==='pbr')cls=v<=_refThresh(k)?'positive':'neutral';else cls=v>=0?'positive':'negative'}return`<td class="col-num ${cls}">${dv}</td>`}).join('');const rptCls=s._reportShort.startsWith('FY')?'positive':'';return`<tr class="${s.passAll?'all-pass':''}"><td class="col-name${nameSticky?' sticky':''}">${s.nameEn||s.name} <span class="market-badge ${s._market.startsWith('KOSDAQ')?'kd':s._market==='KONEX'?'kn':'kp'}">${s._market.startsWith('KOSDAQ')?'KOSDAQ':s._market==='KONEX'?'KONEX':'KOSPI'}</span></td><td class="col-code">${s.code}</td><td class="col-sector">${s.sectorEn||s.sector}</td><td class="col-code" style="color:var(--text-secondary)" title="${s._report}">${s._reportShort}</td><td class="col-num neutral">${fmtPrice(s._price)}</td>${cells}<td style="text-align:center">${s.passAll?'<span class="badge-pass">PASS</span>':'<span class="badge-fail">FAIL</span>'}</td></tr>`}).join('')}
   document.getElementById('footer-info').textContent=`Showing ${disp.length} companies`;
 }
 
 function fullRender(){renderPipeline();renderHead();const f=applyAll();updateStats(f);renderBody(f)}
 
-function addStep(){const used=new Set(steps.map(s=>s.metric)),avail=Object.keys(METRICS).find(k=>!used.has(k))||Object.keys(METRICS)[0];const dv=METRICS[avail].dv;steps.push({id:nxtId++,metric:avail,threshold:Array.isArray(dv)?[...dv]:dv});fullRender();setTimeout(()=>document.querySelector('.pipeline-scroll').scrollLeft=9999,50)}
-function removeStep(id){steps=steps.filter(s=>s.id!==id);fullRender()}
-function moveStep(id,dir){const idx=steps.findIndex(s=>s.id===id);const newIdx=idx+dir;if(newIdx<0||newIdx>=steps.length)return;[steps[idx],steps[newIdx]]=[steps[newIdx],steps[idx]];fullRender()}
-function chgMetric(id,metric){const st=steps.find(s=>s.id===id);if(st){st.metric=metric;const m=METRICS[metric];st.threshold=Array.isArray(m.dv)?[...m.dv]:m.dv;if(m.cmp==='range')st.threshold2=m.dv2||100;else delete st.threshold2;fullRender()}}
-function chgThresh(id,val){const st=steps.find(s=>s.id===id);if(st){const t=val===''||val==null?null:parseFloat(val);st.threshold=isNaN(t)?null:t;const f=applyAll();updateStats(f);renderBody(f)}}
-function chgThresh2(id,val){const st=steps.find(s=>s.id===id);if(st){const t=val===''||val==null?null:parseFloat(val);st.threshold2=isNaN(t)?null:t;const f=applyAll();updateStats(f);renderBody(f)}}
-function toggleSectorOption(id,sector){const st=steps.find(s=>s.id===id);if(!st)return;if(!Array.isArray(st.threshold))st.threshold=[];const idx=st.threshold.indexOf(sector);if(idx>=0){st.threshold.splice(idx,1)}else{st.threshold.push(sector)}fullRender()}
-function clearSectorSelection(id){const st=steps.find(s=>s.id===id);if(!st)return;st.threshold=[];fullRender()}
+function _findFilter(fid){return filters.find(f=>f.id===fid)}
+function _findCond(fid,cid){const f=_findFilter(fid);return f?f.conds.find(c=>c.cid===cid):null}
+function firstUnusedMetric(){const used=new Set();filters.forEach(f=>f.conds.forEach(c=>used.add(c.metric)));return Object.keys(METRICS).find(k=>!used.has(k))||Object.keys(METRICS)[0]}
+function newCond(metric){const m=METRICS[metric];const op=_defaultOp(m.cmp);const c={cid:nxtCid++,metric,op};if(op==='in'){c.value=Array.isArray(m.dv)?[...m.dv]:[]}else if(op==='bt'){c.value=(m.dv!=null&&!Array.isArray(m.dv))?m.dv:null;c.value2=(m.dv2!=null?m.dv2:100)}else{c.value=(m.dv!=null&&!Array.isArray(m.dv))?m.dv:null}return c}
+function addFilter(){filters.push({id:nxtId++,conds:[newCond(firstUnusedMetric())]});fullRender();setTimeout(()=>{const el=document.querySelector('.pipeline-scroll');if(el)el.scrollLeft=9999},50)}
+function removeFilter(fid){filters=filters.filter(f=>f.id!==fid);if(filters.length===0)filters.push({id:nxtId++,conds:[newCond(firstUnusedMetric())]});fullRender()}
+function moveFilter(fid,dir){const idx=filters.findIndex(f=>f.id===fid);const ni=idx+dir;if(ni<0||ni>=filters.length)return;[filters[idx],filters[ni]]=[filters[ni],filters[idx]];fullRender()}
+function addCond(fid){const f=_findFilter(fid);if(f){f.conds.push(newCond(firstUnusedMetric()));fullRender()}}
+function removeCond(fid,cid){const f=_findFilter(fid);if(f){f.conds=f.conds.filter(c=>c.cid!==cid);if(f.conds.length===0)filters=filters.filter(x=>x.id!==fid);fullRender()}}
+function chgCondMetric(fid,cid,metric){const c=_findCond(fid,cid);if(c){const m=METRICS[metric];const op=_defaultOp(m.cmp);c.metric=metric;c.op=op;if(op==='in'){c.value=Array.isArray(m.dv)?[...m.dv]:[];delete c.value2}else if(op==='bt'){c.value=(m.dv!=null&&!Array.isArray(m.dv))?m.dv:null;c.value2=(m.dv2!=null?m.dv2:100)}else{c.value=(m.dv!=null&&!Array.isArray(m.dv))?m.dv:null;delete c.value2}fullRender()}}
+function chgCondOp(fid,cid,op){const c=_findCond(fid,cid);if(c){c.op=op;const m=METRICS[c.metric];if(op==='bt'&&(c.value2==null))c.value2=(m.dv2!=null?m.dv2:100);if(op!=='bt')delete c.value2;fullRender()}}
+function chgCondValue(fid,cid,val){const c=_findCond(fid,cid);if(c){const t=(val===''||val==null)?null:parseFloat(val);c.value=isNaN(t)?null:t;const f=applyAll();updateStats(f);renderBody(f)}}
+function chgCondValue2(fid,cid,val){const c=_findCond(fid,cid);if(c){const t=(val===''||val==null)?null:parseFloat(val);c.value2=isNaN(t)?null:t;const f=applyAll();updateStats(f);renderBody(f)}}
+function toggleCondSector(fid,cid,sector){const c=_findCond(fid,cid);if(!c)return;if(!Array.isArray(c.value))c.value=[];const i=c.value.indexOf(sector);if(i>=0)c.value.splice(i,1);else c.value.push(sector);fullRender()}
+function clearCondSector(fid,cid){const c=_findCond(fid,cid);if(c){c.value=[];fullRender()}}
+function selectAllCondSector(fid,cid){const c=_findCond(fid,cid);const m=METRICS[c&&c.metric];if(c&&m&&m.options){c.value=[...m.options];fullRender()}}
 function toggleView(mode){viewMode=mode;document.getElementById('btn-pass').classList.toggle('active',mode==='pass');document.getElementById('btn-all').classList.toggle('active',mode==='all');renderBody(applyAll())}
 
 function exportCSV(){
@@ -785,7 +854,7 @@ function exportCSV(){
 
   csv+=headers.map(csvEsc).join(',')+'\n';
 
-  const pctKeys = new Set(['roe','avgOPM','latestOPM','avgNPM','latestNPM','divYield','shYield','divPayout','shReturn','revGrowth','opGrowth','turnover','majorSH']);
+  const pctKeys = new Set(['roe','avgOPM','latestOPM','avgNPM','latestNPM','divYield','shYield','divPayout','shReturn','shReturnFcf','revGrowth','opGrowth','turnover','majorSH']);
 
   disp.forEach(s=>{
     const vals=mk.map(k=>{
@@ -856,6 +925,7 @@ async function init() {
   document.getElementById('market-date').textContent = marketDateStr;
 
   fullRender();
+  
 }
 
 init();
