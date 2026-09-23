@@ -185,6 +185,7 @@
     .date-bar{flex-direction:column}
     .mobile-br{display:inline}
   }
+#table-head th{cursor:default}
 </style>
 </head>
 <body>
@@ -224,7 +225,7 @@
     <div class="btn-group">
       <button class="btn active" id="btn-pass" onclick="toggleView('pass')">Pass<br class="mobile-br"><span class="mobile-nowrap"> Only</span></button>
       <button class="btn" id="btn-all" onclick="toggleView('all')">Show<br class="mobile-br"><span class="mobile-nowrap"> All</span></button>
-      <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">Export<br class="mobile-br"><span class="mobile-nowrap"> CSV</span></button>
+      
       <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(30,58,95,0.06)">KRW →<br class="mobile-br"><span class="mobile-nowrap"> USD</span></button>
     </div>
   </div>
@@ -638,15 +639,11 @@ let DATA = STOCKS.map(compute);
 
 // ─── Metric Definitions ───
 const METRIC_CATEGORIES = [
-  { name: 'Valuation',     keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
-  { name: 'Profitability', keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
-  { name: 'Cash Flow',     keys: ['ocfOp', 'fcfNi'] },
-  { name: 'Shareholder Return', keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'shReturnFcf', 'netCash'] },
-  { name: 'Asset Value',       keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
-  { name: 'Growth',        keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: 'Liquidity',     keys: ['mcap', 'avgTV20', 'turnover'] },
-  { name: 'Governance',    keys: ['majorSH', 'treasurySHR'] },
-  { name: 'Sector',        keys: ['sector'] },
+  { name: 'Valuation', keys: ['per', 'pbr'] },
+  { name: 'Profitability', keys: ['roe', 'avgOPM'] },
+  { name: 'Shareholder Return', keys: ['divYield', 'netCash'] },
+  { name: 'Liquidity', keys: ['mcap'] },
+  { name: 'Sector', keys: ['sector'] },
 ];
 
 // WI26 26 standard sectors + Other (English)
@@ -788,10 +785,10 @@ function togglePin(){
   document.querySelectorAll('thead th:first-child').forEach(el=>{el.classList.toggle('th-sticky', nameSticky)});
   document.querySelectorAll('.pin-btn').forEach(el=>{el.classList.toggle('pin-active', nameSticky)});
 }
-function sIcon(col){return sortCol===col?(sortAsc?' <span class="sort-icon">▲</span>':' <span class="sort-icon">▼</span>'):' <span class="sort-icon" style="opacity:0.4">↕</span>'}
+function sIcon(col){return ''}
 function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">Company${sIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="Pin company column">📌</span></th><th onclick="doSort('code')">Ticker${sIcon('code')}</th><th onclick="doSort('sector')">Sector${sIcon('sector')}</th><th onclick="doSort('_reportShort')">Report${sIcon('_reportShort')}</th><th onclick="doSort('_price')" style="text-align:right">Price${sIcon('_price')}</th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col}${sIcon(k)}</th>`).join('')}<th style="text-align:center">Result</th></tr>`}
 
-function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderHead();renderBody(applyAll())}
+function doSort(col){return;if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderHead();renderBody(applyAll())}
 
 function sortArr(arr){arr.sort((a,b)=>{if(['name','code','sector','_reportShort'].includes(sortCol))return sortAsc?(a[sortCol]||'').localeCompare(b[sortCol]||''):(b[sortCol]||'').localeCompare(a[sortCol]||'');let va,vb;if(sortCol==='_price'){va=a._price;vb=b._price}else if(METRICS[sortCol]){const m=METRICS[sortCol];va=m.get(a)??-9999;vb=m.get(b)??-9999}else{va=a._mcap;vb=b._mcap}return sortAsc?va-vb:vb-va});return arr}
 

@@ -184,6 +184,7 @@
     .date-bar{flex-direction:column}
     .mobile-br{display:inline}
   }
+#table-head th{cursor:default}
 </style>
 </head>
 <body>
@@ -223,7 +224,7 @@
     <div class="btn-group">
       <button class="btn active" id="btn-pass" onclick="toggleView('pass')">통과<br class="mobile-br"><span class="mobile-nowrap"> 기업만</span></button>
       <button class="btn" id="btn-all" onclick="toggleView('all')">전체<br class="mobile-br"><span class="mobile-nowrap"> 보기</span></button>
-      <button class="btn" onclick="exportCSV()" style="border-color:var(--gold);color:var(--gold)">CSV<br class="mobile-br"><span class="mobile-nowrap"> 내보내기</span></button>
+      
       <button class="btn" id="btn-currency" onclick="toggleCurrency()" style="border-color:var(--accent-blue);color:var(--accent-blue);background:rgba(30,58,95,0.06)">KRW →<br class="mobile-br"><span class="mobile-nowrap"> USD</span></button>
     </div>
   </div>
@@ -636,14 +637,10 @@ let DATA = STOCKS.map(compute);
 
 // ─── Metric Definitions ───
 const METRIC_CATEGORIES = [
-  { name: '밸류에이션', keys: ['per', 'pbr', 'mcapOcf', 'mcapFcf'] },
-  { name: '수익성',     keys: ['roe', 'avgOPM', 'latestOPM', 'avgNPM', 'latestNPM'] },
-  { name: '현금흐름',   keys: ['ocfOp', 'fcfNi'] },
-  { name: '주주환원',   keys: ['divYield', 'shYield', 'divPayout', 'shReturn', 'shReturnFcf', 'netCash'] },
-  { name: '자산가치',   keys: ['netCashRatio', 'netCashEquityRatio', 'equityInvestRatio', 'investPropertyRatio', 'finInvestRatio'] },
-  { name: '성장성',     keys: ['revGrowth', 'opGrowth', 'ocfGrowth'] },
-  { name: '유동성',     keys: ['mcap', 'avgTV20', 'turnover'] },
-  { name: '지배구조',   keys: ['majorSH', 'treasurySHR'] },
+  { name: '밸류에이션', keys: ['per', 'pbr'] },
+  { name: '수익성',     keys: ['roe', 'avgOPM'] },
+  { name: '주주환원',   keys: ['divYield', 'netCash'] },
+  { name: '유동성',     keys: ['mcap'] },
   { name: '업종',       keys: ['sector'] },
 ];
 
@@ -785,10 +782,10 @@ function togglePin(){
   document.querySelectorAll('thead th:first-child').forEach(el=>{el.classList.toggle('th-sticky', nameSticky)});
   document.querySelectorAll('.pin-btn').forEach(el=>{el.classList.toggle('pin-active', nameSticky)});
 }
-function sIcon(col){return sortCol===col?(sortAsc?' <span class="sort-icon">▲</span>':' <span class="sort-icon">▼</span>'):' <span class="sort-icon" style="opacity:0.4">↕</span>'}
+function sIcon(col){return ''}
 function renderHead(){const mk=getMetricKeys();const pinCls=nameSticky?'pin-active':'';const thSticky=nameSticky?' th-sticky':'';document.getElementById('table-head').innerHTML=`<tr><th class="${thSticky}" onclick="doSort('name')">기업명${sIcon('name')} <span class="pin-btn ${pinCls}" onclick="event.stopPropagation();togglePin()" title="기업명 열 고정">📌</span></th><th onclick="doSort('code')">종목코드${sIcon('code')}</th><th onclick="doSort('sector')">업종${sIcon('sector')}</th><th onclick="doSort('_reportShort')">재무기준${sIcon('_reportShort')}</th><th onclick="doSort('_price')" style="text-align:right">종가${sIcon('_price')}</th>${mk.map(k=>`<th onclick="doSort('${k}')" style="text-align:right">${METRICS[k].col}${sIcon(k)}</th>`).join('')}<th style="text-align:center">판정</th></tr>`}
 
-function doSort(col){if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderHead();renderBody(applyAll())}
+function doSort(col){return;if(sortCol===col)sortAsc=!sortAsc;else{sortCol=col;sortAsc=['name','code','sector'].includes(col)}renderHead();renderBody(applyAll())}
 
 function sortArr(arr){arr.sort((a,b)=>{if(['name','code','sector','_reportShort'].includes(sortCol))return sortAsc?(a[sortCol]||'').localeCompare(b[sortCol]||''):(b[sortCol]||'').localeCompare(a[sortCol]||'');let va,vb;if(sortCol==='_price'){va=a._price;vb=b._price}else if(METRICS[sortCol]){const m=METRICS[sortCol];va=m.get(a)??-9999;vb=m.get(b)??-9999}else{va=a._mcap;vb=b._mcap}return sortAsc?va-vb:vb-va});return arr}
 
