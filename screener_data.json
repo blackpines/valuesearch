@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-26 17:20:27",
+  "generated_at": "2026-09-26 23:49:49",
   "market_date": "2026-09-23",
   "market_date_display": "2026.09.23",
-  "run_time_display": "2026.09.26 17:20",
-  "financial_data_date": "2026-09-25 00:13:56",
+  "run_time_display": "2026.09.26 23:49",
+  "financial_data_date": "2026-09-26 23:23:24",
   "total_stocks": 1977,
   "usd_krw_rate": 1362.5,
   "stocks": [
@@ -6433,7 +6433,7 @@
       "capex": [
         -1,
         -126,
-        0
+        -156
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -8958,7 +8958,7 @@
       "capex": [
         -4,
         -27,
-        0
+        -15
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -11382,7 +11382,7 @@
       "capex": [
         -18,
         -36,
-        -25
+        -60
       ],
       "dividendPaid": 40,
       "dividendPaid3yr": [
@@ -11412,8 +11412,8 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 57.32,
-      "treasuryShareRatio": 12.0,
+      "majorShareholderRate": 58.58,
+      "treasuryShareRatio": 12.13,
       "price": 53900,
       "mcap": 1590,
       "per": 6.3,
@@ -12594,7 +12594,7 @@
       "capex": [
         -8,
         -2,
-        -2
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -18553,7 +18553,7 @@
       "capex": [
         -113,
         -14,
-        0
+        -200
       ],
       "dividendPaid": 37,
       "dividendPaid3yr": [
@@ -20977,7 +20977,7 @@
       "capex": [
         -580,
         -745,
-        0
+        -1392
       ],
       "dividendPaid": 145,
       "dividendPaid3yr": [
@@ -21482,7 +21482,7 @@
       "capex": [
         -50,
         -3,
-        4
+        -3
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -22593,7 +22593,7 @@
       "capex": [
         -767,
         -522,
-        -17
+        -479
       ],
       "dividendPaid": 87,
       "dividendPaid3yr": [
@@ -23097,8 +23097,8 @@
       ],
       "capex": [
         -934,
-        -207,
-        0
+        -206,
+        -60
       ],
       "dividendPaid": 67,
       "dividendPaid3yr": [
@@ -24512,7 +24512,7 @@
       "capex": [
         -17,
         -120,
-        -24
+        -52
       ],
       "dividendPaid": 98,
       "dividendPaid3yr": [
@@ -25421,7 +25421,7 @@
       "capex": [
         0,
         -4,
-        0
+        -19
       ],
       "dividendPaid": 14,
       "dividendPaid3yr": [
@@ -25451,7 +25451,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 53.06,
+      "majorShareholderRate": 53.27,
       "treasuryShareRatio": 0,
       "price": 13970,
       "mcap": 1216,
@@ -25825,7 +25825,7 @@
       "capex": [
         -90,
         -25,
-        -3
+        -26
       ],
       "dividendPaid": 20,
       "dividendPaid3yr": [
@@ -28653,7 +28653,7 @@
       "capex": [
         -25,
         -27,
-        0
+        -43
       ],
       "dividendPaid": 64,
       "dividendPaid3yr": [
@@ -29360,7 +29360,7 @@
       "capex": [
         -27,
         -8,
-        -1
+        -8
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -30774,7 +30774,7 @@
       "capex": [
         -30,
         -33,
-        0
+        -88
       ],
       "dividendPaid": 37,
       "dividendPaid3yr": [
@@ -32794,7 +32794,7 @@
       "capex": [
         -111,
         -258,
-        -449
+        -326
       ],
       "dividendPaid": 4,
       "dividendPaid3yr": [
@@ -32996,7 +32996,7 @@
       "capex": [
         -98,
         -189,
-        0
+        -190
       ],
       "dividendPaid": 135,
       "dividendPaid3yr": [
@@ -33026,8 +33026,8 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 55.84,
-      "treasuryShareRatio": 0.99,
+      "majorShareholderRate": 60.81,
+      "treasuryShareRatio": 0.94,
       "price": 52500,
       "mcap": 35632,
       "per": 23.6,
@@ -34511,7 +34511,7 @@
       "capex": [
         -16,
         -9,
-        -14
+        -13
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -34542,11 +34542,11 @@
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
       "majorShareholderRate": 31.2,
-      "treasuryShareRatio": 2.79,
+      "treasuryShareRatio": 2.65,
       "price": 46750,
       "mcap": 24344,
       "per": 0.0,
-      "pbr": 14.69,
+      "pbr": 14.71,
       "avgTradingValue20": 135
     },
     {
@@ -35319,7 +35319,7 @@
       "capex": [
         -272,
         -72,
-        -6
+        -210
       ],
       "dividendPaid": 19,
       "dividendPaid3yr": [
@@ -35723,7 +35723,7 @@
       "capex": [
         -66,
         -24,
-        0
+        -24
       ],
       "dividendPaid": 35,
       "dividendPaid3yr": [
@@ -37541,7 +37541,7 @@
       "capex": [
         -22,
         -4,
-        -5
+        -4
       ],
       "dividendPaid": 34,
       "dividendPaid3yr": [
@@ -38349,7 +38349,7 @@
       "capex": [
         -274,
         -237,
-        -1
+        -192
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -38854,7 +38854,7 @@
       "capex": [
         -13,
         -11,
-        0
+        -7
       ],
       "dividendPaid": 3,
       "dividendPaid3yr": [
@@ -39056,7 +39056,7 @@
       "capex": [
         -18,
         -110,
-        0
+        -27
       ],
       "dividendPaid": 54,
       "dividendPaid3yr": [
@@ -39258,7 +39258,7 @@
       "capex": [
         -13,
         -12,
-        0
+        -9
       ],
       "dividendPaid": 5,
       "dividendPaid3yr": [
@@ -41379,7 +41379,7 @@
       "capex": [
         -84,
         -31,
-        -56
+        -31
       ],
       "dividendPaid": 22,
       "dividendPaid3yr": [
@@ -41985,7 +41985,7 @@
       "capex": [
         -3,
         -2,
-        0
+        -1
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -42389,7 +42389,7 @@
       "capex": [
         -4,
         -11,
-        -1
+        -20
       ],
       "dividendPaid": 12,
       "dividendPaid3yr": [
@@ -46025,7 +46025,7 @@
       "capex": [
         -275,
         -29,
-        -13
+        -27
       ],
       "dividendPaid": 46,
       "dividendPaid3yr": [
@@ -47843,7 +47843,7 @@
       "capex": [
         -357,
         -305,
-        -20
+        -228
       ],
       "dividendPaid": 23,
       "dividendPaid3yr": [
@@ -48146,7 +48146,7 @@
       "capex": [
         -606,
         -488,
-        -2
+        -511
       ],
       "dividendPaid": 64,
       "dividendPaid3yr": [
@@ -50065,7 +50065,7 @@
       "capex": [
         -329,
         -586,
-        -303
+        -693
       ],
       "dividendPaid": 161,
       "dividendPaid3yr": [
@@ -50095,12 +50095,12 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 40.5,
-      "treasuryShareRatio": 4.47,
+      "majorShareholderRate": 42.31,
+      "treasuryShareRatio": 0,
       "price": 19890,
       "mcap": 4240,
       "per": 7.6,
-      "pbr": 0.28,
+      "pbr": 0.29,
       "avgTradingValue20": 24
     },
     {
@@ -54610,7 +54610,7 @@
       "capex": [
         -24,
         -4,
-        0
+        -9
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -55216,7 +55216,7 @@
       "capex": [
         0,
         -1,
-        0
+        -1
       ],
       "dividendPaid": 15,
       "dividendPaid3yr": [
@@ -57537,9 +57537,9 @@
         44271
       ],
       "capex": [
-        -29259,
-        -35967,
-        0
+        -29095,
+        -35965,
+        -27512
       ],
       "dividendPaid": 5591,
       "dividendPaid3yr": [
@@ -57988,36 +57988,36 @@
       "sector": "상사,자본재",
       "sectorEn": "Trading & Capital Goods",
       "market": "KOSDAQ",
-      "report": "26 3분기보고서",
-      "reportShort": "3Q 2026.09",
+      "report": "26 사업보고서",
+      "reportShort": "AR 2026.12",
       "currency": "KRW",
       "rev": [
         582,
         559,
-        534
+        495
       ],
       "op": [
         2,
         -61,
-        -14
+        -64
       ],
       "ni": [
         44,
         -16,
-        21
+        -18
       ],
-      "cashEq": 1114,
+      "cashEq": 1100,
       "shortFin": 0,
       "otherCurrentFinAssets": 0,
       "fvtplCurrent": 0,
       "shortInv": 0,
       "equityInvest": 0,
       "investProperty": 0,
-      "fvtplNoncurrent": 0,
+      "fvtplNoncurrent": 135,
       "fvociCurrent": 0,
-      "fvociNoncurrent": 0,
+      "fvociNoncurrent": 10,
       "longInvest": 0,
-      "shortBorrow": 179,
+      "shortBorrow": 195,
       "curLongDebt": 0,
       "shortBonds": 0,
       "bonds": 0,
@@ -58030,27 +58030,27 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1908,
+      "equity": 1863,
       "equityPriorYear": 1882,
-      "equityPrevQ": 1889,
-      "equityParent": 1908,
+      "equityPrevQ": 1882,
+      "equityParent": 1863,
       "equityParentPriorYear": 1882,
-      "equityParentPrevQ": 1889,
+      "equityParentPrevQ": 1882,
       "ocf": [
         -17,
         13,
-        10
+        14
       ],
       "capex": [
         -14,
         -152,
-        0
+        -116
       ],
-      "dividendPaid": -7,
+      "dividendPaid": 7,
       "dividendPaid3yr": [
-        -7,
-        -7,
-        -7
+        7,
+        7,
+        7
       ],
       "sharesBuyback": 0,
       "sharesBuyback3yr": [
@@ -58058,28 +58058,28 @@
         0,
         0
       ],
-      "niParent": -16,
+      "niParent": -18,
       "niParent3yr": [
+        -18,
         -16,
-        44,
-        12
+        44
       ],
-      "niParentTTM": -16,
+      "niParentTTM": -18,
       "dividendTotal": 7,
       "dividendTotal3yr": [
         7,
         7,
         7
       ],
-      "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
+      "shReturnYear": 2026,
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 69.45,
       "treasuryShareRatio": 12.35,
       "price": 4830,
       "mcap": 784,
       "per": 0.0,
-      "pbr": 0.35,
+      "pbr": 0.36,
       "avgTradingValue20": 2
     },
     {
@@ -58345,9 +58345,9 @@
         288
       ],
       "capex": [
-        -127,
-        -187,
-        -43
+        -126,
+        -118,
+        -65
       ],
       "dividendPaid": 139,
       "dividendPaid3yr": [
@@ -58377,8 +58377,8 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 54.6,
-      "treasuryShareRatio": 2.04,
+      "majorShareholderRate": 55.16,
+      "treasuryShareRatio": 1.1,
       "price": 10340,
       "mcap": 3618,
       "per": 41.5,
@@ -59357,7 +59357,7 @@
       "capex": [
         -1,
         -72,
-        -9
+        -63
       ],
       "dividendPaid": 15,
       "dividendPaid3yr": [
@@ -63902,7 +63902,7 @@
       "capex": [
         -77,
         -414,
-        0
+        -564
       ],
       "dividendPaid": 85,
       "dividendPaid3yr": [
@@ -65114,7 +65114,7 @@
       "capex": [
         -748,
         -1143,
-        -108
+        -1269
       ],
       "dividendPaid": 516,
       "dividendPaid3yr": [
@@ -66225,7 +66225,7 @@
       "capex": [
         -133,
         -76,
-        -25
+        -60
       ],
       "dividendPaid": 71,
       "dividendPaid3yr": [
@@ -66629,7 +66629,7 @@
       "capex": [
         -311,
         -399,
-        0
+        -129
       ],
       "dividendPaid": 131,
       "dividendPaid3yr": [
@@ -68952,7 +68952,7 @@
       "capex": [
         -6,
         -8,
-        0
+        -10
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -73800,7 +73800,7 @@
       "capex": [
         -1,
         0,
-        0
+        -1
       ],
       "dividendPaid": 90,
       "dividendPaid3yr": [
@@ -76224,7 +76224,7 @@
       "capex": [
         -2,
         -12,
-        -3
+        -10
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -76426,7 +76426,7 @@
       "capex": [
         -11,
         -22,
-        0
+        -15
       ],
       "dividendPaid": 32,
       "dividendPaid3yr": [
@@ -77335,7 +77335,7 @@
       "capex": [
         -12,
         -33,
-        -37
+        -13
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -77638,7 +77638,7 @@
       "capex": [
         -266,
         -15,
-        -1
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -77739,7 +77739,7 @@
       "capex": [
         -129,
         -168,
-        -21
+        -138
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -78143,7 +78143,7 @@
       "capex": [
         -66,
         -66,
-        18
+        -66
       ],
       "dividendPaid": 30,
       "dividendPaid3yr": [
@@ -82183,7 +82183,7 @@
       "capex": [
         -82,
         -44,
-        0
+        -46
       ],
       "dividendPaid": 35,
       "dividendPaid3yr": [
@@ -82486,7 +82486,7 @@
       "capex": [
         -14,
         -17,
-        0
+        -15
       ],
       "dividendPaid": 9,
       "dividendPaid3yr": [
@@ -82587,7 +82587,7 @@
       "capex": [
         -16,
         -11,
-        -8
+        -68
       ],
       "dividendPaid": 18,
       "dividendPaid3yr": [
@@ -82789,7 +82789,7 @@
       "capex": [
         -331,
         -486,
-        0
+        -245
       ],
       "dividendPaid": 14,
       "dividendPaid3yr": [
@@ -82890,7 +82890,7 @@
       "capex": [
         -143,
         -124,
-        70
+        -124
       ],
       "dividendPaid": 22,
       "dividendPaid3yr": [
@@ -84304,7 +84304,7 @@
       "capex": [
         -24,
         -39,
-        22
+        -39
       ],
       "dividendPaid": 30,
       "dividendPaid3yr": [
@@ -85819,7 +85819,7 @@
       "capex": [
         -86,
         -765,
-        -888
+        -853
       ],
       "dividendPaid": 50,
       "dividendPaid3yr": [
@@ -87637,7 +87637,7 @@
       "capex": [
         -3,
         0,
-        -4
+        -6
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -88950,7 +88950,7 @@
       "capex": [
         -19,
         -21,
-        -14
+        -77
       ],
       "dividendPaid": 24,
       "dividendPaid3yr": [
@@ -89960,7 +89960,7 @@
       "capex": [
         0,
         0,
-        0
+        -2
       ],
       "dividendPaid": 33,
       "dividendPaid3yr": [
@@ -90667,7 +90667,7 @@
       "capex": [
         -44,
         -28,
-        -1
+        -22
       ],
       "dividendPaid": 26,
       "dividendPaid3yr": [
@@ -92283,7 +92283,7 @@
       "capex": [
         -3,
         -12,
-        0
+        -2
       ],
       "dividendPaid": 20,
       "dividendPaid3yr": [
@@ -92485,7 +92485,7 @@
       "capex": [
         -38,
         -71,
-        0
+        -68
       ],
       "dividendPaid": 23,
       "dividendPaid3yr": [
@@ -95616,7 +95616,7 @@
       "capex": [
         -5,
         0,
-        0
+        -1
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -95978,8 +95978,8 @@
         -42
       ],
       "ni": [
-        -353,
-        -130,
+        0,
+        0,
         -79
       ],
       "cashEq": 151,
@@ -96020,7 +96020,7 @@
       "capex": [
         -15,
         -181,
-        0
+        -317
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -96525,7 +96525,7 @@
       "capex": [
         -83,
         -117,
-        0
+        -105
       ],
       "dividendPaid": 147,
       "dividendPaid3yr": [
@@ -96626,7 +96626,7 @@
       "capex": [
         -2,
         -2,
-        0
+        -3
       ],
       "dividendPaid": 21,
       "dividendPaid3yr": [
@@ -98343,7 +98343,7 @@
       "capex": [
         -18,
         -113,
-        0
+        -109
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -98949,7 +98949,7 @@
       "capex": [
         -10,
         -9,
-        0
+        -9
       ],
       "dividendPaid": 43,
       "dividendPaid3yr": [
@@ -99252,7 +99252,7 @@
       "capex": [
         -137,
         -115,
-        0
+        -161
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -99454,7 +99454,7 @@
       "capex": [
         -119,
         -60,
-        -99
+        -70
       ],
       "dividendPaid": 43,
       "dividendPaid3yr": [
@@ -103696,7 +103696,7 @@
       "capex": [
         0,
         0,
-        0
+        -1
       ],
       "dividendPaid": 94,
       "dividendPaid3yr": [
@@ -105514,7 +105514,7 @@
       "capex": [
         -149,
         -104,
-        -12
+        -63
       ],
       "dividendPaid": 436,
       "dividendPaid3yr": [
@@ -108645,7 +108645,7 @@
       "capex": [
         -256,
         -436,
-        0
+        -337
       ],
       "dividendPaid": 365,
       "dividendPaid3yr": [
@@ -109049,7 +109049,7 @@
       "capex": [
         -654,
         -31,
-        0
+        -31
       ],
       "dividendPaid": 29,
       "dividendPaid3yr": [
@@ -109251,7 +109251,7 @@
       "capex": [
         0,
         -41,
-        0
+        -218
       ],
       "dividendPaid": 19,
       "dividendPaid3yr": [
@@ -109453,7 +109453,7 @@
       "capex": [
         -14,
         -47,
-        0
+        -28
       ],
       "dividendPaid": 65,
       "dividendPaid3yr": [
@@ -110564,7 +110564,7 @@
       "capex": [
         -288,
         -101,
-        -334
+        -278
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -115917,7 +115917,7 @@
       "capex": [
         -38,
         -9,
-        0
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -116119,7 +116119,7 @@
       "capex": [
         -866,
         -618,
-        0
+        -375
       ],
       "dividendPaid": 21,
       "dividendPaid3yr": [
@@ -116523,7 +116523,7 @@
       "capex": [
         -60,
         -183,
-        -536
+        -495
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -116553,8 +116553,8 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 31.22,
-      "treasuryShareRatio": 0.57,
+      "majorShareholderRate": 31.53,
+      "treasuryShareRatio": 0.58,
       "price": 2645,
       "mcap": 688,
       "per": 34.1,
@@ -118139,7 +118139,7 @@
       "capex": [
         -106,
         -478,
-        -1050
+        -990
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -120664,7 +120664,7 @@
       "capex": [
         -4,
         -27,
-        -4
+        -7
       ],
       "dividendPaid": 55,
       "dividendPaid3yr": [
@@ -122684,7 +122684,7 @@
       "capex": [
         -11,
         0,
-        1
+        0
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -124098,7 +124098,7 @@
       "capex": [
         -53,
         -81,
-        -109
+        -71
       ],
       "dividendPaid": 27,
       "dividendPaid3yr": [
@@ -124805,7 +124805,7 @@
       "capex": [
         -129,
         -303,
-        0
+        -636
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -127633,7 +127633,7 @@
       "capex": [
         -397,
         -422,
-        -48
+        -746
       ],
       "dividendPaid": 24,
       "dividendPaid3yr": [
@@ -129956,7 +129956,7 @@
       "capex": [
         -44,
         -31,
-        154
+        -31
       ],
       "dividendPaid": 30,
       "dividendPaid3yr": [
@@ -132683,7 +132683,7 @@
       "capex": [
         -9,
         -6,
-        0
+        -2
       ],
       "dividendPaid": 8,
       "dividendPaid3yr": [
@@ -132885,7 +132885,7 @@
       "capex": [
         -55,
         -42,
-        0
+        -42
       ],
       "dividendPaid": 21,
       "dividendPaid3yr": [
@@ -134198,7 +134198,7 @@
       "capex": [
         -1,
         -2,
-        0
+        -6
       ],
       "dividendPaid": 13,
       "dividendPaid3yr": [
@@ -136016,7 +136016,7 @@
       "capex": [
         -4,
         -4,
-        0
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -136046,12 +136046,12 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 12.35,
-      "treasuryShareRatio": 12.05,
+      "majorShareholderRate": 21.55,
+      "treasuryShareRatio": 0,
       "price": 990,
       "mcap": 838,
       "per": 0.0,
-      "pbr": 0.51,
+      "pbr": 0.58,
       "avgTradingValue20": 0
     },
     {
@@ -138743,7 +138743,7 @@
       "capex": [
         -70,
         -15,
-        -5
+        -36
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -138844,7 +138844,7 @@
       "capex": [
         -8,
         -35,
-        0
+        -6
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -138874,7 +138874,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 46.07,
+      "majorShareholderRate": 44.3,
       "treasuryShareRatio": 0,
       "price": 18390,
       "mcap": 2046,
@@ -140662,7 +140662,7 @@
       "capex": [
         -12,
         -1,
-        0
+        -1
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -141773,7 +141773,7 @@
       "capex": [
         -35,
         -71,
-        -4
+        -80
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -143086,7 +143086,7 @@
       "capex": [
         -25,
         -31,
-        -31
+        -29
       ],
       "dividendPaid": 29,
       "dividendPaid3yr": [
@@ -144197,7 +144197,7 @@
       "capex": [
         0,
         -20,
-        0
+        -14
       ],
       "dividendPaid": 7,
       "dividendPaid3yr": [
@@ -147025,7 +147025,7 @@
       "capex": [
         -139,
         -13,
-        0
+        -15
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -148540,7 +148540,7 @@
       "capex": [
         -117,
         -45,
-        0
+        -79
       ],
       "dividendPaid": 16,
       "dividendPaid3yr": [
@@ -148570,7 +148570,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 19.4,
+      "majorShareholderRate": 18.88,
       "treasuryShareRatio": 1.08,
       "price": 3100,
       "mcap": 846,
@@ -149549,8 +149549,8 @@
       ],
       "capex": [
         -120,
-        -138,
-        0
+        -133,
+        -228
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -150459,7 +150459,7 @@
       "capex": [
         -3,
         -4,
-        0
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -151065,7 +151065,7 @@
       "capex": [
         -23,
         -20,
-        0
+        -21
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -152782,7 +152782,7 @@
       "capex": [
         -8,
         0,
-        -2
+        0
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -152812,7 +152812,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 14.48,
+      "majorShareholderRate": 15.07,
       "treasuryShareRatio": 8.68,
       "price": 4575,
       "mcap": 764,
@@ -152883,7 +152883,7 @@
       "capex": [
         -18,
         -35,
-        0
+        -5
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -155004,7 +155004,7 @@
       "capex": [
         -2,
         -2,
-        0
+        -2
       ],
       "dividendPaid": 25,
       "dividendPaid3yr": [
@@ -157529,7 +157529,7 @@
       "capex": [
         -58,
         -21,
-        -4
+        -12
       ],
       "dividendPaid": 14,
       "dividendPaid3yr": [
@@ -160660,7 +160660,7 @@
       "capex": [
         -126,
         -311,
-        -18
+        -725
       ],
       "dividendPaid": 88,
       "dividendPaid3yr": [
@@ -162377,7 +162377,7 @@
       "capex": [
         -90,
         -197,
-        0
+        -50
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -162779,9 +162779,9 @@
         149
       ],
       "capex": [
-        -55,
+        -54,
         -23,
-        0
+        -25
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -163084,7 +163084,7 @@
       "capex": [
         -1,
         -2,
-        0
+        -2
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -163488,7 +163488,7 @@
       "capex": [
         -6,
         -9,
-        0
+        -26
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -166114,7 +166114,7 @@
       "capex": [
         -13,
         -12,
-        0
+        -53
       ],
       "dividendPaid": 73,
       "dividendPaid3yr": [
@@ -167831,7 +167831,7 @@
       "capex": [
         -6,
         -3,
-        0
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -168033,7 +168033,7 @@
       "capex": [
         -1,
         -3,
-        0
+        -3
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -174295,7 +174295,7 @@
       "capex": [
         -10,
         -164,
-        0
+        -172
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -174325,12 +174325,12 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 41.52,
-      "treasuryShareRatio": 5.68,
+      "majorShareholderRate": 41.17,
+      "treasuryShareRatio": 0,
       "price": 21450,
       "mcap": 1661,
       "per": 0.0,
-      "pbr": 5.35,
+      "pbr": 5.67,
       "avgTradingValue20": 21
     },
     {
@@ -176057,40 +176057,40 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 사업보고서",
+      "reportShort": "AR 2026.12",
       "currency": "KRW",
       "rev": [
         587,
         596,
-        629
+        656
       ],
       "op": [
         287,
         259,
-        318
+        341
       ],
       "ni": [
         98,
         -34,
-        87
+        64
       ],
-      "cashEq": 1608,
-      "shortFin": 189,
+      "cashEq": 1164,
+      "shortFin": 185,
       "otherCurrentFinAssets": 0,
       "fvtplCurrent": 0,
       "shortInv": 0,
-      "equityInvest": 1535,
-      "investProperty": 24253,
+      "equityInvest": 1534,
+      "investProperty": 24165,
       "fvtplNoncurrent": 0,
       "fvociCurrent": 0,
       "fvociNoncurrent": 0,
       "longInvest": 0,
-      "shortBorrow": 200,
-      "curLongDebt": 6042,
+      "shortBorrow": 500,
+      "curLongDebt": 5616,
       "shortBonds": 0,
       "bonds": 0,
-      "longBorrow": 9383,
+      "longBorrow": 9393,
       "convertBondsCur": 0,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
@@ -176099,25 +176099,25 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 11365,
+      "equity": 11374,
       "equityPriorYear": 11652,
-      "equityPrevQ": 11620,
-      "equityParent": 11365,
+      "equityPrevQ": 11652,
+      "equityParent": 11374,
       "equityParentPriorYear": 11652,
-      "equityParentPrevQ": 11620,
+      "equityParentPrevQ": 11652,
       "ocf": [
         256,
         88,
-        222
+        219
       ],
       "capex": [
         -2,
         -2524,
-        0
+        -11
       ],
-      "dividendPaid": 292,
+      "dividendPaid": 342,
       "dividendPaid3yr": [
-        292,
+        342,
         292,
         292
       ],
@@ -176127,27 +176127,27 @@
         0,
         0
       ],
-      "niParent": -34,
+      "niParent": 64,
       "niParent3yr": [
+        64,
         -34,
-        98,
-        36
+        98
       ],
-      "niParentTTM": 87,
-      "dividendTotal": 292,
+      "niParentTTM": 64,
+      "dividendTotal": 342,
       "dividendTotal3yr": [
+        342,
         292,
-        292,
-        288
+        292
       ],
-      "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "shReturnYear": 2026,
+      "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 21.52,
       "treasuryShareRatio": 0,
       "price": 3250,
       "mcap": 7998,
-      "per": 92.3,
+      "per": 125.3,
       "pbr": 0.7,
       "avgTradingValue20": 15
     },
@@ -177123,7 +177123,7 @@
       "capex": [
         -95,
         -170,
-        -99
+        -198
       ],
       "dividendPaid": 230,
       "dividendPaid3yr": [
@@ -178840,7 +178840,7 @@
       "capex": [
         -69,
         -49,
-        -46
+        -69
       ],
       "dividendPaid": 13,
       "dividendPaid3yr": [
@@ -179345,7 +179345,7 @@
       "capex": [
         -1180,
         -17,
-        0
+        -40
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -179375,7 +179375,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 51.6,
+      "majorShareholderRate": 51.58,
       "treasuryShareRatio": 2.04,
       "price": 24000,
       "mcap": 2103,
@@ -179648,7 +179648,7 @@
       "capex": [
         0,
         -525,
-        0
+        -610
       ],
       "dividendPaid": 225,
       "dividendPaid3yr": [
@@ -180153,7 +180153,7 @@
       "capex": [
         -242,
         -166,
-        -7
+        -332
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -180183,7 +180183,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 30.57,
+      "majorShareholderRate": 29.36,
       "treasuryShareRatio": 0,
       "price": 89400,
       "mcap": 8544,
@@ -181466,7 +181466,7 @@
       "capex": [
         -5223,
         -2270,
-        0
+        -1008
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -181567,7 +181567,7 @@
       "capex": [
         -164,
         -202,
-        0
+        -105
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -181597,7 +181597,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 26.4,
+      "majorShareholderRate": 21.85,
       "treasuryShareRatio": 0,
       "price": 2825,
       "mcap": 504,
@@ -182622,40 +182622,40 @@
       "sector": "부동산",
       "sectorEn": "Real Estate",
       "market": "KOSPI",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 사업보고서",
+      "reportShort": "AR 2026.12",
       "currency": "KRW",
       "rev": [
         218,
         279,
-        268
+        266
       ],
       "op": [
         118,
         188,
-        189
+        150
       ],
       "ni": [
         -7,
         14,
-        19
+        -18
       ],
-      "cashEq": 90,
+      "cashEq": 152,
       "shortFin": 0,
-      "otherCurrentFinAssets": 157,
-      "fvtplCurrent": 14,
+      "otherCurrentFinAssets": 137,
+      "fvtplCurrent": 20,
       "shortInv": 0,
-      "equityInvest": 361,
-      "investProperty": 8461,
+      "equityInvest": 367,
+      "investProperty": 8442,
       "fvtplNoncurrent": 0,
       "fvociCurrent": 0,
       "fvociNoncurrent": 0,
       "longInvest": 0,
-      "shortBorrow": 1444,
-      "curLongDebt": 0,
+      "shortBorrow": 597,
+      "curLongDebt": 3311,
       "shortBonds": 0,
       "bonds": 0,
-      "longBorrow": 5331,
+      "longBorrow": 2864,
       "convertBondsCur": 21,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
@@ -182664,27 +182664,27 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1937,
+      "equity": 1917,
       "equityPriorYear": 2018,
-      "equityPrevQ": 2000,
-      "equityParent": 1932,
+      "equityPrevQ": 2018,
+      "equityParent": 1913,
       "equityParentPriorYear": 2014,
-      "equityParentPrevQ": 1996,
+      "equityParentPrevQ": 2014,
       "ocf": [
         39,
         77,
-        44
+        81
       ],
       "capex": [
         -2540,
         -1,
         0
       ],
-      "dividendPaid": 74,
+      "dividendPaid": 82,
       "dividendPaid3yr": [
+        82,
         74,
-        88,
-        59
+        88
       ],
       "sharesBuyback": 0,
       "sharesBuyback3yr": [
@@ -182692,28 +182692,28 @@
         0,
         0
       ],
-      "niParent": 14,
+      "niParent": -18,
       "niParent3yr": [
+        -18,
         14,
-        -7,
-        -11
+        -7
       ],
-      "niParentTTM": 14,
-      "dividendTotal": 74,
+      "niParentTTM": -18,
+      "dividendTotal": 82,
       "dividendTotal3yr": [
+        82,
         74,
-        59,
-        58
+        59
       ],
-      "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "shReturnYear": 2026,
+      "ttmLabel": "",
       "isFinancial": false,
-      "majorShareholderRate": 18.57,
+      "majorShareholderRate": 17.91,
       "treasuryShareRatio": 0,
       "price": 2795,
       "mcap": 1527,
-      "per": 109.7,
-      "pbr": 0.79,
+      "per": 0.0,
+      "pbr": 0.8,
       "avgTradingValue20": 3
     },
     {
@@ -183082,7 +183082,7 @@
       "capex": [
         -183,
         -168,
-        0
+        -102
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -183486,7 +183486,7 @@
       "capex": [
         -162,
         -211,
-        -53
+        -220
       ],
       "dividendPaid": -56,
       "dividendPaid3yr": [
@@ -183587,7 +183587,7 @@
       "capex": [
         -4,
         -5,
-        0
+        -13
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -183617,7 +183617,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 50.0,
+      "majorShareholderRate": 44.64,
       "treasuryShareRatio": 0,
       "price": 4900,
       "mcap": 520,
@@ -184092,7 +184092,7 @@
       "capex": [
         -10,
         -6,
-        0
+        -1
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -185809,7 +185809,7 @@
       "capex": [
         -9,
         -11,
-        -22
+        -20
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -185839,7 +185839,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 21.52,
+      "majorShareholderRate": 22.5,
       "treasuryShareRatio": 6.33,
       "price": 17210,
       "mcap": 1758,
@@ -185910,7 +185910,7 @@
       "capex": [
         -75,
         -11,
-        -2
+        -16
       ],
       "dividendPaid": 11,
       "dividendPaid3yr": [
@@ -187930,7 +187930,7 @@
       "capex": [
         -39,
         -4,
-        0
+        -5
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -188132,7 +188132,7 @@
       "capex": [
         -148,
         -86,
-        -6
+        -96
       ],
       "dividendPaid": 20,
       "dividendPaid3yr": [
@@ -190152,7 +190152,7 @@
       "capex": [
         -7,
         -290,
-        0
+        -304
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -192475,7 +192475,7 @@
       "capex": [
         -5,
         -11,
-        0
+        -24
       ],
       "dividendPaid": 289,
       "dividendPaid3yr": [
@@ -193889,7 +193889,7 @@
       "capex": [
         -55,
         -62,
-        0
+        -101
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -194899,7 +194899,7 @@
       "capex": [
         -1,
         -5,
-        0
+        -4
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -194929,7 +194929,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 16.4,
+      "majorShareholderRate": 15.22,
       "treasuryShareRatio": 0,
       "price": 24800,
       "mcap": 5438,
@@ -195808,7 +195808,7 @@
       "capex": [
         -44,
         -2,
-        0
+        -2
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -195838,7 +195838,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 61.04,
+      "majorShareholderRate": 60.39,
       "treasuryShareRatio": 0,
       "price": 15420,
       "mcap": 2203,
@@ -196616,7 +196616,7 @@
       "capex": [
         -3,
         -1,
-        0
+        -15
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -196646,7 +196646,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
       "isFinancial": false,
-      "majorShareholderRate": 19.85,
+      "majorShareholderRate": 19.83,
       "treasuryShareRatio": 0,
       "price": 20400,
       "mcap": 4353,
@@ -197121,7 +197121,7 @@
       "capex": [
         -19,
         -8,
-        -8
+        -11
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
