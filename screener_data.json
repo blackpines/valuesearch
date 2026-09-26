@@ -1,9 +1,17 @@
 {
+<<<<<<< HEAD
   "generated_at": "2026-09-26 23:49:49",
   "market_date": "2026-09-23",
   "market_date_display": "2026.09.23",
   "run_time_display": "2026.09.26 23:49",
   "financial_data_date": "2026-09-26 23:23:24",
+=======
+  "generated_at": "2026-09-26 19:00:40",
+  "market_date": "2026-09-23",
+  "market_date_display": "2026.09.23",
+  "run_time_display": "2026.09.26 19:00",
+  "financial_data_date": "2026-09-25 00:13:56",
+>>>>>>> 2cfd385bd4272cc545e2ff058d6e1474a0d68c15
   "total_stocks": 1977,
   "usd_krw_rate": 1362.5,
   "stocks": [
