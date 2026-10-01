@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-01 01:45:02",
+  "generated_at": "2026-10-02 02:21:58",
   "market_date": "2026-09-30",
   "market_date_display": "2026.09.30",
-  "run_time_display": "2026.10.01 01:45",
+  "run_time_display": "2026.10.02 02:21",
   "financial_data_date": "2026-09-26 23:23:24",
   "total_stocks": 1977,
   "usd_krw_rate": 1359.56,
@@ -1924,7 +1924,7 @@
       "mcap": 440386,
       "per": 6.2,
       "pbr": 0.68,
-      "avgTradingValue20": 935
+      "avgTradingValue20": 936
     },
     {
       "name": "DH오토넥스",
@@ -3641,7 +3641,7 @@
       "mcap": 12973544,
       "per": 8.0,
       "pbr": 4.95,
-      "avgTradingValue20": 57083
+      "avgTradingValue20": 57357
     },
     {
       "name": "영풍",
@@ -16274,7 +16274,7 @@
       "code": "003380",
       "sector": "필수소비재",
       "sectorEn": "Consumer Staples",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -16969,10 +16969,10 @@
       "isFinancial": false,
       "majorShareholderRate": 27.01,
       "treasuryShareRatio": 0.0,
-      "price": 32000,
+      "price": 32050,
       "mcap": 117831,
       "per": 0.0,
-      "pbr": 1.12,
+      "pbr": 1.13,
       "avgTradingValue20": 865
     },
     {
@@ -17579,7 +17579,7 @@
       "mcap": 167521,
       "per": 22.5,
       "pbr": 0.54,
-      "avgTradingValue20": 321
+      "avgTradingValue20": 324
     },
     {
       "name": "LG우",
@@ -23740,7 +23740,7 @@
       "mcap": 701959,
       "per": 11.1,
       "pbr": 0.74,
-      "avgTradingValue20": 1766
+      "avgTradingValue20": 1767
     },
     {
       "name": "현대차우",
@@ -23942,7 +23942,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 196
+      "avgTradingValue20": 200
     },
     {
       "name": "현대차3우B",
@@ -25659,7 +25659,7 @@
       "mcap": 121176,
       "per": 6.7,
       "pbr": 0.75,
-      "avgTradingValue20": 431
+      "avgTradingValue20": 432
     },
     {
       "name": "에스엘",
@@ -26164,7 +26164,7 @@
       "mcap": 15697258,
       "per": 11.9,
       "pbr": 3.13,
-      "avgTradingValue20": 44669
+      "avgTradingValue20": 44774
     },
     {
       "name": "삼성전자우",
@@ -26265,7 +26265,7 @@
       "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
-      "avgTradingValue20": 7472
+      "avgTradingValue20": 7491
     },
     {
       "name": "NH투자증권",
@@ -26366,7 +26366,7 @@
       "mcap": 95994,
       "per": 6.6,
       "pbr": 0.93,
-      "avgTradingValue20": 113
+      "avgTradingValue20": 114
     },
     {
       "name": "NH투자증권우",
@@ -28184,7 +28184,7 @@
       "mcap": 415015,
       "per": 1124.6,
       "pbr": 1.67,
-      "avgTradingValue20": 1963
+      "avgTradingValue20": 1965
     },
     {
       "name": "삼성SDI우",
@@ -28596,7 +28596,7 @@
       "code": "006730",
       "sector": "호텔,레저",
       "sectorEn": "Hotels & Leisure",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -33335,7 +33335,7 @@
       "mcap": 1130116,
       "per": 116.5,
       "pbr": 11.19,
-      "avgTradingValue20": 8092
+      "avgTradingValue20": 8112
     },
     {
       "name": "삼성전기우",
@@ -34757,7 +34757,7 @@
       "code": "009520",
       "sector": "철강",
       "sectorEn": "Steel",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -34951,7 +34951,7 @@
       "mcap": 228951,
       "per": 6.6,
       "pbr": 1.56,
-      "avgTradingValue20": 551
+      "avgTradingValue20": 553
     },
     {
       "name": "무림P&P",
@@ -37779,7 +37779,7 @@
       "mcap": 133482,
       "per": 20.1,
       "pbr": 2.1,
-      "avgTradingValue20": 1091
+      "avgTradingValue20": 1092
     },
     {
       "name": "CJ씨푸드",
@@ -39795,7 +39795,7 @@
       "isFinancial": false,
       "majorShareholderRate": 57.4,
       "treasuryShareRatio": 0,
-      "price": 5330,
+      "price": 5320,
       "mcap": 765,
       "per": 6.7,
       "pbr": 0.47,
@@ -40708,7 +40708,7 @@
       "mcap": 519243,
       "per": 25.8,
       "pbr": 4.33,
-      "avgTradingValue20": 1339
+      "avgTradingValue20": 1340
     },
     {
       "name": "경인양행",
@@ -42017,7 +42017,7 @@
       "isFinancial": false,
       "majorShareholderRate": 60.42,
       "treasuryShareRatio": 0,
-      "price": 1354,
+      "price": 1353,
       "mcap": 734,
       "per": 20.3,
       "pbr": 0.98,
@@ -43342,7 +43342,7 @@
       "code": "014620",
       "sector": "기계",
       "sectorEn": "Machinery",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -44239,10 +44239,10 @@
       "isFinancial": false,
       "majorShareholderRate": 81.56,
       "treasuryShareRatio": 0,
-      "price": 4350,
+      "price": 4395,
       "mcap": 636,
       "per": 9.9,
-      "pbr": 1.11,
+      "pbr": 1.12,
       "avgTradingValue20": 5
     },
     {
@@ -48586,7 +48586,7 @@
       "mcap": 169457,
       "per": 26.1,
       "pbr": 1.64,
-      "avgTradingValue20": 337
+      "avgTradingValue20": 338
     },
     {
       "name": "브이티",
@@ -50909,7 +50909,7 @@
       "mcap": 70343,
       "per": 10.3,
       "pbr": 1.82,
-      "avgTradingValue20": 202
+      "avgTradingValue20": 203
     },
     {
       "name": "KCC건설",
@@ -51624,7 +51624,7 @@
       "code": "023160",
       "sector": "기계",
       "sectorEn": "Machinery",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -56363,7 +56363,7 @@
       "mcap": 93492,
       "per": 14.1,
       "pbr": 1.87,
-      "avgTradingValue20": 861
+      "avgTradingValue20": 880
     },
     {
       "name": "동아지질",
@@ -56565,7 +56565,7 @@
       "mcap": 553802,
       "per": 19.8,
       "pbr": 0.5,
-      "avgTradingValue20": 1205
+      "avgTradingValue20": 1210
     },
     {
       "name": "삼성물산우B",
@@ -57575,7 +57575,7 @@
       "mcap": 131807,
       "per": 10.2,
       "pbr": 0.67,
-      "avgTradingValue20": 133
+      "avgTradingValue20": 135
     },
     {
       "name": "다올투자증권",
@@ -57672,7 +57672,7 @@
       "isFinancial": true,
       "majorShareholderRate": 28.99,
       "treasuryShareRatio": 2.31,
-      "price": 3880,
+      "price": 3900,
       "mcap": 2321,
       "per": 6.2,
       "pbr": 0.36,
@@ -59696,7 +59696,7 @@
       "mcap": 564000,
       "per": 20.1,
       "pbr": 0.35,
-      "avgTradingValue20": 901
+      "avgTradingValue20": 902
     },
     {
       "name": "비트컴퓨터",
@@ -59906,7 +59906,7 @@
       "code": "033100",
       "sector": "기계",
       "sectorEn": "Machinery",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -61716,7 +61716,7 @@
       "mcap": 522698,
       "per": 288.7,
       "pbr": 6.43,
-      "avgTradingValue20": 2375
+      "avgTradingValue20": 2376
     },
     {
       "name": "SBS",
@@ -62322,7 +62322,7 @@
       "mcap": 426316,
       "per": 5.3,
       "pbr": 0.86,
-      "avgTradingValue20": 734
+      "avgTradingValue20": 735
     },
     {
       "name": "SK우",
@@ -63231,7 +63231,7 @@
       "mcap": 294607,
       "per": 14.6,
       "pbr": 0.95,
-      "avgTradingValue20": 1288
+      "avgTradingValue20": 1289
     },
     {
       "name": "신세계 I&C",
@@ -63643,7 +63643,7 @@
       "code": "035760",
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -63946,7 +63946,7 @@
       "code": "035900",
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -64136,7 +64136,7 @@
       "isFinancial": false,
       "majorShareholderRate": 54.25,
       "treasuryShareRatio": 0,
-      "price": 2725,
+      "price": 2730,
       "mcap": 622,
       "per": 6.6,
       "pbr": 0.24,
@@ -66370,7 +66370,7 @@
       "code": "036830",
       "sector": "IT가전",
       "sectorEn": "Consumer Electronics",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -66572,7 +66572,7 @@
       "code": "036930",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -66665,7 +66665,7 @@
       "mcap": 108069,
       "per": 1491.1,
       "pbr": 17.95,
-      "avgTradingValue20": 2653
+      "avgTradingValue20": 2654
     },
     {
       "name": "파워넷",
@@ -68188,7 +68188,7 @@
       "code": "038500",
       "sector": "건설",
       "sectorEn": "Construction",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -71218,7 +71218,7 @@
       "code": "041510",
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -75056,7 +75056,7 @@
       "code": "046890",
       "sector": "디스플레이",
       "sectorEn": "Display",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -78276,7 +78276,7 @@
       "isFinancial": false,
       "majorShareholderRate": 63.06,
       "treasuryShareRatio": 0,
-      "price": 8620,
+      "price": 8610,
       "mcap": 581,
       "per": 11.1,
       "pbr": 0.62,
@@ -78886,7 +78886,7 @@
       "mcap": 40284,
       "per": 0.0,
       "pbr": 0.8,
-      "avgTradingValue20": 189
+      "avgTradingValue20": 190
     },
     {
       "name": "LG생활건강우",
@@ -79601,7 +79601,7 @@
       "code": "052400",
       "sector": "소프트웨어",
       "sectorEn": "Software",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -82724,7 +82724,7 @@
       "mcap": 680,
       "per": 6.5,
       "pbr": 0.31,
-      "avgTradingValue20": 1
+      "avgTradingValue20": 3
     },
     {
       "name": "대한뉴팜",
@@ -83431,7 +83431,7 @@
       "mcap": 498087,
       "per": 9.3,
       "pbr": 0.82,
-      "avgTradingValue20": 1219
+      "avgTradingValue20": 1228
     },
     {
       "name": "유진로봇",
@@ -83641,7 +83641,7 @@
       "code": "056190",
       "sector": "기계",
       "sectorEn": "Machinery",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -84045,7 +84045,7 @@
       "code": "058470",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -87984,7 +87984,7 @@
       "code": "064760",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -89693,7 +89693,7 @@
       "mcap": 346130,
       "per": 36.8,
       "pbr": 1.43,
-      "avgTradingValue20": 1404
+      "avgTradingValue20": 1406
     },
     {
       "name": "LG전자우",
@@ -90711,7 +90711,7 @@
       "code": "067160",
       "sector": "소프트웨어",
       "sectorEn": "Software",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -92218,7 +92218,7 @@
       "mcap": 413361,
       "per": 26.2,
       "pbr": 2.27,
-      "avgTradingValue20": 683
+      "avgTradingValue20": 684
     },
     {
       "name": "삼성출판사",
@@ -92630,7 +92630,7 @@
       "code": "069080",
       "sector": "소프트웨어",
       "sectorEn": "Software",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -93527,7 +93527,7 @@
       "isFinancial": false,
       "majorShareholderRate": 45.84,
       "treasuryShareRatio": 1.72,
-      "price": 2055,
+      "price": 2060,
       "mcap": 977,
       "per": 0.0,
       "pbr": 0.27,
@@ -95850,7 +95850,7 @@
       "isFinancial": false,
       "majorShareholderRate": 65.0,
       "treasuryShareRatio": 0,
-      "price": 2940,
+      "price": 2945,
       "mcap": 556,
       "per": 2.1,
       "pbr": 0.22,
@@ -97074,7 +97074,7 @@
       "code": "078340",
       "sector": "소프트웨어",
       "sectorEn": "Software",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -97672,7 +97672,7 @@
       "mcap": 99584,
       "per": 4.3,
       "pbr": 0.62,
-      "avgTradingValue20": 469
+      "avgTradingValue20": 470
     },
     {
       "name": "GS우",
@@ -98177,7 +98177,7 @@
       "mcap": 150040,
       "per": 52.4,
       "pbr": 9.34,
-      "avgTradingValue20": 541
+      "avgTradingValue20": 542
     },
     {
       "name": "서산",
@@ -99991,7 +99991,7 @@
       "isFinancial": false,
       "majorShareholderRate": 25.92,
       "treasuryShareRatio": 0.69,
-      "price": 10320,
+      "price": 10310,
       "mcap": 4694,
       "per": 0.0,
       "pbr": 0.0,
@@ -100306,7 +100306,7 @@
       "code": "082920",
       "sector": "IT가전",
       "sectorEn": "Consumer Electronics",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -102730,7 +102730,7 @@
       "code": "086450",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -102831,7 +102831,7 @@
       "code": "086520",
       "sector": "화학",
       "sectorEn": "Chemicals",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -103227,7 +103227,7 @@
       "mcap": 352261,
       "per": 8.6,
       "pbr": 0.73,
-      "avgTradingValue20": 996
+      "avgTradingValue20": 1004
     },
     {
       "name": "바이오솔루션",
@@ -111012,7 +111012,7 @@
       "code": "095610",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -111719,7 +111719,7 @@
       "code": "096530",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -115153,7 +115153,7 @@
       "code": "101490",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -116151,10 +116151,10 @@
       "isFinancial": false,
       "majorShareholderRate": 35.45,
       "treasuryShareRatio": 0,
-      "price": 47400,
+      "price": 47450,
       "mcap": 6737,
       "per": 11.8,
-      "pbr": 1.4,
+      "pbr": 1.41,
       "avgTradingValue20": 29
     },
     {
@@ -117367,7 +117367,7 @@
       "mcap": 598713,
       "per": 9.5,
       "pbr": 0.99,
-      "avgTradingValue20": 1823
+      "avgTradingValue20": 1826
     },
     {
       "name": "한세실업",
@@ -123132,7 +123132,7 @@
       "code": "122870",
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -126970,7 +126970,7 @@
       "code": "131970",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -127362,7 +127362,7 @@
       "isFinancial": false,
       "majorShareholderRate": 66.48,
       "treasuryShareRatio": 1.67,
-      "price": 8550,
+      "price": 8580,
       "mcap": 700,
       "per": 0.0,
       "pbr": 1.47,
@@ -127980,7 +127980,7 @@
       "code": "137400",
       "sector": "IT가전",
       "sectorEn": "Consumer Electronics",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -129192,7 +129192,7 @@
       "code": "140610",
       "sector": "연구개발",
       "sectorEn": "R&D",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -129282,7 +129282,7 @@
       "majorShareholderRate": 32.78,
       "treasuryShareRatio": 0,
       "price": 9800,
-      "mcap": 1409,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
@@ -129394,7 +129394,7 @@
       "code": "140860",
       "sector": "IT하드웨어",
       "sectorEn": "IT Hardware",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -129596,7 +129596,7 @@
       "code": "141080",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -138282,7 +138282,7 @@
       "code": "195940",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -138383,7 +138383,7 @@
       "code": "196170",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -139191,7 +139191,7 @@
       "code": "200130",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -142221,7 +142221,7 @@
       "code": "214150",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -143231,7 +143231,7 @@
       "code": "214450",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -144948,7 +144948,7 @@
       "code": "217950",
       "sector": "의약품",
       "sectorEn": "Pharmaceuticals",
-      "market": "KONEX",
+      "market": "",
       "report": "25 사업보고서",
       "reportShort": "AR 2025.12",
       "currency": "KRW",
@@ -145036,11 +145036,11 @@
       "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 48.65,
-      "treasuryShareRatio": 0.06,
+      "treasuryShareRatio": 0,
       "price": 28700,
-      "mcap": 1201,
-      "per": 9.7,
-      "pbr": 2.08,
+      "mcap": 0,
+      "per": 0.0,
+      "pbr": 0.0,
       "avgTradingValue20": 0
     },
     {
@@ -145756,7 +145756,7 @@
       "code": "222080",
       "sector": "IT가전",
       "sectorEn": "Consumer Electronics",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -145958,7 +145958,7 @@
       "code": "222800",
       "sector": "IT하드웨어",
       "sectorEn": "IT Hardware",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -146968,7 +146968,7 @@
       "code": "226950",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -147574,7 +147574,7 @@
       "code": "229500",
       "sector": "연구개발",
       "sectorEn": "R&D",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -147662,9 +147662,9 @@
       "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 28.04,
-      "treasuryShareRatio": 0.0,
+      "treasuryShareRatio": 0,
       "price": 5490,
-      "mcap": 713,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
@@ -147978,7 +147978,7 @@
       "code": "232530",
       "sector": "전기장비",
       "sectorEn": "Electrical Equipment",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -148068,7 +148068,7 @@
       "majorShareholderRate": 88.91,
       "treasuryShareRatio": 0,
       "price": 10370,
-      "mcap": 2656,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
@@ -148572,7 +148572,7 @@
       "isFinancial": false,
       "majorShareholderRate": 18.88,
       "treasuryShareRatio": 1.08,
-      "price": 3220,
+      "price": 3215,
       "mcap": 886,
       "per": 0.0,
       "pbr": 0.92,
@@ -149089,7 +149089,7 @@
       "code": "237690",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -149392,7 +149392,7 @@
       "code": "238540",
       "sector": "화학",
       "sectorEn": "Chemicals",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -149480,9 +149480,9 @@
       "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 42.96,
-      "treasuryShareRatio": 5.0,
+      "treasuryShareRatio": 0,
       "price": 103800,
-      "mcap": 1160,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
@@ -149594,7 +149594,7 @@
       "code": "240810",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -149889,7 +149889,7 @@
       "mcap": 52337,
       "per": 11.3,
       "pbr": 0.76,
-      "avgTradingValue20": 94
+      "avgTradingValue20": 95
     },
     {
       "name": "화승엔터프라이즈",
@@ -150099,7 +150099,7 @@
       "code": "241710",
       "sector": "화장품,의류",
       "sectorEn": "Cosmetics & Apparel",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -151311,7 +151311,7 @@
       "code": "247540",
       "sector": "IT가전",
       "sectorEn": "Consumer Electronics",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -151404,7 +151404,7 @@
       "mcap": 106733,
       "per": 244.0,
       "pbr": 5.94,
-      "avgTradingValue20": 387
+      "avgTradingValue20": 392
     },
     {
       "name": "솔루엠",
@@ -151715,7 +151715,7 @@
       "code": "250030",
       "sector": "화학",
       "sectorEn": "Chemicals",
-      "market": "KONEX",
+      "market": "",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -151805,8 +151805,8 @@
       "majorShareholderRate": 44.55,
       "treasuryShareRatio": 0,
       "price": 28000,
-      "mcap": 810,
-      "per": 13.5,
+      "mcap": 0,
+      "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 3
     },
@@ -152321,7 +152321,7 @@
       "code": "251970",
       "sector": "비철금속",
       "sectorEn": "Non-Ferrous Metals",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -152523,7 +152523,7 @@
       "code": "253450",
       "sector": "미디어,교육",
       "sectorEn": "Media & Education",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -153727,7 +153727,7 @@
       "mcap": 89491,
       "per": 10.7,
       "pbr": 1.17,
-      "avgTradingValue20": 151
+      "avgTradingValue20": 152
     },
     {
       "name": "SK시그넷",
@@ -153735,7 +153735,7 @@
       "code": "260870",
       "sector": "전기장비",
       "sectorEn": "Electrical Equipment",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -153823,9 +153823,9 @@
       "ttmLabel": "",
       "isFinancial": false,
       "majorShareholderRate": 41.75,
-      "treasuryShareRatio": 0.4,
+      "treasuryShareRatio": 0,
       "price": 8130,
-      "mcap": 1852,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
@@ -155848,7 +155848,7 @@
       "mcap": 238632,
       "per": 28.0,
       "pbr": 10.65,
-      "avgTradingValue20": 845
+      "avgTradingValue20": 849
     },
     {
       "name": "HD건설기계",
@@ -156757,7 +156757,7 @@
       "mcap": 42256,
       "per": 10.1,
       "pbr": 1.04,
-      "avgTradingValue20": 126
+      "avgTradingValue20": 127
     },
     {
       "name": "일진하이솔루스",
@@ -157169,7 +157169,7 @@
       "code": "272290",
       "sector": "디스플레이",
       "sectorEn": "Display",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -158070,7 +158070,7 @@
       "mcap": 137024,
       "per": 31.7,
       "pbr": 21.09,
-      "avgTradingValue20": 890
+      "avgTradingValue20": 891
     },
     {
       "name": "케이뱅크",
@@ -158268,7 +158268,7 @@
       "isFinancial": false,
       "majorShareholderRate": 69.3,
       "treasuryShareRatio": 3.95,
-      "price": 122000,
+      "price": 121900,
       "mcap": 11294,
       "per": 13.2,
       "pbr": 0.48,
@@ -160704,7 +160704,7 @@
       "code": "293490",
       "sector": "소프트웨어",
       "sectorEn": "Software",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -162211,7 +162211,7 @@
       "mcap": 258570,
       "per": 44.2,
       "pbr": 10.03,
-      "avgTradingValue20": 964
+      "avgTradingValue20": 968
     },
     {
       "name": "HS효성첨단소재",
@@ -162320,7 +162320,7 @@
       "code": "298380",
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -164328,10 +164328,10 @@
       "isFinancial": false,
       "majorShareholderRate": 52.23,
       "treasuryShareRatio": 0.0,
-      "price": 2265,
+      "price": 2290,
       "mcap": 1225,
       "per": 0.0,
-      "pbr": 1.08,
+      "pbr": 1.1,
       "avgTradingValue20": 6
     },
     {
@@ -165948,7 +165948,7 @@
       "mcap": 257139,
       "per": 8.1,
       "pbr": 0.66,
-      "avgTradingValue20": 1140
+      "avgTradingValue20": 1143
     },
     {
       "name": "덕산테코피아",
@@ -174945,7 +174945,7 @@
       "code": "357780",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -175640,7 +175640,7 @@
       "isFinancial": false,
       "majorShareholderRate": 45.68,
       "treasuryShareRatio": 0,
-      "price": 4155,
+      "price": 4150,
       "mcap": 867,
       "per": 21.4,
       "pbr": 0.87,
@@ -177058,7 +177058,7 @@
       "mcap": 835380,
       "per": 0.0,
       "pbr": 3.72,
-      "avgTradingValue20": 1074
+      "avgTradingValue20": 1075
     },
     {
       "name": "DL이앤씨",
@@ -182916,7 +182916,7 @@
       "mcap": 1502614,
       "per": 4.6,
       "pbr": 2.72,
-      "avgTradingValue20": 5543
+      "avgTradingValue20": 5551
     },
     {
       "name": "그린리소스",
@@ -183227,7 +183227,7 @@
       "code": "403870",
       "sector": "반도체",
       "sectorEn": "Semiconductors",
-      "market": "KOSDAQ GLOBAL",
+      "market": "KOSDAQ",
       "report": "26 반기보고서",
       "reportShort": "SR 2026.06",
       "currency": "KRW",
@@ -190903,7 +190903,7 @@
       "code": "456570",
       "sector": "의약품",
       "sectorEn": "Pharmaceuticals",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -190993,7 +190993,7 @@
       "majorShareholderRate": 31.44,
       "treasuryShareRatio": 0,
       "price": 13430,
-      "mcap": 707,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
@@ -192507,10 +192507,10 @@
       "isFinancial": false,
       "majorShareholderRate": 60.8,
       "treasuryShareRatio": 4.49,
-      "price": 18150,
+      "price": 18100,
       "mcap": 2425,
       "per": 4.9,
-      "pbr": 0.97,
+      "pbr": 0.96,
       "avgTradingValue20": 5
     },
     {
@@ -197973,7 +197973,7 @@
       "code": "496320",
       "sector": "기계장비",
       "sectorEn": "Machinery",
-      "market": "KONEX",
+      "market": "",
       "report": "",
       "reportShort": "",
       "currency": "KRW",
@@ -198063,7 +198063,7 @@
       "majorShareholderRate": 64.9,
       "treasuryShareRatio": 0,
       "price": 1023000,
-      "mcap": 10393,
+      "mcap": 0,
       "per": 0.0,
       "pbr": 0.0,
       "avgTradingValue20": 0
