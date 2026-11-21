@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-21 03:32:52",
+  "generated_at": "2026-11-21 21:18:22",
   "market_date": "2026-11-20",
   "market_date_display": "2026.11.20",
-  "run_time_display": "2026.11.21 03:32",
-  "financial_data_date": "2026-11-17 21:18:46",
-  "total_stocks": 2012,
+  "run_time_display": "2026.11.21 21:18",
+  "financial_data_date": "2026-11-21 20:59:54",
+  "total_stocks": 2016,
   "usd_krw_rate": 1330.4,
   "stocks": [
     {
@@ -22537,63 +22537,63 @@
       "sector": "화장품,의류",
       "sectorEn": "Cosmetics & Apparel",
       "market": "KOSPI",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
         1255,
         1465,
-        1397
+        1270
       ],
       "op": [
         89,
         62,
-        29
+        6
       ],
       "ni": [
         68,
         55,
-        36
+        -20
       ],
-      "cashEq": 74,
+      "cashEq": 53,
       "shortFin": 193,
       "otherCurrentFinAssets": 0,
-      "fvtplCurrent": 40,
+      "fvtplCurrent": 19,
       "shortInv": 0,
-      "equityInvest": 1,
+      "equityInvest": 0,
       "investProperty": 5,
       "fvtplNoncurrent": 215,
       "fvociCurrent": 0,
-      "fvociNoncurrent": 5,
+      "fvociNoncurrent": 3,
       "longInvest": 0,
-      "shortBorrow": 255,
-      "curLongDebt": 2,
+      "shortBorrow": 232,
+      "curLongDebt": 1,
       "shortBonds": 0,
       "bonds": 0,
-      "longBorrow": 38,
+      "longBorrow": 58,
       "convertBondsCur": 0,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
-      "exchBondsNc": 91,
+      "exchBondsNc": 93,
       "wrtBondsCur": 0,
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 984,
+      "equity": 917,
       "equityPriorYear": 974,
-      "equityPrevQ": 934,
-      "equityParent": 984,
+      "equityPrevQ": 970,
+      "equityParent": 917,
       "equityParentPriorYear": 974,
-      "equityParentPrevQ": 934,
+      "equityParentPrevQ": 970,
       "ocf": [
         80,
         11,
-        96
+        86
       ],
       "capex": [
         -46,
         -72,
-        -99
+        -123
       ],
       "dividendPaid": 15,
       "dividendPaid3yr": [
@@ -22621,14 +22621,14 @@
         7
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
       "isFinancial": false,
-      "majorShareholderRate": 18.08,
+      "majorShareholderRate": 17.74,
       "treasuryShareRatio": 11.34,
       "price": 3230,
       "mcap": 505,
       "per": 10.0,
-      "pbr": 0.5,
+      "pbr": 0.54,
       "avgTradingValue20": 20
     },
     {
@@ -23330,7 +23330,7 @@
       "shReturnYear": 2025,
       "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
       "isFinancial": false,
-      "majorShareholderRate": 48.06,
+      "majorShareholderRate": 48.07,
       "treasuryShareRatio": 0,
       "price": 2500,
       "mcap": 1433,
@@ -40414,26 +40414,26 @@
       "sector": "화장품,의류",
       "sectorEn": "Cosmetics & Apparel",
       "market": "KOSDAQ",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
         1138,
         1179,
-        965
+        899
       ],
       "op": [
         282,
         167,
-        55
+        26
       ],
       "ni": [
         170,
         110,
-        40
+        7
       ],
-      "cashEq": 1010,
-      "shortFin": 0,
+      "cashEq": 766,
+      "shortFin": 20,
       "otherCurrentFinAssets": 4,
       "fvtplCurrent": 0,
       "shortInv": 0,
@@ -40443,8 +40443,8 @@
       "fvociCurrent": 0,
       "fvociNoncurrent": 0,
       "longInvest": 0,
-      "shortBorrow": 0,
-      "curLongDebt": 145,
+      "shortBorrow": 80,
+      "curLongDebt": 45,
       "shortBonds": 0,
       "bonds": 0,
       "longBorrow": 27,
@@ -40456,21 +40456,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 1616,
+      "equity": 1495,
       "equityPriorYear": 1132,
       "equityPrevQ": 1132,
-      "equityParent": 1616,
+      "equityParent": 1495,
       "equityParentPriorYear": 1132,
       "equityParentPrevQ": 1132,
       "ocf": [
         124,
         339,
-        450
+        378
       ],
       "capex": [
         -1,
         -1,
-        -2
+        -3
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -40498,14 +40498,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
       "isFinancial": false,
-      "majorShareholderRate": 57.4,
-      "treasuryShareRatio": 0,
+      "majorShareholderRate": 47.49,
+      "treasuryShareRatio": 10.39,
       "price": 3785,
       "mcap": 540,
       "per": 4.7,
-      "pbr": 0.33,
+      "pbr": 0.32,
       "avgTradingValue20": 10
     },
     {
@@ -44454,26 +44454,26 @@
       "sector": "소프트웨어",
       "sectorEn": "Software",
       "market": "KOSDAQ",
-      "report": "",
-      "reportShort": "",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
         0,
         0,
-        0
+        70
       ],
       "op": [
         0,
         0,
-        0
+        9
       ],
       "ni": [
         0,
         0,
-        0
+        -24
       ],
-      "cashEq": 0,
-      "shortFin": 0,
+      "cashEq": 54,
+      "shortFin": 60,
       "otherCurrentFinAssets": 0,
       "fvtplCurrent": 0,
       "shortInv": 0,
@@ -44483,7 +44483,7 @@
       "fvociCurrent": 0,
       "fvociNoncurrent": 0,
       "longInvest": 0,
-      "shortBorrow": 0,
+      "shortBorrow": 4,
       "curLongDebt": 0,
       "shortBonds": 0,
       "bonds": 0,
@@ -44496,21 +44496,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 0,
-      "equityPriorYear": 0,
-      "equityPrevQ": 0,
-      "equityParent": 0,
+      "equity": 154,
+      "equityPriorYear": -23,
+      "equityPrevQ": -23,
+      "equityParent": 154,
       "equityParentPriorYear": 0,
       "equityParentPrevQ": 0,
       "ocf": [
         0,
         0,
-        0
+        -13
       ],
       "capex": [
         0,
         0,
-        0
+        -27
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -44537,15 +44537,15 @@
         0,
         0
       ],
-      "shReturnYear": 0,
-      "ttmLabel": "",
+      "shReturnYear": 2024,
+      "ttmLabel": "2026.9M 누적(전년 사업보고서 없음)",
       "isFinancial": false,
-      "majorShareholderRate": 0.0,
+      "majorShareholderRate": 60.54,
       "treasuryShareRatio": 0,
       "price": 10220,
       "mcap": 1528,
       "per": 0.0,
-      "pbr": 0.0,
+      "pbr": 9.64,
       "avgTradingValue20": 813
     },
     {
@@ -88787,6 +88787,107 @@
       "avgTradingValue20": 1
     },
     {
+      "name": "SM Life Design",
+      "nameEn": "SM Life Design Group Co., Ltd.",
+      "code": "063440",
+      "sector": "미디어,교육",
+      "sectorEn": "Media & Education",
+      "market": "KOSDAQ",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
+      "currency": "KRW",
+      "rev": [
+        448,
+        533,
+        424
+      ],
+      "op": [
+        35,
+        46,
+        25
+      ],
+      "ni": [
+        49,
+        55,
+        33
+      ],
+      "cashEq": 23,
+      "shortFin": 0,
+      "otherCurrentFinAssets": 0,
+      "fvtplCurrent": 0,
+      "shortInv": 224,
+      "equityInvest": 0,
+      "investProperty": 325,
+      "fvtplNoncurrent": 0,
+      "fvociCurrent": 0,
+      "fvociNoncurrent": 0,
+      "longInvest": 0,
+      "shortBorrow": 0,
+      "curLongDebt": 0,
+      "shortBonds": 0,
+      "bonds": 0,
+      "longBorrow": 0,
+      "convertBondsCur": 0,
+      "convertBondsNc": 0,
+      "exchBondsCur": 0,
+      "exchBondsNc": 0,
+      "wrtBondsCur": 0,
+      "wrtBondsNc": 0,
+      "redeemPrefCur": 0,
+      "redeemPrefNc": 0,
+      "equity": 699,
+      "equityPriorYear": 673,
+      "equityPrevQ": 680,
+      "equityParent": 699,
+      "equityParentPriorYear": 673,
+      "equityParentPrevQ": 680,
+      "ocf": [
+        73,
+        68,
+        82
+      ],
+      "capex": [
+        -1,
+        -26,
+        -26
+      ],
+      "dividendPaid": 0,
+      "dividendPaid3yr": [
+        0,
+        0,
+        0
+      ],
+      "sharesBuyback": 0,
+      "sharesBuyback3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParent": 55,
+      "niParent3yr": [
+        55,
+        49,
+        47
+      ],
+      "niParentTTM": 33,
+      "dividendTotal": 0,
+      "dividendTotal3yr": [
+        0,
+        0,
+        0
+      ],
+      "shReturnYear": 2025,
+      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
+      "isFinancial": false,
+      "majorShareholderRate": 30.61,
+      "treasuryShareRatio": 0,
+      "price": 1081,
+      "mcap": 500,
+      "per": 15.2,
+      "pbr": 0.7,
+      "avgTradingValue20": 1
+    },
+    {
       "name": "NICE인프라",
       "nameEn": "NICE Infra Co., Ltd",
       "code": "063570",
@@ -122830,28 +122931,28 @@
       "sector": "반도체",
       "sectorEn": "Semiconductors",
       "market": "KOSDAQ",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
         853,
         823,
-        869
+        938
       ],
       "op": [
         -14,
         -20,
-        -4
+        -13
       ],
       "ni": [
         -84,
         -15,
-        5
+        -8
       ],
-      "cashEq": 213,
+      "cashEq": 214,
       "shortFin": 0,
-      "otherCurrentFinAssets": 24,
-      "fvtplCurrent": 40,
+      "otherCurrentFinAssets": 66,
+      "fvtplCurrent": 0,
       "shortInv": 0,
       "equityInvest": 0,
       "investProperty": 0,
@@ -122872,21 +122973,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 416,
+      "equity": 423,
       "equityPriorYear": 423,
-      "equityPrevQ": 375,
-      "equityParent": 416,
+      "equityPrevQ": 391,
+      "equityParent": 423,
       "equityParentPriorYear": 423,
-      "equityParentPrevQ": 375,
+      "equityParentPrevQ": 391,
       "ocf": [
         7,
         28,
-        20
+        49
       ],
       "capex": [
         -13,
         -1,
-        0
+        -5
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -122914,14 +123015,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
       "isFinancial": false,
       "majorShareholderRate": 35.95,
       "treasuryShareRatio": 0,
       "price": 4400,
       "mcap": 583,
       "per": 0.0,
-      "pbr": 1.41,
+      "pbr": 1.39,
       "avgTradingValue20": 5
     },
     {
@@ -158679,6 +158780,107 @@
       "avgTradingValue20": 9
     },
     {
+      "name": "하나에어로",
+      "nameEn": "Hana Aero Dynamics Co.,Ltd",
+      "code": "271160",
+      "sector": "운송장비",
+      "sectorEn": "Transport Equipment",
+      "market": "KOSDAQ",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
+      "currency": "KRW",
+      "rev": [
+        0,
+        0,
+        307
+      ],
+      "op": [
+        0,
+        0,
+        54
+      ],
+      "ni": [
+        0,
+        0,
+        -1
+      ],
+      "cashEq": 111,
+      "shortFin": 0,
+      "otherCurrentFinAssets": 3,
+      "fvtplCurrent": 0,
+      "shortInv": 0,
+      "equityInvest": 0,
+      "investProperty": 57,
+      "fvtplNoncurrent": 0,
+      "fvociCurrent": 0,
+      "fvociNoncurrent": 0,
+      "longInvest": 0,
+      "shortBorrow": 270,
+      "curLongDebt": 0,
+      "shortBonds": 0,
+      "bonds": 0,
+      "longBorrow": 119,
+      "convertBondsCur": 0,
+      "convertBondsNc": 0,
+      "exchBondsCur": 0,
+      "exchBondsNc": 0,
+      "wrtBondsCur": 0,
+      "wrtBondsNc": 0,
+      "redeemPrefCur": 0,
+      "redeemPrefNc": 0,
+      "equity": 397,
+      "equityPriorYear": 152,
+      "equityPrevQ": 152,
+      "equityParent": 397,
+      "equityParentPriorYear": 152,
+      "equityParentPrevQ": 152,
+      "ocf": [
+        0,
+        0,
+        72
+      ],
+      "capex": [
+        0,
+        0,
+        -292
+      ],
+      "dividendPaid": 0,
+      "dividendPaid3yr": [
+        0,
+        0,
+        0
+      ],
+      "sharesBuyback": 0,
+      "sharesBuyback3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParent": 0,
+      "niParent3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParentTTM": 0,
+      "dividendTotal": 0,
+      "dividendTotal3yr": [
+        0,
+        0,
+        0
+      ],
+      "shReturnYear": 2024,
+      "ttmLabel": "2026.9M 누적(전년 사업보고서 없음)",
+      "isFinancial": false,
+      "majorShareholderRate": 67.46,
+      "treasuryShareRatio": 0,
+      "price": 5670,
+      "mcap": 1073,
+      "per": 0.0,
+      "pbr": 2.53,
+      "avgTradingValue20": 3110
+    },
+    {
       "name": "오리온",
       "nameEn": "ORION CORP.",
       "code": "271560",
@@ -174845,25 +175047,25 @@
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
       "market": "KOSDAQ",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
         4,
         25,
-        11
+        8
       ],
       "op": [
         -197,
         -103,
-        -98
+        -106
       ],
       "ni": [
         -263,
         -297,
-        -239
+        -222
       ],
-      "cashEq": 120,
+      "cashEq": 82,
       "shortFin": 0,
       "otherCurrentFinAssets": 0,
       "fvtplCurrent": 0,
@@ -174874,7 +175076,7 @@
       "fvociCurrent": 0,
       "fvociNoncurrent": 0,
       "longInvest": 0,
-      "shortBorrow": 94,
+      "shortBorrow": 79,
       "curLongDebt": 0,
       "shortBonds": 0,
       "bonds": 0,
@@ -174887,21 +175089,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 0,
-      "equity": 473,
+      "equity": 442,
       "equityPriorYear": 443,
-      "equityPrevQ": 210,
-      "equityParent": 473,
+      "equityPrevQ": 163,
+      "equityParent": 442,
       "equityParentPriorYear": 443,
-      "equityParentPrevQ": 210,
+      "equityParentPrevQ": 163,
       "ocf": [
         -128,
         -112,
-        -74
+        -72
       ],
       "capex": [
         -6,
         -41,
-        -62
+        -64
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -174929,14 +175131,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
       "isFinancial": false,
       "majorShareholderRate": 40.91,
-      "treasuryShareRatio": 0,
+      "treasuryShareRatio": 0.04,
       "price": 3850,
       "mcap": 517,
       "per": 0.0,
-      "pbr": 1.04,
+      "pbr": 1.12,
       "avgTradingValue20": 4
     },
     {
@@ -179996,30 +180198,30 @@
       "sector": "헬스케어",
       "sectorEn": "Healthcare",
       "market": "KOSDAQ",
-      "report": "26 반기보고서",
-      "reportShort": "SR 2026.06",
+      "report": "26 3분기보고서",
+      "reportShort": "3Q 2026.09",
       "currency": "KRW",
       "rev": [
         151,
         130,
-        161
+        241
       ],
       "op": [
         -77,
         -156,
-        -170
+        -145
       ],
       "ni": [
         -76,
         -237,
-        -207
+        -134
       ],
-      "cashEq": 76,
-      "shortFin": 20,
+      "cashEq": 593,
+      "shortFin": 15,
       "otherCurrentFinAssets": 0,
       "fvtplCurrent": 0,
       "shortInv": 0,
-      "equityInvest": 13,
+      "equityInvest": 12,
       "investProperty": 0,
       "fvtplNoncurrent": 0,
       "fvociCurrent": 0,
@@ -180027,9 +180229,9 @@
       "longInvest": 0,
       "shortBorrow": 2,
       "curLongDebt": 74,
-      "shortBonds": 66,
+      "shortBonds": 262,
       "bonds": 0,
-      "longBorrow": 35,
+      "longBorrow": 34,
       "convertBondsCur": 0,
       "convertBondsNc": 0,
       "exchBondsCur": 0,
@@ -180038,21 +180240,21 @@
       "wrtBondsNc": 0,
       "redeemPrefCur": 0,
       "redeemPrefNc": 2,
-      "equity": 162,
+      "equity": 440,
       "equityPriorYear": 52,
-      "equityPrevQ": 218,
-      "equityParent": 145,
+      "equityPrevQ": 185,
+      "equityParent": 415,
       "equityParentPriorYear": 50,
-      "equityParentPrevQ": 217,
+      "equityParentPrevQ": 184,
       "ocf": [
         -77,
         -83,
-        -74
+        -69
       ],
       "capex": [
         -47,
         -98,
-        -112
+        -90
       ],
       "dividendPaid": 0,
       "dividendPaid3yr": [
@@ -180072,7 +180274,7 @@
         -76,
         0
       ],
-      "niParentTTM": -209,
+      "niParentTTM": -135,
       "dividendTotal": 0,
       "dividendTotal3yr": [
         0,
@@ -180080,14 +180282,14 @@
         0
       ],
       "shReturnYear": 2025,
-      "ttmLabel": "TTM(2026.6M+2025AR-2025.6M)",
+      "ttmLabel": "TTM(2026.9M+2025AR-2025.9M)",
       "isFinancial": false,
-      "majorShareholderRate": 25.41,
+      "majorShareholderRate": 24.98,
       "treasuryShareRatio": 0.14,
       "price": 25800,
       "mcap": 1870,
       "per": 0.0,
-      "pbr": 12.85,
+      "pbr": 4.48,
       "avgTradingValue20": 2
     },
     {
@@ -196655,6 +196857,107 @@
       "avgTradingValue20": 5
     },
     {
+      "name": "에이엘로봇",
+      "nameEn": "AL Robot Co.,Ltd",
+      "code": "471800",
+      "sector": "기계",
+      "sectorEn": "Machinery",
+      "market": "KOSDAQ",
+      "report": "",
+      "reportShort": "",
+      "currency": "KRW",
+      "rev": [
+        0,
+        0,
+        0
+      ],
+      "op": [
+        0,
+        0,
+        0
+      ],
+      "ni": [
+        0,
+        0,
+        0
+      ],
+      "cashEq": 0,
+      "shortFin": 0,
+      "otherCurrentFinAssets": 0,
+      "fvtplCurrent": 0,
+      "shortInv": 0,
+      "equityInvest": 0,
+      "investProperty": 0,
+      "fvtplNoncurrent": 0,
+      "fvociCurrent": 0,
+      "fvociNoncurrent": 0,
+      "longInvest": 0,
+      "shortBorrow": 0,
+      "curLongDebt": 0,
+      "shortBonds": 0,
+      "bonds": 0,
+      "longBorrow": 0,
+      "convertBondsCur": 0,
+      "convertBondsNc": 0,
+      "exchBondsCur": 0,
+      "exchBondsNc": 0,
+      "wrtBondsCur": 0,
+      "wrtBondsNc": 0,
+      "redeemPrefCur": 0,
+      "redeemPrefNc": 0,
+      "equity": 0,
+      "equityPriorYear": 0,
+      "equityPrevQ": 0,
+      "equityParent": 0,
+      "equityParentPriorYear": 0,
+      "equityParentPrevQ": 0,
+      "ocf": [
+        0,
+        0,
+        0
+      ],
+      "capex": [
+        0,
+        0,
+        0
+      ],
+      "dividendPaid": 0,
+      "dividendPaid3yr": [
+        0,
+        0,
+        0
+      ],
+      "sharesBuyback": 0,
+      "sharesBuyback3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParent": 0,
+      "niParent3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParentTTM": 0,
+      "dividendTotal": 0,
+      "dividendTotal3yr": [
+        0,
+        0,
+        0
+      ],
+      "shReturnYear": 0,
+      "ttmLabel": "",
+      "isFinancial": false,
+      "majorShareholderRate": 0.0,
+      "treasuryShareRatio": 0,
+      "price": 9970,
+      "mcap": 1290,
+      "per": 0.0,
+      "pbr": 0.0,
+      "avgTradingValue20": 2420
+    },
+    {
       "name": "폰드그룹",
       "nameEn": "POND GROUP CO., LTD.",
       "code": "472850",
@@ -200794,6 +201097,107 @@
       "per": 0.0,
       "pbr": 6.21,
       "avgTradingValue20": 156
+    },
+    {
+      "name": "옵토닉스",
+      "nameEn": "Optonics Co.,Ltd.",
+      "code": "493260",
+      "sector": "상사,자본재",
+      "sectorEn": "Trading & Capital Goods",
+      "market": "KOSDAQ",
+      "report": "",
+      "reportShort": "",
+      "currency": "KRW",
+      "rev": [
+        0,
+        0,
+        0
+      ],
+      "op": [
+        0,
+        0,
+        0
+      ],
+      "ni": [
+        0,
+        0,
+        0
+      ],
+      "cashEq": 0,
+      "shortFin": 0,
+      "otherCurrentFinAssets": 0,
+      "fvtplCurrent": 0,
+      "shortInv": 0,
+      "equityInvest": 0,
+      "investProperty": 0,
+      "fvtplNoncurrent": 0,
+      "fvociCurrent": 0,
+      "fvociNoncurrent": 0,
+      "longInvest": 0,
+      "shortBorrow": 0,
+      "curLongDebt": 0,
+      "shortBonds": 0,
+      "bonds": 0,
+      "longBorrow": 0,
+      "convertBondsCur": 0,
+      "convertBondsNc": 0,
+      "exchBondsCur": 0,
+      "exchBondsNc": 0,
+      "wrtBondsCur": 0,
+      "wrtBondsNc": 0,
+      "redeemPrefCur": 0,
+      "redeemPrefNc": 0,
+      "equity": 0,
+      "equityPriorYear": 0,
+      "equityPrevQ": 0,
+      "equityParent": 0,
+      "equityParentPriorYear": 0,
+      "equityParentPrevQ": 0,
+      "ocf": [
+        0,
+        0,
+        0
+      ],
+      "capex": [
+        0,
+        0,
+        0
+      ],
+      "dividendPaid": 0,
+      "dividendPaid3yr": [
+        0,
+        0,
+        0
+      ],
+      "sharesBuyback": 0,
+      "sharesBuyback3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParent": 0,
+      "niParent3yr": [
+        0,
+        0,
+        0
+      ],
+      "niParentTTM": 0,
+      "dividendTotal": 0,
+      "dividendTotal3yr": [
+        0,
+        0,
+        0
+      ],
+      "shReturnYear": 0,
+      "ttmLabel": "",
+      "isFinancial": false,
+      "majorShareholderRate": 0.0,
+      "treasuryShareRatio": 0,
+      "price": 8920,
+      "mcap": 887,
+      "per": 0.0,
+      "pbr": 0.0,
+      "avgTradingValue20": 1604
     },
     {
       "name": "아이엠바이오로직스",
